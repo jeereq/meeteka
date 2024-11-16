@@ -11,7 +11,7 @@ interface LanguageContextType {
 const translations = {
   en: {
     'nav.services': 'Services',
-    'nav.projects': 'Projects',
+    'nav.projects': 'Success stories',
     'nav.diffusion': 'Diffusions',
     'nav.team': 'Team',
     'nav.reviews': 'Reviews',
@@ -22,7 +22,7 @@ const translations = {
   },
   fr: {
     'nav.services': 'Services',
-    'nav.projects': 'Projets',
+    'nav.projects': 'Success stories',
     'nav.diffusion': 'Diffusions',
     'nav.team': 'Équipe',
     'nav.reviews': 'Avis',
