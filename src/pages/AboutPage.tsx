@@ -1,14 +1,5 @@
-import React from 'react';
-import { 
-  Users, 
-  Target, 
-  Award, 
-  Heart, 
-  Globe, 
-  Zap, 
-  TrendingUp, 
+import {  
   BookOpen, 
-  Clock, 
   Coins, 
   FileText, 
   Calculator 
