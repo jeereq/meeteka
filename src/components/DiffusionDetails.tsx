@@ -19,7 +19,7 @@ interface Post {
   readTime: string;
   category: string;
   isPremium: boolean;
-  price: number;
+  price?: number;
   relatedServices?: Service[];
 }
 
@@ -44,7 +44,7 @@ const defaultServices: Service[] = [
   }
 ];
 
-const formatPrice = (price: number) => {
+const formatPrice = (price: number = 0) => {
   return new Intl.NumberFormat('fr-CD', {
     style: 'currency',
     currency: 'CDF',
@@ -84,7 +84,7 @@ export function DiffusionDetails({ post }: DiffusionDetailsProps) {
             <Lock className="w-12 h-12 mx-auto mb-4 text-highlight" />
             <h2 className="text-2xl font-bold mb-2">Contenu Premium</h2>
             <p className="text-gray-600">
-              Accédez à ce contenu exclusif pour seulement {formatPrice(post.price)}
+              Accédez à ce contenu exclusif pour seulement {formatPrice(post?.price)}
             </p>
           </div>
 
@@ -133,7 +133,7 @@ export function DiffusionDetails({ post }: DiffusionDetailsProps) {
               type="submit"
               className="w-full px-8 py-4 bg-highlight text-white rounded-full font-bold hover:bg-black transition-colors"
             >
-              Payer {formatPrice(post.price)}
+              Payer {formatPrice(post?.price)}
             </button>
           </form>
         </div>
@@ -145,7 +145,7 @@ export function DiffusionDetails({ post }: DiffusionDetailsProps) {
               alt={post.title}
               className="w-full h-[300px] sm:h-[400px] object-cover rounded-3xl mb-8"
             />
-            
+
             <div className="flex flex-wrap items-center gap-4 mb-4 text-sm text-gray-600">
               <div className="flex items-center gap-1">
                 <Calendar className="w-4 h-4" />
@@ -167,7 +167,7 @@ export function DiffusionDetails({ post }: DiffusionDetailsProps) {
             <h1 className="text-3xl sm:text-4xl font-bold mb-6">{post.title}</h1>
           </header>
 
-          <div 
+          <div
             className="prose prose-lg max-w-none mb-12"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />

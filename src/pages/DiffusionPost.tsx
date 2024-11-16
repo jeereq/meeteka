@@ -1,4 +1,3 @@
-import React from 'react';
 import { useParams } from 'react-router-dom';
 import { DiffusionDetails } from '../components/DiffusionDetails';
 
@@ -220,4 +219,4 @@ export function DiffusionPost() {
   }
 
   return <DiffusionDetails post={post} />;
-}
+} 

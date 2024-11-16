@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { BackButton } from '../components/BackButton';
 import { LoadingSpinner } from '../components/LoadingSpinner';
 import { EmptyState } from '../components/EmptyState';
 import { PageTransition } from '../components/PageTransition';
-import { FileText, BookOpen, Coins, GraduationCap, LineChart, ShieldCheck, Check, ArrowUpRight } from 'lucide-react';
+import { FileText, BookOpen, Check, ArrowUpRight } from 'lucide-react';
 
 const services = {
   'simplification-administrative': {
@@ -93,15 +93,15 @@ const services = {
   }
 };
 
-interface ResultIconProps {
-  icon: React.ElementType;
-}
+// interface ResultIconProps {
+//   icon: React.ElementType;
+// }
 
-const ResultIcon = ({ icon: Icon }: ResultIconProps) => (
-  <div className="w-12 h-12 bg-highlight rounded-xl flex items-center justify-center">
-    <Icon className="w-6 h-6 text-white" />
-  </div>
-);
+// const ResultIcon = ({ icon: Icon }: ResultIconProps) => (
+//   <div className="w-12 h-12 bg-highlight rounded-xl flex items-center justify-center">
+//     <Icon className="w-6 h-6 text-white" />
+//   </div>
+// );
 
 export function ServiceDetails() {
   const { slug } = useParams<{ slug: string }>();
@@ -143,7 +143,6 @@ export function ServiceDetails() {
     <PageTransition>
       <div className="min-h-screen pt-20">
         <BackButton />
-
         {/* Hero Section */}
         <section className="relative h-[60vh] min-h-[500px]">
           <div className="absolute inset-0">
@@ -173,7 +172,6 @@ export function ServiceDetails() {
             </div>
           </div>
         </section>
-
         {/* Features Section */}
         <section className="py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -205,7 +203,6 @@ export function ServiceDetails() {
             </div>
           </div>
         </section>
-
         {/* Process Section */}
         <section className="py-16 bg-black text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -226,7 +223,6 @@ export function ServiceDetails() {
             </div>
           </div>
         </section>
-
         {/* Pricing Section */}
         <section className="py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -247,7 +243,6 @@ export function ServiceDetails() {
             </div>
           </div>
         </section>
-
         {/* CTA Section */}
         <section className="py-16 bg-highlight">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
