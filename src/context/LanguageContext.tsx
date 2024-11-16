@@ -12,21 +12,23 @@ const translations = {
   en: {
     'nav.services': 'Services',
     'nav.projects': 'Projects',
-    'nav.diffusion': 'Diffusion',
+    'nav.diffusion': 'Diffusions',
     'nav.team': 'Team',
     'nav.reviews': 'Reviews',
     'nav.contact': 'Contact Us',
     'nav.partners': 'Partners',
+    'nav.pricing': 'Pricings',
     'nav.about': 'About Us'
   },
   fr: {
     'nav.services': 'Services',
     'nav.projects': 'Projets',
-    'nav.diffusion': 'Diffusion',
+    'nav.diffusion': 'Diffusions',
     'nav.team': 'Équipe',
     'nav.reviews': 'Avis',
     'nav.contact': 'Contactez-nous',
     'nav.partners': 'Partenaires',
+    'nav.pricing': 'Prix',
     'nav.about': 'À Propos'
   }
 };
