@@ -55,7 +55,7 @@ export function Team() {
       } else if (window.innerWidth < 1024) {
         setItemsPerPage(2);
       } else {
-        setItemsPerPage(3);
+        setItemsPerPage(4);
       }
     };
 

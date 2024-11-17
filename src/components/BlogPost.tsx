@@ -1,13 +1,11 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Calendar, Clock, User, Facebook, Twitter, Linkedin, Lock, CreditCard, ExternalLink } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock, User, Facebook, Twitter, Linkedin, Lock, ExternalLink } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
-// ... (previous interfaces remain the same)
-
-export function BlogPost({ post }: BlogPostProps) {
+export function BlogPost({ post }: { post: any }) {
   const navigate = useNavigate();
   const [showPayment, setShowPayment] = useState(post.isPremium);
-  const services = post.relatedServices || defaultServices;
+  const services = post.relatedServices || [];
 
   const handlePayment = (e: React.FormEvent) => {
     e.preventDefault();
@@ -98,7 +96,7 @@ export function BlogPost({ post }: BlogPostProps) {
           alt={post.title}
           className="w-full h-[200px] sm:h-[300px] lg:h-[400px] object-cover rounded-2xl sm:rounded-3xl mb-4 sm:mb-8"
         />
-        
+
         <div className="flex flex-wrap items-center gap-2 sm:gap-4 mb-3 sm:mb-4 text-xs sm:text-sm text-gray-600">
           <div className="flex items-center gap-1">
             <Calendar className="w-3 h-3 sm:w-4 sm:h-4" />
@@ -120,7 +118,7 @@ export function BlogPost({ post }: BlogPostProps) {
         <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6">{post.title}</h1>
       </header>
 
-      <div 
+      <div
         className="prose prose-sm sm:prose-base lg:prose-lg max-w-none mb-8 sm:mb-12"
         dangerouslySetInnerHTML={{ __html: post.content }}
       />
