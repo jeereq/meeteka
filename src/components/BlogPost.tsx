@@ -37,7 +37,6 @@ export function BlogPost({ post }: { post: any }) {
       </div>
 
       <form onSubmit={handlePayment} className="space-y-4 sm:space-y-6">
-        {/* ... (rest of the payment form remains the same) ... */}
       </form>
     </div>
   );
