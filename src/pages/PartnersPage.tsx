@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowUpRight, Search } from 'lucide-react';
-import { LoadingSpinner } from '../components/LoadingSpinner';
+import { Search } from 'lucide-react';
 import { LoadingCard } from '../components/LoadingCard';
 import { EmptyState } from '../components/EmptyState';
 import { PageTransition } from '../components/PageTransition';
+import CardPartner from '../components/card/partner';
 
 const categories = ['Tous', 'Conseil', 'Formation', 'Technologie', 'Marketing'];
 
@@ -76,7 +75,7 @@ export function PartnersPage() {
 
   const filteredPartners = partners.filter(partner => {
     const matchesSearch = partner.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                         partner.description.toLowerCase().includes(searchTerm.toLowerCase());
+      partner.description.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = selectedCategory === 'Tous' || partner.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
@@ -115,11 +114,10 @@ export function PartnersPage() {
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}
-                  className={`px-4 py-2 rounded-full whitespace-nowrap transition-colors ${
-                    selectedCategory === category
-                      ? 'bg-highlight text-white'
-                      : 'bg-gray-100 hover:bg-gray-200'
-                  }`}
+                  className={`px-4 py-2 rounded-full whitespace-nowrap transition-colors ${selectedCategory === category
+                    ? 'bg-highlight text-white'
+                    : 'bg-gray-100 hover:bg-gray-200'
+                    }`}
                 >
                   {category}
                 </button>
@@ -151,84 +149,7 @@ export function PartnersPage() {
           ) : (
             <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
               {filteredPartners.map((partner, index) => (
-                <Link
-                  key={index}
-                  to={`/partenaires/${partner.slug}`}
-                  className="group bg-white rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-black/5 hover:border-highlight transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl"
-                >
-                  <div className="p-4 sm:p-6 lg:p-8">
-                    <div className="flex items-start gap-4 sm:gap-6 mb-6">
-                      <img
-                        src={partner.logo}
-                        alt={partner.name}
-                        className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl object-cover"
-                      />
-                      <div>
-                        <h2 className="text-xl sm:text-2xl font-bold mb-2 group-hover:text-highlight transition-colors">
-                          {partner.name}
-                        </h2>
-                        <span className="px-3 py-1 bg-black/5 rounded-full text-sm">
-                          {partner.category}
-                        </span>
-                      </div>
-                    </div>
-
-                    <p className="text-sm sm:text-base text-gray-600 mb-6">
-                      {partner.description}
-                    </p>
-
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {partner.expertise.map((exp, i) => (
-                        <span
-                          key={i}
-                          className="px-3 py-1 bg-black/5 rounded-full text-sm"
-                        >
-                          {exp}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="grid grid-cols-3 gap-3 sm:gap-4 mb-6">
-                      {partner.stats.map((stat, i) => (
-                        <div
-                          key={i}
-                          className="bg-gray-50 rounded-xl p-3 sm:p-4 group-hover:bg-highlight/10 transition-colors"
-                        >
-                          <p className="text-lg sm:text-2xl font-bold group-hover:text-highlight">
-                            {stat.value}
-                          </p>
-                          <p className="text-xs sm:text-sm text-gray-500">{stat.label}</p>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div className="space-y-3 sm:space-y-4">
-                      {partner.services.map((service, i) => (
-                        <div
-                          key={i}
-                          className="flex justify-between items-center p-3 sm:p-4 bg-gray-50 rounded-xl"
-                        >
-                          <div>
-                            <h3 className="text-sm sm:text-base font-medium mb-1">{service.name}</h3>
-                            <p className="text-xs sm:text-sm text-gray-500">
-                              {service.description}
-                            </p>
-                          </div>
-                          <span className="text-highlight font-bold text-sm sm:text-base whitespace-nowrap ml-4">
-                            {service.price}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div className="mt-6 flex justify-end">
-                      <span className="inline-flex items-center gap-2 text-black group-hover:text-highlight transition-colors">
-                        Voir les détails
-                        <ArrowUpRight className="w-5 h-5 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                      </span>
-                    </div>
-                  </div>
-                </Link>
+                <CardPartner {...partner} key={index} />
               ))}
             </div>
           )}
