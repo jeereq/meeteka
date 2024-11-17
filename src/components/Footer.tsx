@@ -11,7 +11,7 @@ export function Footer() {
               <span className="text-xl font-bold">Meet'eka</span>
             </a>
             <p className="text-gray-400">
-              Your trusted partner in digital marketing excellence.
+              Votre partenaire de confiance pour l'excellence du marketing numérique.
             </p>
           </div>
 
@@ -29,8 +29,8 @@ export function Footer() {
             <h3 className="font-bold mb-4">Contact</h3>
             <ul className="space-y-3 text-gray-400">
               <li>hello@meeteka.com</li>
-              <li>+1 (234) 567-890</li>
-              <li>123 Business Avenue,<br />Digital City, DC 45678</li>
+              <li>+243 817 125 577</li>
+              <li>kinshasa Avenue,<br />Bethel, 15  bis</li>
             </ul>
           </div>
 
@@ -54,7 +54,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-white/10 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Meet'eka. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Meet'eka. Tous droits réservés.</p>
         </div>
       </div>
     </footer>

@@ -20,7 +20,7 @@ const partners = [
       {
         name: 'Accompagnement Startup',
         description: 'Programme personnalisé pour startups en phase de croissance',
-        price: '250.000 FC/mois'
+        price: '150.000 à 250.000 FC'
       },
       {
         name: 'Conseil en Innovation',
@@ -45,7 +45,7 @@ const partners = [
       {
         name: 'Formation Leadership',
         description: 'Programme intensif de développement du leadership',
-        price: '150.000 FC'
+        price: '50.000 à 150.000 FC'
       },
       {
         name: 'Coaching Personnalisé',
