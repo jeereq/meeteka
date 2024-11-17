@@ -95,7 +95,7 @@ export function Services() {
               <div className="absolute inset-0 bg-black/5 rounded-3xl transform rotate-3 transition-transform duration-500 group-hover:rotate-6"></div>
               <div className="relative">
                 <div className="mb-6 transform-gpu transition-all duration-500 group-hover:scale-110 group-hover:translate-x-2">
-                  <div className="w-14 h-14 sm:w-16 sm:h-16 bg-black rounded-2xl flex items-center justify-center transform -rotate-6 group-hover:rotate-0 transition-transform duration-500">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 bg-black group-hover:bg-white rounded-2xl flex items-center justify-center transform -rotate-6 group-hover:rotate-0 transition-transform duration-500">
                     <Icon className="w-7 h-7 sm:w-8 sm:h-8 text-white group-hover:text-highlight transition-colors duration-500" />
                   </div>
                 </div>
