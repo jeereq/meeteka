@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
-
+import en from '../dictionnaries/en';
+import fr from '../dictionnaries/fr';
 type Language = 'en' | 'fr';
 
 interface LanguageContextType {
@@ -9,28 +10,8 @@ interface LanguageContextType {
 }
 
 const translations = {
-  en: {
-    'nav.services': 'Services',
-    'nav.projects': 'Success stories',
-    'nav.diffusion': 'Diffusions',
-    'nav.team': 'Team',
-    'nav.reviews': 'Reviews',
-    'nav.contact': 'Contact Us',
-    'nav.partners': 'Partners',
-    'nav.pricing': 'Pricings',
-    'nav.about': 'About Us'
-  },
-  fr: {
-    'nav.services': 'Services',
-    'nav.projects': 'Success stories',
-    'nav.diffusion': 'Diffusions',
-    'nav.team': 'Équipe',
-    'nav.reviews': 'Avis',
-    'nav.contact': 'Contactez-nous',
-    'nav.partners': 'Partenaires',
-    'nav.pricing': 'Prix',
-    'nav.about': 'À Propos'
-  }
+  en,
+  fr
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
