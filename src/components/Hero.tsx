@@ -7,7 +7,7 @@ export function Hero() {
       <img
         src="/bg.jpeg"
         alt="Entrepreneurs Congolais en Action"
-        className="w-full h-full object-fill"
+        className="w-full h-full lg:object-fill xl:object-cover"
       />
     </div>
     <div className="relative w-10/12 z-20 px-4 gap-8 lg:gap-12 xl:gap-16 sm:px-6 lg:px-8 pt-5 mx-auto">
