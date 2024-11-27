@@ -70,9 +70,9 @@ export function Navbar() {
             className="flex items-center gap-1.5 sm:gap-2 group"
             onClick={() => setIsOpen(false)}
           >
-            <div className="w-8 h-8 sm:w-10 sm:h-10 bg-highlight rounded-xl flex items-center justify-center transform transition-transform duration-300 group-hover:rotate-12">
+            {/* <div className="w-8 h-8 sm:w-10 sm:h-10 bg-highlight rounded-xl flex items-center justify-center transform transition-transform duration-300 group-hover:rotate-12">
               <Zap className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-            </div>
+            </div> */}
             <span className="text-lg sm:text-xl font-bold">Meet'eka</span>
           </Link>
 

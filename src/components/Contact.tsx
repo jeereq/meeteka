@@ -21,7 +21,7 @@ export function Contact() {
               <div>
                 <p className="text-gray-400">Email</p>
                 <a href="mailto:hello@meeteka.com" className="hover:text-highlight">
-                  hello@meeteka.com
+                  contact@meeteka.com
                 </a>
               </div>
             </div>
@@ -32,9 +32,8 @@ export function Contact() {
               </div>
               <div>
                 <p className="text-gray-400">Phone</p>
-                <a href="tel:+1234567890" className="hover:text-highlight">
-                  +1 (234) 567-890
-                </a>
+               
+                <a href="tel:+243825455938">+243 825 455 938</a>
               </div>
             </div>
 
@@ -44,7 +43,7 @@ export function Contact() {
               </div>
               <div>
                 <p className="text-gray-400">Address</p>
-                <p>123 Business Avenue, Digital City, DC 45678</p>
+                <p>kinshasa Avenue,<br />Bethel, 15  bis</p>
               </div>
             </div>
           </div>

@@ -29,7 +29,10 @@ export function Footer() {
             <h3 className="font-bold mb-4">Contact</h3>
             <ul className="space-y-3 text-gray-400">
               <li>hello@meeteka.com</li>
-              <li>+243 817 125 577</li>
+              <li>
+
+                <a href="tel:+243825455938">+243 825 455 938</a>
+              </li>
               <li>kinshasa Avenue,<br />Bethel, 15  bis</li>
             </ul>
           </div>
