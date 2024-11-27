@@ -2,6 +2,15 @@ import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
 
 export function Hero() {
+  return <section className="pt-20 xs:pt-24 w-full h-fit">
+    <div className="w-full h-[600px]">
+      <img
+        src="/bg.jpeg"
+        alt="Entrepreneurs Congolais en Action"
+        className="w-full h-full object-cover"
+      />
+    </div>
+  </section>
   return (
     <section className="pt-20 xs:pt-24 sm:pt-32 lg:pt-40 pb-16 px-4 sm:px-6 lg:px-8 max-w-[1536px] mx-auto overflow-hidden">
       <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center">
