@@ -1,18 +1,19 @@
 import { useState, useEffect } from 'react';
-import { Menu, X, Zap } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { LanguageSwitcher } from './LanguageSwitcher';
+import logo from "../../assets/icon.png"
 
 const navigation = [
   { name: 'nav.services', href: '/#services' },
+  { name: 'nav.about', href: '/about' },
   { name: 'nav.projects', href: '/success-stories' },
   { name: 'nav.diffusion', href: '/diffusions' },
   { name: 'nav.team', href: '/#team' },
   { name: 'nav.reviews', href: '/#reviews' },
   { name: 'nav.partners', href: '/partenaires' },
   { name: 'nav.pricing', href: '/pricing' },
-  { name: 'nav.about', href: '/about' },
 ];
 
 export function Navbar() {
@@ -73,7 +74,7 @@ export function Navbar() {
             {/* <div className="w-8 h-8 sm:w-10 sm:h-10 bg-highlight rounded-xl flex items-center justify-center transform transition-transform duration-300 group-hover:rotate-12">
               <Zap className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
             </div> */}
-            <span className="text-lg sm:text-xl font-bold">Meet'eka</span>
+            <img src={logo} alt="" className='h-14' />
           </Link>
 
           {/* Desktop Navigation */}

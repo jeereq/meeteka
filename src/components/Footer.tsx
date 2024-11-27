@@ -1,4 +1,5 @@
 import { Zap, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import logo from "../../assets/icon.white.png"
 
 export function Footer() {
   return (
@@ -7,8 +8,7 @@ export function Footer() {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div>
             <a href="/" className="flex items-center space-x-2 mb-6">
-              <Zap className="w-8 h-8 text-highlight" />
-              <span className="text-xl font-bold">Meet'eka</span>
+              <img src={logo} alt="" className='h-12' />
             </a>
             <p className="text-gray-400">
               Votre partenaire de confiance pour l'excellence du marketing numérique.
