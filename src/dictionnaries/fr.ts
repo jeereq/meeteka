@@ -7,6 +7,7 @@ const fr = {
     'nav.contact': 'Contactez-nous',
     'nav.partners': 'Partenaires',
     'nav.pricing': 'Prix',
-    'nav.about': 'À Propos'
+    'nav.about': 'À Propos',
+    "callToAction.hero": "Commencez l'Aventure"
 }
 export default fr
