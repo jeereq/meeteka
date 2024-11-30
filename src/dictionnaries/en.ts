@@ -50,12 +50,12 @@ const en = {
     "services.accompagnement-strategique.planification-stratégique": "Strategic planning",
     "services.accompagnement-strategique.suivi-des-performances": "Performance monitoring",
 
-    "services.stabilite-securite.slug": "stabilite-securite",
-    "services.stabilite-securite.title": "Stabilité & Sécurité",
-    "services.stabilite-securite.description": `Nous vous aidons à naviguer dans l'environnement économique congolais en toute sécurité.`,
-    "services.stabilite-securite.gestion-des-risques": "Gestion des risques",
-    "services.stabilite-securite.conformité-réglementaire": "Conformité réglementaire",
-    "services.stabilite-securite.protection-des-intérêts": "Protection des intérêts"
+    "services.stabilite-securite.slug": "stability-security",
+    "services.stabilite-securite.title": "Stability & Safety",
+    "services.stabilite-securite.description": `We help you to navigate the Congolese business environment safely.`,
+    "services.stabilite-securite.gestion-des-risques": "Risk management",
+    "services.stabilite-securite.conformité-réglementaire": "Regulatory compliance",
+    "services.stabilite-securite.protection-des-intérêts": "Protection of interests"
 
 
 }
