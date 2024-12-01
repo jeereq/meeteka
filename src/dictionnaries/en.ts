@@ -1,7 +1,7 @@
 const en = {
     'nav.services': 'Services',
     'nav.projects': 'Success stories',
-    'nav.diffusion': 'Diffusions',
+    'nav.diffusion': 'Broadcasts',
     'nav.team': 'Team',
     'nav.reviews': 'Reviews',
     'nav.contact': 'Contact Us',
@@ -96,9 +96,25 @@ const en = {
     "success-stories.description": "Celebrating the achievements of Congolese entrepreneurs",
     "success-stories.more": "Read Success Story",
 
+    "success-stories.banner.title": "Our Success stories",
+    "success-stories.banner.description": "Find out how we've helped Congolese companies achieve their goals and turn their ambitions into success.",
+    "success-stories.button.more": "See details",
+
+    "partners.banner.title": "Our partners",
+    "partners.banner.description": "Discover our network of experts and professionals dedicated to your success.",
+    "partners.button.more": "See details",
+
+    "pricings.banner.title": "Our prices",
+    "pricings.banner.description": "Solutions for every stage of your growth. Choose the plan that best suits your needs.",
+    "pricings.callToAction.title": "Got any questions?",
+    "pricings.callToAction.description": "Our team is here to help you choose the best solution.",
+    "pricings.callToAction.button.label": "Contact us",
+
     "diffusions.title": "Latest broadcasts",
     "diffusions.description": "Expert advice and strategies for your digital success",
     "diffusions.more": "See all broadcasts",
+    "diffusions.banner.title": "Our Broadcasts",
+    "diffusions.banner.description": "Discover our guides and resources for developing your business and succeeding in the digital economy.",
 
     "teams.title": "Our team",
     "teams.description": "The experts behind your digital success",

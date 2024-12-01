@@ -6,6 +6,7 @@ import { LoadingCard } from '../components/LoadingCard';
 import { EmptyState } from '../components/EmptyState';
 import { PageTransition } from '../components/PageTransition';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '../context/LanguageContext';
 
 const categories = ['Tous', 'Conseil', 'Formation', 'Technologie', 'Marketing'];
 const types = ['Tous', 'Startup', 'PME', 'Grande Entreprise', 'ONG'];
@@ -106,8 +107,8 @@ const FilterButton: React.FC<FilterButtonProps> = ({ label, isActive, onClick, c
   <button
     onClick={onClick}
     className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${isActive
-        ? 'bg-highlight text-white shadow-lg scale-105'
-        : 'bg-white hover:bg-gray-100'
+      ? 'bg-highlight text-white shadow-lg scale-105'
+      : 'bg-white hover:bg-gray-100'
       } ${className}`}
   >
     {label}
@@ -142,6 +143,7 @@ export function PartnersPage() {
   const [selectedSpecialty, setSelectedSpecialty] = useState('Tous');
   const [isLoading, setIsLoading] = useState(true);
   const [showFilters, setShowFilters] = useState(false);
+  const { t } = useLanguage()
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -188,10 +190,16 @@ export function PartnersPage() {
         <section className="bg-black text-white py-12 sm:py-16 lg:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6">
-              Nos <span className="text-highlight">Partenaires</span>
+              {t("partners.banner.title").split(" ").map(function (element, index: number) {
+                if (index == 0) {
+                  return <span className="w-fit" key={index}>{element}</span>
+                } else {
+                  return <span key={index} className="ml-2 text-highlight"> {element}</span>
+                }
+              })}
             </h1>
             <p className="text-lg sm:text-xl text-gray-300 max-w-3xl">
-              Découvrez notre réseau d'experts et de professionnels dédiés à votre réussite.
+              {t("partners.banner.description")}
             </p>
           </div>
         </section>
