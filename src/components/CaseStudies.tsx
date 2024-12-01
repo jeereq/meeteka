@@ -36,7 +36,7 @@ export function CaseStudies() {
             if (index == 0) {
               return <span className="px-2">{item}</span>
             } else {
-              return <span className="heading-highlight text-black">{item}</span>
+              return <span className="heading-highlight">{item}</span>
             }
           })}
         </h2>
@@ -102,7 +102,7 @@ export function CaseStudies() {
 
       <div className="mt-12 text-center">
         <button className="px-8 py-4 bg-highlight text-black rounded-full font-bold hover:bg-white transition-all duration-500 hover:scale-105 hover:shadow-lg">
-          View All Success Stories
+          {t("diffusions.more")}
         </button>
       </div>
     </section>
