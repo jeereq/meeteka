@@ -1,5 +1,6 @@
 import React from 'react';
 import { Shield, Zap, Star, Check, X } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const pricingPlans = [
   {
@@ -117,16 +118,23 @@ const services = [
 ];
 
 export function PricingPage() {
+  const { t } = useLanguage()
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
       <section className="bg-black text-white py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-            Nos <span className="text-highlight">Tarifs</span>
+          <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6">
+            {t("pricings.banner.title").split(" ").map(function (element, index: number) {
+              if (index == 0) {
+                return <span className="w-fit" key={index}>{element}</span>
+              } else {
+                return <span key={index} className="ml-2 text-highlight"> {element}</span>
+              }
+            })}
           </h1>
-          <p className="text-xl text-gray-300 max-w-3xl">
-            Des solutions adaptées à chaque étape de votre croissance. Choisissez le plan qui correspond le mieux à vos besoins.
+          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl">
+            {t("pricings.banner.description")}
           </p>
         </div>
       </section>
@@ -140,11 +148,10 @@ export function PricingPage() {
               return (
                 <div
                   key={index}
-                  className={`relative bg-white rounded-3xl p-8 border-2 transition-all duration-300 hover:scale-[1.02] ${
-                    plan.popular
-                      ? 'border-highlight shadow-xl'
-                      : 'border-black/5 hover:border-highlight'
-                  }`}
+                  className={`relative bg-white rounded-3xl p-8 border-2 transition-all duration-300 hover:scale-[1.02] ${plan.popular
+                    ? 'border-highlight shadow-xl'
+                    : 'border-black/5 hover:border-highlight'
+                    }`}
                 >
                   {plan.popular && (
                     <span className="absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1 bg-highlight text-white text-sm font-bold rounded-full">
@@ -198,7 +205,7 @@ export function PricingPage() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold mb-12">Services à la carte</h2>
-          
+
           <div className="space-y-12">
             {services.map((category, index) => (
               <div key={index}>
@@ -236,12 +243,12 @@ export function PricingPage() {
       {/* FAQ Section */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">Des questions ?</h2>
+          <h2 className="text-3xl font-bold mb-4">{t("pricings.callToAction.title")}</h2>
           <p className="text-xl text-gray-600 mb-8">
-            Notre équipe est là pour vous aider à choisir la meilleure solution.
+            {t("pricings.callToAction.description")}
           </p>
           <button className="px-8 py-4 bg-highlight text-white rounded-full font-bold hover:bg-black transition-all duration-300 hover:scale-105">
-            Contactez-nous
+            {t("pricings.callToAction.button.label")}
           </button>
         </div>
       </section>
