@@ -28,9 +28,7 @@ export function Contact() {
               </div>
               <div>
                 <p className="text-gray-400">{t("contact.email")}</p>
-                <a href="mailto:hello@meeteka.com" className="hover:text-highlight">
-                  contact@meeteka.com
-                </a>
+                <a href="mailto:contact@meeteka.com" className="hover:text-highlight">contact@meeteka.com</a>
               </div>
             </div>
 
@@ -68,7 +66,7 @@ export function Contact() {
                   type="text"
                   id="name"
                   className="w-full px-4 py-3 rounded-xl border-2 border-black focus:border-highlight focus:ring-0 transition-colors"
-                  placeholder= {t("contact.name.placeholder")}
+                  placeholder={t("contact.name.placeholder")}
                 />
               </div>
               <div>

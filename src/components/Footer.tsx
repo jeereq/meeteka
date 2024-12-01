@@ -1,7 +1,9 @@
-import { Zap, Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 import logo from "../../assets/icon.white.png"
+import { useLanguage } from '../context/LanguageContext';
 
 export function Footer() {
+  const { t } = useLanguage()
   return (
     <footer className="bg-black text-white py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
@@ -11,24 +13,29 @@ export function Footer() {
               <img src={logo} alt="" className='h-12' />
             </a>
             <p className="text-gray-400">
-              Votre partenaire de confiance pour l'excellence du marketing numérique.
+              {t("footer.description")}
             </p>
           </div>
 
           <div>
-            <h3 className="font-bold mb-4">Quick Links</h3>
+            <h3 className="font-bold mb-4">
+              {t("footer.section.links")}</h3>
             <ul className="space-y-3">
-              <li><a href="/#services" className="text-gray-400 hover:text-highlight">Services</a></li>
-              <li><a href="/success-stories" className="text-gray-400 hover:text-highlight">Success stories</a></li>
-              <li><a href="/#process" className="text-gray-400 hover:text-highlight">Process</a></li>
-              <li><a href="/#reviews" className="text-gray-400 hover:text-highlight">Reviews</a></li>
+              <li><a href="/#services" className="text-gray-400 hover:text-highlight">{t("footer.section.links.services")}</a></li>
+              <li><a href="/success-stories" className="text-gray-400 hover:text-highlight">{t("footer.section.links.success-stories")}</a></li>
+              <li><a href="/diffusions" className="text-gray-400 hover:text-highlight">{t("footer.section.links.diffusions")}</a></li>
+              <li><a href="/partenaires" className="text-gray-400 hover:text-highlight">{t("footer.section.links.partenaires")}</a></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-bold mb-4">Contact</h3>
+            <h3 className="font-bold mb-4">
+              {t("footer.section.contact")}
+            </h3>
             <ul className="space-y-3 text-gray-400">
-              <li>hello@meeteka.com</li>
+              <li>
+                <a href="mailto:contact@meeteka.com">contact@meeteka.com</a>
+              </li>
               <li>
 
                 <a href="tel:+243825455938">+243 825 455 938</a>
@@ -38,7 +45,9 @@ export function Footer() {
           </div>
 
           <div>
-            <h3 className="font-bold mb-4">Follow Us</h3>
+            <h3 className="font-bold mb-4">
+              {t("footer.section.follow")}
+            </h3>
             <div className="flex space-x-4">
               <a href="#" className="p-2 bg-white/10 rounded-full hover:bg-highlight hover:text-black transition-colors">
                 <Facebook className="w-5 h-5" />
@@ -57,7 +66,7 @@ export function Footer() {
         </div>
 
         <div className="mt-12 pt-8 border-t border-white/10 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Meet'eka. Tous droits réservés.</p>
+          <p>&copy; {new Date().getFullYear()} Meet'eka. {t("footer.right")}</p>
         </div>
       </div>
     </footer>
