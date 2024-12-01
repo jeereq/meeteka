@@ -1,5 +1,5 @@
-import React from 'react';
 import { ArrowUpRight, Trophy, TrendingUp } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const cases = [
   {
@@ -27,17 +27,23 @@ const cases = [
 ];
 
 export function CaseStudies() {
+  const { t } = useLanguage()
   return (
     <section className="section-padding bg-black text-white" id="projects">
       <div className="mb-12">
         <h2 className="text-4xl font-bold mb-4">
-          Success <span className="heading-highlight text-black">Stories</span>
+          {t("success-stories.title").split(" ").map(function (item, index: number) {
+            if (index == 0) {
+              return <span className="px-2">{item}</span>
+            } else {
+              return <span className="heading-highlight text-black">{item}</span>
+            }
+          })}
         </h2>
         <p className="text-xl text-gray-300">
-          Celebrating the achievements of Black entrepreneurs
+          {t("success-stories.description")}
         </p>
       </div>
-
       <div className="grid md:grid-cols-2 gap-8">
         {cases.map((caseStudy, index) => {
           const Icon = caseStudy.icon;
@@ -85,7 +91,7 @@ export function CaseStudies() {
                 </div>
 
                 <button className="flex items-center gap-2 text-white group-hover:text-highlight transition-colors">
-                  Read Success Story
+                  {t("success-stories.more")}
                   <ArrowUpRight className="w-5 h-5 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-500" />
                 </button>
               </div>

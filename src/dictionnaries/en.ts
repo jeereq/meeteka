@@ -55,7 +55,11 @@ const en = {
     "services.stabilite-securite.description": `We help you to navigate the Congolese business environment safely.`,
     "services.stabilite-securite.gestion-des-risques": "Risk management",
     "services.stabilite-securite.conformité-réglementaire": "Regulatory compliance",
-    "services.stabilite-securite.protection-des-intérêts": "Protection of interests"
+    "services.stabilite-securite.protection-des-intérêts": "Protection of interests",
+
+    "success-stories.title": "Success Stories",
+    "success-stories.description": "Celebrating the achievements of Congolese entrepreneurs",
+    "success-stories.more": "Read Success Story",
 
 
 }

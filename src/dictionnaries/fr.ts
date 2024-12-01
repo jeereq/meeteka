@@ -55,7 +55,11 @@ const fr = {
     "services.stabilite-securite.description": `Nous vous aidons à naviguer dans l'environnement économique congolais en toute sécurité.`,
     "services.stabilite-securite.gestion-des-risques": "Gestion des risques",
     "services.stabilite-securite.conformité-réglementaire": "Conformité réglementaire",
-    "services.stabilite-securite.protection-des-intérêts": "Protection des intérêts"
+    "services.stabilite-securite.protection-des-intérêts": "Protection des intérêts",
+
+    "success-stories.title": "Histoires à succès",
+    "success-stories.description": "Célébrer les réalisations des entrepreneurs congolais",
+    "success-stories.more": "Lire l'histoire d'un succès",
 
 
 }
