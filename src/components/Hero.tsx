@@ -1,19 +1,21 @@
-import React from 'react';
 import { ArrowUpRight } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export function Hero() {
+  const { t } = useLanguage()
   return <section className="pt-20 xs:pt-24  w-full h-fit">
     <div className="w-full h-[600px]">
       <img
         src="/bg.jpeg"
         alt="Entrepreneurs Congolais en Action"
-        
         className="w-full h-full object-cover object-left lg:object-center lg:object-fill  xl:object-contain mx-auto block"
       />
     </div>
     <div className="relative w-10/12 z-20 px-4 gap-8 lg:gap-12 xl:gap-16 sm:px-6 lg:px-8 pt-5 mx-auto">
       <button className="group inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-black text-white rounded-full hover:bg-highlight transition-all duration-300 transform hover:scale-105">
-        <span className="text-base sm:text-lg">Commencez l'Aventure</span>
+        <span className="text-base sm:text-lg">
+          {t("callToAction.hero")}
+        </span>
         <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
       </button>
     </div>

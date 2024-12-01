@@ -10,8 +10,6 @@ const navigation = [
   { name: 'nav.about', href: '/about' },
   { name: 'nav.projects', href: '/success-stories' },
   { name: 'nav.diffusion', href: '/diffusions' },
-  { name: 'nav.team', href: '/#team' },
-  { name: 'nav.reviews', href: '/#reviews' },
   { name: 'nav.partners', href: '/partenaires' },
   { name: 'nav.pricing', href: '/pricing' },
 ];
@@ -59,8 +57,8 @@ export function Navbar() {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-          ? 'bg-white/90 backdrop-blur-md shadow-lg py-2'
-          : 'bg-transparent py-3 sm:py-4'
+        ? 'bg-white/90 backdrop-blur-md shadow-lg py-2'
+        : 'bg-transparent py-3 sm:py-4'
         }`}
     >
       <nav className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
@@ -71,10 +69,7 @@ export function Navbar() {
             className="flex items-center gap-1.5 sm:gap-2 group"
             onClick={() => setIsOpen(false)}
           >
-            {/* <div className="w-8 h-8 sm:w-10 sm:h-10 bg-highlight rounded-xl flex items-center justify-center transform transition-transform duration-300 group-hover:rotate-12">
-              <Zap className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
-            </div> */}
-            <img src={logo} alt="" className='h-14' />
+            <img src={logo} alt="" className='h-12' />
           </Link>
 
           {/* Desktop Navigation */}
@@ -123,8 +118,8 @@ export function Navbar() {
                   to={item.href}
                   onClick={() => handleNavClick(item.href)}
                   className={`p-3 sm:p-4 rounded-xl text-center font-medium transition-all ${isActive(item.href)
-                      ? 'bg-highlight text-white'
-                      : 'hover:bg-gray-50'
+                    ? 'bg-highlight text-white'
+                    : 'hover:bg-gray-50'
                     }`}
                 >
                   {t(item.name)}

@@ -1,8 +1,8 @@
-import {  
-  BookOpen, 
-  Coins, 
-  FileText, 
-  Calculator 
+import {
+  BookOpen,
+  Coins,
+  FileText,
+  Calculator
 } from 'lucide-react';
 
 const stats = [
@@ -66,7 +66,7 @@ export function AboutPage() {
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
-      <section className="relative h-[60vh] min-h-[500px] flex items-center">
+      <section className="relative h-[60vh] min-h-[500px] flex justify-center items-center">
         <div className="absolute inset-0">
           <img
             src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80"
@@ -75,9 +75,8 @@ export function AboutPage() {
           />
           <div className="absolute inset-0 bg-black/70" />
         </div>
-        
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
-          <div className="max-w-3xl">
+          <div className="w-fit">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
               Ensemble, <span className="text-highlight">Construisons</span> l'Avenir de l'Entrepreneuriat Congolais
             </h1>
@@ -113,7 +112,7 @@ export function AboutPage() {
           <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center">
             Les <span className="text-highlight">Défis</span> à Relever
           </h2>
-          
+
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {challenges.map((challenge, index) => {
               const Icon = challenge.icon;

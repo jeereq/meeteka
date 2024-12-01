@@ -1,84 +1,92 @@
 import { ArrowUpRight, FileText, Coins, GraduationCap, LineChart, BookOpen, ShieldCheck } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
 
 const services = [
   {
     icon: FileText,
-    slug: 'simplification-administrative',
-    title: 'Simplification Administrative',
-    description: 'Nous facilitons vos démarches administratives pour vous permettre de vous concentrer sur votre cœur de métier.',
+    slug: 'services.simplification-administrative.slug',
+    title: 'services.simplification-administrative.title',
+    description: 'services.simplification-administrative.description',
     details: [
-      'Accompagnement dans les procédures légales',
-      'Optimisation des processus administratifs',
-      'Gestion documentaire simplifiée'
+      'services.simplification-administrative.accompagnement-dans-les-procédures-légales',
+      'services.simplification-administrative.optimisation-des-processus-administratifs',
+      'services.simplification-administrative.gestion-documentaire-simplifiée'
     ]
   },
   {
     icon: BookOpen,
-    slug: 'information-fiscale',
-    title: 'Information Fiscale',
-    description: 'Accédez à toutes les informations essentielles sur la fiscalité et les incitations disponibles en RDC.',
+    slug: 'services.information-fiscale.slug',
+    title: 'services.information-fiscale.title',
+    description: 'services.information-fiscale.description',
     details: [
-      'Veille fiscale personnalisée',
-      'Guide des incitations fiscales',
-      'Conseil en optimisation fiscale'
+      'services.information-fiscale.veille-fiscale-personnalisée',
+      'services.information-fiscale.guide-des-incitations-fiscales',
+      'services.information-fiscale.conseil-en-optimisation-fiscale'
     ]
   },
   {
     icon: Coins,
-    slug: 'acces-financements',
-    title: 'Accès aux Financements',
-    description: 'Nous vous accompagnons dans la recherche et la sécurisation de financements adaptés à vos besoins.',
+    slug: 'services.acces-financements.slug',
+    title: 'services.acces-financements.title',
+    description: 'services.acces-financements.description',
     details: [
-      'Mise en relation avec les investisseurs',
-      'Préparation des dossiers de financement',
-      'Négociation des conditions'
+      'services.acces-financements.mise-en-relation-avec-les-investisseurs',
+      'services.acces-financements.préparation-des-dossiers-de-financement',
+      'services.acces-financements.négociation-des-conditions'
     ]
   },
   {
     icon: GraduationCap,
-    slug: 'formation-continue',
-    title: 'Formation Continue',
-    description: 'Développez les compétences de votre équipe grâce à nos programmes de formation sur mesure.',
+    slug: 'services.formation-continue.slug',
+    title: 'services.formation-continue.title',
+    description: 'services.formation-continue.description',
     details: [
-      'Formations managériales',
-      'Ateliers pratiques',
-      'Coaching personnalisé'
+      'services.formation-continue.formations-managériales',
+      'services.formation-continue.ateliers-pratiques',
+      'services.formation-continue.coaching-personnalisé'
     ]
   },
   {
     icon: LineChart,
-    slug: 'accompagnement-strategique',
-    title: 'Accompagnement Stratégique',
-    description: 'Bénéficiez d\'un suivi personnalisé pour optimiser votre croissance et votre développement.',
+    slug: 'services.accompagnement-strategique.slug',
+    title: 'services.accompagnement-strategique.title',
+    description: 'services.accompagnement-strategique.description',
     details: [
-      'Analyse de marché',
-      'Planification stratégique',
-      'Suivi des performances'
+      'services.accompagnement-strategique.analyse-de-marché',
+      'services.accompagnement-strategique.planification-stratégique',
+      'services.accompagnement-strategique.suivi-des-performances'
     ]
   },
   {
     icon: ShieldCheck,
-    slug: 'stabilite-securite',
-    title: 'Stabilité & Sécurité',
-    description: 'Nous vous aidons à naviguer dans l\'environnement économique congolais en toute sécurité.',
+    slug: 'services.stabilite-securite.slug',
+    title: 'services.stabilite-securite.title',
+    description: 'services.stabilite-securite.description',
     details: [
-      'Gestion des risques',
-      'Conformité réglementaire',
-      'Protection des intérêts'
+      'services.stabilite-securite.gestion-des-risques',
+      'services.stabilite-securite.conformité-réglementaire',
+      'services.stabilite-securite.protection-des-intérêts'
     ]
   }
 ];
 
 export function Services() {
+  const { t } = useLanguage()
   return (
     <section className="section-padding" id="services">
       <div className="text-center lg:text-left mb-12">
         <h2 className="text-3xl xs:text-4xl lg:text-5xl font-bold mb-4">
-          Nos <span className="heading-highlight">Services</span>
+          {t("home.services.title").split(" ").map(function (element, index: number) {
+            if (index == 0) {
+              return element
+            } else {
+              return <span className="ml-2 heading-highlight"> {element}</span>
+            }
+          })}
         </h2>
         <p className="text-responsive text-gray-600">
-          Des solutions complètes pour votre réussite entrepreneuriale en RDC
+          {t("home.services.description")}
         </p>
       </div>
 
@@ -88,7 +96,7 @@ export function Services() {
           return (
             <Link
               key={index}
-              to={`/services/${service.slug}`}
+              to={`/services/${t(service.slug)}`}
               className="group relative p-6 sm:p-8 bg-white rounded-3xl hover:bg-highlight transition-all duration-500 hover:scale-105 hover:shadow-2xl border-2 border-black/5 hover:border-highlight"
             >
               <div className="absolute inset-0 bg-black/5 rounded-3xl transform rotate-3 transition-transform duration-500 group-hover:rotate-6"></div>
@@ -99,21 +107,21 @@ export function Services() {
                   </div>
                 </div>
                 <h3 className="text-xl sm:text-2xl font-bold mb-4 group-hover:text-white transition-colors">
-                  {service.title}
+                  {t(service.title)}
                 </h3>
                 <p className="text-gray-600 mb-6 group-hover:text-white/90 transition-colors">
-                  {service.description}
+                  {t(service.description)}
                 </p>
                 <ul className="space-y-2 mb-6">
                   {service.details.map((detail, i) => (
                     <li key={i} className="flex items-center gap-2 text-sm text-gray-600 group-hover:text-white/80 transition-colors">
                       <span className="w-1.5 h-1.5 bg-highlight rounded-full group-hover:bg-white transition-colors"></span>
-                      {detail}
+                      {t(detail)}
                     </li>
                   ))}
                 </ul>
                 <div className="flex items-center gap-2 text-black font-medium group-hover:text-white transition-colors">
-                  En savoir plus
+                  {t("services.callToAction")}
                   <ArrowUpRight className="w-5 h-5 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-500" />
                 </div>
               </div>
