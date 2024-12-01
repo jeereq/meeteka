@@ -9,10 +9,16 @@ export function Contact() {
       <div className="grid lg:grid-cols-2 gap-12">
         <div>
           <h2 className="text-4xl font-bold mb-4">
-            Let's <span className="heading-highlight text-black">Talk</span>
+            {t("contact.title").split(" ").map(function (element, index: number) {
+              if (index == 0) {
+                return element
+              } else {
+                return <span className="heading-highlight text-black"> {element}</span>
+              }
+            })}
           </h2>
           <p className="text-xl text-gray-300 mb-8">
-            Ready to start your digital journey? Get in touch with us today.
+            {t("contact.description")}
           </p>
 
           <div className="space-y-6">
