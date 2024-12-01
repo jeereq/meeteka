@@ -1,4 +1,3 @@
-import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Layout } from './components/Layout';
 import { Hero } from './components/Hero';
@@ -19,6 +18,7 @@ import { ServiceDetails } from './pages/ServiceDetails';
 import { PricingPage } from './pages/PricingPage';
 
 export default function App() {
+
   return (
     <BrowserRouter>
       <Layout>

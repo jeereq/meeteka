@@ -79,9 +79,9 @@ export function Services() {
         <h2 className="text-3xl xs:text-4xl lg:text-5xl font-bold mb-4">
           {t("home.services.title").split(" ").map(function (element, index: number) {
             if (index == 0) {
-              return element
+              return <span className="w-fit" key={index}>{element}</span>
             } else {
-              return <span className="ml-2 heading-highlight"> {element}</span>
+              return <span key={index} className="ml-2 heading-highlight"> {element}</span>
             }
           })}
         </h2>
