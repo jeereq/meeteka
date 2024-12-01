@@ -65,5 +65,8 @@ const fr = {
     "diffusions.description": "Conseils d'experts et stratégies pour votre succès digital",
     "diffusions.more": "Voir toutes les diffusions",
 
+    "teams.title": "Notre Équipe",
+    "teams.description": "Les experts derrière votre succès digital",
+
 }
 export default fr
