@@ -1,5 +1,6 @@
 import React from 'react';
 import { Star, ArrowLeft, ArrowRight } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const testimonials = [
   {
@@ -21,14 +22,21 @@ const testimonials = [
 ];
 
 export function Testimonials() {
+  const { t } = useLanguage()
   return (
     <section className="section-padding" id="reviews">
       <div className="mb-12">
         <h2 className="text-4xl font-bold mb-4">
-          Client <span className="heading-highlight">Reviews</span>
+          {t("customers.title").split(" ").map(function (element, index: number) {
+            if (index == 0) {
+              return element
+            } else {
+              return <span className="heading-highlight"> {element}</span>
+            }
+          })}
         </h2>
         <p className="text-xl text-gray-600">
-          What our clients say about working with us
+          {t("customers.description")}
         </p>
       </div>
 

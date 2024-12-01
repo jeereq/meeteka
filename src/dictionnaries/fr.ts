@@ -68,5 +68,8 @@ const fr = {
     "teams.title": "Notre Équipe",
     "teams.description": "Les experts derrière votre succès digital",
 
+    "customers.title": "Avis des clients",
+    "customers.description": "Ce que nos clients disent de leur collaboration avec nous",
+
 }
 export default fr

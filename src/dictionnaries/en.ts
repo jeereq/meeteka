@@ -66,7 +66,10 @@ const en = {
     "diffusions.more": "See all broadcasts",
 
     "teams.title": "Our team",
-    "teams.description": "The experts behind your digital success"
+    "teams.description": "The experts behind your digital success",
+
+    "customers.title": "Customer Reviews",
+    "customers.description": "What our clients say about working with us",
 
 }
 export default en
