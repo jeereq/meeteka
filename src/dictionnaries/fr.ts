@@ -71,5 +71,8 @@ const fr = {
     "customers.title": "Avis des clients",
     "customers.description": "Ce que nos clients disent de leur collaboration avec nous",
 
+    "contact.title": "Parlons-en",
+    "contact.description": "Prêt à entamer votre voyage numérique ? Prenez contact avec nous dès aujourd'hui.",
+
 }
 export default fr

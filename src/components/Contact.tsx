@@ -1,7 +1,9 @@
 import React from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 export function Contact() {
+  const { t } = useLanguage()
   return (
     <section className="section-padding bg-black text-white" id="contact">
       <div className="grid lg:grid-cols-2 gap-12">
@@ -32,7 +34,7 @@ export function Contact() {
               </div>
               <div>
                 <p className="text-gray-400">Phone</p>
-               
+
                 <a href="tel:+243825455938">+243 825 455 938</a>
               </div>
             </div>

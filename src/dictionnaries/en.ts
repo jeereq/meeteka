@@ -71,5 +71,7 @@ const en = {
     "customers.title": "Customer Reviews",
     "customers.description": "What our clients say about working with us",
 
+    "contact.title": "Let's Talk",
+    "contact.description": "Ready to start your digital journey? Get in touch with us today.",
 }
 export default en
