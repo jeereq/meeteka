@@ -61,6 +61,17 @@ const en = {
     "success-stories.description": "Celebrating the achievements of Congolese entrepreneurs",
     "success-stories.more": "Read Success Story",
 
+    "diffusions.title": "Latest broadcasts",
+    "diffusions.description": "Expert advice and strategies for your digital success",
+    "diffusions.more": "See all broadcasts",
 
+    "teams.title": "Our team",
+    "teams.description": "The experts behind your digital success",
+
+    "customers.title": "Customer Reviews",
+    "customers.description": "What our clients say about working with us",
+
+    "contact.title": "Let's Talk",
+    "contact.description": "Ready to start your digital journey? Get in touch with us today.",
 }
 export default en

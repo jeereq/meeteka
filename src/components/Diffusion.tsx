@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowUpRight, Lock } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useLanguage } from '../context/LanguageContext';
 
 const formatPrice = (price: number) => {
   return new Intl.NumberFormat('fr-CD', {
@@ -51,14 +52,21 @@ const featuredDiffusions = [
 ];
 
 export function Diffusion() {
+  const { t } = useLanguage()
   return (
     <section className="section-padding" id="diffusion">
       <div className="mb-12">
         <h2 className="text-4xl font-bold mb-4">
-          Dernières <span className="heading-highlight">Diffusions</span>
+          {t("diffusions.title").split(" ").map(function (item, index: number) {
+            if (index == 0) {
+              return <span className="px-2">{item}</span>
+            } else {
+              return <span className="heading-highlight">{item}</span>
+            }
+          })}
         </h2>
         <p className="text-xl text-gray-600">
-          Conseils d'experts et stratégies pour votre succès digital
+        {t("diffusions.description")} 
         </p>
       </div>
 
@@ -117,14 +125,13 @@ export function Diffusion() {
                   </span>
                 )}
               </div>
-
               <div className="mt-6 flex justify-end">
                 <span className="inline-flex items-center gap-2 text-black group-hover:text-highlight transition-colors">
                   Lire plus
                   <ArrowUpRight className="w-5 h-5 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </span>
               </div>
-            </div>
+            </div>    
           </Link>
         ))}
       </div>
@@ -134,7 +141,7 @@ export function Diffusion() {
           to="/diffusions"
           className="inline-flex items-center gap-2 px-8 py-4 bg-black text-white rounded-full hover:bg-highlight transition-all duration-300 hover:scale-105"
         >
-          <span>Voir toutes les diffusions</span>
+          <span> {t("diffusions.more")} </span>
           <ArrowUpRight className="w-5 h-5" />
         </Link>
       </div>

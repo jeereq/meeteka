@@ -1,13 +1,13 @@
 const fr = {
     'nav.services': 'Services',
-    'nav.projects': 'Success stories',
+    'nav.projects': 'Histoires à succès',
     'nav.diffusion': 'Diffusions',
     'nav.team': 'Équipe',
     'nav.reviews': 'Avis',
     'nav.contact': 'Contactez-nous',
     'nav.partners': 'Partenaires',
     'nav.pricing': 'Prix',
-    'nav.about': 'À Propos',
+    'nav.about': 'À propos',
     "callToAction.hero": "Commencez l'Aventure",
     "home.services.title": "Nos Services",
     "home.services.description": "Des solutions complètes pour votre réussite entrepreneuriale en RDC",
@@ -61,6 +61,18 @@ const fr = {
     "success-stories.description": "Célébrer les réalisations des entrepreneurs congolais",
     "success-stories.more": "Lire l'histoire d'un succès",
 
+    "diffusions.title": "Dernières Diffusions",
+    "diffusions.description": "Conseils d'experts et stratégies pour votre succès digital",
+    "diffusions.more": "Voir toutes les diffusions",
+
+    "teams.title": "Notre Équipe",
+    "teams.description": "Les experts derrière votre succès digital",
+
+    "customers.title": "Avis des clients",
+    "customers.description": "Ce que nos clients disent de leur collaboration avec nous",
+
+    "contact.title": "Parlons-en",
+    "contact.description": "Prêt à entamer votre voyage numérique ? Prenez contact avec nous dès aujourd'hui.",
 
 }
 export default fr

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Linkedin, Twitter, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const team = [
   {
@@ -48,6 +49,8 @@ export function Team() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(3);
 
+  const { t } = useLanguage()
+
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 640) {
@@ -66,7 +69,7 @@ export function Team() {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) => 
+      setCurrentIndex((prevIndex) =>
         (prevIndex + 1) % (team.length - itemsPerPage + 1)
       );
     }, 5000);
@@ -75,13 +78,13 @@ export function Team() {
   }, [itemsPerPage]);
 
   const handlePrev = () => {
-    setCurrentIndex((prevIndex) => 
+    setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? team.length - itemsPerPage : prevIndex - 1
     );
   };
 
   const handleNext = () => {
-    setCurrentIndex((prevIndex) => 
+    setCurrentIndex((prevIndex) =>
       (prevIndex + 1) % (team.length - itemsPerPage + 1)
     );
   };
@@ -90,10 +93,16 @@ export function Team() {
     <section className="section-padding overflow-hidden" id="team">
       <div className="mb-8 sm:mb-12">
         <h2 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4">
-          Notre <span className="heading-highlight">Équipe</span>
+          {t("teams.title").split(" ").map(function (item, index: number) {
+            if (index == 0) {
+              return <span className="px-2">{item}</span>
+            } else {
+              return <span className="heading-highlight">{item}</span>
+            }
+          })}
         </h2>
         <p className="text-lg sm:text-xl text-gray-600">
-          Les experts derrière votre succès digital
+          {t("teams.description")}
         </p>
       </div>
 
@@ -115,7 +124,7 @@ export function Team() {
         </button>
 
         {/* Team Cards Container */}
-        <div 
+        <div
           className="flex transition-transform duration-500 ease-in-out px-2 sm:px-0"
           style={{ transform: `translateX(-${currentIndex * (100 / itemsPerPage)}%)` }}
         >
@@ -171,9 +180,8 @@ export function Team() {
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
-              className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-colors duration-300 ${
-                currentIndex === index ? 'bg-highlight' : 'bg-gray-300'
-              }`}
+              className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-colors duration-300 ${currentIndex === index ? 'bg-highlight' : 'bg-gray-300'
+                }`}
               aria-label={`Go to slide ${index + 1}`}
             />
           ))}
