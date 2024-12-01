@@ -12,6 +12,23 @@ const fr = {
     "home.services.title": "Nos Services",
     "home.services.description": "Des solutions complètes pour votre réussite entrepreneuriale en RDC",
 
+    "about.banner.title": "Ensemble, Construisons l'Avenir de l'Entrepreneuriat Congolais",
+    "about.banner.description": "Meet'eka accompagne les entrepreneurs congolais dans leur développement, de l'informel vers le succès durable.",
+
+    "about.stats.580k+": "Entreprises Recensées en RDC",
+    "about.stats.95%": "Entreprises dans l'Informel",
+    "about.stats.43%": "Entreprises Gérées par des Femmes",
+    "about.stats.80%": "PME avec Difficultés de Financement",
+
+    "about.challenges.title": "Les Défis à Relever",
+    "about.challenges.coins.title": "Accès limité aux financements",
+    "about.challenges.coins.description": "Environ 80% des petites entreprises rencontrent des difficultés de financement et d'expansion selon la Banque Centrale du Congo.",
+    "about.challenges.BookOpen.title": "Manque de sensibilisation",
+    "about.challenges.BookOpen.description": "De nombreux entrepreneurs ne sont pas informés des avantages de la formalisation ou manquent de connaissances sur les procédures.",
+    "about.challenges.FileText.title": "Complexité administrative",
+    "about.challenges.FileText.description": "Les démarches pour formaliser une entreprise sont souvent perçues comme complexes, longues et coûteuses.",
+    "about.challenges.Calculator.title": "Système fiscal lourd",
+    "about.challenges.Calculator.description": "La fiscalité est jugée excessive, poussant les entrepreneurs à rester dans l'informel.",
 
     "services.simplification-administrative.slug": "simplification-administrative",
     "services.callToAction": "En savoir plus",
@@ -20,7 +37,6 @@ const fr = {
     "services.simplification-administrative.accompagnement-dans-les-procédures-légales": "Accompagnement dans les procédures légales",
     "services.simplification-administrative.optimisation-des-processus-administratifs": "Optimisation des processus administratifs",
     "services.simplification-administrative.gestion-documentaire-simplifiée": "Gestion documentaire simplifiée",
-
 
     "services.information-fiscale.slug": "information-fiscale",
     "services.information-fiscale.title": "Information Fiscale",

@@ -4,34 +4,35 @@ import {
   FileText,
   Calculator
 } from 'lucide-react';
+import { useLanguage } from '../context/LanguageContext';
 
 const stats = [
-  { value: '580K+', label: 'Entreprises Recensées en RDC' },
-  { value: '95%', label: 'Entreprises dans l\'Informel' },
-  { value: '43%', label: 'Entreprises Gérées par des Femmes' },
-  { value: '80%', label: 'PME avec Difficultés de Financement' }
+  { value: '580K+', label: 'about.stats.580k+' },
+  { value: '95%', label: 'about.stats.95%' },
+  { value: '43%', label: 'about.stats.43%' },
+  { value: '80%', label: 'about.stats.80%' }
 ];
 
 const challenges = [
   {
     icon: Coins,
-    title: 'Accès limité aux financements',
-    description: 'Environ 80% des petites entreprises rencontrent des difficultés de financement et d\'expansion selon la Banque Centrale du Congo.'
+    title: 'about.challenges.coins.title',
+    description: 'about.challenges.coins.description'
   },
   {
     icon: BookOpen,
-    title: 'Manque de sensibilisation',
-    description: 'De nombreux entrepreneurs ne sont pas informés des avantages de la formalisation ou manquent de connaissances sur les procédures.'
+    title: 'about.challenges.BookOpen.title',
+    description: 'about.challenges.BookOpen.description'
   },
   {
     icon: FileText,
-    title: 'Complexité administrative',
-    description: 'Les démarches pour formaliser une entreprise sont souvent perçues comme complexes, longues et coûteuses.'
+    title: 'about.challenges.FileText.title',
+    description: 'about.challenges.FileText.description'
   },
   {
     icon: Calculator,
-    title: 'Système fiscal lourd',
-    description: 'La fiscalité est jugée excessive, poussant les entrepreneurs à rester dans l\'informel.'
+    title: 'about.challenges.Calculator.title',
+    description: 'about.challenges.Calculator.description'
   }
 ];
 
@@ -63,6 +64,7 @@ const solutions = [
 ];
 
 export function AboutPage() {
+  const { t } = useLanguage()
   return (
     <div className="min-h-screen pt-20">
       {/* Hero Section */}
@@ -78,10 +80,13 @@ export function AboutPage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
           <div className="w-fit">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
-              Ensemble, <span className="text-highlight">Construisons</span> l'Avenir de l'Entrepreneuriat Congolais
+              {t("about.banner.title").split(" ").map(function (item) {
+                if (item == "build" || item == "Construisons") return <span className="text-highlight mr-2" >{item}</span>
+                return `${item} `
+              })}
             </h1>
             <p className="text-xl text-gray-300">
-              Meet'eka accompagne les entrepreneurs congolais dans leur développement, de l'informel vers le succès durable.
+              {t("about.banner.description")}
             </p>
           </div>
         </div>
@@ -99,7 +104,7 @@ export function AboutPage() {
                 <p className="text-4xl sm:text-5xl font-bold text-highlight mb-2">
                   {stat.value}
                 </p>
-                <p className="text-gray-600">{stat.label}</p>
+                <p className="text-gray-600">{t(stat.label)}</p>
               </div>
             ))}
           </div>
@@ -110,7 +115,10 @@ export function AboutPage() {
       <section className="py-16 sm:py-20 bg-black text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center">
-            Les <span className="text-highlight">Défis</span> à Relever
+            {t("about.challenges.title").split(" ").map(function (item) {
+              if (item == "Défis" || item == "challenges") return <span className="text-highlight mr-2" >{item}</span>
+              return `${item} `
+            })}
           </h2>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -124,8 +132,8 @@ export function AboutPage() {
                   <div className="w-12 h-12 bg-highlight rounded-2xl flex items-center justify-center mb-4">
                     <Icon className="w-6 h-6 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold mb-3">{challenge.title}</h3>
-                  <p className="text-gray-400">{challenge.description}</p>
+                  <h3 className="text-xl font-bold mb-3">{t(challenge.title)}</h3>
+                  <p className="text-gray-400">{t(challenge.description)}</p>
                 </div>
               );
             })}

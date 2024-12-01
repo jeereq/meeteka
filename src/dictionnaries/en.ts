@@ -12,6 +12,23 @@ const en = {
     "home.services.title": "Our services",
     "home.services.description": "Comprehensive solutions for your business success in the DRC",
 
+    "about.banner.title": "Together, let's build the future of Congolese entrepreneurship",
+    "about.banner.description": "Meet'eka supports Congolese entrepreneurs in their development, from the informal to sustainable success.",
+
+    "about.stats.580k+": "Listed companies in DRC",
+    "about.stats.95%": "Companies in the Informal sector",
+    "about.stats.43%": "Women-owned businesses",
+    "about.stats.80%": "SMEs with Financing Difficulties",
+
+    "about.challenges.title": "The challenges",
+    "about.challenges.coins.title": "Limited access to financing",
+    "about.challenges.coins.description": "According to the Central Bank of Congo, some 80% of small businesses are experiencing difficulties in financing and expansion.",
+    "about.challenges.BookOpen.title": "Lack of awareness",
+    "about.challenges.BookOpen.description": "Many entrepreneurs are unaware of the benefits of formalization, or lack knowledge of the procedures involved.",
+    "about.challenges.FileText.title": "Administrative complexity",
+    "about.challenges.FileText.description": "The steps involved in formalizing a company are often perceived as complex, time-consuming and costly.",
+    "about.challenges.Calculator.title": "Cumbersome tax system",
+    "about.challenges.Calculator.description": "Taxation is deemed excessive, pushing entrepreneurs into the informal sector.",
 
     "services.simplification-administrative.slug": "administrative-simplification",
     "services.callToAction": "Read more",

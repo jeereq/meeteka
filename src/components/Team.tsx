@@ -5,9 +5,9 @@ import { useLanguage } from '../context/LanguageContext';
 const team = [
   {
     name: 'Blaise Mposo',
-    role: 'Directeur Général',
+    role: 'Directeur Général & co-fondateur',
     image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    bio: 'Leader visionnaire avec une expertise dans la transformation digitale des entreprises africaines.',
+    bio: 'Leader visionnaire avec une expertise dans la transformation digitale des entreprises congolaises.',
     social: {
       linkedin: '#',
       twitter: '#',
@@ -15,9 +15,9 @@ const team = [
   },
   {
     name: 'Sacré Mbiku',
-    role: 'Lead Développeur & Coach',
+    role: 'Lead Développeur & Coach & co-fondateur',
     image: 'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-    bio: 'Expert en développement full-stack avec plus de 8 ans d\'expérience. Spécialisé en architecture cloud et DevOps.',
+    bio: 'Expert en développement full-stack avec plus de 4 ans d\'expérience. Spécialisé en architecture cloud et DevOps.',
     social: {
       linkedin: '#',
       twitter: '#',
@@ -25,7 +25,7 @@ const team = [
   },
   {
     name: 'Jeereq Minganda',
-    role: 'Lead Développeur',
+    role: 'Lead Développeur & co-fondateur',
     image: 'https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     bio: 'Architecte logiciel chevronné avec une expertise en React, Node.js et systèmes distribués.',
     social: {
@@ -35,7 +35,7 @@ const team = [
   },
   {
     name: 'Percy Kandodi',
-    role: 'Chargé Marketing',
+    role: 'Chargé Marketing & co-fondateur',
     image: 'https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
     bio: 'Stratège marketing créatif avec une expertise dans le développement de marques digitales.',
     social: {
