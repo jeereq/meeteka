@@ -1,6 +1,7 @@
 import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 import logo from "../../assets/icon.white.png"
 import { useLanguage } from '../context/LanguageContext';
+import { Link } from 'react-router-dom';
 
 export function Footer() {
   const { t } = useLanguage()
@@ -21,10 +22,10 @@ export function Footer() {
             <h3 className="font-bold mb-4">
               {t("footer.section.links")}</h3>
             <ul className="space-y-3">
-              <li><a href="/#services" className="text-gray-400 hover:text-highlight">{t("footer.section.links.services")}</a></li>
-              <li><a href="/success-stories" className="text-gray-400 hover:text-highlight">{t("footer.section.links.success-stories")}</a></li>
-              <li><a href="/diffusions" className="text-gray-400 hover:text-highlight">{t("footer.section.links.diffusions")}</a></li>
-              <li><a href="/partenaires" className="text-gray-400 hover:text-highlight">{t("footer.section.links.partenaires")}</a></li>
+              <li><Link to="/#services" className="text-gray-400 hover:text-highlight">{t("footer.section.links.services")}</Link></li>
+              <li><Link to="/success-stories" className="text-gray-400 hover:text-highlight">{t("footer.section.links.success-stories")}</Link></li>
+              <li><Link to="/diffusions" className="text-gray-400 hover:text-highlight">{t("footer.section.links.diffusions")}</Link></li>
+              <li><Link to="/partenaires" className="text-gray-400 hover:text-highlight">{t("footer.section.links.partenaires")}</Link></li>
             </ul>
           </div>
 

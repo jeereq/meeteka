@@ -12,6 +12,42 @@ const fr = {
     "home.services.title": "Nos Services",
     "home.services.description": "Des solutions complètes pour votre réussite entrepreneuriale en RDC",
 
+    "about.banner.title": "Ensemble, Construisons l'Avenir de l'Entrepreneuriat Congolais",
+    "about.banner.description": "Meeteka accompagne les entrepreneurs congolais dans leur développement, de l'informel vers le succès durable.",
+
+    "about.stats.580k+": "Entreprises Recensées en RDC",
+    "about.stats.95%": "Entreprises dans l'Informel",
+    "about.stats.43%": "Entreprises Gérées par des Femmes",
+    "about.stats.80%": "PME avec Difficultés de Financement",
+
+    "about.challenges.title": "Les Défis à Relever",
+    "about.challenges.coins.title": "Accès limité aux financements",
+    "about.challenges.coins.description": "Environ 80% des petites entreprises rencontrent des difficultés de financement et d'expansion selon la Banque Centrale du Congo.",
+    "about.challenges.BookOpen.title": "Manque de sensibilisation",
+    "about.challenges.BookOpen.description": "De nombreux entrepreneurs ne sont pas informés des avantages de la formalisation ou manquent de connaissances sur les procédures.",
+    "about.challenges.FileText.title": "Complexité administrative",
+    "about.challenges.FileText.description": "Les démarches pour formaliser une entreprise sont souvent perçues comme complexes, longues et coûteuses.",
+    "about.challenges.Calculator.title": "Système fiscal lourd",
+    "about.challenges.Calculator.description": "La fiscalité est jugée excessive, poussant les entrepreneurs à rester dans l'informel.",
+
+    "about.solutions.title": "Nos Solutions",
+    "about.solutions.administrative.title": "Simplification Administrative",
+    "about.solutions.administrative.description": "Guides simplifiés, check-lists interactives et accompagnement personnalisé pour la formalisation.",
+    "about.solutions.administrative.label": "Réduction du temps de formalisation",
+    "about.solutions.fiscale.title": "Information Fiscale",
+    "about.solutions.fiscale.description": "Informations claires et mises à jour sur la fiscalité et les opportunités pour les PME.",
+    "about.solutions.fiscale.label": "Réduction du temps de recherche",
+    "about.solutions.financements.title": "Accès aux Financements",
+    "about.solutions.financements.description": "Connexion avec les institutions financières et programmes de microfinance.",
+    "about.solutions.financements.label": "Amélioration du taux déligibilité",
+    "about.solutions.formation.title": "Formation Continue",
+    "about.solutions.formation.description": "Modules de formation en ligne sur le marketing, la comptabilité et la gestion d'entreprise.",
+    "about.solutions.formation.label": "Taux de complétion des formations",
+
+
+    "about.callToAction.title": "Prêt à Transformer Votre Entreprise ?",
+    "about.callToAction.description": " Rejoignez les entrepreneurs congolais qui font confiance à Meeteka pour leur croissance et leur transformation digitale.",
+    "about.callToAction.button.label": "Commencez Maintenant",
 
     "services.simplification-administrative.slug": "simplification-administrative",
     "services.callToAction": "En savoir plus",
@@ -20,7 +56,6 @@ const fr = {
     "services.simplification-administrative.accompagnement-dans-les-procédures-légales": "Accompagnement dans les procédures légales",
     "services.simplification-administrative.optimisation-des-processus-administratifs": "Optimisation des processus administratifs",
     "services.simplification-administrative.gestion-documentaire-simplifiée": "Gestion documentaire simplifiée",
-
 
     "services.information-fiscale.slug": "information-fiscale",
     "services.information-fiscale.title": "Information Fiscale",
