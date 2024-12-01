@@ -73,5 +73,13 @@ const en = {
 
     "contact.title": "Let's Talk",
     "contact.description": "Ready to start your digital journey? Get in touch with us today.",
+    "contact.email": "Email",
+    "contact.phone": "Phone",
+    "contact.address": "Address",
+    "contact.name": "Name",
+    "contact.name.placeholder": "John Doe",
+    "contact.message": "Message",
+    "contact.message.placeholder": "Tell us about your project...",
+    "contact.button.send": "Send Message",
 }
 export default en

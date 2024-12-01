@@ -73,6 +73,14 @@ const fr = {
 
     "contact.title": "Parlons-en",
     "contact.description": "Prêt à entamer votre voyage numérique ? Prenez contact avec nous dès aujourd'hui.",
+    "contact.email": "Email",
+    "contact.phone": "Téléphone",
+    "contact.address": "Adresse",
+    "contact.name": "Nom",
+    "contact.name.placeholder": "John Doe",
+    "contact.message": "Message",
+    "contact.message.placeholder": "Parlez-nous de votre projet...",
+    "contact.button.send": "Envoyer un message",
 
 }
 export default fr

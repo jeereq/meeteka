@@ -27,7 +27,7 @@ export function Contact() {
                 <Mail className="w-6 h-6 text-black" />
               </div>
               <div>
-                <p className="text-gray-400">Email</p>
+                <p className="text-gray-400">{t("contact.email")}</p>
                 <a href="mailto:hello@meeteka.com" className="hover:text-highlight">
                   contact@meeteka.com
                 </a>
@@ -39,7 +39,7 @@ export function Contact() {
                 <Phone className="w-6 h-6 text-black" />
               </div>
               <div>
-                <p className="text-gray-400">Phone</p>
+                <p className="text-gray-400">{t("contact.phone")}</p>
 
                 <a href="tel:+243825455938">+243 825 455 938</a>
               </div>
@@ -50,7 +50,7 @@ export function Contact() {
                 <MapPin className="w-6 h-6 text-black" />
               </div>
               <div>
-                <p className="text-gray-400">Address</p>
+                <p className="text-gray-400">{t("contact.address")}</p>
                 <p>kinshasa Avenue,<br />Bethel, 15  bis</p>
               </div>
             </div>
@@ -62,18 +62,18 @@ export function Contact() {
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
-                  Name
+                  {t("contact.name")}
                 </label>
                 <input
                   type="text"
                   id="name"
                   className="w-full px-4 py-3 rounded-xl border-2 border-black focus:border-highlight focus:ring-0 transition-colors"
-                  placeholder="John Doe"
+                  placeholder= {t("contact.name.placeholder")}
                 />
               </div>
               <div>
                 <label htmlFor="email" className="block text-sm font-medium mb-2">
-                  Email
+                  {t("contact.email")}
                 </label>
                 <input
                   type="email"
@@ -86,13 +86,13 @@ export function Contact() {
 
             <div>
               <label htmlFor="message" className="block text-sm font-medium mb-2">
-                Message
+                {t("contact.message")}
               </label>
               <textarea
                 id="message"
                 rows={4}
                 className="w-full px-4 py-3 rounded-xl border-2 border-black focus:border-highlight focus:ring-0 transition-colors"
-                placeholder="Tell us about your project..."
+                placeholder={t("contact.message.placeholder")}
               />
             </div>
 
@@ -100,7 +100,7 @@ export function Contact() {
               type="submit"
               className="w-full px-8 py-4 bg-black text-white rounded-full hover:bg-gray-800 transition-colors"
             >
-              Send Message
+              {t("contact.button.send")}
             </button>
           </form>
         </div>
