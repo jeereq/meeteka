@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, Calendar } from 'lucide-react';
-import { LoadingSpinner } from '../components/LoadingSpinner';
+// import { LoadingSpinner } from '../components/LoadingSpinner';
 import { LoadingCard } from '../components/LoadingCard';
 import { EmptyState } from '../components/EmptyState';
 import { PageTransition } from '../components/PageTransition';
+import { useLanguage } from '../context/LanguageContext';
 
 const successStories = [
   {
@@ -50,6 +51,7 @@ const successStories = [
 
 export function SuccessStoriesPage() {
   const [isLoading, setIsLoading] = useState(true);
+  const { t } = useLanguage()
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -66,10 +68,16 @@ export function SuccessStoriesPage() {
         <section className="bg-black text-white py-12 sm:py-16 lg:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6">
-              Nos <span className="text-highlight">Success Stories</span>
+              {t("success-stories.banner.title").split(" ").map(function (element, index: number) {
+                if (index == 1 || index == 2) {
+                  return <span key={index} className="pl-2 text-highlight" >{element}</span>
+                } else {
+                  return <span key={index} className="w-fit"> {element}</span>
+                }
+              })}
             </h1>
             <p className="text-lg sm:text-xl text-gray-300 max-w-3xl">
-              Découvrez comment nous avons aidé des entreprises africaines à atteindre leurs objectifs et à transformer leurs ambitions en succès.
+              {t('success-stories.banner.description')}
             </p>
           </div>
         </section>
@@ -140,7 +148,7 @@ export function SuccessStoriesPage() {
 
                     <div className="mt-4 sm:mt-6 flex justify-end">
                       <span className="inline-flex items-center gap-2 text-black group-hover:text-highlight transition-colors">
-                        Voir les détails
+                        {t('success-stories.button.more')}
                         <ArrowUpRight className="w-5 h-5 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                       </span>
                     </div>

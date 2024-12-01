@@ -96,9 +96,15 @@ const fr = {
     "success-stories.description": "Célébrer les réalisations des entrepreneurs congolais",
     "success-stories.more": "Lire l'histoire d'un succès",
 
+    "success-stories.banner.title": "Histoires à succès",
+    "success-stories.banner.description": " Découvrez comment nous avons aidé des entreprises congolaises à atteindre leurs objectifs et à transformer leurs ambitions en succès.",
+    "success-stories.button.more": "Voir les détails",
+
     "diffusions.title": "Dernières Diffusions",
     "diffusions.description": "Conseils d'experts et stratégies pour votre succès digital",
     "diffusions.more": "Voir toutes les diffusions",
+    "diffusions.banner.title": "Nos Diffusions",
+    "diffusions.banner.description": "Découvrez nos guides et ressources pour développer votre entreprise et réussir dans l'économie digitale.",
 
     "teams.title": "Notre Équipe",
     "teams.description": "Les experts derrière votre succès digital",
