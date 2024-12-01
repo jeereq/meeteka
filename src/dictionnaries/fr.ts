@@ -30,6 +30,8 @@ const fr = {
     "about.challenges.Calculator.title": "Système fiscal lourd",
     "about.challenges.Calculator.description": "La fiscalité est jugée excessive, poussant les entrepreneurs à rester dans l'informel.",
 
+    "about.solutions.title": "Nos Solutions",
+
     "services.simplification-administrative.slug": "simplification-administrative",
     "services.callToAction": "En savoir plus",
     "services.simplification-administrative.title": "Simplification Administrative",

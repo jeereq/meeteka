@@ -30,6 +30,8 @@ const en = {
     "about.challenges.Calculator.title": "Cumbersome tax system",
     "about.challenges.Calculator.description": "Taxation is deemed excessive, pushing entrepreneurs into the informal sector.",
 
+    "about.solutions.title": "The Solutions",
+
     "services.simplification-administrative.slug": "administrative-simplification",
     "services.callToAction": "Read more",
     "services.simplification-administrative.title": "Administrative simplification",

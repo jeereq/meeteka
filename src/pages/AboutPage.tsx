@@ -145,9 +145,11 @@ export function AboutPage() {
       <section className="py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center">
-            Nos <span className="heading-highlight">Solutions</span>
+            {t("about.solutions.title").split(" ").map(function (item) {
+              if (item == "Solutions") return <span className="heading-highlight mr-2" >{item}</span>
+              return `${item} `
+            })}
           </h2>
-
           <div className="grid sm:grid-cols-2 gap-8">
             {solutions.map((solution, index) => (
               <div
