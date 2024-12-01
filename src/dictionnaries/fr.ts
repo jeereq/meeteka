@@ -13,7 +13,7 @@ const fr = {
     "home.services.description": "Des solutions complètes pour votre réussite entrepreneuriale en RDC",
 
     "about.banner.title": "Ensemble, Construisons l'Avenir de l'Entrepreneuriat Congolais",
-    "about.banner.description": "Meet'eka accompagne les entrepreneurs congolais dans leur développement, de l'informel vers le succès durable.",
+    "about.banner.description": "Meeteka accompagne les entrepreneurs congolais dans leur développement, de l'informel vers le succès durable.",
 
     "about.stats.580k+": "Entreprises Recensées en RDC",
     "about.stats.95%": "Entreprises dans l'Informel",
@@ -31,6 +31,23 @@ const fr = {
     "about.challenges.Calculator.description": "La fiscalité est jugée excessive, poussant les entrepreneurs à rester dans l'informel.",
 
     "about.solutions.title": "Nos Solutions",
+    "about.solutions.administrative.title": "Simplification Administrative",
+    "about.solutions.administrative.description": "Guides simplifiés, check-lists interactives et accompagnement personnalisé pour la formalisation.",
+    "about.solutions.administrative.label": "Réduction du temps de formalisation",
+    "about.solutions.fiscale.title": "Information Fiscale",
+    "about.solutions.fiscale.description": "Informations claires et mises à jour sur la fiscalité et les opportunités pour les PME.",
+    "about.solutions.fiscale.label": "Réduction du temps de recherche",
+    "about.solutions.financements.title": "Accès aux Financements",
+    "about.solutions.financements.description": "Connexion avec les institutions financières et programmes de microfinance.",
+    "about.solutions.financements.label": "Amélioration du taux déligibilité",
+    "about.solutions.formation.title": "Formation Continue",
+    "about.solutions.formation.description": "Modules de formation en ligne sur le marketing, la comptabilité et la gestion d'entreprise.",
+    "about.solutions.formation.label": "Taux de complétion des formations",
+
+
+    "about.callToAction.title": "Prêt à Transformer Votre Entreprise ?",
+    "about.callToAction.description": " Rejoignez les entrepreneurs congolais qui font confiance à Meeteka pour leur croissance et leur transformation digitale.",
+    "about.callToAction.button.label": "Commencez Maintenant",
 
     "services.simplification-administrative.slug": "simplification-administrative",
     "services.callToAction": "En savoir plus",

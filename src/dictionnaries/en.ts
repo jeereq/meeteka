@@ -13,7 +13,7 @@ const en = {
     "home.services.description": "Comprehensive solutions for your business success in the DRC",
 
     "about.banner.title": "Together, let's build the future of Congolese entrepreneurship",
-    "about.banner.description": "Meet'eka supports Congolese entrepreneurs in their development, from the informal to sustainable success.",
+    "about.banner.description": "Meeteka supports Congolese entrepreneurs in their development, from the informal to sustainable success.",
 
     "about.stats.580k+": "Listed companies in DRC",
     "about.stats.95%": "Companies in the Informal sector",
@@ -31,6 +31,22 @@ const en = {
     "about.challenges.Calculator.description": "Taxation is deemed excessive, pushing entrepreneurs into the informal sector.",
 
     "about.solutions.title": "The Solutions",
+    "about.solutions.administrative.title": "Administrative simplification",
+    "about.solutions.administrative.description": "Simplified guides, interactive checklists and personalized support for formalization.",
+    "about.solutions.administrative.label": "Reduced formalization time",
+    "about.solutions.fiscale.title": "Tax information",
+    "about.solutions.fiscale.description": "Clear, up-to-date information on taxation and opportunities for SMEs.",
+    "about.solutions.fiscale.label": "Reduce search time",
+    "about.solutions.financements.title": "Access to Financing",
+    "about.solutions.financements.description": "Connection with financial institutions and microfinance programs.",
+    "about.solutions.financements.label": "Improved eligibility rate",
+    "about.solutions.formation.title": "Continuing Education",
+    "about.solutions.formation.description": "Online training modules on marketing, accounting and business management.",
+    "about.solutions.formation.label": "Training completion rate",
+
+    "about.callToAction.title": "Ready to Transform Your Business?",
+    "about.callToAction.description": "Join the Congolese entrepreneurs who trust Meeteka for their growth and digital transformation.",
+    "about.callToAction.button.label": "Start Now",
 
     "services.simplification-administrative.slug": "administrative-simplification",
     "services.callToAction": "Read more",
