@@ -73,5 +73,23 @@ const en = {
 
     "contact.title": "Let's Talk",
     "contact.description": "Ready to start your digital journey? Get in touch with us today.",
+    "contact.email": "Email",
+    "contact.phone": "Phone",
+    "contact.address": "Address",
+    "contact.name": "Name",
+    "contact.name.placeholder": "John Doe",
+    "contact.message": "Message",
+    "contact.message.placeholder": "Tell us about your project...",
+    "contact.button.send": "Send Message",
+
+    "footer.description": "Your trusted partner for digital marketing excellence.",
+    "footer.right": "All rights reserved.",
+    "footer.section.follow": "Follow Us",
+    "footer.section.contact": "Contact",
+    "footer.section.links": "Quick Links",
+    "footer.section.links.services": "Services",
+    "footer.section.links.success-stories": "Success stories",
+    "footer.section.links.diffusions": "Broadcasts",
+    "footer.section.links.partenaires": "partners"
 }
 export default en
