@@ -8,7 +8,7 @@ import logo from "../../assets/icon.png"
 const navigation = [
   { name: 'nav.services', href: '/#services' },
   { name: 'nav.about', href: '/about' },
-  { name: 'nav.projects', href: '/success-stories' },
+  // { name: 'nav.projects', href: '/success-stories' },
   { name: 'nav.diffusion', href: '/diffusions' },
   { name: 'nav.partners', href: '/partenaires' },
   { name: 'nav.pricing', href: '/pricing' },
