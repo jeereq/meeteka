@@ -5,7 +5,8 @@ const en = {
     'nav.team': 'Team',
     'nav.reviews': 'Reviews',
     'nav.contact': 'Contact Us',
-    'nav.partners': 'Partners',
+    'nav.entreprises': 'Entreprises',
+    'nav.organisations': 'Organisations',
     'nav.pricing': 'Pricings',
     'nav.about': 'About Us',
     "callToAction.hero": "Start the Adventure",
@@ -141,6 +142,7 @@ const en = {
     "footer.section.links.services": "Services",
     "footer.section.links.success-stories": "Success stories",
     "footer.section.links.diffusions": "Broadcasts",
-    "footer.section.links.partenaires": "partners"
+    "footer.section.links.organisations": "Organisations",
+    "footer.section.links.entreprises": "Entreprises"
 }
 export default en

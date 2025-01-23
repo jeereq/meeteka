@@ -10,7 +10,8 @@ const navigation = [
   { name: 'nav.about', href: '/about' },
   // { name: 'nav.projects', href: '/success-stories' },
   { name: 'nav.diffusion', href: '/diffusions' },
-  { name: 'nav.partners', href: '/partenaires' },
+  { name: 'nav.entreprises', href: '/entreprises' },
+  { name: 'nav.organisations', href: '/organisations' },
   { name: 'nav.pricing', href: '/pricing' },
 ];
 
