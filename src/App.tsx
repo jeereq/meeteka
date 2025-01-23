@@ -9,13 +9,14 @@ import { DiffusionPost } from './pages/DiffusionPost';
 import { Team } from './components/Team';
 import { Testimonials } from './components/Testimonials';
 import { Contact } from './components/Contact';
-import { PartnersPage } from './pages/PartnersPage';
 import { PartnerDetails } from './pages/PartnerDetails';
 import { SuccessStoriesPage } from './pages/SuccessStoriesPage';
 import { SuccessStoryDetails } from './pages/SuccessStoryDetails';
 import { AboutPage } from './pages/AboutPage';
 import { ServiceDetails } from './pages/ServiceDetails';
 import { PricingPage } from './pages/PricingPage';
+import { OrganisationsPage } from './pages/OrganisationsPage';
+import { EntreprisesPage } from './pages/EntreprisesPage';
 
 export default function App() {
 
@@ -37,8 +38,10 @@ export default function App() {
           <Route path="/services/:slug" element={<ServiceDetails />} />
           <Route path="/diffusions" element={<DiffusionsPage />} />
           <Route path="/diffusion/:slug" element={<DiffusionPost />} />
-          <Route path="/partenaires" element={<PartnersPage />} />
-          <Route path="/partenaires/:slug" element={<PartnerDetails />} />
+          <Route path="/entreprises" element={<EntreprisesPage />} />
+          <Route path="/entreprises/:slug" element={<PartnerDetails />} />
+          <Route path="/organisations" element={<OrganisationsPage />} />
+          <Route path="/organisations/:slug" element={<PartnerDetails />} />
           <Route path="/success-stories" element={<SuccessStoriesPage />} />
           <Route path="/success-stories/:slug" element={<SuccessStoryDetails />} />
           <Route path="/about" element={<AboutPage />} />

@@ -17,7 +17,6 @@ export function Footer() {
               {t("footer.description")}
             </p>
           </div>
-
           <div>
             <h3 className="font-bold mb-4">
               {t("footer.section.links")}</h3>
@@ -25,7 +24,8 @@ export function Footer() {
               <li><Link to="/#services" className="text-gray-400 hover:text-highlight">{t("footer.section.links.services")}</Link></li>
               {/* <li><Link to="/success-stories" className="text-gray-400 hover:text-highlight">{t("footer.section.links.success-stories")}</Link></li> */}
               <li><Link to="/diffusions" className="text-gray-400 hover:text-highlight">{t("footer.section.links.diffusions")}</Link></li>
-              <li><Link to="/partenaires" className="text-gray-400 hover:text-highlight">{t("footer.section.links.partenaires")}</Link></li>
+              <li><Link to="/entreprises" className="text-gray-400 hover:text-highlight">{t("footer.section.links.entreprises")}</Link></li>
+              <li><Link to="/organisations" className="text-gray-400 hover:text-highlight">{t("footer.section.links.organisations")}</Link></li>
             </ul>
           </div>
 
