@@ -13,7 +13,7 @@ const team = [
     bio: 'Leader visionnaire avec une expertise dans la transformation digitale des entreprises congolaises.',
     social: {
       linkedin: 'https://www.linkedin.com/in/tshika-blaise-58aaa7a3'
-    },
+    }
   },
   {
     name: 'Sacré Mbiku',
@@ -22,16 +22,16 @@ const team = [
     bio: 'Expert en développement full-stack avec plus de 3 ans d\'expérience. Spécialisé en architecture cloud et DevOps.',
     social: {
       linkedin: 'https://www.linkedin.com/in/sacr%C3%A9-joseph-mbiku-2ab6071b4'
-    },
+    }
   },
   {
     name: 'Jeereq Minganda',
     role: 'Lead Développeur & co-fondateur',
     image: jeereq,
-    bio: 'Architecte logiciel chevronné avec une expertise en React, Node.js et autre systeme avec plus de 3 ans d\'expérience',
+    bio: 'Architecte logiciel chevronné avec une expertise en React ,React native , Node.js et autre systeme avec plus de 3 ans d\'expérience',
     social: {
       linkedin: 'https://www.linkedin.com/in/jeereq'
-    },
+    }
   },
   // {
   //   name: 'Jonas ',
