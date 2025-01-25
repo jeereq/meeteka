@@ -63,59 +63,59 @@ const pricingPlans = [
   }
 ];
 
-const services = [
-  {
-    category: 'Services Administratifs',
-    items: [
-      {
-        name: 'Simplification Administrative',
-        price: '150.000 FC',
-        duration: '/mois',
-        description: 'Optimisation des processus et gestion documentaire'
-      },
-      {
-        name: 'Conformité Réglementaire',
-        price: '100.000 FC',
-        duration: '/mois',
-        description: 'Mise en conformité et veille réglementaire'
-      }
-    ]
-  },
-  {
-    category: 'Services Financiers',
-    items: [
-      {
-        name: 'Accompagnement Financier',
-        price: '200.000 FC',
-        duration: '/mois',
-        description: 'Stratégie financière et recherche de financements'
-      },
-      {
-        name: 'Audit Financier',
-        price: '500.000 FC',
-        duration: '/audit',
-        description: 'Analyse approfondie de la situation financière'
-      }
-    ]
-  },
-  {
-    category: 'Formation & Développement',
-    items: [
-      {
-        name: 'Formation Leadership',
-        price: '75.000 FC',
-        duration: '/personne',
-        description: 'Programme de développement des compétences managériales'
-      },
-      {
-        name: 'Coaching Personnalisé',
-        price: '100.000 FC',
-        duration: '/session',
-        description: 'Accompagnement individuel pour dirigeants'
-      }
-    ]
-  }
-];
+// const services = [
+//   {
+//     category: 'Services Administratifs',
+//     items: [
+//       {
+//         name: 'Simplification Administrative',
+//         price: '150.000 FC',
+//         duration: '/mois',
+//         description: 'Optimisation des processus et gestion documentaire'
+//       },
+//       {
+//         name: 'Conformité Réglementaire',
+//         price: '100.000 FC',
+//         duration: '/mois',
+//         description: 'Mise en conformité et veille réglementaire'
+//       }
+//     ]
+//   },
+//   {
+//     category: 'Services Financiers',
+//     items: [
+//       {
+//         name: 'Accompagnement Financier',
+//         price: '200.000 FC',
+//         duration: '/mois',
+//         description: 'Stratégie financière et recherche de financements'
+//       },
+//       {
+//         name: 'Audit Financier',
+//         price: '500.000 FC',
+//         duration: '/audit',
+//         description: 'Analyse approfondie de la situation financière'
+//       }
+//     ]
+//   },
+//   {
+//     category: 'Formation & Développement',
+//     items: [
+//       {
+//         name: 'Formation Leadership',
+//         price: '75.000 FC',
+//         duration: '/personne',
+//         description: 'Programme de développement des compétences managériales'
+//       },
+//       {
+//         name: 'Coaching Personnalisé',
+//         price: '100.000 FC',
+//         duration: '/session',
+//         description: 'Accompagnement individuel pour dirigeants'
+//       }
+//     ]
+//   }
+// ];
 
 export function PricingPage() {
   const { t } = useLanguage()
@@ -202,7 +202,8 @@ export function PricingPage() {
       </section>
 
       {/* Individual Services */}
-      <section className="py-16 bg-gray-50">
+
+      {/* <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold mb-12">Services à la carte</h2>
 
@@ -238,7 +239,7 @@ export function PricingPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* FAQ Section */}
       <section className="py-16">
