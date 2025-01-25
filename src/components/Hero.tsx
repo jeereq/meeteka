@@ -8,7 +8,7 @@ export function Hero() {
       <img
         src="/bg.jpeg"
         alt="Entrepreneurs Congolais en Action"
-        className="w-full h-full object-cover object-left lg:object-center lg:object-fill  xl:object-contain mx-auto block"
+        className="w-full h-full object-cover lg:object-left lg:object-center lg:object-fill  xl:object-contain mx-auto block"
       />
     </div>
     <div className="relative w-10/12 z-20 px-4 gap-8 lg:gap-12 xl:gap-16 sm:px-6 lg:px-8 pt-5 mx-auto">

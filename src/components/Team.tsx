@@ -8,7 +8,7 @@ import { useLanguage } from '../context/LanguageContext';
 const team = [
   {
     name: 'Blaise Mposo',
-    role: 'Directeur Général & co-fondateur',
+    role: 'Directeur Général & Fondateur',
     image: blaise,
     bio: 'Leader visionnaire avec une expertise dans la transformation digitale des entreprises congolaises.',
     social: {
@@ -47,11 +47,14 @@ const team = [
 export function Team() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(3);
+  const [sizePage, setSizePage] = useState(0);
 
   const { t } = useLanguage()
 
   useEffect(() => {
     const handleResize = () => {
+      console.log("Inner size", window.innerWidth)
+      setSizePage(window.innerWidth)
       if (window.innerWidth < 640) {
         setItemsPerPage(1);
       } else if (window.innerWidth < 1024) {
@@ -62,8 +65,8 @@ export function Team() {
     };
 
     handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    document.addEventListener('resize', handleResize);
+    return () => document.removeEventListener('resize', handleResize);
   }, []);
 
   useEffect(() => {
@@ -87,7 +90,7 @@ export function Team() {
       (prevIndex + 1) % (team.length - itemsPerPage + 1)
     );
   };
-
+  console.log(itemsPerPage, sizePage)
   return (
     <section className="section-padding overflow-hidden" id="team">
       <div className="mb-8 sm:mb-12">
@@ -105,18 +108,18 @@ export function Team() {
         </p>
       </div>
 
-      <div className="relative">
+      <div className=" relative">
         {/* Navigation Buttons */}
         <button
           onClick={handlePrev}
-          className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 p-2 sm:p-3 bg-white rounded-full shadow-lg hover:bg-highlight hover:text-white transition-colors duration-300"
+          className="absolute lg:block hidden left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 p-2 sm:p-3 bg-white rounded-full shadow-lg hover:bg-highlight hover:text-white transition-colors duration-300"
           aria-label="Previous"
         >
           <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
         </button>
         <button
           onClick={handleNext}
-          className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-10 p-2 sm:p-3 bg-white rounded-full shadow-lg hover:bg-highlight hover:text-white transition-colors duration-300"
+          className="absolute lg:block hidden right-2 sm:right-4 top-1/2 -translate-y-1/2 z-10 p-2 sm:p-3 bg-white rounded-full shadow-lg hover:bg-highlight hover:text-white transition-colors duration-300"
           aria-label="Next"
         >
           <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
@@ -124,13 +127,13 @@ export function Team() {
 
         {/* Team Cards Container */}
         <div
-          className="flex transition-transform duration-500 ease-in-out px-2 sm:px-0"
-          style={{ transform: `translateX(-${currentIndex * (100 / itemsPerPage)}%)` }}
+          className={`block lg:flex lg:w-full w-[w-[${sizePage * itemsPerPage}px] transition-transform duration-500 ease-in-out lg:px-2 sm:px-0`}
+          style={{ transform: `lg:translateX(-${currentIndex * (100 / itemsPerPage)}%)` }}
         >
           {team.map((member, index) => (
             <div
               key={index}
-              className={`w-full min-w-[calc(100%/${itemsPerPage})] px-2 sm:px-4`}
+              className={`w-full lg:w-[${sizePage / itemsPerPage}px] lg:mb-0 mb-4 px-2 sm:px-4`}
             >
               <div className="group bg-white border-2 border-black rounded-2xl sm:rounded-3xl overflow-hidden hover:bg-highlight transition-colors duration-300 h-full">
                 <div className="relative aspect-square overflow-hidden">
@@ -168,7 +171,7 @@ export function Team() {
         </div>
 
         {/* Pagination Dots */}
-        <div className="flex justify-center gap-1.5 sm:gap-2 mt-6 sm:mt-8">
+        <div className="hidden lg:flex justify-center gap-1.5 sm:gap-2 mt-6 sm:mt-8">
           {Array.from({ length: team.length - itemsPerPage + 1 }).map((_, index) => (
             <button
               key={index}
