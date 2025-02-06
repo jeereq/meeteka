@@ -28,7 +28,7 @@ export function Contact() {
               </div>
               <div>
                 <p className="text-gray-400">{t("contact.email")}</p>
-                <a href="mailto:contact@meeteka.com" className="hover:text-highlight">contact@meeteka.com</a>
+                <a href="mailto:blaise.tshika24@odyseecretaionrdc.com" className="hover:text-highlight">contact@meeteka.com</a>
               </div>
             </div>
 

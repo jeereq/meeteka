@@ -35,7 +35,7 @@ export function Footer() {
             </h3>
             <ul className="space-y-3 text-gray-400">
               <li>
-                <a href="mailto:contact@meeteka.com">contact@meeteka.com</a>
+                <a href="mailto:blaise.tshika24@odyseecretaionrdc.com">contact@meeteka.com</a>
               </li>
               <li>
 
@@ -50,16 +50,16 @@ export function Footer() {
               {t("footer.section.follow")}
             </h3>
             <div className="flex space-x-4">
-              <a href="#" className="p-2 bg-white/10 rounded-full hover:bg-highlight hover:text-black transition-colors">
+              <a target='_blank' href="https://www.facebook.com/profile.php?id=61564372707908" className="p-2 bg-white/10 rounded-full hover:bg-highlight hover:text-black transition-colors">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="p-2 bg-white/10 rounded-full hover:bg-highlight hover:text-black transition-colors">
+              {/* <a href="#" className="p-2 bg-white/10 rounded-full hover:bg-highlight hover:text-black transition-colors">
                 <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="p-2 bg-white/10 rounded-full hover:bg-highlight hover:text-black transition-colors">
+              </a> */}
+              <a target='_blank' href="https://www.instagram.com/meeteka1" className="p-2 bg-white/10 rounded-full hover:bg-highlight hover:text-black transition-colors">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="p-2 bg-white/10 rounded-full hover:bg-highlight hover:text-black transition-colors">
+              <a target='_blank' href="https://www.linkedin.com/in/meet-eka-64941733a" className="p-2 bg-white/10 rounded-full hover:bg-highlight hover:text-black transition-colors">
                 <Linkedin className="w-5 h-5" />
               </a>
             </div>
