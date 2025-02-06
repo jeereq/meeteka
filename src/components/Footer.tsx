@@ -1,4 +1,4 @@
-import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
+import { Facebook, Instagram, Linkedin } from 'lucide-react';
 import logo from "../../assets/icon.white.png"
 import { useLanguage } from '../context/LanguageContext';
 import { Link } from 'react-router-dom';
