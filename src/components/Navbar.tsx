@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
-import { LanguageSwitcher } from './LanguageSwitcher';
+// import { LanguageSwitcher } from './LanguageSwitcher';
 import logo from "../../assets/icon.png"
 
 const navigation = [
@@ -87,9 +87,9 @@ export function Navbar() {
                 {t(item.name)}
               </Link>
             ))}
-            <div className="border-l border-gray-200 pl-6 xl:pl-8">
+            {/* <div className="border-l border-gray-200 pl-6 xl:pl-8">
               <LanguageSwitcher />
-            </div>
+            </div> */}
           </div>
 
           {/* Mobile Menu Button */}
@@ -126,9 +126,9 @@ export function Navbar() {
                   {t(item.name)}
                 </Link>
               ))}
-              <div className="mt-4 p-4 border-t border-gray-100">
+              {/* <div className="mt-4 p-4 border-t border-gray-100">
                 <LanguageSwitcher />
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
