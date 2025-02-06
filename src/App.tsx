@@ -7,7 +7,7 @@ import { Diffusion } from './components/Diffusion';
 import { DiffusionsPage } from './pages/DiffusionsPage';
 import { DiffusionPost } from './pages/DiffusionPost';
 import { Team } from './components/Team';
-import { Testimonials } from './components/Testimonials';
+// import { Testimonials } from './components/Testimonials';
 import { Contact } from './components/Contact';
 import { PartnerDetails } from './pages/PartnerDetails';
 import { SuccessStoriesPage } from './pages/SuccessStoriesPage';
@@ -31,7 +31,7 @@ export default function App() {
               {/* <CaseStudies /> */}
               <Diffusion />
               <Team />
-              <Testimonials />
+              {/* <Testimonials /> */}
               <Contact />
             </>
           } />
