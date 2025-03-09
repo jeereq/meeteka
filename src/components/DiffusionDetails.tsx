@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Calendar, Clock, User, Facebook, Twitter, Linkedin, Lock, CreditCard, ExternalLink } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock, User, Facebook, Twitter, Linkedin, Lock, CreditCard, Newspaper } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 interface Service {
@@ -10,22 +10,6 @@ interface Service {
   link: string;
 }
 
-interface Post {
-  title: string;
-  content: string;
-  image: string;
-  author: string;
-  date: string;
-  readTime: string;
-  category: string;
-  isPremium: boolean;
-  price?: number;
-  relatedServices?: Service[];
-}
-
-interface DiffusionDetailsProps {
-  post: Post;
-}
 
 const defaultServices: Service[] = [
   {
@@ -53,10 +37,19 @@ const formatPrice = (price: number = 0) => {
   }).format(price * 2500);
 };
 
-export function DiffusionDetails({ post }: DiffusionDetailsProps) {
+export function DiffusionDetails({ post }: any) {
   const navigate = useNavigate();
+  const [type] = useState<any>({
+    "broadcast": "Diffusions",
+    "blog": "Blog"
+  });
+  const [level] = useState<any>({
+    "beginner": "Débutant",
+    "intermediate": "Intermediaire",
+    "advanced": "Avancé"
+  });
   const [showPayment, setShowPayment] = useState(post.isPremium);
-  const services = post.relatedServices || defaultServices;
+  const services = post.sectors || defaultServices;
 
   const handlePayment = (e: React.FormEvent) => {
     e.preventDefault();
@@ -141,7 +134,7 @@ export function DiffusionDetails({ post }: DiffusionDetailsProps) {
         <article>
           <header className="mb-8">
             <img
-              src={post.image}
+              src={post.cover}
               alt={post.title}
               className="w-full h-[300px] sm:h-[400px] object-cover rounded-3xl mb-8"
             />
@@ -149,7 +142,7 @@ export function DiffusionDetails({ post }: DiffusionDetailsProps) {
             <div className="flex flex-wrap items-center gap-4 mb-4 text-sm text-gray-600">
               <div className="flex items-center gap-1">
                 <Calendar className="w-4 h-4" />
-                <span>{new Date(post.date).toLocaleDateString()}</span>
+                <span>{new Date(post.createdAt).toLocaleDateString()}</span>
               </div>
               <div className="flex items-center gap-1">
                 <Clock className="w-4 h-4" />
@@ -157,11 +150,12 @@ export function DiffusionDetails({ post }: DiffusionDetailsProps) {
               </div>
               <div className="flex items-center gap-1">
                 <User className="w-4 h-4" />
-                <span>{post.author}</span>
+                <span>{post?.owner?.username}</span>
               </div>
-              <span className="px-3 py-1 bg-black text-white rounded-full text-sm">
-                {post.category}
-              </span>
+              <div className="flex items-center gap-1">
+                <Newspaper className="w-4 h-4" />
+                <span>{type[post.type]}</span>
+              </div>
             </div>
 
             <h1 className="text-3xl sm:text-4xl font-bold mb-6">{post.title}</h1>
@@ -169,25 +163,24 @@ export function DiffusionDetails({ post }: DiffusionDetailsProps) {
 
           <div
             className="prose prose-lg max-w-none mb-12"
-            dangerouslySetInnerHTML={{ __html: post.content }}
+            dangerouslySetInnerHTML={{ __html: post.description }}
           />
 
           {/* Related Services */}
-          <section className="mt-16 mb-12 bg-gray-50 rounded-3xl p-8 border-2 border-black/10">
+          {services.length != 0 && <section className="mt-16 mb-12 bg-gray-50 rounded-3xl p-8 border-2 border-black/10">
             <h2 className="text-2xl font-bold mb-6">Services Recommandés</h2>
             <div className="grid sm:grid-cols-2 gap-6">
-              {services.map((service, index) => (
-                <a
+              {services.map((service: any, index: number) => (
+                <div
                   key={index}
-                  href={service.link}
                   className="group bg-white p-6 rounded-2xl border-2 border-black/10 hover:border-highlight transition-all duration-300 hover:shadow-xl"
                 >
                   <div className="flex items-start gap-4">
-                    <img
-                      src={service.logo}
-                      alt={service.company}
+                    {service.cover && <img
+                      src={service.cover}
+                      alt={service.name}
                       className="w-16 h-16 rounded-xl object-cover"
-                    />
+                    />}
                     <div>
                       <h3 className="text-lg font-bold mb-2 group-hover:text-highlight transition-colors">
                         {service.name}
@@ -195,29 +188,26 @@ export function DiffusionDetails({ post }: DiffusionDetailsProps) {
                       <p className="text-sm text-gray-600 mb-2">
                         {service.description}
                       </p>
-                      <div className="flex items-center gap-2 text-sm text-gray-500">
-                        <span>{service.company}</span>
-                        <ExternalLink className="w-4 h-4 group-hover:text-highlight transition-colors" />
-                      </div>
+
                     </div>
                   </div>
-                </a>
+                </div>
               ))}
             </div>
-          </section>
+          </section>}
 
           {/* Share Section */}
           <footer className="border-t border-gray-200 pt-8">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div className="flex items-center gap-4">
                 <img
-                  src={`https://images.unsplash.com/photo-${post.image.split('photo-')[1]}`}
-                  alt={post.author}
+                  src={post.cover}
+                  alt={post.owner.username}
                   className="w-12 h-12 rounded-full object-cover"
                 />
                 <div>
-                  <p className="font-bold">{post.author}</p>
-                  <p className="text-sm text-gray-600">{post.category}</p>
+                  <p className="font-bold">{post.owner.username}</p>
+                  <p className="text-sm text-gray-600">{level[post.level]}</p>
                 </div>
               </div>
 

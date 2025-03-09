@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { DiffusionDetails } from '../components/DiffusionDetails';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { useFetchData } from '../../hooks/useFetchData';
 
 const diffusions = {
   'building-strong-digital-presence': {
@@ -213,9 +214,19 @@ const diffusions = {
 
 export function DiffusionPost() {
   const { slug } = useParams();
-  const post = diffusions["building-strong-digital-presence"];
+  const { fetch: fetchDiffusions, loading: isLoading } = useFetchData({ uri: "infos-user/user-diffusion/get" })
+  const [post, setPost] = useState<any>(null)
 
-  useEffect(function () { }, [])
+  useEffect(function () {
+    (async function () {
+      const { data } = await fetchDiffusions({ id: slug }, "POST")
+      if (data) {
+        const [post] = data.data
+        console.log(post)
+        setPost(post)
+      }
+    })()
+  }, [])
 
   if (!post) {
     return <div>Diffusion non trouvée</div>;

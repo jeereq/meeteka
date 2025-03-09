@@ -8,6 +8,11 @@ export default function CardDiffusion({ ...post }: any) {
         "broadcast": "Diffusions",
         "blog": "Blog"
     });
+    const [level] = useState<any>({
+        "beginner": "Débutant",
+        "intermediate": "Intermediaire",
+        "advanced": "Avancé"
+    });
     return <Link
         key={post.id}
         to={`/diffusions/${post.id}?id=${parseName(post.title)}`}
@@ -40,6 +45,9 @@ export default function CardDiffusion({ ...post }: any) {
                         {item?.name}
                     </span>
                 })}
+                <span className="px-3 py-1 bg-black/5 rounded-full text-sm">
+                    {level[post?.level]}
+                </span>
             </div>
             <h3 className="text-lg sm:text-xl font-bold mb-3 group-hover:text-highlight transition-colors line-clamp-2">
                 {post.title}
