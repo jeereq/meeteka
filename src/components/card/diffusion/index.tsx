@@ -1,4 +1,4 @@
-import { ArrowUpRight, Calendar, Clock, Lock } from "lucide-react";
+import { ArrowUpRight, Calendar, Clock, Lock, Newspaper } from "lucide-react";
 import { formatPrice, parseName } from "../../../../config";
 import { Link } from 'react-router-dom';
 import { useState } from "react";
@@ -19,14 +19,14 @@ export default function CardDiffusion({ ...post }: any) {
                 alt={post.title}
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
-            {post.price != 0 && (
+            {post.isPremium && (
                 <div className="absolute top-4 right-4 flex items-center gap-2 px-3 py-1 bg-black text-white rounded-full text-sm">
                     <Lock className="w-4 h-4" />
                     <span>Premium</span>
                 </div>
             )}
-            <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1 bg-black text-white rounded-full text-sm">
-                <Lock className="w-4 h-4" />
+            <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1 bg-white text-black rounded-full text-sm">
+                <Newspaper className="w-4 h-4" />
                 <span>{type[post.type]}</span>
             </div>
         </div>
@@ -44,9 +44,7 @@ export default function CardDiffusion({ ...post }: any) {
             <h3 className="text-lg sm:text-xl font-bold mb-3 group-hover:text-highlight transition-colors line-clamp-2">
                 {post.title}
             </h3>
-            <p className="text-sm sm:text-base text-gray-600 mb-4 line-clamp-2">
-                {post.excerpt}
-            </p>
+
             <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                     <img
@@ -65,7 +63,7 @@ export default function CardDiffusion({ ...post }: any) {
                     </div>
                 </div>
 
-                {post.price != 0 && (
+                {post.isPremium && (
                     <span className="text-highlight font-bold text-sm sm:text-base">
                         {formatPrice(post.price)}
                     </span>
