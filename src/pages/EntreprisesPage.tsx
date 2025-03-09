@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowUpRight, Search, Filter, X } from 'lucide-react';
+import { Search, Filter, X } from 'lucide-react';
 // import { LoadingSpinner } from '../components/LoadingSpinner';
 import { LoadingCard } from '../components/LoadingCard';
 import { EmptyState } from '../components/EmptyState';
 import { PageTransition } from '../components/PageTransition';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
+import { useFetchData } from '../../hooks/useFetchData';
+import CardEntreprise from '../components/card/entreprise';
 
 const categories = ['Tous', 'Conseil', 'Formation', 'Technologie', 'Marketing'];
 const types = ['Tous', 'Startup', 'PME', 'Grande Entreprise', 'ONG'];
@@ -137,20 +138,24 @@ const FilterSection: React.FC<{
 );
 
 export function EntreprisesPage() {
+  const [entreprises, setEntreprises] = useState<any[]>([])
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('Tous');
   const [selectedType, setSelectedType] = useState('Tous');
   const [selectedSpecialty, setSelectedSpecialty] = useState('Tous');
-  const [isLoading, setIsLoading] = useState(true);
   const [showFilters, setShowFilters] = useState(false);
+  const { fetch: fetchEntreprises, loading: isLoading } = useFetchData({ uri: "infos-user/entreprise-profile/get" })
+
   const { t } = useLanguage()
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1500);
-
-    return () => clearTimeout(timer);
+    (async function () {
+      const { data } = await fetchEntreprises({}, 'POST')
+      if (data) {
+        console.log(data)
+        setEntreprises(data?.data)
+      }
+    })()
   }, []);
 
   const filteredPartners = partners.filter(partner => {
@@ -270,7 +275,6 @@ export function EntreprisesPage() {
                   </motion.div>
                 )}
               </AnimatePresence>
-
               {/* Active Filters */}
               <AnimatePresence>
                 {hasActiveFilters && (
@@ -331,93 +335,8 @@ export function EntreprisesPage() {
             />
           ) : (
             <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
-              {filteredPartners.map((partner, index) => (
-                <Link
-                  key={index}
-                  to={`/entreprises/${partner.slug}`}
-                  className="group bg-white rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-black/5 hover:border-highlight transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl"
-                >
-                  <div className="p-4 sm:p-6 lg:p-8">
-                    <div className="flex items-start gap-4 sm:gap-6 mb-6">
-                      <img
-                        src={partner.logo}
-                        alt={partner.name}
-                        className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl object-cover"
-                      />
-                      <div>
-                        <h2 className="text-xl sm:text-2xl font-bold mb-2 group-hover:text-highlight transition-colors">
-                          {partner.name}
-                        </h2>
-                        <div className="flex flex-wrap gap-2">
-                          <span className="px-3 py-1 bg-black/5 rounded-full text-sm">
-                            {partner.category}
-                          </span>
-                          <span className="px-3 py-1 bg-black/5 rounded-full text-sm">
-                            {partner.type}
-                          </span>
-                          <span className="px-3 py-1 bg-black/5 rounded-full text-sm">
-                            {partner.specialty}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <p className="text-sm sm:text-base text-gray-600 mb-6">
-                      {partner.description}
-                    </p>
-
-                    <div className="flex flex-wrap gap-2 mb-6">
-                      {partner.expertise.map((exp, i) => (
-                        <span
-                          key={i}
-                          className="px-3 py-1 bg-black/5 rounded-full text-sm"
-                        >
-                          {exp}
-                        </span>
-                      ))}
-                    </div>
-
-                    <div className="grid grid-cols-3 gap-3 sm:gap-4 mb-6">
-                      {partner.stats.map((stat, i) => (
-                        <div
-                          key={i}
-                          className="bg-gray-50 rounded-xl p-3 sm:p-4 group-hover:bg-highlight/10 transition-colors"
-                        >
-                          <p className="text-lg sm:text-2xl font-bold group-hover:text-highlight">
-                            {stat.value}
-                          </p>
-                          <p className="text-xs sm:text-sm text-gray-500">{stat.label}</p>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div className="space-y-3 sm:space-y-4">
-                      {partner.services.map((service, i) => (
-                        <div
-                          key={i}
-                          className="flex justify-between items-center p-3 sm:p-4 bg-gray-50 rounded-xl"
-                        >
-                          <div>
-                            <h3 className="text-sm sm:text-base font-medium mb-1">{service.name}</h3>
-                            <p className="text-xs sm:text-sm text-gray-500">
-                              {service.description}
-                            </p>
-                          </div>
-                          <span className="text-highlight font-bold text-sm sm:text-base whitespace-nowrap ml-4">
-                            {service.price}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-
-                    <div className="mt-6 flex justify-end">
-                      <span className="inline-flex items-center gap-2 text-black group-hover:text-highlight transition-colors">
-                        Voir les détails
-                        <ArrowUpRight className="w-5 h-5 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                      </span>
-                    </div>
-                  </div>
-                </Link>
+              {entreprises.map((partner: any, index: number) => (
+                <CardEntreprise {...partner} key={index} />
               ))}
             </div>
           )}

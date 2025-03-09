@@ -1,5 +1,5 @@
-export const API = "http://localhost:1338"
-
+export const API =  "https://api.meeteka.com"
+// export const API = "http://localhost:1338"
 export function parseName(name: any) {
     return encodeURI(`${name?.trim()?.replaceAll(" ", "-")?.toLowerCase()}`);
 }
