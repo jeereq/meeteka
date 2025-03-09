@@ -80,7 +80,7 @@ const partners = {
 
 export function PartnerDetails() {
   const { slug } = useParams<{ slug: string }>();
-  const partner = partners[slug as keyof typeof partners];
+  const partner = partners["meeteka-consulting"];
 
   if (!partner) {
     return <div>Partenaire non trouvé</div>;
