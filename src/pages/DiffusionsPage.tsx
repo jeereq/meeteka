@@ -1,70 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowUpRight, Lock, Search, Filter, X, Calendar, Clock } from 'lucide-react';
-// import { LoadingSpinner } from '../components/LoadingSpinner';
+import { Search, Filter, X } from 'lucide-react';
+import { useFetchData } from "../../hooks/useFetchData"
 import { LoadingCard } from '../components/LoadingCard';
 import { EmptyState } from '../components/EmptyState';
 import { PageTransition } from '../components/PageTransition';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
-
-const formatPrice = (price: number) => {
-  return new Intl.NumberFormat('fr-CD', {
-    style: 'currency',
-    currency: 'CDF',
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0
-  }).format(price * 2500);
-};
-
-const categories = ['Tous', 'Développement', 'Financement', 'Leadership', 'Marketing'];
-const types = ['Tous', 'Article', 'Guide', 'Étude de cas', 'Interview'];
-const levels = ['Tous', 'Débutant', 'Intermédiaire', 'Avancé'];
-
-const diffusions = [
-  {
-    slug: 'building-strong-digital-presence',
-    title: 'Stratégies de Croissance pour Startups',
-    excerpt: 'Guide complet pour développer votre startup de manière durable et efficace.',
-    image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80',
-    author: 'Marcus Johnson',
-    date: '2024-03-15',
-    readTime: '5 min',
-    category: 'Développement',
-    type: 'Guide',
-    level: 'Intermédiaire',
-    isPremium: true,
-    price: 29.99
-  },
-  {
-    slug: 'leveraging-social-media',
-    title: 'Financement et Levée de Fonds',
-    excerpt: 'Les meilleures stratégies pour sécuriser des investissements et développer votre entreprise.',
-    image: 'https://images.unsplash.com/photo-1542744095-291d1f67b221?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80',
-    author: 'Amara Williams',
-    date: '2024-03-10',
-    readTime: '4 min',
-    category: 'Financement',
-    type: 'Article',
-    level: 'Avancé',
-    isPremium: true,
-    price: 19.99
-  },
-  {
-    slug: 'power-of-storytelling',
-    title: 'Leadership et Gestion d\'Équipe',
-    excerpt: 'Construisez et dirigez une équipe performante pour atteindre vos objectifs d\'entreprise.',
-    image: 'https://images.unsplash.com/photo-1542744173-05336fcc7ad4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80',
-    author: 'David Thompson',
-    date: '2024-03-05',
-    readTime: '6 min',
-    category: 'Leadership',
-    type: 'Étude de cas',
-    level: 'Débutant',
-    isPremium: false,
-    price: 0
-  }
-];
+import CardDiffusion from '../components/card/diffusion';
+import { LEVELS, TYPES } from '../../config';
 
 interface FilterButtonProps {
   label: string;
@@ -87,7 +30,7 @@ const FilterButton: React.FC<FilterButtonProps> = ({ label, isActive, onClick, c
 
 const FilterSection: React.FC<{
   title: string;
-  options: string[];
+  options: any[];
   selected: string;
   onChange: (value: string) => void;
 }> = ({ title, options, selected, onChange }) => (
@@ -96,10 +39,10 @@ const FilterSection: React.FC<{
     <div className="flex flex-wrap gap-2">
       {options.map((option) => (
         <FilterButton
-          key={option}
-          label={option}
-          isActive={selected === option}
-          onClick={() => onChange(option)}
+          key={option?.value}
+          label={option?.label}
+          isActive={selected === option?.value}
+          onClick={() => onChange(option?.value)}
         />
       ))}
     </div>
@@ -108,35 +51,36 @@ const FilterSection: React.FC<{
 
 export function DiffusionsPage() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('Tous');
+  const [diffusions, setDiffussions] = useState<any[]>([])
   const [selectedType, setSelectedType] = useState('Tous');
   const [selectedLevel, setSelectedLevel] = useState('Tous');
-  const [isLoading, setIsLoading] = useState(true);
   const [showFilters, setShowFilters] = useState(false);
   const { t } = useLanguage()
+  const { fetch: fetchDiffusions, loading: isLoading } = useFetchData({ uri: "infos-user/user-diffusion/get" })
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1500);
+    (async function () {
+      const { data } = await fetchDiffusions({
+        type: "broadcast"
+      }, "POST")
+      if (data?.data) {
+        setDiffussions(data.data)
+      }
+    })()
 
-    return () => clearTimeout(timer);
   }, []);
 
   const filteredDiffusions = diffusions.filter(post => {
-    const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = selectedCategory === 'Tous' || post.category === selectedCategory;
+    const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase())
     const matchesType = selectedType === 'Tous' || post.type === selectedType;
     const matchesLevel = selectedLevel === 'Tous' || post.level === selectedLevel;
-    return matchesSearch && matchesCategory && matchesType && matchesLevel;
+    return matchesSearch && matchesType && matchesLevel;
   });
 
-  const hasActiveFilters = selectedCategory !== 'Tous' || selectedType !== 'Tous' || selectedLevel !== 'Tous';
+  const hasActiveFilters = selectedType !== 'Tous' || selectedLevel !== 'Tous';
 
   const resetFilters = () => {
     setSearchTerm('');
-    setSelectedCategory('Tous');
     setSelectedType('Tous');
     setSelectedLevel('Tous');
   };
@@ -220,20 +164,14 @@ export function DiffusionsPage() {
                   >
                     <div className="bg-gray-50 rounded-xl p-6 space-y-6 border-2 border-black/5">
                       <FilterSection
-                        title="Catégorie"
-                        options={categories}
-                        selected={selectedCategory}
-                        onChange={setSelectedCategory}
-                      />
-                      <FilterSection
                         title="Type de contenu"
-                        options={types}
+                        options={TYPES}
                         selected={selectedType}
                         onChange={setSelectedType}
                       />
                       <FilterSection
                         title="Niveau"
-                        options={levels}
+                        options={LEVELS}
                         selected={selectedLevel}
                         onChange={setSelectedLevel}
                       />
@@ -252,12 +190,7 @@ export function DiffusionsPage() {
                     className="flex flex-wrap items-center gap-2"
                   >
                     <span className="text-sm text-gray-500">Filtres actifs:</span>
-                    {selectedCategory !== 'Tous' && (
-                      <ActiveFilterPill
-                        label={selectedCategory}
-                        onRemove={() => setSelectedCategory('Tous')}
-                      />
-                    )}
+
                     {selectedType !== 'Tous' && (
                       <ActiveFilterPill
                         label={selectedType}
@@ -303,78 +236,7 @@ export function DiffusionsPage() {
           ) : (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {filteredDiffusions.map((post, index) => (
-                <Link
-                  key={index}
-                  to={`/diffusion/${post.slug}`}
-                  className="group bg-white rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-black/5 hover:border-highlight transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl"
-                >
-                  <div className="relative aspect-[16/9] overflow-hidden">
-                    <img
-                      src={post.image}
-                      alt={post.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    {post.isPremium && (
-                      <div className="absolute top-4 right-4 flex items-center gap-2 px-3 py-1 bg-black text-white rounded-full text-sm">
-                        <Lock className="w-4 h-4" />
-                        <span>Premium</span>
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="p-4 sm:p-6">
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      <span className="px-3 py-1 bg-black/5 rounded-full text-sm">
-                        {post.category}
-                      </span>
-                      <span className="px-3 py-1 bg-black/5 rounded-full text-sm">
-                        {post.type}
-                      </span>
-                      <span className="px-3 py-1 bg-black/5 rounded-full text-sm">
-                        {post.level}
-                      </span>
-                    </div>
-
-                    <h3 className="text-lg sm:text-xl font-bold mb-3 group-hover:text-highlight transition-colors line-clamp-2">
-                      {post.title}
-                    </h3>
-                    <p className="text-sm sm:text-base text-gray-600 mb-4 line-clamp-2">
-                      {post.excerpt}
-                    </p>
-
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <img
-                          src={`https://images.unsplash.com/photo-${post.image.split('photo-')[1].split('?')[0]}?auto=format&fit=crop&w=32&h=32`}
-                          alt={post.author}
-                          className="w-8 h-8 rounded-full object-cover"
-                        />
-                        <div className="text-sm">
-                          <p className="font-medium">{post.author}</p>
-                          <div className="flex items-center gap-2 text-gray-500">
-                            <Calendar className="w-3 h-3" />
-                            <span>{new Date(post.date).toLocaleDateString()}</span>
-                            <Clock className="w-3 h-3" />
-                            <span>{post.readTime}</span>
-                          </div>
-                        </div>
-                      </div>
-
-                      {post.isPremium && (
-                        <span className="text-highlight font-bold text-sm sm:text-base">
-                          {formatPrice(post.price)}
-                        </span>
-                      )}
-                    </div>
-
-                    <div className="mt-4 sm:mt-6 flex justify-end">
-                      <span className="inline-flex items-center gap-2 text-black group-hover:text-highlight transition-colors">
-                        Lire plus
-                        <ArrowUpRight className="w-5 h-5 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                      </span>
-                    </div>
-                  </div>
-                </Link>
+                <CardDiffusion {...post} key={index} />
               ))}
             </div>
           )}
