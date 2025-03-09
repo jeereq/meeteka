@@ -48,8 +48,8 @@ export function DiffusionDetails({ post }: any) {
     "intermediate": "Intermediaire",
     "advanced": "Avancé"
   });
-  const [showPayment, setShowPayment] = useState(post.isPremium);
-  const services = post.sectors || defaultServices;
+  const [showPayment, setShowPayment] = useState(post?.isPremium);
+  const services = post?.sectors || defaultServices;
 
   const handlePayment = (e: React.FormEvent) => {
     e.preventDefault();
@@ -134,19 +134,19 @@ export function DiffusionDetails({ post }: any) {
         <article>
           <header className="mb-8">
             <img
-              src={post.cover}
-              alt={post.title}
+              src={post?.cover}
+              alt={post?.title}
               className="w-full h-[300px] sm:h-[400px] object-cover rounded-3xl mb-8"
             />
 
             <div className="flex flex-wrap items-center gap-4 mb-4 text-sm text-gray-600">
               <div className="flex items-center gap-1">
                 <Calendar className="w-4 h-4" />
-                <span>{new Date(post.createdAt).toLocaleDateString()}</span>
+                <span>{new Date(post?.createdAt).toLocaleDateString()}</span>
               </div>
               <div className="flex items-center gap-1">
                 <Clock className="w-4 h-4" />
-                <span>{post.readTime}</span>
+                <span>{post?.readTime}</span>
               </div>
               <div className="flex items-center gap-1">
                 <User className="w-4 h-4" />
@@ -154,16 +154,16 @@ export function DiffusionDetails({ post }: any) {
               </div>
               <div className="flex items-center gap-1">
                 <Newspaper className="w-4 h-4" />
-                <span>{type[post.type]}</span>
+                <span>{type[post?.type]}</span>
               </div>
             </div>
 
-            <h1 className="text-3xl sm:text-4xl font-bold mb-6">{post.title}</h1>
+            <h1 className="text-3xl sm:text-4xl font-bold mb-6">{post?.title}</h1>
           </header>
 
           <div
             className="prose prose-lg max-w-none mb-12"
-            dangerouslySetInnerHTML={{ __html: post.description }}
+            dangerouslySetInnerHTML={{ __html: post?.description }}
           />
 
           {/* Related Services */}
@@ -201,13 +201,13 @@ export function DiffusionDetails({ post }: any) {
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div className="flex items-center gap-4">
                 <img
-                  src={post.cover}
-                  alt={post.owner.username}
+                  src={post?.cover}
+                  alt={post?.owner.username}
                   className="w-12 h-12 rounded-full object-cover"
                 />
                 <div>
-                  <p className="font-bold">{post.owner.username}</p>
-                  <p className="text-sm text-gray-600">{level[post.level]}</p>
+                  <p className="font-bold">{post?.owner.username}</p>
+                  <p className="text-sm text-gray-600">{level[post?.level]}</p>
                 </div>
               </div>
 
