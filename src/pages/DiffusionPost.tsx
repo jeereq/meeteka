@@ -212,7 +212,7 @@ const diffusions = {
 
 export function DiffusionPost() {
   const { slug } = useParams();
-  const post = diffusions[slug as keyof typeof diffusions];
+  const post = diffusions["building-strong-digital-presence"];
 
   if (!post) {
     return <div>Diffusion non trouvée</div>;

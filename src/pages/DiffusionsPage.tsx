@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowUpRight, Lock, Search, Filter, X, Calendar, Clock } from 'lucide-react';
 // import { LoadingSpinner } from '../components/LoadingSpinner';
+import { useFetchData } from "../../hooks/useFetchData"
 import { LoadingCard } from '../components/LoadingCard';
 import { EmptyState } from '../components/EmptyState';
 import { PageTransition } from '../components/PageTransition';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
+import { parseName } from '../../config';
 
 const formatPrice = (price: number) => {
   return new Intl.NumberFormat('fr-CD', {
@@ -20,51 +22,6 @@ const formatPrice = (price: number) => {
 const categories = ['Tous', 'Développement', 'Financement', 'Leadership', 'Marketing'];
 const types = ['Tous', 'Article', 'Guide', 'Étude de cas', 'Interview'];
 const levels = ['Tous', 'Débutant', 'Intermédiaire', 'Avancé'];
-
-const diffusions = [
-  {
-    slug: 'building-strong-digital-presence',
-    title: 'Stratégies de Croissance pour Startups',
-    excerpt: 'Guide complet pour développer votre startup de manière durable et efficace.',
-    image: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80',
-    author: 'Marcus Johnson',
-    date: '2024-03-15',
-    readTime: '5 min',
-    category: 'Développement',
-    type: 'Guide',
-    level: 'Intermédiaire',
-    isPremium: true,
-    price: 29.99
-  },
-  {
-    slug: 'leveraging-social-media',
-    title: 'Financement et Levée de Fonds',
-    excerpt: 'Les meilleures stratégies pour sécuriser des investissements et développer votre entreprise.',
-    image: 'https://images.unsplash.com/photo-1542744095-291d1f67b221?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80',
-    author: 'Amara Williams',
-    date: '2024-03-10',
-    readTime: '4 min',
-    category: 'Financement',
-    type: 'Article',
-    level: 'Avancé',
-    isPremium: true,
-    price: 19.99
-  },
-  {
-    slug: 'power-of-storytelling',
-    title: 'Leadership et Gestion d\'Équipe',
-    excerpt: 'Construisez et dirigez une équipe performante pour atteindre vos objectifs d\'entreprise.',
-    image: 'https://images.unsplash.com/photo-1542744173-05336fcc7ad4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1740&q=80',
-    author: 'David Thompson',
-    date: '2024-03-05',
-    readTime: '6 min',
-    category: 'Leadership',
-    type: 'Étude de cas',
-    level: 'Débutant',
-    isPremium: false,
-    price: 0
-  }
-];
 
 interface FilterButtonProps {
   label: string;
@@ -108,19 +65,25 @@ const FilterSection: React.FC<{
 
 export function DiffusionsPage() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [diffusions, setDiffussions] = useState<any[]>([])
   const [selectedCategory, setSelectedCategory] = useState('Tous');
   const [selectedType, setSelectedType] = useState('Tous');
   const [selectedLevel, setSelectedLevel] = useState('Tous');
-  const [isLoading, setIsLoading] = useState(true);
   const [showFilters, setShowFilters] = useState(false);
   const { t } = useLanguage()
+  const { fetch: fetchDiffusions, loading: isLoading } = useFetchData({ uri: "infos-user/user-diffusion/get" })
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 1500);
+    (async function () {
+      const { data, error } = await fetchDiffusions({
+        type: "broadcast"
+      }, "POST")
+      console.log(data, error)
+      if (data?.data) {
+        setDiffussions(data.data)
+      }
+    })()
 
-    return () => clearTimeout(timer);
   }, []);
 
   const filteredDiffusions = diffusions.filter(post => {
@@ -305,16 +268,16 @@ export function DiffusionsPage() {
               {filteredDiffusions.map((post, index) => (
                 <Link
                   key={index}
-                  to={`/diffusion/${post.slug}`}
+                  to={`/diffusions/${parseName(post.title)}?id=${post.id}`}
                   className="group bg-white rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-black/5 hover:border-highlight transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl"
                 >
                   <div className="relative aspect-[16/9] overflow-hidden">
                     <img
-                      src={post.image}
+                      src={post.cover}
                       alt={post.title}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
-                    {post.isPremium && (
+                    {post.price != 0 && (
                       <div className="absolute top-4 right-4 flex items-center gap-2 px-3 py-1 bg-black text-white rounded-full text-sm">
                         <Lock className="w-4 h-4" />
                         <span>Premium</span>
@@ -322,8 +285,8 @@ export function DiffusionsPage() {
                     )}
                   </div>
 
-                  <div className="p-4 sm:p-6">
-                    <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="p-4 sm:p-6 ">
+                    <div className="flex flex-wrap hidden gap-2 mb-4">
                       <span className="px-3 py-1 bg-black/5 rounded-full text-sm">
                         {post.category}
                       </span>
@@ -334,7 +297,6 @@ export function DiffusionsPage() {
                         {post.level}
                       </span>
                     </div>
-
                     <h3 className="text-lg sm:text-xl font-bold mb-3 group-hover:text-highlight transition-colors line-clamp-2">
                       {post.title}
                     </h3>
@@ -345,22 +307,22 @@ export function DiffusionsPage() {
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-3">
                         <img
-                          src={`https://images.unsplash.com/photo-${post.image.split('photo-')[1].split('?')[0]}?auto=format&fit=crop&w=32&h=32`}
-                          alt={post.author}
-                          className="w-8 h-8 rounded-full object-cover"
+                          src={post.owner.cover}
+                          alt={post.owner.username}
+                          className="w-8 h-8 rounded-full bg-black/5 object-cover"
                         />
                         <div className="text-sm">
-                          <p className="font-medium">{post.author}</p>
+                          <p className="font-medium">{post.owner.username}</p>
                           <div className="flex items-center gap-2 text-gray-500">
                             <Calendar className="w-3 h-3" />
-                            <span>{new Date(post.date).toLocaleDateString()}</span>
+                            <span>{new Date(post.createdAt).toLocaleDateString()}</span>
                             <Clock className="w-3 h-3" />
                             <span>{post.readTime}</span>
                           </div>
                         </div>
                       </div>
 
-                      {post.isPremium && (
+                      {post.price != 0 && (
                         <span className="text-highlight font-bold text-sm sm:text-base">
                           {formatPrice(post.price)}
                         </span>
