@@ -1,5 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { DiffusionDetails } from '../components/DiffusionDetails';
+import { useEffect } from 'react';
 
 const diffusions = {
   'building-strong-digital-presence': {
@@ -213,6 +214,8 @@ const diffusions = {
 export function DiffusionPost() {
   const { slug } = useParams();
   const post = diffusions["building-strong-digital-presence"];
+
+  useEffect(function () { }, [])
 
   if (!post) {
     return <div>Diffusion non trouvée</div>;

@@ -1,27 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { ArrowUpRight, Lock, Search, Filter, X, Calendar, Clock } from 'lucide-react';
-// import { LoadingSpinner } from '../components/LoadingSpinner';
+import { Search, Filter, X } from 'lucide-react';
 import { useFetchData } from "../../hooks/useFetchData"
 import { LoadingCard } from '../components/LoadingCard';
 import { EmptyState } from '../components/EmptyState';
 import { PageTransition } from '../components/PageTransition';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
-import { parseName } from '../../config';
-
-const formatPrice = (price: number) => {
-  return new Intl.NumberFormat('fr-CD', {
-    style: 'currency',
-    currency: 'CDF',
-    minimumFractionDigits: 0,
-    maximumFractionDigits: 0
-  }).format(price * 2500);
-};
-
-const categories = ['Tous', 'Développement', 'Financement', 'Leadership', 'Marketing'];
-const types = ['Tous', 'Article', 'Guide', 'Étude de cas', 'Interview'];
-const levels = ['Tous', 'Débutant', 'Intermédiaire', 'Avancé'];
+import CardDiffusion from '../components/card/diffusion';
+import { LEVELS, TYPES } from '../../config';
 
 interface FilterButtonProps {
   label: string;
@@ -44,7 +30,7 @@ const FilterButton: React.FC<FilterButtonProps> = ({ label, isActive, onClick, c
 
 const FilterSection: React.FC<{
   title: string;
-  options: string[];
+  options: any[];
   selected: string;
   onChange: (value: string) => void;
 }> = ({ title, options, selected, onChange }) => (
@@ -53,10 +39,10 @@ const FilterSection: React.FC<{
     <div className="flex flex-wrap gap-2">
       {options.map((option) => (
         <FilterButton
-          key={option}
-          label={option}
-          isActive={selected === option}
-          onClick={() => onChange(option)}
+          key={option?.value}
+          label={option?.label}
+          isActive={selected === option?.value}
+          onClick={() => onChange(option?.value)}
         />
       ))}
     </div>
@@ -66,7 +52,6 @@ const FilterSection: React.FC<{
 export function DiffusionsPage() {
   const [searchTerm, setSearchTerm] = useState('');
   const [diffusions, setDiffussions] = useState<any[]>([])
-  const [selectedCategory, setSelectedCategory] = useState('Tous');
   const [selectedType, setSelectedType] = useState('Tous');
   const [selectedLevel, setSelectedLevel] = useState('Tous');
   const [showFilters, setShowFilters] = useState(false);
@@ -75,10 +60,9 @@ export function DiffusionsPage() {
 
   useEffect(() => {
     (async function () {
-      const { data, error } = await fetchDiffusions({
+      const { data } = await fetchDiffusions({
         type: "broadcast"
       }, "POST")
-      console.log(data, error)
       if (data?.data) {
         setDiffussions(data.data)
       }
@@ -87,19 +71,16 @@ export function DiffusionsPage() {
   }, []);
 
   const filteredDiffusions = diffusions.filter(post => {
-    const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = selectedCategory === 'Tous' || post.category === selectedCategory;
+    const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase())
     const matchesType = selectedType === 'Tous' || post.type === selectedType;
     const matchesLevel = selectedLevel === 'Tous' || post.level === selectedLevel;
-    return matchesSearch && matchesCategory && matchesType && matchesLevel;
+    return matchesSearch && matchesType && matchesLevel;
   });
 
-  const hasActiveFilters = selectedCategory !== 'Tous' || selectedType !== 'Tous' || selectedLevel !== 'Tous';
+  const hasActiveFilters = selectedType !== 'Tous' || selectedLevel !== 'Tous';
 
   const resetFilters = () => {
     setSearchTerm('');
-    setSelectedCategory('Tous');
     setSelectedType('Tous');
     setSelectedLevel('Tous');
   };
@@ -183,20 +164,14 @@ export function DiffusionsPage() {
                   >
                     <div className="bg-gray-50 rounded-xl p-6 space-y-6 border-2 border-black/5">
                       <FilterSection
-                        title="Catégorie"
-                        options={categories}
-                        selected={selectedCategory}
-                        onChange={setSelectedCategory}
-                      />
-                      <FilterSection
                         title="Type de contenu"
-                        options={types}
+                        options={TYPES}
                         selected={selectedType}
                         onChange={setSelectedType}
                       />
                       <FilterSection
                         title="Niveau"
-                        options={levels}
+                        options={LEVELS}
                         selected={selectedLevel}
                         onChange={setSelectedLevel}
                       />
@@ -215,12 +190,7 @@ export function DiffusionsPage() {
                     className="flex flex-wrap items-center gap-2"
                   >
                     <span className="text-sm text-gray-500">Filtres actifs:</span>
-                    {selectedCategory !== 'Tous' && (
-                      <ActiveFilterPill
-                        label={selectedCategory}
-                        onRemove={() => setSelectedCategory('Tous')}
-                      />
-                    )}
+
                     {selectedType !== 'Tous' && (
                       <ActiveFilterPill
                         label={selectedType}
@@ -266,77 +236,7 @@ export function DiffusionsPage() {
           ) : (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {filteredDiffusions.map((post, index) => (
-                <Link
-                  key={index}
-                  to={`/diffusions/${parseName(post.title)}?id=${post.id}`}
-                  className="group bg-white rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-black/5 hover:border-highlight transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl"
-                >
-                  <div className="relative aspect-[16/9] overflow-hidden">
-                    <img
-                      src={post.cover}
-                      alt={post.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    {post.price != 0 && (
-                      <div className="absolute top-4 right-4 flex items-center gap-2 px-3 py-1 bg-black text-white rounded-full text-sm">
-                        <Lock className="w-4 h-4" />
-                        <span>Premium</span>
-                      </div>
-                    )}
-                  </div>
-
-                  <div className="p-4 sm:p-6 ">
-                    <div className="flex flex-wrap hidden gap-2 mb-4">
-                      <span className="px-3 py-1 bg-black/5 rounded-full text-sm">
-                        {post.category}
-                      </span>
-                      <span className="px-3 py-1 bg-black/5 rounded-full text-sm">
-                        {post.type}
-                      </span>
-                      <span className="px-3 py-1 bg-black/5 rounded-full text-sm">
-                        {post.level}
-                      </span>
-                    </div>
-                    <h3 className="text-lg sm:text-xl font-bold mb-3 group-hover:text-highlight transition-colors line-clamp-2">
-                      {post.title}
-                    </h3>
-                    <p className="text-sm sm:text-base text-gray-600 mb-4 line-clamp-2">
-                      {post.excerpt}
-                    </p>
-
-                    <div className="flex items-center justify-between">
-                      <div className="flex items-center gap-3">
-                        <img
-                          src={post.owner.cover}
-                          alt={post.owner.username}
-                          className="w-8 h-8 rounded-full bg-black/5 object-cover"
-                        />
-                        <div className="text-sm">
-                          <p className="font-medium">{post.owner.username}</p>
-                          <div className="flex items-center gap-2 text-gray-500">
-                            <Calendar className="w-3 h-3" />
-                            <span>{new Date(post.createdAt).toLocaleDateString()}</span>
-                            <Clock className="w-3 h-3" />
-                            <span>{post.readTime}</span>
-                          </div>
-                        </div>
-                      </div>
-
-                      {post.price != 0 && (
-                        <span className="text-highlight font-bold text-sm sm:text-base">
-                          {formatPrice(post.price)}
-                        </span>
-                      )}
-                    </div>
-
-                    <div className="mt-4 sm:mt-6 flex justify-end">
-                      <span className="inline-flex items-center gap-2 text-black group-hover:text-highlight transition-colors">
-                        Lire plus
-                        <ArrowUpRight className="w-5 h-5 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                      </span>
-                    </div>
-                  </div>
-                </Link>
+                <CardDiffusion {...post} key={index} />
               ))}
             </div>
           )}
