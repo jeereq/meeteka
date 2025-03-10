@@ -42,9 +42,9 @@ export default function CardEntreprise({ ...partner }) {
           </div>
         ))}
       </div> */}
-            <h2 className="text-xl sm:text-2xl font-bold mb-2 group-hover:text-highlight transition-colors">
+            {partner?.services.length != 0 && <h2 className="text-xl sm:text-2xl font-bold mb-2 group-hover:text-highlight transition-colors">
                 Services
-            </h2>
+            </h2>}
             <div className="gap-3 sm:gap-4 grid grid-cols-2 pb-5">
                 {partner?.services.map(({ sector: service }: any, i: number) => (
                     <div
@@ -63,9 +63,9 @@ export default function CardEntreprise({ ...partner }) {
                     </div>
                 ))}
             </div>
-            <h2 className="text-xl sm:text-2xl font-bold mb-2 group-hover:text-highlight transition-colors">
+            {partner?.sectors.length != 0 && <h2 className="text-xl sm:text-2xl font-bold mb-2 group-hover:text-highlight transition-colors">
                 Secteurs
-            </h2>
+            </h2>}
             <div className="gap-3 sm:gap-4 grid grid-cols-2">
                 {partner?.sectors.map(({ sector: service }: any, i: number) => (
                     <div
