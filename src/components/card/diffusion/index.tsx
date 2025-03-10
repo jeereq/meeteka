@@ -22,7 +22,7 @@ export default function CardDiffusion({ ...post }: any) {
             <img
                 src={post.cover}
                 alt={post.title}
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                className="w-full bg-black/5 h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
             {post.isPremium && (
                 <div className="absolute top-4 right-4 flex items-center gap-2 px-3 py-1 bg-black text-white rounded-full text-sm">
