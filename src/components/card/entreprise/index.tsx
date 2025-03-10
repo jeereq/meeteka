@@ -26,20 +26,7 @@ export default function CardEntreprise({ ...partner }) {
                     </div>
                 </div>
             </div>
-            <p className="text-sm sm:text-base text-gray-600 mb-6">
-                {partner?.description}
-            </p>
-
-            {/* <div className="flex flex-wrap gap-2 mb-6">
-        {partner?.expertise.map((exp, i) => (
-          <span
-            key={i}
-            className="px-3 py-1 bg-black/5 rounded-full text-sm"
-          >
-            {exp}
-          </span>
-        ))}
-      </div> */}
+            <p className="text-sm sm:text-base text-gray-600 mb-6" dangerouslySetInnerHTML={{ __html: partner?.description }} />
 
             {/* 
       <div className="grid grid-cols-3 gap-3 sm:gap-4 mb-6">
@@ -55,8 +42,10 @@ export default function CardEntreprise({ ...partner }) {
           </div>
         ))}
       </div> */}
-
-            <div className="space-y-3 sm:space-y-4">
+            <h2 className="text-xl sm:text-2xl font-bold mb-2 group-hover:text-highlight transition-colors">
+                Services
+            </h2>
+            <div className="gap-3 sm:gap-4 grid grid-cols-2 pb-5">
                 {partner?.services.map(({ sector: service }: any, i: number) => (
                     <div
                         key={i}
@@ -74,6 +63,9 @@ export default function CardEntreprise({ ...partner }) {
                     </div>
                 ))}
             </div>
+            <h2 className="text-xl sm:text-2xl font-bold mb-2 group-hover:text-highlight transition-colors">
+                Secteurs
+            </h2>
             <div className="gap-3 sm:gap-4 grid grid-cols-2">
                 {partner?.sectors.map(({ sector: service }: any, i: number) => (
                     <div
@@ -86,9 +78,6 @@ export default function CardEntreprise({ ...partner }) {
                                 {service.description}
                             </p>
                         </div>
-                        <span className="text-highlight font-bold text-sm sm:text-base whitespace-nowrap ml-4">
-                            {service.price}
-                        </span>
                     </div>
                 ))}
             </div>

@@ -13,90 +13,6 @@ const categories = ['Tous', 'Conseil', 'Formation', 'Technologie', 'Marketing'];
 const types = ['Tous', 'Startup', 'PME', 'Grande Entreprise', 'ONG'];
 const specialties = ['Tous', 'Digital', 'Innovation', 'Développement', 'Formation', 'Conseil'];
 
-const partners = [
-  {
-    slug: 'meeteka-consulting',
-    name: 'Meet\'eka Consulting',
-    logo: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
-    description: 'Cabinet de conseil spécialisé dans l\'accompagnement des entreprises congolaises dans leur transformation digitale.',
-    category: 'Conseil',
-    type: 'PME',
-    specialty: 'Digital',
-    expertise: ['Transformation Digitale', 'Innovation', 'Stratégie'],
-    services: [
-      {
-        name: 'Accompagnement Startup',
-        description: 'Programme personnalisé pour startups en phase de croissance',
-        price: '250.000 FC/mois'
-      },
-      {
-        name: 'Conseil en Innovation',
-        description: 'Développement de solutions innovantes',
-        price: 'Sur devis'
-      }
-    ],
-    stats: [
-      { label: 'Clients', value: '50+' },
-      { label: 'Projets', value: '100+' },
-      { label: 'Experts', value: '15+' }
-    ]
-  },
-  {
-    slug: 'meeteka-academy',
-    name: 'Meet\'eka Academy',
-    logo: 'https://images.unsplash.com/photo-1542744094-3a31f272c490?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
-    description: 'Centre de formation d\'excellence dédié au développement des compétences digitales en RDC.',
-    category: 'Formation',
-    type: 'Grande Entreprise',
-    specialty: 'Formation',
-    expertise: ['Formation', 'Coaching', 'Développement'],
-    services: [
-      {
-        name: 'Formation Leadership',
-        description: 'Programme intensif de développement du leadership',
-        price: '150.000 FC'
-      },
-      {
-        name: 'Coaching Personnalisé',
-        description: 'Accompagnement individuel',
-        price: '100.000 FC/session'
-      }
-    ],
-    stats: [
-      { label: 'Apprenants', value: '200+' },
-      { label: 'Formations', value: '20+' },
-      { label: 'Formateurs', value: '10+' }
-    ]
-  },
-  {
-    slug: 'digital-solutions',
-    name: 'Digital Solutions RDC',
-    logo: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
-    description: 'Startup innovante spécialisée dans le développement de solutions digitales sur mesure.',
-    category: 'Technologie',
-    type: 'Startup',
-    specialty: 'Innovation',
-    expertise: ['Développement Web', 'Applications Mobiles', 'IA'],
-    services: [
-      {
-        name: 'Développement Sur Mesure',
-        description: 'Solutions digitales personnalisées',
-        price: 'Sur devis'
-      },
-      {
-        name: 'Maintenance Applicative',
-        description: 'Support et évolution continue',
-        price: '200.000 FC/mois'
-      }
-    ],
-    stats: [
-      { label: 'Projets', value: '30+' },
-      { label: 'Clients', value: '25+' },
-      { label: 'Développeurs', value: '12+' }
-    ]
-  }
-];
-
 interface FilterButtonProps {
   label: string;
   isActive: boolean;
@@ -152,13 +68,12 @@ export function EntreprisesPage() {
     (async function () {
       const { data } = await fetchEntreprises({}, 'POST')
       if (data) {
-        console.log(data)
         setEntreprises(data?.data)
       }
     })()
   }, []);
 
-  const filteredPartners = partners.filter(partner => {
+  const filteredPartners = entreprises.filter(partner => {
     const matchesSearch = partner.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       partner.description.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = selectedCategory === 'Tous' || partner.category === selectedCategory;
@@ -335,7 +250,7 @@ export function EntreprisesPage() {
             />
           ) : (
             <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
-              {entreprises.map((partner: any, index: number) => (
+              {filteredPartners.map((partner: any, index: number) => (
                 <CardEntreprise {...partner} key={index} />
               ))}
             </div>
