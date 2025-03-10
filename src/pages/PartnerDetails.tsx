@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { BackButton } from '../components/BackButton';
 import { LoadingCard } from '../components/LoadingCard';
 import { useFetchData } from '../../hooks/useFetchData';
+import { ArrowUpRight } from 'lucide-react';
 
 // const partners = {
 //   'meeteka-consulting': {
@@ -132,16 +133,11 @@ export function PartnerDetails() {
                   <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">
                     {partner.name}
                   </h1>
-                  {/* <div className="flex flex-wrap gap-3">
-                    {partner.expertise.map((exp, index) => (
-                      <span
-                        key={index}
-                        className="px-3 py-1 bg-white/20 rounded-full text-sm"
-                      >
-                        {exp}
-                      </span>
-                    ))}
-                  </div> */}
+                  <div className="flex flex-wrap gap-2">
+                    <span className="px-3 py-1 bg-black/5 rounded-full text-sm">
+                      {partner?.legalForm?.name}
+                    </span>
+                  </div>
                 </div>
               </div>
               <p className="text-xl text-white/90 max-w-3xl">
@@ -151,40 +147,37 @@ export function PartnerDetails() {
           </div>
         </section>
 
-        {/* Info Section */}
-        {/* <section className="py-12">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-3 gap-8">
-              {partner.stats.map((stat, index) => (
-                <div
-                  key={index}
-                  className="bg-white rounded-2xl p-6 text-center border-2 border-black/5 hover:border-highlight transition-colors"
-                >
-                  <p className="text-4xl font-bold text-highlight mb-2">
-                    {stat.value}
-                  </p>
-                  <p className="text-gray-600">{stat.label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section> */}
-
         {/* Services Section */}
-        {/* <section className="py-12 bg-gray-50">
+        {partner.sectors.length != 0 && <section className="py-12 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-8">Nos Services</h2>
+            <h2 className="text-3xl font-bold mb-8">Nos secteurs</h2>
             <div className="grid md:grid-cols-2 gap-8">
-              {partner.services.map((service, index) => (
+              {partner.sectors.map(({ sector: service }: any, index: number) => (
                 <div
                   key={index}
                   className="bg-white rounded-2xl p-6 border-2 border-black/5 hover:border-highlight transition-all duration-300 hover:scale-[1.02]"
                 >
-                  <h3 className="text-xl font-bold mb-3">{service.name}</h3>
-                  <p className="text-gray-600 mb-4">{service.description}</p>
-                  <p className="text-sm text-gray-500 mb-4">{service.details}</p>
+                  <h3 className="text-xl font-bold mb-3">{service?.name}</h3>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>}
+
+        {/* Services Section */}
+        {partner.services.length != 0 && <section className="py-12 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-3xl font-bold mb-8">Nos Services</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              {partner.services.map((service: any, index: number) => (
+                <div
+                  key={index}
+                  className="bg-white rounded-2xl p-6 border-2 border-black/5 hover:border-highlight transition-all duration-300 hover:scale-[1.02]"
+                >
+                  <h3 className="text-xl font-bold mb-3">{service?.title}</h3>
+                  <p className="text-gray-600 mb-4" dangerouslySetInnerHTML={{ __html: service?.description }} />
                   <div className="flex items-center justify-between">
-                    <span className="text-highlight font-bold">{service.price}</span>
+                    <span className="text-highlight font-bold">{service?.minPrice} à {service?.maxPrice} {service?.currency?.symbol}</span>
                     <button className="flex items-center gap-2 text-black hover:text-highlight transition-colors">
                       En savoir plus
                       <ArrowUpRight className="w-5 h-5" />
@@ -194,14 +187,14 @@ export function PartnerDetails() {
               ))}
             </div>
           </div>
-        </section> */}
+        </section>}
 
         {/* Testimonials Section */}
-        {/* <section className="py-12">
+        {partner.testimonies.length != 0 && <section className="py-12">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold mb-8">Témoignages</h2>
             <div className="grid md:grid-cols-2 gap-8">
-              {partner.testimonials.map((testimonial, index) => (
+              {partner.testimonies.map((testimonial: any, index: number) => (
                 <div
                   key={index}
                   className="bg-black text-white rounded-2xl p-8"
@@ -224,7 +217,7 @@ export function PartnerDetails() {
               ))}
             </div>
           </div>
-        </section> */}
+        </section>}
 
         {/* CTA Section */}
         <section className="py-12 bg-highlight">
