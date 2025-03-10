@@ -13,7 +13,7 @@ export default function CardEntreprise({ ...partner }) {
                 <img
                     src={partner?.cover}
                     alt={partner?.name}
-                    className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl object-cover"
+                    className="w-12 h-12 bg-black/5 sm:w-16 sm:h-16 rounded-xl object-cover"
                 />
                 <div>
                     <h2 className="text-xl sm:text-2xl font-bold mb-2 group-hover:text-highlight transition-colors">
@@ -28,20 +28,6 @@ export default function CardEntreprise({ ...partner }) {
             </div>
             <p className="text-sm sm:text-base text-gray-600 mb-6" dangerouslySetInnerHTML={{ __html: partner?.description }} />
 
-            {/* 
-      <div className="grid grid-cols-3 gap-3 sm:gap-4 mb-6">
-        {partner?.stats.map((stat, i) => (
-          <div
-            key={i}
-            className="bg-gray-50 rounded-xl p-3 sm:p-4 group-hover:bg-highlight/10 transition-colors"
-          >
-            <p className="text-lg sm:text-2xl font-bold group-hover:text-highlight">
-              {stat.value}
-            </p>
-            <p className="text-xs sm:text-sm text-gray-500">{stat.label}</p>
-          </div>
-        ))}
-      </div> */}
             {partner?.services.length != 0 && <h2 className="text-xl sm:text-2xl font-bold mb-2 group-hover:text-highlight transition-colors">
                 Services
             </h2>}

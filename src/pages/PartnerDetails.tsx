@@ -92,7 +92,6 @@ export function PartnerDetails() {
       }, 'POST')
       if (data) {
         const partner = data?.data
-        console.log(partner)
         setPartner(partner)
       }
     })()
