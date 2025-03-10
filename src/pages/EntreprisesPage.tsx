@@ -152,13 +152,12 @@ export function EntreprisesPage() {
     (async function () {
       const { data } = await fetchEntreprises({}, 'POST')
       if (data) {
-        console.log(data)
         setEntreprises(data?.data)
       }
     })()
   }, []);
 
-  const filteredPartners = partners.filter(partner => {
+  const filteredPartners = entreprises.filter(partner => {
     const matchesSearch = partner.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       partner.description.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = selectedCategory === 'Tous' || partner.category === selectedCategory;
@@ -335,7 +334,7 @@ export function EntreprisesPage() {
             />
           ) : (
             <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
-              {entreprises.map((partner: any, index: number) => (
+              {filteredPartners.map((partner: any, index: number) => (
                 <CardEntreprise {...partner} key={index} />
               ))}
             </div>

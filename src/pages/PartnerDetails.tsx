@@ -81,7 +81,6 @@ import { useFetchData } from '../../hooks/useFetchData';
 
 export function PartnerDetails() {
   const { slug } = useParams<{ slug: string }>();
-  // const partner = partners["meeteka-consulting"];
   const [partner, setPartner] = useState<any>(null)
   const { fetch: fetchEntreprise, loading: isLoading } = useFetchData({ uri: "infos-user/entreprise-profile/get" })
 
@@ -98,7 +97,7 @@ export function PartnerDetails() {
     })()
   }, []);
 
-  if (!isLoading) {
+  if (isLoading) {
     return <div className="w-full p-8">
       <div className="grid w-1/2 mx-auto grid-cols-1 gap-8">
         {[...Array(1)].map((_, index) => (
@@ -121,7 +120,6 @@ export function PartnerDetails() {
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
           </div>
-
           <div className="absolute inset-0 flex items-center">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
               <div className="flex items-center gap-6 mb-8">
