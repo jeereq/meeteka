@@ -69,7 +69,7 @@ export default function CardEntreprise({ ...partner }) {
             </div>
             <div className="mt-6 flex justify-end">
                 <span className="inline-flex items-center gap-2 text-black group-hover:text-highlight transition-colors">
-                    Voir les détails
+                    Contactez nous
                     <ArrowUpRight className="w-5 h-5 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </span>
             </div>
