@@ -17,6 +17,7 @@ import { ServiceDetails } from './pages/ServiceDetails';
 import { PricingPage } from './pages/PricingPage';
 import { OrganisationsPage } from './pages/OrganisationsPage';
 import { EntreprisesPage } from './pages/EntreprisesPage';
+import { EventsPage } from './pages/EventsPage';
 
 export default function App() {
 
@@ -41,6 +42,8 @@ export default function App() {
           <Route path="/entreprises" element={<EntreprisesPage />} />
           <Route path="/entreprises/:slug" element={<PartnerDetails />} />
           <Route path="/organisations" element={<OrganisationsPage />} />
+          <Route path="/events" element={<EventsPage />} />
+          <Route path="/events/:slug" element={<DiffusionPost />} />
           <Route path="/organisations/:slug" element={<PartnerDetails />} />
           <Route path="/success-stories" element={<SuccessStoriesPage />} />
           <Route path="/success-stories/:slug" element={<SuccessStoryDetails />} />
