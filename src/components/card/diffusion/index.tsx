@@ -6,7 +6,8 @@ import { useState } from "react";
 export default function CardDiffusion({ ...post }: any) {
     const [type] = useState<any>({
         "broadcast": "Diffusions",
-        "blog": "Blog"
+        "blog": "Blog",
+        "post": "actualité"
     });
     const [level] = useState<any>({
         "beginner": "Débutant",
@@ -30,10 +31,10 @@ export default function CardDiffusion({ ...post }: any) {
                     <span>Premium</span>
                 </div>
             )}
-            <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1 bg-white text-black rounded-full text-sm">
+            {type[post.type] && <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1 bg-white text-black rounded-full text-sm">
                 <Newspaper className="w-4 h-4" />
                 <span>{type[post.type]}</span>
-            </div>
+            </div>}
         </div>
 
         <div className="p-4 sm:p-6 ">
@@ -45,9 +46,9 @@ export default function CardDiffusion({ ...post }: any) {
                         {item?.name}
                     </span>
                 })}
-                <span className="px-3 py-1 bg-black/5 rounded-full text-sm">
+                {level[post?.level] && <span className="px-3 py-1 bg-black/5 rounded-full text-sm">
                     {level[post?.level]}
-                </span>
+                </span>}
             </div>
             <h3 className="text-lg sm:text-xl font-bold mb-3 group-hover:text-highlight transition-colors line-clamp-2">
                 {post.title}

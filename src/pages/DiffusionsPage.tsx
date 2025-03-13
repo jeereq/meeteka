@@ -60,9 +60,7 @@ export function DiffusionsPage() {
 
   useEffect(() => {
     (async function () {
-      const { data } = await fetchDiffusions({
-        type: "broadcast"
-      }, "POST")
+      const { data } = await fetchDiffusions({}, "POST")
       if (data?.data) {
         setDiffussions(data.data)
       }
