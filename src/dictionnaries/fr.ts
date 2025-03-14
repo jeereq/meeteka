@@ -7,6 +7,7 @@ const fr = {
     'nav.contact': 'Contactez-nous',
     'nav.entreprises': 'Entreprises',
     'nav.organisations': 'Organisations',
+    'nav.events': 'Events',
     'nav.pricing': 'Prix',
     'nav.about': 'À propos',
     "callToAction.hero": "Commencez l'Aventure",
@@ -108,6 +109,10 @@ const fr = {
     "organisations.banner.title": "Nos Organisations",
     "organisations.banner.description": "Découvrez notre réseau d'experts et de professionnels dédiés à votre réussite.",
     "organisations.button.more": "See details",
+
+    "events.banner.title": "Nos Events",
+    "events.banner.description": "Découvrez notre réseau d'experts et de professionnels dédiés à votre réussite.",
+    "events.button.more": "See details",
 
     "entreprises.banner.title": "Nos Entreprises",
     "entreprises.banner.description": "Découvrez notre réseau d'experts et de professionnels dédiés à votre réussite.",

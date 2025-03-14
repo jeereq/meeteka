@@ -1,86 +1,55 @@
 import React, { useState, useEffect } from 'react';
-import { Search, Filter, X } from 'lucide-react';
+import { CalendarSearch, Search, X } from 'lucide-react';
 import { useFetchData } from "../../hooks/useFetchData"
 import { LoadingCard } from '../components/LoadingCard';
 import { EmptyState } from '../components/EmptyState';
 import { PageTransition } from '../components/PageTransition';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
-import CardDiffusion from '../components/card/diffusion';
-import { LEVELS, TYPES } from '../../config';
+import CardEvent from '../components/card/event';
 
-interface FilterButtonProps {
-  label: string;
-  isActive: boolean;
-  onClick: () => void;
-  className?: string;
-}
-
-const FilterButton: React.FC<FilterButtonProps> = ({ label, isActive, onClick, className = '' }) => (
-  <button
-    onClick={onClick}
-    className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-300 ${isActive
-      ? 'bg-highlight text-white shadow-lg scale-105'
-      : 'bg-white hover:bg-gray-100'
-      } ${className}`}
-  >
-    {label}
-  </button>
-);
-
-const FilterSection: React.FC<{
-  title: string;
-  options: any[];
-  selected: string;
-  onChange: (value: string) => void;
-}> = ({ title, options, selected, onChange }) => (
-  <div className="space-y-3">
-    <h3 className="text-sm font-semibold text-gray-700">{title}</h3>
-    <div className="flex flex-wrap gap-2">
-      {options.map((option) => (
-        <FilterButton
-          key={option?.value}
-          label={option?.label}
-          isActive={selected === option?.value}
-          onClick={() => onChange(option?.value)}
-        />
-      ))}
-    </div>
-  </div>
-);
-
-export function DiffusionsPage() {
+export function EventsPage() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [diffusions, setDiffussions] = useState<any[]>([])
+  const [events, setEvents] = useState<any[]>([])
   const [selectedType, setSelectedType] = useState('Tous');
   const [selectedLevel, setSelectedLevel] = useState('Tous');
-  const [showFilters, setShowFilters] = useState(false);
+  const [startDate, setStartDate] = useState("Tous")
+  const [endDate, setEndDate] = useState("Tous")
   const { t } = useLanguage()
-  const { fetch: fetchDiffusions, loading: isLoading } = useFetchData({ uri: "infos-user/user-diffusion/get" })
+  const { fetch: fetchEvents, loading: isLoading } = useFetchData({ uri: "infos-user/user-event/get" })
 
   useEffect(() => {
     (async function () {
-      const { data } = await fetchDiffusions({}, "POST")
+      const where: any = {
+        startDate,
+        endDate
+      }
+      if (startDate == "Tous") delete where.startDate
+      if (endDate == "Tous") delete where.endDate
+      const { data } = await fetchEvents(where, "POST")
+      console.log(data)
       if (data?.data) {
-        setDiffussions(data.data)
+        setEvents(data.data)
       }
     })()
 
-  }, []);
+  }, [startDate, endDate]);
 
-  const filteredDiffusions = diffusions.filter(post => {
-    const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredEvents = events.filter(post => {
+    const matchesSearch = `${post.title}`.toLowerCase().includes(searchTerm.toLowerCase())
     const matchesType = selectedType === 'Tous' || post.type === selectedType;
     const matchesLevel = selectedLevel === 'Tous' || post.level === selectedLevel;
     return matchesSearch && matchesType && matchesLevel;
   });
 
-  const hasActiveFilters = selectedType !== 'Tous' || selectedLevel !== 'Tous';
+  const hasActiveFilters = startDate !== 'Tous' || endDate !== 'Tous'
 
   const resetFilters = () => {
     setSearchTerm('');
     setSelectedType('Tous');
     setSelectedLevel('Tous');
+    setStartDate('Tous');
+    setEndDate('Tous');
   };
 
   const ActiveFilterPill: React.FC<{ label: string; onRemove: () => void }> = ({ label, onRemove }) => (
@@ -102,7 +71,7 @@ export function DiffusionsPage() {
         <section className="bg-black text-white py-12 sm:py-16 lg:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6">
-              {t("diffusions.banner.title").split(" ").map(function (element, index: number) {
+              {t("events.banner.title").split(" ").map(function (element, index: number) {
                 if (index == 0) {
                   return <span className="w-fit" key={index}>{element}</span>
                 } else {
@@ -111,7 +80,7 @@ export function DiffusionsPage() {
               })}
             </h1>
             <p className="text-lg sm:text-xl text-gray-300 max-w-3xl">
-              {t("diffusions.banner.description")}
+              {t("events.banner.description")}
             </p>
           </div>
         </section>
@@ -140,43 +109,47 @@ export function DiffusionsPage() {
                     </button>
                   )}
                 </div>
+                <div className="flex gap-4">
+                  <div className="relative w-full sm:w-48">
+                    <input
+                      type="date"
+                      placeholder="Date de debut..."
+                      value={startDate}
+                      onChange={(e) => setStartDate(e.target.value)}
+                      className="w-full px-4 py-3 pl-12 rounded-xl border-2 border-black/10 focus:border-highlight focus:ring-0 bg-white"
+                    />
+                    <CalendarSearch className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    {searchTerm && (
+                      <button
+                        onClick={() => setSearchTerm('')}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 p-1 rounded-full hover:bg-gray-100"
+                      >
+                        <X className="w-4 h-4 text-gray-400" />
+                      </button>
+                    )}
+                  </div>
+                  <div className="relative w-full sm:w-48">
+                    <input
+                      type="date"
+                      placeholder="Date de fin..."
+                      value={endDate}
+                      onChange={(e) => setEndDate(e.target.value)}
+                      className="w-full px-4 py-3 pl-12 rounded-xl border-2 border-black/10 focus:border-highlight focus:ring-0 bg-white"
+                    />
+                    <CalendarSearch className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                    {searchTerm && (
+                      <button
+                        onClick={() => setSearchTerm('')}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 p-1 rounded-full hover:bg-gray-100"
+                      >
+                        <X className="w-4 h-4 text-gray-400" />
+                      </button>
+                    )}
+                  </div>
+                </div>
 
-                <button
-                  onClick={() => setShowFilters(!showFilters)}
-                  className="flex items-center gap-2 px-4 py-3 bg-black text-white rounded-xl hover:bg-highlight transition-all duration-300 sm:w-auto w-full justify-center group"
-                >
-                  <Filter className="w-5 h-5 group-hover:rotate-180 transition-transform duration-300" />
-                  <span>{showFilters ? 'Masquer les filtres' : 'Afficher les filtres'}</span>
-                </button>
               </div>
 
-              {/* Extended Filters */}
-              <AnimatePresence>
-                {showFilters && (
-                  <motion.div
-                    initial={{ opacity: 0, height: 0 }}
-                    animate={{ opacity: 1, height: 'auto' }}
-                    exit={{ opacity: 0, height: 0 }}
-                    transition={{ duration: 0.3 }}
-                    className="overflow-hidden"
-                  >
-                    <div className="bg-gray-50 rounded-xl p-6 space-y-6 border-2 border-black/5">
-                      <FilterSection
-                        title="Type de contenu"
-                        options={TYPES}
-                        selected={selectedType}
-                        onChange={setSelectedType}
-                      />
-                      <FilterSection
-                        title="Niveau"
-                        options={LEVELS}
-                        selected={selectedLevel}
-                        onChange={setSelectedLevel}
-                      />
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
 
               {/* Active Filters */}
               <AnimatePresence>
@@ -188,17 +161,17 @@ export function DiffusionsPage() {
                     className="flex flex-wrap items-center gap-2"
                   >
                     <span className="text-sm text-gray-500">Filtres actifs:</span>
-
-                    {selectedType !== 'Tous' && (
+                    {startDate !== 'Tous' && (
                       <ActiveFilterPill
-                        label={selectedType}
-                        onRemove={() => setSelectedType('Tous')}
+                        label={"Date de debut"}
+                        onRemove={() => setStartDate('Tous')}
                       />
                     )}
-                    {selectedLevel !== 'Tous' && (
+
+                    {endDate !== 'Tous' && (
                       <ActiveFilterPill
-                        label={selectedLevel}
-                        onRemove={() => setSelectedLevel('Tous')}
+                        label={"Date de fin"}
+                        onRemove={() => setEndDate('Tous')}
                       />
                     )}
                     <button
@@ -214,7 +187,7 @@ export function DiffusionsPage() {
           </div>
         </section>
 
-        {/* Diffusions Grid */}
+        {/* Events Grid */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
           {isLoading ? (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -222,10 +195,10 @@ export function DiffusionsPage() {
                 <LoadingCard key={index} />
               ))}
             </div>
-          ) : filteredDiffusions.length === 0 ? (
+          ) : filteredEvents.length === 0 ? (
             <EmptyState
-              title="Aucune diffusion trouvée"
-              description="Nous n'avons trouvé aucune diffusion correspondant à vos critères de recherche. Essayez de modifier vos filtres ou d'effectuer une nouvelle recherche."
+              title="Aucun Event trouvé"
+              description="Nous n'avons trouvé aucun event correspondant à vos critères de recherche. Essayez de modifier vos filtres ou d'effectuer une nouvelle recherche."
               action={{
                 label: "Réinitialiser les filtres",
                 onClick: resetFilters
@@ -233,8 +206,8 @@ export function DiffusionsPage() {
             />
           ) : (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {filteredDiffusions.map((post, index) => (
-                <CardDiffusion {...post} key={index} />
+              {filteredEvents.map((post, index) => (
+                <CardEvent {...post} key={index} />
               ))}
             </div>
           )}
