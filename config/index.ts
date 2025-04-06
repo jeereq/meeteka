@@ -1,5 +1,6 @@
-export const API =  "https://api.meeteka.com"
+// export const API =  "https://api.meeteka.com"
 // export const API = "http://localhost:1338"
+export const API = "https://miteka-api-238i.onrender.com"
 export function parseName(name: any) {
     return encodeURI(`${name?.trim()?.replaceAll(" ", "-")?.toLowerCase()}`);
 }

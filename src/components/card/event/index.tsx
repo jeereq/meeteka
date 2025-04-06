@@ -8,7 +8,7 @@ export default function CardEvent({ ...post }: any) {
         "broadcast": "Diffusions",
         "blog": "Blog",
         "post": "actualité"
-    });
+    }); 
     return <Link
         key={post?.id}
         to={`/events/${post?.id}?name=${parseName(post?.title)}`}
