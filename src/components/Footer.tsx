@@ -35,11 +35,11 @@ export function Footer() {
             </h3>
             <ul className="space-y-3 text-gray-400">
               <li>
-                <a href="mailto:blaise.tshika24@odyseecretaionrdc.com">contact@meeteka.com</a>
+                <a href="mailto:blaise.tshika24@odyseecretaionrdc.com" className='hover:text-highlight'>contact@meeteka.com</a>
               </li>
               <li>
 
-                <a href="tel:+243825455938">+243 825 455 938</a>
+                <a href="tel:+243825455938" className='hover:text-highlight'>+243 825 455 938</a>
               </li>
               <li>kinshasa Avenue,<br />Bethel, 15  bis</li>
             </ul>

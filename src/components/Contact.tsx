@@ -1,4 +1,3 @@
-import React from 'react';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -13,7 +12,7 @@ export function Contact() {
               if (index == 0) {
                 return element
               } else {
-                return <span className="heading-highlight text-black"> {element}</span>
+                return <span className="heading-highlight text-black">{element}</span>
               }
             })}
           </h2>

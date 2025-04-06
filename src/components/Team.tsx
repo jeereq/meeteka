@@ -1,6 +1,9 @@
 import blaise from "../../assets/teams/blaise.jpeg"
 import jeereq from "../../assets/teams/jeereq.jpeg"
 import sacre from "../../assets/teams/sacre.jpeg"
+import bertin from "../../assets/teams/bertin.jpeg"
+import jonas from "../../assets/teams/jonas.jpeg"
+import gordien from "../../assets/teams/gordien.jpeg"
 import { Linkedin } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -33,41 +36,32 @@ const team = [
     }
   },
   {
-    name: 'Jeereq Minganda',
-    role: 'Lead Développeur & co-fondateur',
-    image: jeereq,
-    bio: 'Architecte logiciel chevronné avec une expertise en React ,React native , Node.js et autre systeme avec plus de 3 ans d\'expérience',
+    name: 'Bertin muderhwa',
+    role: 'Responsable Relations Publiques & co-fondateur',
+    image: bertin,
+    bio: ` Bertin est passionné par la construction de relations solides et la mise en valeur des réussites de son entreprise dans un environnement médiatique congolais en constante évolution. Il est soucieux de l'impact social de son organisation et cherche à établir une communication transparente et engageante avec les communautés locales.`,
     social: {
       linkedin: 'https://www.linkedin.com/in/jeereq'
     }
   },
   {
-    name: 'Jeereq Minganda',
-    role: 'Lead Développeur & co-fondateur',
-    image: jeereq,
-    bio: 'Architecte logiciel chevronné avec une expertise en React ,React native , Node.js et autre systeme avec plus de 3 ans d\'expérience',
+    name: 'Jonas Mwendele',
+    role: 'Responsable créa & co-fondateur',
+    image: jonas,
+    bio: `Jeune professionnel ambitieux et passionné par la création visuelle. Avec plus de trois ans d'expérience en agence à Kinshasa, il maîtrise les outils de design et suit les tendances locales et internationales. Connecté et observateur de la culture congolaise, il cherche à apporter une perspective nouvelle et authentique dans ses projets.`,
     social: {
       linkedin: 'https://www.linkedin.com/in/jeereq'
     }
   },
   {
-    name: 'Jeereq Minganda',
-    role: 'Lead Développeur & co-fondateur',
-    image: jeereq,
-    bio: 'Architecte logiciel chevronné avec une expertise en React ,React native , Node.js et autre systeme avec plus de 3 ans d\'expérience',
+    name: 'Gordien Kitoko ',
+    role: 'Responsable juridique & co-fondateur',
+    image: gordien,
+    bio: ` Gordien est un professionnel rigoureux et respecté, connaissant parfaitement l'écosystème juridique congolais et les défis spécifiques aux entreprises locales. Il est marié, père de deux enfants, et soucieux de la sécurité juridique de son entreprise pour contribuer à sa croissance dans un environnement parfois complexe.`,
     social: {
       linkedin: 'https://www.linkedin.com/in/jeereq'
     }
   },
-  // {
-  //   name: 'Jonas ',
-  //   role: 'Chargé Marketing & co-fondateur',
-  //   image: 'https://images.unsplash.com/photo-1506277886164-e25aa3f4ef7f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
-  //   bio: 'Stratège marketing créatif avec une expertise dans le développement de marques digitales.',
-  //   social: {
-  //     linkedin: '#'
-  //   },
-  // },
 ];
 
 export function Team() {
