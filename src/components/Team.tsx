@@ -1,8 +1,7 @@
-import { useState, useEffect } from 'react';
 import blaise from "../../assets/teams/blaise.jpeg"
 import jeereq from "../../assets/teams/jeereq.jpeg"
 import sacre from "../../assets/teams/sacre.jpeg"
-import { Linkedin, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Linkedin } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 const team = [
@@ -33,6 +32,33 @@ const team = [
       linkedin: 'https://www.linkedin.com/in/jeereq'
     }
   },
+  {
+    name: 'Jeereq Minganda',
+    role: 'Lead Développeur & co-fondateur',
+    image: jeereq,
+    bio: 'Architecte logiciel chevronné avec une expertise en React ,React native , Node.js et autre systeme avec plus de 3 ans d\'expérience',
+    social: {
+      linkedin: 'https://www.linkedin.com/in/jeereq'
+    }
+  },
+  {
+    name: 'Jeereq Minganda',
+    role: 'Lead Développeur & co-fondateur',
+    image: jeereq,
+    bio: 'Architecte logiciel chevronné avec une expertise en React ,React native , Node.js et autre systeme avec plus de 3 ans d\'expérience',
+    social: {
+      linkedin: 'https://www.linkedin.com/in/jeereq'
+    }
+  },
+  {
+    name: 'Jeereq Minganda',
+    role: 'Lead Développeur & co-fondateur',
+    image: jeereq,
+    bio: 'Architecte logiciel chevronné avec une expertise en React ,React native , Node.js et autre systeme avec plus de 3 ans d\'expérience',
+    social: {
+      linkedin: 'https://www.linkedin.com/in/jeereq'
+    }
+  },
   // {
   //   name: 'Jonas ',
   //   role: 'Chargé Marketing & co-fondateur',
@@ -45,52 +71,8 @@ const team = [
 ];
 
 export function Team() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [itemsPerPage, setItemsPerPage] = useState(3);
-  const [sizePage, setSizePage] = useState(0);
-
   const { t } = useLanguage()
 
-  useEffect(() => {
-    const handleResize = () => {
-      console.log("Inner size", window.innerWidth)
-      setSizePage(window.innerWidth)
-      if (window.innerWidth < 640) {
-        setItemsPerPage(1);
-      } else if (window.innerWidth < 1024) {
-        setItemsPerPage(2);
-      } else {
-        setItemsPerPage(3);
-      }
-    };
-
-    handleResize();
-    document.addEventListener('resize', handleResize);
-    return () => document.removeEventListener('resize', handleResize);
-  }, []);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prevIndex) =>
-        (prevIndex + 1) % (team.length - itemsPerPage + 1)
-      );
-    }, 5000);
-
-    return () => clearInterval(timer);
-  }, [itemsPerPage]);
-
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? team.length - itemsPerPage : prevIndex - 1
-    );
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      (prevIndex + 1) % (team.length - itemsPerPage + 1)
-    );
-  };
-  console.log(itemsPerPage, sizePage)
   return (
     <section className="section-padding overflow-hidden" id="team">
       <div className="mb-8 sm:mb-12">
@@ -108,32 +90,15 @@ export function Team() {
         </p>
       </div>
 
-      <div className=" relative">
-        {/* Navigation Buttons */}
-        <button
-          onClick={handlePrev}
-          className="absolute lg:block hidden left-2 sm:left-4 top-1/2 -translate-y-1/2 z-10 p-2 sm:p-3 bg-white rounded-full shadow-lg hover:bg-highlight hover:text-white transition-colors duration-300"
-          aria-label="Previous"
-        >
-          <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
-        </button>
-        <button
-          onClick={handleNext}
-          className="absolute lg:block hidden right-2 sm:right-4 top-1/2 -translate-y-1/2 z-10 p-2 sm:p-3 bg-white rounded-full shadow-lg hover:bg-highlight hover:text-white transition-colors duration-300"
-          aria-label="Next"
-        >
-          <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
-        </button>
-
+      <div className="relative">
         {/* Team Cards Container */}
         <div
-          className={`block lg:flex lg:w-full w-[w-[${sizePage * itemsPerPage}px] transition-transform duration-500 ease-in-out lg:px-2 sm:px-0`}
-          style={{ transform: `lg:translateX(-${currentIndex * (100 / itemsPerPage)}%)` }}
+          className={`block w-full grid grid-cols-1 lg:grid-cols-3 gap-3 transition-transform duration-500 ease-in-out`}
         >
           {team.map((member, index) => (
             <div
               key={index}
-              className={`w-full lg:w-[${sizePage / itemsPerPage}px] lg:mb-0 mb-4 px-2 sm:px-4`}
+              className={`w-full mb-4 px-2 sm:px-4`}
             >
               <div className="group bg-white border-2 border-black rounded-2xl sm:rounded-3xl overflow-hidden hover:bg-highlight transition-colors duration-300 h-full">
                 <div className="relative aspect-square overflow-hidden">
@@ -170,18 +135,6 @@ export function Team() {
           ))}
         </div>
 
-        {/* Pagination Dots */}
-        <div className="hidden lg:flex justify-center gap-1.5 sm:gap-2 mt-6 sm:mt-8">
-          {Array.from({ length: team.length - itemsPerPage + 1 }).map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentIndex(index)}
-              className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-colors duration-300 ${currentIndex === index ? 'bg-highlight' : 'bg-gray-300'
-                }`}
-              aria-label={`Go to slide ${index + 1}`}
-            />
-          ))}
-        </div>
       </div>
     </section>
   );

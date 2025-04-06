@@ -32,14 +32,13 @@ export function Contact() {
               </div>
             </div>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 ">
               <div className="p-3 bg-highlight rounded-full">
                 <Phone className="w-6 h-6 text-black" />
               </div>
               <div>
                 <p className="text-gray-400">{t("contact.phone")}</p>
-
-                <a href="tel:+243825455938">+243 825 455 938</a>
+                <a href="tel:+243825455938" className='hover:text-highlight'>+243 825 455 938</a>
               </div>
             </div>
 
