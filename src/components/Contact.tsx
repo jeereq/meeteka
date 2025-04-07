@@ -4,7 +4,7 @@ import { useLanguage } from '../context/LanguageContext';
 export function Contact() {
   const { t } = useLanguage()
   return (
-    <section className="section-padding max-w-8xl bg-black text-white" id="contact">
+    <section className="section-padding max-w-9xl bg-black text-white" id="contact">
       <div className="grid lg:grid-cols-2 gap-12">
         <div>
           <h2 className="text-4xl font-bold mb-4">
