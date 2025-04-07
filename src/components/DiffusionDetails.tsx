@@ -2,32 +2,6 @@ import React, { useState } from 'react';
 import { ArrowLeft, Calendar, Clock, User, Facebook, Twitter, Linkedin, Lock, CreditCard, Newspaper } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
-interface Service {
-  name: string;
-  company: string;
-  description: string;
-  logo: string;
-  link: string;
-}
-
-
-const defaultServices: Service[] = [
-  {
-    name: 'Conseil en Stratégie Digitale',
-    company: 'Meet\'eka Consulting',
-    description: 'Optimisez votre présence digitale',
-    logo: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
-    link: '/partenaires/meeteka-consulting'
-  },
-  {
-    name: 'Formation Leadership',
-    company: 'Meet\'eka Academy',
-    description: 'Développez vos compétences de leader',
-    logo: 'https://images.unsplash.com/photo-1542744094-3a31f272c490?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
-    link: '/partenaires/meeteka-academy'
-  }
-];
-
 const formatPrice = (price: number = 0) => {
   return new Intl.NumberFormat('fr-CD', {
     style: 'currency',
