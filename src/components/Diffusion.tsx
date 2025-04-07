@@ -46,11 +46,9 @@ export function Diffusion() {
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
         {isLoading ? (
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            {[...Array(3)].map((_, index) => (
-              <LoadingCard key={index} />
-            ))}
-          </div>
+          [...Array(3)].map((_, index) => (
+            <LoadingCard key={index} />
+          ))
         ) : diffusions.map((post, index) => (
           <CardDiffusion {...post} key={index} />
         ))}
