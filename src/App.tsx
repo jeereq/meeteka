@@ -18,6 +18,8 @@ import { PricingPage } from './pages/PricingPage';
 import { OrganisationsPage } from './pages/OrganisationsPage';
 import { EntreprisesPage } from './pages/EntreprisesPage';
 import { EventsPage } from './pages/EventsPage';
+import { BlogsPage } from './pages/BlogsPage';
+import { BlogPostDetails } from './pages/BlogPost';
 
 export default function App() {
 
@@ -37,6 +39,8 @@ export default function App() {
             </>
           } />
           <Route path="/services/:slug" element={<ServiceDetails />} />
+          <Route path="/blogs" element={<BlogsPage />} />
+          <Route path="/blogs/:slug" element={<BlogPostDetails />} />
           <Route path="/diffusions" element={<DiffusionsPage />} />
           <Route path="/diffusions/:slug" element={<DiffusionPost />} />
           <Route path="/entreprises" element={<EntreprisesPage />} />

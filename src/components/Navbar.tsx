@@ -2,14 +2,13 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
-// import { LanguageSwitcher } from './LanguageSwitcher';
 import logo from "../../assets/icon.png"
 
 const navigation = [
   { name: 'nav.services', href: '/#services' },
   { name: 'nav.about', href: '/about' },
-  // { name: 'nav.projects', href: '/success-stories' },
   { name: 'nav.diffusion', href: '/diffusions' },
+  { name: 'nav.blog', href: '/blogs' },
   { name: 'nav.events', href: '/events' },
   { name: 'nav.entreprises', href: '/entreprises' },
   { name: 'nav.organisations', href: '/organisations' }
