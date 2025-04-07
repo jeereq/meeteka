@@ -1,4 +1,4 @@
-import { ArrowUpRight, Calendar, Clock, Lock, Newspaper } from "lucide-react";
+import { ArrowUpRight, Calendar, Lock, Newspaper } from "lucide-react";
 import { formatPrice, parseName } from "../../../../config";
 import { Link } from 'react-router-dom';
 import { useState } from "react";
@@ -8,7 +8,7 @@ export default function CardEvent({ ...post }: any) {
         "broadcast": "Diffusions",
         "blog": "Blog",
         "post": "actualité"
-    }); 
+    });
     return <Link
         key={post?.id}
         to={`/events/${post?.id}?name=${parseName(post?.title)}`}
@@ -34,18 +34,18 @@ export default function CardEvent({ ...post }: any) {
 
         <div className="p-4 sm:p-6 ">
             <div className="flex flex-wrap gap-2 mb-4">
-                {post?.sectors?.filter(function (item: any) {
-                    return item?.name
-                }).map(function (item: any) {
-                    return <span className="px-3 py-1 bg-black/5 rounded-full text-sm">
+                {post?.sectors?.filter(function ({ sector: item }: any, index: number) {
+                    return item?.name && index <= 2
+                }).map(function ({ sector: item }: any) {
+                    return <span className="px-3 py-1 bg-highlight text-white rounded-full text-sm">
                         {item?.name}
                     </span>
                 })}
-                {post?.startDate && <span className="px-3 py-1 flex gap-2 items-center bg-black/5 rounded-full text-sm">
-                    <Calendar className="w-3 h-3" />   {new Date(post?.startDate).toLocaleDateString()}
+                {post?.startDate && <span className="px-3 py-1 flex gap-2 items-center bg-black/10 font-medium rounded-full text-sm">
+                    <Calendar className="w-3 h-3" />  Debut {new Date(post?.startDate).toLocaleDateString()}
                 </span>}
-                {post?.endDate && <span className="px-3 py-1 flex gap-2 items-center bg-black/5 rounded-full text-sm">
-                    <Calendar className="w-3 h-3" />   {new Date(post?.endDate).toLocaleDateString()}
+                {post?.endDate && <span className="px-3 py-1 flex gap-2 items-center bg-black/10 font-medium rounded-full text-sm">
+                    <Calendar className="w-3 h-3" /> Fin  {new Date(post?.endDate).toLocaleDateString()}
                 </span>}
             </div>
             <h3 className="text-lg sm:text-xl font-bold mb-3 group-hover:text-highlight transition-colors line-clamp-2">
@@ -54,22 +54,21 @@ export default function CardEvent({ ...post }: any) {
 
             <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                    <img
+                    {post?.owner?.cover && <img
                         src={post?.owner?.cover}
                         alt={post?.owner?.username}
                         className="w-8 h-8 rounded-full bg-black/5 object-cover"
-                    />
+                    />}
                     <div className="text-sm">
                         <p className="font-medium">{post?.owner?.username}</p>
                         <div className="flex items-center gap-2 text-gray-500">
                             <Calendar className="w-3 h-3" />
                             <span>{new Date(post?.createdAt).toLocaleDateString()}</span>
-                            <Clock className="w-3 h-3" />
-                            <span>{post?.readTime}</span>
+                            {/* <Clock className="w-3 h-3" />
+                            <span>{post?.readTime}</span> */}
                         </div>
                     </div>
                 </div>
-
                 {post?.isPremium && (
                     <span className="text-highlight font-bold text-sm sm:text-base">
                         {formatPrice(post?.price)}
