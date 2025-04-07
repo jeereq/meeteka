@@ -17,7 +17,9 @@ export function Diffusion() {
   useEffect(() => {
     (async function () {
       const { data } = await fetchDiffusions({
-        type: "broadcast"
+        type: "broadcast",
+        page: 1,
+        limit: 3
       }, "POST")
       if (data?.data) {
         setDiffussions(data.data)
