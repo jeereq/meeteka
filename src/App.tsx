@@ -20,6 +20,7 @@ import { EntreprisesPage } from './pages/EntreprisesPage';
 import { EventsPage } from './pages/EventsPage';
 import { BlogsPage } from './pages/BlogsPage';
 import { BlogPostDetails } from './pages/BlogPost';
+import { EventPost } from './pages/EventPost';
 
 export default function App() {
 
@@ -47,7 +48,7 @@ export default function App() {
           <Route path="/entreprises/:slug" element={<PartnerDetails />} />
           <Route path="/organisations" element={<OrganisationsPage />} />
           <Route path="/events" element={<EventsPage />} />
-          <Route path="/events/:slug" element={<DiffusionPost />} />
+          <Route path="/events/:slug" element={<EventPost />} />
           <Route path="/organisations/:slug" element={<PartnerDetails />} />
           <Route path="/success-stories" element={<SuccessStoriesPage />} />
           <Route path="/success-stories/:slug" element={<SuccessStoryDetails />} />
