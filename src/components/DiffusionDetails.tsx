@@ -49,7 +49,7 @@ export function DiffusionDetails({ post }: any) {
     "advanced": "Avancé"
   });
   const [showPayment, setShowPayment] = useState(post?.isPremium);
-  const services = post?.sectors || defaultServices;
+  // const services = post?.sectors || defaultServices;
 
   const handlePayment = (e: React.FormEvent) => {
     e.preventDefault();
@@ -66,7 +66,7 @@ export function DiffusionDetails({ post }: any) {
             className="group flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm shadow-lg hover:bg-highlight hover:text-white transition-all duration-300 rounded-full"
           >
             <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5 group-hover:-translate-x-1 transition-transform duration-300" />
-            <span className="text-sm sm:text-base font-medium">Retour aux diffusions</span>
+            <span className="text-sm sm:text-base font-medium">Retour aux {post.type == "broadcast" ? "diffusions" : "blogs"}</span>
           </button>
         </div>
       </div>
@@ -156,6 +156,12 @@ export function DiffusionDetails({ post }: any) {
                 <Newspaper className="w-4 h-4" />
                 <span>{type[post?.type]}</span>
               </div>
+              <div className="flex items-center gap-1">
+
+                {level[post?.level] && <span className="px-3 py-1 bg-highlight rounded-full text-sm text-white">
+                  {level[post?.level]}
+                </span>}
+              </div>
             </div>
 
             <h1 className="text-3xl sm:text-4xl font-bold mb-6">{post?.title}</h1>
@@ -167,7 +173,8 @@ export function DiffusionDetails({ post }: any) {
           />
 
           {/* Related Services */}
-          {services.length != 0 && <section className="mt-16 mb-12 bg-gray-50 rounded-3xl p-8 border-2 border-black/10">
+
+          {/* {services.length != 0 && <section className="mt-16 mb-12 bg-gray-50 rounded-3xl p-8 border-2 border-black/10">
             <h2 className="text-2xl font-bold mb-6">Services Recommandés</h2>
             <div className="grid sm:grid-cols-2 gap-6">
               {services.map((service: any, index: number) => (
@@ -194,20 +201,20 @@ export function DiffusionDetails({ post }: any) {
                 </div>
               ))}
             </div>
-          </section>}
+          </section>} */}
 
           {/* Share Section */}
           <footer className="border-t border-gray-200 pt-8">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div className="flex items-center gap-4">
-                <img
-                  src={post?.cover}
+                {post?.owner?.cover && <img
+                  src={post?.owner?.cover}
                   alt={post?.owner.username}
                   className="w-12 h-12 rounded-full object-cover"
-                />
+                />}
                 <div>
                   <p className="font-bold">{post?.owner.username}</p>
-                  <p className="text-sm text-gray-600">{level[post?.level]}</p>
+                  <p className="text-sm text-gray-600">{post?.owner.email}</p>
                 </div>
               </div>
 
