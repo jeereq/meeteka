@@ -39,16 +39,16 @@ export default function CardDiffusion({ ...post }: any) {
 
         <div className="p-4 sm:p-6 ">
             <div className="flex flex-wrap gap-2 mb-4">
-                {post?.sectors?.filter(function (item: any) {
-                    return item?.name
+                {level[post?.level] && <span className="px-3 py-1 bg-highlight rounded-full text-sm text-white">
+                    {level[post?.level]}
+                </span>}
+                {post?.sectors?.filter(function (item: any, index: number) {
+                    return item?.name && index <= 2
                 }).map(function (item: any) {
                     return <span className="px-3 py-1 bg-black/5 rounded-full text-sm">
                         {item?.name}
                     </span>
                 })}
-                {level[post?.level] && <span className="px-3 py-1 bg-black/5 rounded-full text-sm">
-                    {level[post?.level]}
-                </span>}
             </div>
             <h3 className="text-lg sm:text-xl font-bold mb-3 group-hover:text-highlight transition-colors line-clamp-2">
                 {post.title}
@@ -56,11 +56,11 @@ export default function CardDiffusion({ ...post }: any) {
 
             <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                    <img
-                        src={post.owner.cover}
+                    {post?.owner?.cover && <img
+                        src={post?.owner?.cover}
                         alt={post.owner.username}
                         className="w-8 h-8 rounded-full bg-black/5 object-cover"
-                    />
+                    />}
                     <div className="text-sm">
                         <p className="font-medium">{post.owner.username}</p>
                         <div className="flex items-center gap-2 text-gray-500">
