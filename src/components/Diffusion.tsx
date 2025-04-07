@@ -6,9 +6,6 @@ import { useFetchData } from '../../hooks/useFetchData';
 import CardDiffusion from './card/diffusion';
 import { LoadingCard } from './LoadingCard';
 
-
-
-
 export function Diffusion() {
   const { t } = useLanguage()
   const [diffusions, setDiffussions] = useState<any[]>([])
@@ -28,7 +25,7 @@ export function Diffusion() {
   }, []);
 
   return (
-    <section className="section-padding" id="diffusion">
+    <section className="section-padding max-w-7xl" id="diffusion">
       <div className="mb-12">
         <h2 className="text-4xl font-bold mb-4">
           {t("diffusions.title").split(" ").map(function (item, index: number) {
@@ -45,13 +42,13 @@ export function Diffusion() {
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-        {isLoading ? (
+        {isLoading ?
           [...Array(3)].map((_, index) => (
             <LoadingCard key={index} />
           ))
-        ) : diffusions.map((post, index) => (
-          <CardDiffusion {...post} key={index} />
-        ))}
+          : diffusions.map((post, index) => (
+            <CardDiffusion {...post} key={index} />
+          ))}
       </div>
 
       <div className="mt-12 text-center">

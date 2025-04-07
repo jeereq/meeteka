@@ -68,7 +68,7 @@ export function Team() {
   const { t } = useLanguage()
 
   return (
-    <section className="section-padding overflow-hidden" id="team">
+    <section className="section-padding max-w-7xl overflow-hidden" id="team">
       <div className="mb-8 sm:mb-12">
         <h2 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4">
           {t("teams.title").split(" ").map(function (item, index: number) {

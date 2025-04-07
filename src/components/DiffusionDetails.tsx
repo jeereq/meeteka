@@ -31,8 +31,7 @@ export function DiffusionDetails({ post }: any) {
   };
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
-      {/* Back Button */}
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
       <div className="fixed top-16 sm:top-20 left-0 right-0 z-50 px-4 sm:px-8">
         <div className="max-w-7xl mx-auto">
           <button
@@ -112,7 +111,6 @@ export function DiffusionDetails({ post }: any) {
               alt={post?.title}
               className="w-full h-[300px] sm:h-[400px] object-cover rounded-3xl mb-8"
             />
-
             <div className="flex flex-wrap items-center gap-4 mb-4 text-sm text-gray-600">
               <div className="flex items-center gap-1">
                 <Calendar className="w-4 h-4" />

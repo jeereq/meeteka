@@ -74,7 +74,7 @@ const services = [
 export function Services() {
   const { t } = useLanguage()
   return (
-    <section className="section-padding" id="services">
+    <section className="section-padding max-w-7xl" id="services">
       <div className="text-center lg:text-left mb-12">
         <h2 className="text-3xl xs:text-4xl lg:text-5xl font-bold mb-4">
           {t("home.services.title").split(" ").map(function (element, index: number) {
@@ -89,7 +89,6 @@ export function Services() {
           {t("home.services.description")}
         </p>
       </div>
-
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         {services.map((service, index) => {
           const Icon = service.icon;
