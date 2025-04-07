@@ -2,6 +2,7 @@ const fr = {
     'nav.services': 'Services',
     'nav.projects': 'Histoires à succès',
     'nav.diffusion': 'Diffusions',
+    'nav.blog': 'Blogs',
     'nav.team': 'Équipe',
     'nav.reviews': 'Avis',
     'nav.contact': 'Contactez-nous',
@@ -129,6 +130,12 @@ const fr = {
     "diffusions.more": "Voir toutes les diffusions",
     "diffusions.banner.title": "Nos Diffusions",
     "diffusions.banner.description": "Découvrez nos guides et ressources pour développer votre entreprise et réussir dans l'économie digitale.",
+
+    "blogs.title": "Dernièrs Blogs",
+    "blogs.description": "Conseils d'experts et stratégies pour votre succès digital",
+    "blogs.more": "Voir tout les blogs",
+    "blogs.banner.title": "Nos Blogs",
+    "blogs.banner.description": "Découvrez nos guides et ressources pour développer votre entreprise et réussir dans l'économie digitale.",
 
     "teams.title": "Notre Équipe",
     "teams.description": "Les experts derrière votre succès digital",

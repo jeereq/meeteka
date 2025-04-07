@@ -49,9 +49,9 @@ const FilterSection: React.FC<{
   </div>
 );
 
-export function DiffusionsPage() {
+export function BlogsPage() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [diffusions, setDiffussions] = useState<any[]>([])
+  const [blogs, setDiffussions] = useState<any[]>([])
   const [selectedType, setSelectedType] = useState('Tous');
   const [selectedLevel, setSelectedLevel] = useState('Tous');
   const [showFilters, setShowFilters] = useState(false);
@@ -61,7 +61,7 @@ export function DiffusionsPage() {
   useEffect(() => {
     (async function () {
       const { data } = await fetchDiffusions({
-        type: "broadcast"
+        type: "blog"
       }, "POST")
       if (data?.data) {
         setDiffussions(data.data)
@@ -70,7 +70,7 @@ export function DiffusionsPage() {
 
   }, []);
 
-  const filteredDiffusions = diffusions.filter(post => {
+  const filteredDiffusions = blogs.filter(post => {
     const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase())
     const matchesType = selectedType === 'Tous' || post.type === selectedType;
     const matchesLevel = selectedLevel === 'Tous' || post.level === selectedLevel;
@@ -104,7 +104,7 @@ export function DiffusionsPage() {
         <section className="bg-black text-white py-12 sm:py-16 lg:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6">
-              {t("diffusions.banner.title").split(" ").map(function (element, index: number) {
+              {t("blogs.banner.title").split(" ").map(function (element, index: number) {
                 if (index == 0) {
                   return <span className="w-fit" key={index}>{element}</span>
                 } else {
@@ -113,7 +113,7 @@ export function DiffusionsPage() {
               })}
             </h1>
             <p className="text-lg sm:text-xl text-gray-300 max-w-3xl">
-              {t("diffusions.banner.description")}
+              {t("blogs.banner.description")}
             </p>
           </div>
         </section>
@@ -210,7 +210,7 @@ export function DiffusionsPage() {
           </div>
         </section>
 
-        {/* Diffusions Grid */}
+        {/* blogs Grid */}
         <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
           {isLoading ? (
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
@@ -220,7 +220,7 @@ export function DiffusionsPage() {
             </div>
           ) : filteredDiffusions.length === 0 ? (
             <EmptyState
-              title="Aucune diffusion trouvée"
+              title="Aucun blog trouvé"
               description="Nous n'avons trouvé aucune diffusion correspondant à vos critères de recherche. Essayez de modifier vos filtres ou d'effectuer une nouvelle recherche."
               action={{
                 label: "Réinitialiser les filtres",
