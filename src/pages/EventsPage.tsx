@@ -69,7 +69,7 @@ export function EventsPage() {
       <div className="min-h-screen pt-20">
         {/* Hero Section */}
         <section className="bg-black text-white py-12 sm:py-16 lg:py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6">
               {t("events.banner.title").split(" ").map(function (element, index: number) {
                 if (index == 0) {
@@ -87,7 +87,7 @@ export function EventsPage() {
 
         {/* Filters */}
         <section className="sticky top-16 z-30 bg-white/80 backdrop-blur-lg border-b border-gray-200 py-4">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col gap-6">
               {/* Search and Filter Toggle */}
               <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
@@ -188,10 +188,10 @@ export function EventsPage() {
         </section>
 
         {/* Events Grid */}
-        <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+        <section className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
           {isLoading ? (
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-              {[...Array(6)].map((_, index) => (
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+              {[...Array(8)].map((_, index) => (
                 <LoadingCard key={index} />
               ))}
             </div>
@@ -205,7 +205,7 @@ export function EventsPage() {
               }}
             />
           ) : (
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
               {filteredEvents.map((post, index) => (
                 <CardEvent {...post} key={index} />
               ))}

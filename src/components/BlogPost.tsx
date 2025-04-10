@@ -14,7 +14,7 @@ export function BlogPost({ post }: { post: any }) {
 
   const BackButton = () => (
     <div className="fixed top-16 sm:top-20 left-0 right-0 z-50 px-4 sm:px-8 pointer-events-none">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-9xl mx-auto">
         <button
           onClick={() => navigate(-1)}
           className="pointer-events-auto group flex items-center gap-2 px-4 py-2 bg-white shadow-lg hover:bg-highlight hover:text-white transition-all duration-300 rounded-full"
@@ -45,7 +45,7 @@ export function BlogPost({ post }: { post: any }) {
     <section className="mt-12 sm:mt-16 mb-8 sm:mb-12 bg-gray-50 rounded-3xl p-4 sm:p-8 border-2 border-black/10">
       <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Services Recommandés</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-        {services.map((service, index) => (
+        {services.map((service: any, index: number) => (
           <a
             key={index}
             href={service.link}
@@ -128,7 +128,7 @@ export function BlogPost({ post }: { post: any }) {
         <div className="mb-8 sm:mb-12">
           <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Articles Similaires</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
-            {post.relatedArticles.map((article, index) => (
+            {post.relatedArticles.map((article: any, index: number) => (
               <a
                 key={index}
                 href={article.link}

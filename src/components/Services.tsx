@@ -74,7 +74,7 @@ const services = [
 export function Services() {
   const { t } = useLanguage()
   return (
-    <section className="section-padding max-w-7xl" id="services">
+    <section className="section-padding max-w-9xl" id="services">
       <div className="text-center lg:text-left mb-12">
         <h2 className="text-3xl xs:text-4xl lg:text-5xl font-bold mb-4">
           {t("home.services.title").split(" ").map(function (element, index: number) {

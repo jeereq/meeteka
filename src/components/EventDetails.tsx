@@ -22,9 +22,9 @@ export function EventDetails({ post }: any) {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+    <div className="max-w-9xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
       <div className="fixed top-16 sm:top-20 left-0 right-0 z-50 px-4 sm:px-8">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-9xl mx-auto">
           <button
             onClick={() => navigate(-1)}
             className="group flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm shadow-lg hover:bg-highlight hover:text-white transition-all duration-300 rounded-full"
