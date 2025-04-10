@@ -16,7 +16,7 @@ export function Diffusion() {
       const { data } = await fetchDiffusions({
         type: "broadcast",
         page: 1,
-        limit: 3
+        limit: 4
       }, "POST")
       if (data?.data) {
         setDiffussions(data.data)
@@ -25,7 +25,7 @@ export function Diffusion() {
   }, []);
 
   return (
-    <section className="section-padding max-w-7xl" id="diffusion">
+    <section className="section-padding max-w-9xl" id="diffusion">
       <div className="mb-12">
         <h2 className="text-4xl font-bold mb-4">
           {t("diffusions.title").split(" ").map(function (item, index: number) {
@@ -40,7 +40,7 @@ export function Diffusion() {
           {t("diffusions.description")}
         </p>
       </div>
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
 
         {isLoading ?
           [...Array(3)].map((_, index) => (

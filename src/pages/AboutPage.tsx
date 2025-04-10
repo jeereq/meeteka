@@ -77,7 +77,7 @@ export function AboutPage() {
           />
           <div className="absolute inset-0 bg-black/70" />
         </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
+        <div className="relative max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
           <div className="w-fit">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6">
               {t("about.banner.title").split(" ").map(function (item) {
@@ -94,7 +94,7 @@ export function AboutPage() {
 
       {/* Stats Section */}
       <section className="py-16 sm:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, index) => (
               <div
@@ -113,7 +113,7 @@ export function AboutPage() {
 
       {/* Challenges Section */}
       <section className="py-16 sm:py-20 bg-black text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center">
             {t("about.challenges.title").split(" ").map(function (item) {
               if (item == "Défis" || item == "challenges") return <span className="text-highlight mr-2" >{item}</span>
@@ -143,7 +143,7 @@ export function AboutPage() {
 
       {/* Solutions Section */}
       <section className="py-16 sm:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center">
             {t("about.solutions.title").split(" ").map(function (item) {
               if (item == "Solutions") return <span className="heading-highlight mr-2" >{item}</span>
@@ -172,7 +172,7 @@ export function AboutPage() {
 
       {/* CTA Section */}
       <section className="py-16 sm:py-20 bg-highlight">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
+        <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6">
             {t("about.callToAction.title")}
           </h2>
