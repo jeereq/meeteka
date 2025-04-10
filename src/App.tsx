@@ -21,9 +21,13 @@ import { EventsPage } from './pages/EventsPage';
 import { BlogsPage } from './pages/BlogsPage';
 import { BlogPostDetails } from './pages/BlogPost';
 import { EventPost } from './pages/EventPost';
+import { useEffect } from 'react';
 
 export default function App() {
-
+  const pathname = window.location.pathname;
+  useEffect(function () {
+    window.scrollTo(0, 0)
+  }, [pathname])
   return (
     <BrowserRouter>
       <Layout>
