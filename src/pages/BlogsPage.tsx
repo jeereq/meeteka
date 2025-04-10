@@ -214,7 +214,7 @@ export function BlogsPage() {
         <section className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
           {isLoading ? (
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-              {[...Array(6)].map((_, index) => (
+              {[...Array(8)].map((_, index) => (
                 <LoadingCard key={index} />
               ))}
             </div>

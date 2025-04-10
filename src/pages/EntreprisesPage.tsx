@@ -235,7 +235,7 @@ export function EntreprisesPage() {
         <section className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
           {isLoading ? (
             <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
-              {[...Array(4)].map((_, index) => (
+              {[...Array(6)].map((_, index) => (
                 <LoadingCard key={index} />
               ))}
             </div>
