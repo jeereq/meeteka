@@ -19,14 +19,18 @@ export default function CardEntreprise({ ...partner }) {
                     <h2 className="text-xl sm:text-2xl font-bold mb-2 group-hover:text-highlight transition-colors">
                         {partner?.name}
                     </h2>
-                    <div className="flex flex-wrap gap-2">
-                        <span className="px-3 py-1 bg-black/5 rounded-full text-sm">
+                    <div className="gap-2">
+                        <span className="px-3 block w-fit py-1 bg-black/5 rounded-full text-sm">
                             {partner?.legalForm?.name}
                         </span>
+
                     </div>
                 </div>
             </div>
-            <p className="text-sm sm:text-base text-gray-600 mb-6" dangerouslySetInnerHTML={{ __html: partner?.description }} />
+            <h3 className="text-sm mb-2 font-medium group-hover:text-highlight transition-colors">
+                {partner?.email}
+            </h3>
+            <p className="text-sm sm:text-base text-gray-600 mb-2" dangerouslySetInnerHTML={{ __html: partner?.description }} />
 
             {partner?.services.length != 0 && <h2 className="text-xl sm:text-2xl font-bold mb-2 group-hover:text-highlight transition-colors">
                 Services
@@ -52,18 +56,13 @@ export default function CardEntreprise({ ...partner }) {
             {partner?.sectors.length != 0 && <h2 className="text-xl sm:text-2xl font-bold mb-2 group-hover:text-highlight transition-colors">
                 Secteurs
             </h2>}
-            <div className="gap-3 sm:gap-4 grid grid-cols-2">
+            <div className="gap-2 sm:gap-3 flex items-center flex-wrap pb-5">
                 {partner?.sectors.map(({ sector: service }: any, i: number) => (
                     <div
                         key={i}
-                        className="flex justify-between items-center p-3 sm:p-4 bg-gray-50 rounded-xl"
+                        className="flex justify-center items-center py-2 px-3 bg-gray-50 rounded-full"
                     >
-                        <div>
-                            <h3 className="text-sm sm:text-base font-medium mb-1">{service.name}</h3>
-                            <p className="text-xs sm:text-sm text-gray-500">
-                                {service.description}
-                            </p>
-                        </div>
+                        <h3 className="text-sm sm:text-base font-medium mb-1">{service.name}</h3>
                     </div>
                 ))}
             </div>

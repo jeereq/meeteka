@@ -25,9 +25,11 @@ import { useEffect } from 'react';
 
 export default function App() {
   const pathname = window.location.pathname;
+
   useEffect(function () {
     window.scrollTo(0, 0)
   }, [pathname])
+
   return (
     <BrowserRouter>
       <Layout>

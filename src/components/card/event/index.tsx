@@ -1,4 +1,4 @@
-import { ArrowUpRight, Calendar, Lock, Newspaper } from "lucide-react";
+import { ArrowUpRight, Calendar, Lock, Newspaper, Hourglass } from "lucide-react";
 import { formatPrice, parseName } from "../../../../config";
 import { Link } from 'react-router-dom';
 import { useState } from "react";
@@ -32,28 +32,38 @@ export default function CardEvent({ ...post }: any) {
             </div>}
         </div>
 
-        <div className="p-4 sm:p-6 ">
+        <div className="p-3 sm:p-4">
             <div className="flex flex-wrap gap-2 mb-4">
                 {post?.sectors?.filter(function ({ sector: item }: any, index: number) {
                     return item?.name && index <= 2
                 }).map(function ({ sector: item }: any) {
-                    return <span className="px-3 py-1 bg-highlight text-white rounded-full text-sm">
+                    return <span className="px-2 py-1 bg-highlight text-white rounded-full text-sm">
                         {item?.name}
                     </span>
                 })}
-                {post?.startDate && <span className="px-3 py-1 flex gap-2 items-center bg-black/10 font-medium rounded-full text-sm">
-                    <Calendar className="w-3 h-3" />  Debut {new Date(post?.startDate).toLocaleDateString()}
-                </span>}
-                {post?.endDate && <span className="px-3 py-1 flex gap-2 items-center bg-black/10 font-medium rounded-full text-sm">
-                    <Calendar className="w-3 h-3" /> Fin  {new Date(post?.endDate).toLocaleDateString()}
-                </span>}
+                <div className="w-full grid grid-cols-2 gap-1">
+                    {post?.startDate && <span className="p-2 flex text-center items-center bg-black/10 font-medium rounded-full text-xs">
+                        <Calendar className="w-3 h-3 mr-1" /> Debut {new Date(post?.startDate).toLocaleDateString()}
+                    </span>}
+                    {post?.endDate && <span className="p-2 flex text-center items-center bg-black/10 font-medium rounded-full text-xs">
+                        <Calendar className="w-3 h-3 mr-1" /> Fin {new Date(post?.endDate).toLocaleDateString()}
+                    </span>}
+                </div>
+                <div className="w-full flex items-center gap-1">
+                    {post?.startDate && <span className="p-2 flex text-center items-center bg-black group-hover:bg-highlight text-white font-medium rounded-full text-xs">
+                        <Hourglass className="w-3 h-3 mr-1" />  {post?.startHour}
+                    </span>}
+                    -
+                    {post?.endDate && <span className="p-2 flex text-center items-center bg-black group-hover:bg-highlight text-white font-medium rounded-full text-xs">
+                        <Hourglass className="w-3 h-3 mr-1" /> {post?.endHour}
+                    </span>}
+                </div>
             </div>
             <h3 className="text-lg sm:text-xl font-bold mb-3 group-hover:text-highlight transition-colors line-clamp-2">
                 {post?.title}
             </h3>
-
             <div className="flex items-center justify-between">
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2">
                     {post?.owner?.cover && <img
                         src={post?.owner?.cover}
                         alt={post?.owner?.username}
@@ -73,9 +83,8 @@ export default function CardEvent({ ...post }: any) {
                     </span>
                 )}
             </div>
-
-            <div className="mt-4 sm:mt-6 flex justify-end">
-                <span className="inline-flex items-center gap-2 text-black group-hover:text-highlight transition-colors">
+            <div className="mt-4 flex justify-end">
+                <span className="inline-flex items-center group-hover:font-bold gap-2 text-black group-hover:text-highlight transition-colors">
                     Lire plus
                     <ArrowUpRight className="w-5 h-5 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                 </span>
