@@ -8,7 +8,7 @@ const fr = {
     'nav.contact': 'Contactez-nous',
     'nav.entreprises': 'Entreprises',
     'nav.organisations': 'Organisations',
-    'nav.events': 'Events',
+    'nav.events': 'Evenements',
     'nav.pricing': 'Prix',
     'nav.about': 'À propos',
     "callToAction.hero": "Commencez l'Aventure",
@@ -105,19 +105,19 @@ const fr = {
 
     "partners.banner.title": "Nos Partenaires",
     "partners.banner.description": "Découvrez notre réseau d'experts et de professionnels dédiés à votre réussite.",
-    "partners.button.more": "See details",
+    "partners.button.more": "Voir les détails",
 
     "organisations.banner.title": "Nos Organisations",
     "organisations.banner.description": "Découvrez notre réseau d'experts et de professionnels dédiés à votre réussite.",
-    "organisations.button.more": "See details",
+    "organisations.button.more": "Voir les détails",
 
-    "events.banner.title": "Nos Events",
+    "events.banner.title": "Nos Evenements",
     "events.banner.description": "Découvrez notre réseau d'experts et de professionnels dédiés à votre réussite.",
-    "events.button.more": "See details",
+    "events.button.more": "Voir les détails",
 
     "entreprises.banner.title": "Nos Entreprises",
     "entreprises.banner.description": "Découvrez notre réseau d'experts et de professionnels dédiés à votre réussite.",
-    "entreprises.button.more": "See details",
+    "entreprises.button.more": "Voir les détails",
 
     "pricings.banner.title": "Nos tarifs",
     "pricings.banner.description": "Des solutions adaptées à chaque étape de votre croissance. Choisissez le plan qui correspond le mieux à vos besoins.",

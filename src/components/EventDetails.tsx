@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Calendar, User, Facebook, Twitter, Linkedin, Lock, CreditCard } from 'lucide-react';
+import { ArrowLeft, Calendar, User, Facebook, Twitter, Linkedin, Lock, CreditCard, Hourglass } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const formatPrice = (price: number = 0) => {
@@ -103,13 +103,22 @@ export function EventDetails({ post }: any) {
               className="w-full h-[300px] sm:h-[400px] object-cover rounded-3xl mb-8"
             />
             <div className="flex flex-wrap items-center gap-4 mb-4 text-sm text-gray-600">
-              <div className="flex items-center  bg-black/10 font-medium rounded-full gap-2 px-3 py-1 ">
+              <div className="flex items-center  bg-black/10 font-medium rounded-full gap-2 px-3 py-2 ">
                 <Calendar className="w-4 h-4" />
                 <span>Debut {new Date(post?.startDate).toLocaleDateString()}</span>
               </div>
-              <div className="flex items-center bg-black/10 font-medium rounded-full gap-2 px-3 py-1 ">
+              <div className="flex items-center bg-black/10 font-medium rounded-full gap-2 px-3 py-2 ">
                 <Calendar className="w-4 h-4" />
                 <span>Fin {new Date(post?.endDate).toLocaleDateString()}</span>
+              </div>
+              <div className="w-fit flex items-center gap-1">
+                {post?.startDate && <span className="p-2 flex text-center items-center bg-black group-hover:bg-highlight text-white font-medium rounded-full text-xs">
+                  <Hourglass className="w-3 h-3 mr-1" />  {post?.startHour}
+                </span>}
+                -
+                {post?.endDate && <span className="p-2 flex text-center items-center bg-black group-hover:bg-highlight text-white font-medium rounded-full text-xs">
+                  <Hourglass className="w-3 h-3 mr-1" /> {post?.endHour}
+                </span>}
               </div>
               <div className="flex items-center gap-1">
                 <User className="w-4 h-4" />
