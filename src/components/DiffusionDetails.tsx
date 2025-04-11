@@ -111,7 +111,7 @@ export function DiffusionDetails({ post }: any) {
               alt={post?.title}
               className="w-full h-[300px] sm:h-[400px] object-cover rounded-3xl mb-8"
             />
-            <div className="flex flex-wrap items-center gap-4 mb-4 text-sm text-gray-600">
+            <div className="flex flex-wrap items-center gap-4 mb-2 text-sm text-gray-600">
               <div className="flex items-center gap-1">
                 <Calendar className="w-4 h-4" />
                 <span>{new Date(post?.createdAt).toLocaleDateString()}</span>
@@ -135,7 +135,13 @@ export function DiffusionDetails({ post }: any) {
                 </span>}
               </div>
             </div>
-
+            <div className="w-fit flex mb-4 items-center justify-center gap-1">
+              {post?.sectors?.map(function (item: any) {
+                return <span className="px-3 py-1 bg-black/5 rounded-full text-sm">
+                  {item?.name}
+                </span>
+              })}
+            </div>
             <h1 className="text-3xl sm:text-4xl font-bold mb-6">{post?.title}</h1>
           </header>
 
