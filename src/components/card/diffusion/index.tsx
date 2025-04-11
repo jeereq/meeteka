@@ -53,7 +53,6 @@ export default function CardDiffusion({ ...post }: any) {
             <h3 className="text-lg sm:text-xl font-bold mb-3 group-hover:text-highlight transition-colors line-clamp-2">
                 {post.title}
             </h3>
-
             <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
                     {post?.owner?.cover && <img
@@ -79,7 +78,7 @@ export default function CardDiffusion({ ...post }: any) {
                 )}
             </div>
 
-            <div className="mt-4 sm:mt-6 flex justify-end">
+            <div className="mt-4 sm:mt-6 group-hover:font-bold flex justify-end">
                 <span className="inline-flex items-center gap-2 text-black group-hover:text-highlight transition-colors">
                     Lire plus
                     <ArrowUpRight className="w-5 h-5 transform group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
