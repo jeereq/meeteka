@@ -13,7 +13,6 @@ const formatPrice = (price: number = 0) => {
 
 export function EventDetails({ post }: any) {
   const navigate = useNavigate();
-
   const [showPayment, setShowPayment] = useState(post?.isPremium);
 
   const handlePayment = (e: React.FormEvent) => {
@@ -129,7 +128,7 @@ export function EventDetails({ post }: any) {
               {post?.sectors?.filter(function ({ sector: item }: any) {
                 return item?.name
               }).map(function ({ sector: item }: any) {
-                return <span className="px-3 py-1 bg-highlight text-white rounded-full text-sm">
+                return <span key={item.id} className="px-3 py-1 bg-highlight text-white rounded-full text-sm">
                   {item?.name}
                 </span>
               })}

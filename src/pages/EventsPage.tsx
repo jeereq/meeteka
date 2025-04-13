@@ -27,7 +27,6 @@ export function EventsPage() {
       if (startDate == "Tous") delete where.startDate
       if (endDate == "Tous") delete where.endDate
       const { data } = await fetchEvents(where, "POST")
-      console.log(data)
       if (data?.data) {
         setEvents(data.data)
       }
