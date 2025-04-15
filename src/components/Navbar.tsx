@@ -10,8 +10,7 @@ const navigation = [
   { name: 'nav.diffusion', href: '/diffusions' },
   { name: 'nav.blog', href: '/blogs' },
   { name: 'nav.events', href: '/events' },
-  { name: 'nav.entreprises', href: '/entreprises' },
-  { name: 'nav.organisations', href: '/organisations' }
+  { name: 'nav.entreprises', href: '/entreprises' }
 ];
 
 export function Navbar() {
