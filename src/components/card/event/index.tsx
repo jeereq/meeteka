@@ -14,7 +14,7 @@ export default function CardEvent({ ...post }: any) {
         to={`/events/${post?.id}?name=${parseName(post?.title)}`}
         className="group bg-white rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-black/5 hover:border-highlight transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl"
     >
-        <div className="relative aspect-[16/9] overflow-hidden">
+        <div className="relative aspect-[16/9] bg-black/5 overflow-hidden">
             {post?.cover && <img
                 src={post?.cover}
                 alt={post?.title}
@@ -37,24 +37,24 @@ export default function CardEvent({ ...post }: any) {
                 {post?.sectors?.filter(function ({ sector: item }: any, index: number) {
                     return item?.name && index <= 2
                 }).map(function ({ sector: item }: any) {
-                    return <span className="px-2 py-1 bg-highlight text-white rounded-full text-sm">
+                    return <span className="px-2 py-1 bg-highlight text-white rounded-full text-xs">
                         {item?.name}
                     </span>
                 })}
                 <div className="w-full grid grid-cols-2 gap-1">
-                    {post?.startDate && <span className="p-2 flex text-center items-center bg-black/10 font-medium rounded-full text-xs">
+                    {post?.startDate && <span className="px-2 py-1 flex text-center items-center bg-black/10 font-medium rounded-full text-xs">
                         <Calendar className="w-3 h-3 mr-1" /> Debut {new Date(post?.startDate).toLocaleDateString()}
                     </span>}
-                    {post?.endDate && <span className="p-2 flex text-center items-center bg-black/10 font-medium rounded-full text-xs">
+                    {post?.endDate && <span className="px-2 py-1 flex text-center items-center bg-black/10 font-medium rounded-full text-xs">
                         <Calendar className="w-3 h-3 mr-1" /> Fin {new Date(post?.endDate).toLocaleDateString()}
                     </span>}
                 </div>
                 <div className="w-full flex items-center gap-1">
-                    {post?.startDate && <span className="p-2 flex text-center items-center bg-black group-hover:bg-highlight text-white font-medium rounded-full text-xs">
+                    {post?.startDate && <span className="px-2 py-1 flex text-center items-center bg-black group-hover:bg-highlight text-white font-medium rounded-full text-xs">
                         <Hourglass className="w-3 h-3 mr-1" />  {post?.startHour}
                     </span>}
                     -
-                    {post?.endDate && <span className="p-2 flex text-center items-center bg-black group-hover:bg-highlight text-white font-medium rounded-full text-xs">
+                    {post?.endDate && <span className="px-2 py-1 flex text-center items-center bg-black group-hover:bg-highlight text-white font-medium rounded-full text-xs">
                         <Hourglass className="w-3 h-3 mr-1" /> {post?.endHour}
                     </span>}
                 </div>

@@ -218,8 +218,8 @@ export function MissionsPage() {
             </div>
           ) : filteredDiffusions.length === 0 ? (
             <EmptyState
-              title="Aucune diffusion trouvée"
-              description="Nous n'avons trouvé aucune diffusion correspondant à vos critères de recherche. Essayez de modifier vos filtres ou d'effectuer une nouvelle recherche."
+              title="Aucune mission trouvée"
+              description="Nous n'avons trouvé aucune mission correspondant à vos critères de recherche. Essayez de modifier vos filtres ou d'effectuer une nouvelle recherche."
               action={{
                 label: "Réinitialiser les filtres",
                 onClick: resetFilters

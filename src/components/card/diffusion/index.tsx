@@ -19,7 +19,7 @@ export default function CardDiffusion({ ...post }: any) {
         to={`/${post.type == "blog" ? "blogs" : "diffusions"}/${post.id}?name=${parseName(post.title)}`}
         className="group bg-white rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-black/5 hover:border-highlight transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl"
     >
-        <div className="relative aspect-[16/9] overflow-hidden">
+        <div className="relative aspect-[16/9] bg-black/5 overflow-hidden">
             <img
                 src={post.cover}
                 alt={post.title}
@@ -37,11 +37,13 @@ export default function CardDiffusion({ ...post }: any) {
             </div>}
         </div>
 
-        <div className="p-4 sm:p-6 ">
-            <div className="flex flex-wrap gap-2 mb-4">
+        <div className="p-4">
+            <div className="flex mb-1">
                 {level[post?.level] && <span className="px-3 py-1 bg-highlight rounded-full text-sm text-white">
                     {level[post?.level]}
                 </span>}
+            </div>
+            <div className="flex flex-wrap gap-2 mb-2">
                 {post?.sectors?.filter(function (item: any, index: number) {
                     return item?.name && index <= 2
                 }).map(function (item: any) {
