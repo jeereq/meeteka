@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Calendar, User, Facebook, Twitter, Linkedin, Lock, CreditCard, Hourglass, MapPinned } from 'lucide-react';
+import { ArrowLeft, Calendar, User, Lock, CreditCard, Hourglass, MapPinned } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const formatPrice = (price: number = 0) => {
