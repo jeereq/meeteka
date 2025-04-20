@@ -9,9 +9,9 @@ const navigation = [
   { name: 'nav.about', href: '/about' },
   { name: 'nav.diffusion', href: '/diffusions' },
   { name: 'nav.blog', href: '/blogs' },
+  { name: 'nav.missions', href: '/missions' },
   { name: 'nav.events', href: '/events' },
-  { name: 'nav.entreprises', href: '/entreprises' },
-  { name: 'nav.organisations', href: '/organisations' }
+  { name: 'nav.entreprises', href: '/entreprises' }
 ];
 
 export function Navbar() {
@@ -86,9 +86,6 @@ export function Navbar() {
                 {t(item.name)}
               </Link>
             ))}
-            {/* <div className="border-l border-gray-200 pl-6 xl:pl-8">
-              <LanguageSwitcher />
-            </div> */}
           </div>
 
           {/* Mobile Menu Button */}
@@ -107,8 +104,7 @@ export function Navbar() {
 
         {/* Mobile Navigation */}
         <div
-          className={`lg:hidden fixed inset-0 top-[56px] sm:top-[64px] bg-white transform transition-transform duration-300 ${isOpen ? 'translate-x-0' : 'translate-x-full'
-            }`}
+          className={`lg:hidden fixed z-50 inset-0 top-[56px] sm:top-[64px] bg-white transform transition-transform duration-300 ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
         >
           <div className="h-full overflow-auto py-4 px-3 sm:py-6 sm:px-4">
             <div className="flex flex-col gap-2 sm:gap-4">
@@ -125,9 +121,6 @@ export function Navbar() {
                   {t(item.name)}
                 </Link>
               ))}
-              {/* <div className="mt-4 p-4 border-t border-gray-100">
-                <LanguageSwitcher />
-              </div> */}
             </div>
           </div>
         </div>

@@ -8,6 +8,7 @@ const en = {
     'nav.contact': 'Contact Us',
     'nav.entreprises': 'Entreprises',
     'nav.organisations': 'Organisations',
+    'nav.missions': 'Missions',
     'nav.events': 'Events',
     'nav.pricing': 'Pricings',
     'nav.about': 'About Us',
@@ -118,6 +119,12 @@ const en = {
     "diffusions.more": "See all broadcasts",
     "diffusions.banner.title": "Our Broadcasts",
     "diffusions.banner.description": "Discover our guides and resources for developing your business and succeeding in the digital economy.",
+
+    "missions.title": "Latest Missions",
+    "missions.description": "Expert advice and strategies for your digital success",
+    "missions.more": "See all Missions",
+    "missions.banner.title": "Our Missions",
+    "missions.banner.description": "Discover our guides and resources for developing your business and succeeding in the digital economy.",
 
     "blogs.title": "Dernièrs Blogs",
     "blogs.description": "Conseils d'experts et stratégies pour votre succès digital",

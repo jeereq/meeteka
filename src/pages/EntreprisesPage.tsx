@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Search, Filter, X } from 'lucide-react';
-// import { LoadingSpinner } from '../components/LoadingSpinner';
 import { LoadingCard } from '../components/LoadingCard';
 import { EmptyState } from '../components/EmptyState';
 import { PageTransition } from '../components/PageTransition';
