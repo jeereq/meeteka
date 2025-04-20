@@ -24,7 +24,6 @@ export function MissionDetails({ post }: any) {
     "advanced": "Avancé"
   });
   const [showPayment, setShowPayment] = useState(post?.isPremium);
-  // const services = post?.sectors || defaultServices;
 
   const handlePayment = (e: React.FormEvent) => {
     e.preventDefault();
@@ -136,27 +135,25 @@ export function MissionDetails({ post }: any) {
               </div>
             </div>
             <div className="w-fit flex mb-2 items-center lg:justify-center flex-wrap gap-1">
-              {post?.sectors?.map(function ({ sector: item }: any) {
-                return <span className="px-3 py-1 bg-black text-white rounded-full text-sm">
+              {post?.sectors?.map(function ({ sector: item }: any, index: number) {
+                return <span key={index} className="px-3 py-1 bg-black text-white rounded-full text-sm">
                   {item?.name}
                 </span>
               })}
             </div>
             <div className="w-fit flex mb-2 items-center lg:justify-center flex-wrap gap-1">
-              {post?.skills?.map(function ({ skill: item }: any) {
-                return <span className="px-3 py-1 bg-highlight text-white rounded-full text-sm">
+              {post?.skills?.map(function ({ skill: item }: any, index: number) {
+                return <span key={index} className="px-3 py-1 bg-highlight text-white rounded-full text-sm">
                   {item?.name}
                 </span>
               })}
             </div>
             <h1 className="text-3xl sm:text-4xl font-bold mb-6">{post?.title}</h1>
           </header>
-
           <div
             className="prose prose-lg max-w-none mb-12"
             dangerouslySetInnerHTML={{ __html: post?.description }}
           />
-
           {post.pictures.length != 0 && <section className="my-12 bg-gray-50 rounded-3xl p-4 border-2 border-black/10">
             <div className="grid grid-cols-2 lg:grid-cols-8 gap-4">
               {post.pictures.map((service: any, index: number) => (
