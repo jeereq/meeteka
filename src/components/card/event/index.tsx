@@ -14,7 +14,7 @@ export default function CardEvent({ ...post }: any) {
         to={`/events/${post?.id}?name=${parseName(post?.title)}`}
         className="group bg-white rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-black/5 hover:border-highlight transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl"
     >
-        <div className="relative aspect-[16/9] overflow-hidden">
+        <div className="relative aspect-[16/9] bg-black/5 overflow-hidden">
             {post?.cover && <img
                 src={post?.cover}
                 alt={post?.title}
