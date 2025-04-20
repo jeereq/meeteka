@@ -1,16 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Search, Filter, X } from 'lucide-react';
+import { useFetchData } from "../../hooks/useFetchData"
 import { LoadingCard } from '../components/LoadingCard';
 import { EmptyState } from '../components/EmptyState';
 import { PageTransition } from '../components/PageTransition';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
-import { useFetchData } from '../../hooks/useFetchData';
-import CardEntreprise from '../components/card/entreprise';
-
-const categories = ['Tous', 'Conseil', 'Formation', 'Technologie', 'Marketing'];
-const types = ['Tous', 'Startup', 'PME', 'Grande Entreprise', 'ONG'];
-const specialties = ['Tous', 'Digital', 'Innovation', 'Développement', 'Formation', 'Conseil'];
+import CardMission from '../components/card/mission';
+import { LEVELS } from '../../config';
 
 interface FilterButtonProps {
   label: string;
@@ -33,7 +30,7 @@ const FilterButton: React.FC<FilterButtonProps> = ({ label, isActive, onClick, c
 
 const FilterSection: React.FC<{
   title: string;
-  options: string[];
+  options: any[];
   selected: string;
   onChange: (value: string) => void;
 }> = ({ title, options, selected, onChange }) => (
@@ -42,56 +39,52 @@ const FilterSection: React.FC<{
     <div className="flex flex-wrap gap-2">
       {options.map((option) => (
         <FilterButton
-          key={option}
-          label={option}
-          isActive={selected === option}
-          onClick={() => onChange(option)}
+          key={option?.value}
+          label={option?.label}
+          isActive={selected === option?.value}
+          onClick={() => onChange(option?.value)}
         />
       ))}
     </div>
   </div>
 );
 
-export function EntreprisesPage() {
-  const [entreprises, setEntreprises] = useState<any[]>([])
+export function MissionsPage() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('Tous');
+  const [missions, setMissions] = useState<any[]>([])
   const [selectedType, setSelectedType] = useState('Tous');
-  const [selectedSpecialty, setSelectedSpecialty] = useState('Tous');
+  const [selectedLevel, setSelectedLevel] = useState('Tous');
   const [showFilters, setShowFilters] = useState(false);
-  const { fetch: fetchEntreprises, loading: isLoading } = useFetchData({ uri: "infos-user/entreprise-profile/get" })
-
   const { t } = useLanguage()
+  const { fetch: fetchDiffusions, loading: isLoading } = useFetchData({ uri: "infos-user/connection/get" })
 
   useEffect(() => {
     (async function () {
-      const { data } = await fetchEntreprises({}, 'POST')
-      if (data) {
-        setEntreprises(data?.data)
+      const { data } = await fetchDiffusions({}, "POST")
+      if (data?.data) {
+        setMissions(data.data)
       }
     })()
+
   }, []);
 
-  const filteredPartners = entreprises.filter(partner => {
-    const matchesSearch = partner.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      partner.description.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = selectedCategory === 'Tous' || partner.category === selectedCategory;
-    const matchesType = selectedType === 'Tous' || partner.type === selectedType;
-    const matchesSpecialty = selectedSpecialty === 'Tous' || partner.specialty === selectedSpecialty;
-    return matchesSearch && matchesCategory && matchesType && matchesSpecialty;
+  const filteredDiffusions = missions.filter(post => {
+    const matchesSearch = post.title.toLowerCase().includes(searchTerm.toLowerCase())
+    const matchesType = selectedType === 'Tous' || post.type === selectedType;
+    const matchesLevel = selectedLevel === 'Tous' || post.level === selectedLevel;
+    return matchesSearch && matchesType && matchesLevel;
   });
 
-  const hasActiveFilters = selectedCategory !== 'Tous' || selectedType !== 'Tous' || selectedSpecialty !== 'Tous';
+  const hasActiveFilters = selectedType !== 'Tous' || selectedLevel !== 'Tous';
 
   const resetFilters = () => {
     setSearchTerm('');
-    setSelectedCategory('Tous');
     setSelectedType('Tous');
-    setSelectedSpecialty('Tous');
+    setSelectedLevel('Tous');
   };
 
   const ActiveFilterPill: React.FC<{ label: string; onRemove: () => void }> = ({ label, onRemove }) => (
-    <span className="inline-flex items-center gap-1 px-3 py-1.5 bg-highlight/10 text-highlight rounded-full text-sm font-medium group">
+    <span className="inline-flex items-center gap-1 px-3 py-1.5 bg-highlight/10 text-highlight rounded-full text-sm font-medium">
       {label}
       <button
         onClick={onRemove}
@@ -109,7 +102,7 @@ export function EntreprisesPage() {
         <section className="bg-black text-white py-12 sm:py-16 lg:py-20">
           <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6">
-              {t("entreprises.banner.title").split(" ").map(function (element, index: number) {
+              {t("missions.banner.title").split(" ").map(function (element, index: number) {
                 if (index == 0) {
                   return <span className="w-fit" key={index}>{element}</span>
                 } else {
@@ -118,7 +111,7 @@ export function EntreprisesPage() {
               })}
             </h1>
             <p className="text-lg sm:text-xl text-gray-300 max-w-3xl">
-              {t("entreprises.banner.description")}
+              {t("missions.banner.description")}
             </p>
           </div>
         </section>
@@ -132,7 +125,7 @@ export function EntreprisesPage() {
                 <div className="relative w-full sm:w-96">
                   <input
                     type="text"
-                    placeholder="Rechercher un partenaire..."
+                    placeholder="Rechercher une diffusion..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     className="w-full px-4 py-3 pl-12 rounded-xl border-2 border-black/10 focus:border-highlight focus:ring-0 bg-white"
@@ -147,6 +140,7 @@ export function EntreprisesPage() {
                     </button>
                   )}
                 </div>
+
                 <button
                   onClick={() => setShowFilters(!showFilters)}
                   className="flex items-center gap-2 px-4 py-3 bg-black text-white rounded-xl hover:bg-highlight transition-all duration-300 sm:w-auto w-full justify-center group"
@@ -168,27 +162,16 @@ export function EntreprisesPage() {
                   >
                     <div className="bg-gray-50 rounded-xl p-6 space-y-6 border-2 border-black/5">
                       <FilterSection
-                        title="Catégorie"
-                        options={categories}
-                        selected={selectedCategory}
-                        onChange={setSelectedCategory}
-                      />
-                      <FilterSection
-                        title="Type d'entreprise"
-                        options={types}
-                        selected={selectedType}
-                        onChange={setSelectedType}
-                      />
-                      <FilterSection
-                        title="Spécialité"
-                        options={specialties}
-                        selected={selectedSpecialty}
-                        onChange={setSelectedSpecialty}
+                        title="Niveau"
+                        options={LEVELS}
+                        selected={selectedLevel}
+                        onChange={setSelectedLevel}
                       />
                     </div>
                   </motion.div>
                 )}
               </AnimatePresence>
+
               {/* Active Filters */}
               <AnimatePresence>
                 {hasActiveFilters && (
@@ -199,22 +182,17 @@ export function EntreprisesPage() {
                     className="flex flex-wrap items-center gap-2"
                   >
                     <span className="text-sm text-gray-500">Filtres actifs:</span>
-                    {selectedCategory !== 'Tous' && (
-                      <ActiveFilterPill
-                        label={selectedCategory}
-                        onRemove={() => setSelectedCategory('Tous')}
-                      />
-                    )}
+
                     {selectedType !== 'Tous' && (
                       <ActiveFilterPill
                         label={selectedType}
                         onRemove={() => setSelectedType('Tous')}
                       />
                     )}
-                    {selectedSpecialty !== 'Tous' && (
+                    {selectedLevel !== 'Tous' && (
                       <ActiveFilterPill
-                        label={selectedSpecialty}
-                        onRemove={() => setSelectedSpecialty('Tous')}
+                        label={selectedLevel}
+                        onRemove={() => setSelectedLevel('Tous')}
                       />
                     )}
                     <button
@@ -230,27 +208,27 @@ export function EntreprisesPage() {
           </div>
         </section>
 
-        {/* Partners Grid */}
+        {/* Diffusions Grid */}
         <section className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
           {isLoading ? (
-            <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
-              {[...Array(6)].map((_, index) => (
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+              {[...Array(8)].map((_, index) => (
                 <LoadingCard key={index} />
               ))}
             </div>
-          ) : filteredPartners.length === 0 ? (
+          ) : filteredDiffusions.length === 0 ? (
             <EmptyState
-              title="Aucun partenaire trouvé"
-              description="Nous n'avons trouvé aucun partenaire correspondant à vos critères de recherche. Essayez de modifier vos filtres ou d'effectuer une nouvelle recherche."
+              title="Aucune diffusion trouvée"
+              description="Nous n'avons trouvé aucune diffusion correspondant à vos critères de recherche. Essayez de modifier vos filtres ou d'effectuer une nouvelle recherche."
               action={{
                 label: "Réinitialiser les filtres",
                 onClick: resetFilters
               }}
             />
           ) : (
-            <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
-              {filteredPartners.map((partner: any, index: number) => (
-                <CardEntreprise {...partner} key={index} />
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+              {filteredDiffusions.map((post, index) => (
+                <CardMission {...post} key={index} />
               ))}
             </div>
           )}

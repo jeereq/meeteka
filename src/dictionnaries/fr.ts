@@ -132,6 +132,12 @@ const fr = {
     "diffusions.banner.title": "Nos Diffusions",
     "diffusions.banner.description": "Découvrez nos guides et ressources pour développer votre entreprise et réussir dans l'économie digitale.",
 
+    "missions.title": "Dernières Missions",
+    "missions.description": "Conseils d'experts et stratégies pour votre succès digital",
+    "missions.more": "Voir toutes les missions",
+    "missions.banner.title": "Nos Missions",
+    "missions.banner.description": "Découvrez nos guides et ressources pour développer votre entreprise et réussir dans l'économie digitale.",
+
     "blogs.title": "Dernièrs Blogs",
     "blogs.description": "Conseils d'experts et stratégies pour votre succès digital",
     "blogs.more": "Voir tout les blogs",

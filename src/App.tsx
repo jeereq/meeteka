@@ -22,6 +22,8 @@ import { BlogsPage } from './pages/BlogsPage';
 import { BlogPostDetails } from './pages/BlogPost';
 import { EventPost } from './pages/EventPost';
 import { useEffect } from 'react';
+import { MissionsPage } from './pages/MissionsPage';
+import { MissionPost } from './pages/MissionPost';
 
 export default function App() {
   const pathname = window.location.pathname;
@@ -48,8 +50,8 @@ export default function App() {
           <Route path="/blogs/:slug" element={<BlogPostDetails />} />
           <Route path="/diffusions" element={<DiffusionsPage />} />
           <Route path="/diffusions/:slug" element={<DiffusionPost />} />
-          <Route path="/missions" element={<DiffusionsPage />} />
-          <Route path="/missions/:slug" element={<DiffusionPost />} />
+          <Route path="/missions" element={<MissionsPage />} />
+          <Route path="/missions/:slug" element={<MissionPost />} />
           <Route path="/entreprises" element={<EntreprisesPage />} />
           <Route path="/entreprises/:slug" element={<PartnerDetails />} />
           <Route path="/organisations" element={<OrganisationsPage />} />
