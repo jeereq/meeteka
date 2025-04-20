@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Calendar, User, Facebook, Twitter, Linkedin, Lock, CreditCard, Hourglass } from 'lucide-react';
+import { ArrowLeft, Calendar, User, Facebook, Twitter, Linkedin, Lock, CreditCard, Hourglass, MapPinned } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const formatPrice = (price: number = 0) => {
@@ -101,7 +101,7 @@ export function EventDetails({ post }: any) {
               alt={post?.title}
               className="w-full h-[300px] sm:h-[400px] object-cover rounded-3xl mb-8"
             />
-            <div className="flex flex-wrap items-center gap-4 mb-4 text-sm text-gray-600">
+            <div className="flex flex-wrap items-center gap-4 mb-2 text-sm text-gray-600">
               <div className="flex items-center  bg-black/10 font-medium rounded-full gap-2 px-3 py-2 ">
                 <Calendar className="w-4 h-4" />
                 <span>Debut {new Date(post?.startDate).toLocaleDateString()}</span>
@@ -124,6 +124,11 @@ export function EventDetails({ post }: any) {
                 <span>{post?.owner?.username}</span>
               </div>
             </div>
+            {post?.location && <div className="w-fit mb-2">
+              {<span className="px-3 py-2 flex text-center items-center bg-black/10 font-medium rounded-full text-xs">
+                <MapPinned className="w-5 h-5 mr-1" /> {post?.location}
+              </span>}
+            </div>}
             <div className="flex flex-wrap items-center gap-4 mb-4 text-sm text-gray-600">
               {post?.sectors?.filter(function ({ sector: item }: any) {
                 return item?.name
@@ -133,7 +138,7 @@ export function EventDetails({ post }: any) {
                 </span>
               })}
             </div>
-            <h1 className="text-3xl sm:text-4xl font-bold mb-6">{post?.title}</h1>
+            <h1 className="text-3xl sm:text-4xl font-bold mb-4">{post?.title}</h1>
           </header>
 
           <div
@@ -157,27 +162,6 @@ export function EventDetails({ post }: any) {
               </div>
 
               <div className="flex gap-3">
-                <a
-                  href="#"
-                  className="p-2 bg-black/5 rounded-full hover:bg-highlight hover:text-white transition-colors"
-                  aria-label="Partager sur Facebook"
-                >
-                  <Facebook className="w-5 h-5" />
-                </a>
-                <a
-                  href="#"
-                  className="p-2 bg-black/5 rounded-full hover:bg-highlight hover:text-white transition-colors"
-                  aria-label="Partager sur Twitter"
-                >
-                  <Twitter className="w-5 h-5" />
-                </a>
-                <a
-                  href="#"
-                  className="p-2 bg-black/5 rounded-full hover:bg-highlight hover:text-white transition-colors"
-                  aria-label="Partager sur LinkedIn"
-                >
-                  <Linkedin className="w-5 h-5" />
-                </a>
               </div>
             </div>
           </footer>
