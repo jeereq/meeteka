@@ -1,4 +1,4 @@
-import { ArrowUpRight, Calendar, Lock, Newspaper, Hourglass } from "lucide-react";
+import { ArrowUpRight, Calendar, Lock, Newspaper, Hourglass, MapPinned } from "lucide-react";
 import { formatPrice, parseName } from "../../../../config";
 import { Link } from 'react-router-dom';
 import { useState } from "react";
@@ -31,9 +31,9 @@ export default function CardEvent({ ...post }: any) {
                 <span>{type[post?.type]}</span>
             </div>}
         </div>
+        <div className="p-3 ">
 
-        <div className="p-3 sm:p-4">
-            <div className="flex flex-wrap gap-2 mb-4">
+            <div className="flex flex-wrap gap-2 mb-2">
                 {post?.sectors?.filter(function ({ sector: item }: any, index: number) {
                     return item?.name && index <= 2
                 }).map(function ({ sector: item }: any) {
@@ -59,9 +59,13 @@ export default function CardEvent({ ...post }: any) {
                     </span>}
                 </div>
             </div>
-            <h3 className="text-lg sm:text-xl font-bold mb-3 group-hover:text-highlight transition-colors line-clamp-2">
+            <h3 className="text-lg sm:text-xl font-bold mb-2 group-hover:text-highlight transition-colors line-clamp-2">
                 {post?.title}
-            </h3>
+            </h3>  {post?.location && <div className="w-fit mb-2">
+                {<span className="px-2 py-1 flex text-center items-center bg-black/10 font-medium rounded-full text-xs">
+                    <MapPinned className="w-5 h-5 mr-1" /> {post?.location}
+                </span>}
+            </div>}
             <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                     {post?.owner?.cover && <img
