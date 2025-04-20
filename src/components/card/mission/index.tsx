@@ -36,7 +36,7 @@ export default function CardMission({ ...post }: any) {
                 <span>{type[post.type]}</span>
             </div>}
         </div>
-        <div className="p-4 sm:p-6 ">
+        <div className="p-4 ">
             <div className="flex flex-wrap gap-2 mb-1">
                 {level[post?.level] && <span className="px-3 py-1 bg-highlight rounded-full text-sm text-white">
                     {level[post?.level]}
@@ -59,10 +59,10 @@ export default function CardMission({ ...post }: any) {
                 })}
             </div>
             <div className="w-full grid grid-cols-2 gap-1 mb-2">
-                {post?.startDate && <span className="p-2 flex text-center items-center bg-black/10 font-medium rounded-full text-xs">
+                {post?.startDate && <span className="px-3 py-1 flex text-center items-center bg-black/10 font-medium rounded-full text-xs">
                     <Calendar className="w-3 h-3 mr-1" /> Debut {new Date(post?.startDate).toLocaleDateString()}
                 </span>}
-                {post?.deadline && <span className="p-2 flex text-center items-center bg-black/10 font-medium rounded-full text-xs">
+                {post?.deadline && <span className="px-3 py-1 flex text-center items-center bg-black/10 font-medium rounded-full text-xs">
                     <Calendar className="w-3 h-3 mr-1" /> Fin {new Date(post?.deadline).toLocaleDateString()}
                 </span>}
             </div>
