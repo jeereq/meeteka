@@ -48,6 +48,8 @@ export default function App() {
           <Route path="/blogs/:slug" element={<BlogPostDetails />} />
           <Route path="/diffusions" element={<DiffusionsPage />} />
           <Route path="/diffusions/:slug" element={<DiffusionPost />} />
+          <Route path="/missions" element={<DiffusionsPage />} />
+          <Route path="/missions/:slug" element={<DiffusionPost />} />
           <Route path="/entreprises" element={<EntreprisesPage />} />
           <Route path="/entreprises/:slug" element={<PartnerDetails />} />
           <Route path="/organisations" element={<OrganisationsPage />} />

@@ -8,6 +8,7 @@ const en = {
     'nav.contact': 'Contact Us',
     'nav.entreprises': 'Entreprises',
     'nav.organisations': 'Organisations',
+    'nav.missions': 'Missions',
     'nav.events': 'Events',
     'nav.pricing': 'Pricings',
     'nav.about': 'About Us',

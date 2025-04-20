@@ -7,6 +7,7 @@ import { PageTransition } from '../components/PageTransition';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import CardEvent from '../components/card/event';
+import moment from 'moment';
 
 export function EventsPage() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -21,11 +22,16 @@ export function EventsPage() {
   useEffect(() => {
     (async function () {
       const where: any = {
-        startDate,
-        endDate
+        
+        startDate: startDate == "Tous" ? startDate : new Date(startDate).toISOString(),
+        endDate: endDate == "Tous" ? endDate : new Date(endDate).toISOString()
       }
+
       if (startDate == "Tous") delete where.startDate
       if (endDate == "Tous") delete where.endDate
+
+      console.log(where, startDate, endDate)
+
       const { data } = await fetchEvents(where, "POST")
       if (data?.data) {
         setEvents(data.data)

@@ -9,6 +9,7 @@ const navigation = [
   { name: 'nav.about', href: '/about' },
   { name: 'nav.diffusion', href: '/diffusions' },
   { name: 'nav.blog', href: '/blogs' },
+  { name: 'nav.missions', href: '/missions' },
   { name: 'nav.events', href: '/events' },
   { name: 'nav.entreprises', href: '/entreprises' }
 ];
@@ -85,9 +86,6 @@ export function Navbar() {
                 {t(item.name)}
               </Link>
             ))}
-            {/* <div className="border-l border-gray-200 pl-6 xl:pl-8">
-              <LanguageSwitcher />
-            </div> */}
           </div>
 
           {/* Mobile Menu Button */}
@@ -124,9 +122,6 @@ export function Navbar() {
                   {t(item.name)}
                 </Link>
               ))}
-              {/* <div className="mt-4 p-4 border-t border-gray-100">
-                <LanguageSwitcher />
-              </div> */}
             </div>
           </div>
         </div>
