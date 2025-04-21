@@ -86,7 +86,7 @@ export default function ConfidentialPolitique() {
                     <li>Portabilité, opposition, limitation</li>
                     <li>Retrait du consentement à tout moment</li>
                 </ul>
-                <p>📩 <a href="mailto:mingandajeereq@gmail.com;sajombiku@gmail.com">contact@meeteka.com</a> – Réponse sous 30 jours.</p>
+                <p>📩 <a href="mailto:mingandajeereq@gmail.com;sajombiku@gmail.com" className="text-blue-600 underline">contact@meeteka.com</a> – Réponse sous 30 jours.</p>
             </Section>
 
             {/* Section 8 */}
@@ -107,7 +107,7 @@ export default function ConfidentialPolitique() {
             {/* Section 11 */}
             <Section title="11. Contact">
                 <ul className="list-disc list-inside">
-                    <li>📩 <strong>Email :</strong> <a href="mailto:mingandajeereq@gmail.com;sajombiku@gmail.com">contact@meeteka.com</a></li>
+                    <li>📩 <strong>Email :</strong> <a href="mailto:mingandajeereq@gmail.com;sajombiku@gmail.com" className="text-blue-600 underline">contact@meeteka.com</a></li>
                     <li>    Autorité de contrôle : CNIL – www.cnil.fr
                     </li>
                 </ul>
