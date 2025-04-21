@@ -156,7 +156,7 @@ export function MissionDetails({ post }: any) {
           />
           {post.pictures.length != 0 && <section className="my-12 bg-gray-50 rounded-3xl p-4 border-2 border-black/10">
             <div className="grid grid-cols-2 lg:grid-cols-8 gap-4">
-              {post.pictures.map((service: any, index: number) => (
+              {post?.pictures?.map((service: any, index: number) => (
                 <div
                   key={index}
                   className="p-3 rounded-2xl bg-white border-2 border-black/10 hover:border-highlight transition-all duration-300 hover:shadow-xl"
