@@ -109,7 +109,7 @@ export function MissionDetails({ post }: any) {
             <img
               src={post?.cover}
               alt={post?.title}
-              className="w-full h-[300px] sm:h-[400px] object-cover rounded-3xl mb-8"
+              className="w-full h-[300px] sm:h-[400px] bg-black/5 object-cover rounded-3xl mb-8"
             />
             <div className="flex flex-wrap items-center gap-4 mb-2 text-sm text-gray-600">
               <div className="flex items-center gap-1">
@@ -156,7 +156,7 @@ export function MissionDetails({ post }: any) {
           />
           {post.pictures.length != 0 && <section className="my-12 bg-gray-50 rounded-3xl p-4 border-2 border-black/10">
             <div className="grid grid-cols-2 lg:grid-cols-8 gap-4">
-              {post.pictures.map((service: any, index: number) => (
+              {post?.pictures?.map((service: any, index: number) => (
                 <div
                   key={index}
                   className="p-3 rounded-2xl bg-white border-2 border-black/10 hover:border-highlight transition-all duration-300 hover:shadow-xl"

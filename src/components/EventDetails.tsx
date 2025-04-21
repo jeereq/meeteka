@@ -99,7 +99,7 @@ export function EventDetails({ post }: any) {
             <img
               src={post?.cover}
               alt={post?.title}
-              className="w-full h-[300px] sm:h-[400px] object-cover rounded-3xl mb-8"
+              className="w-full h-[300px] bg-black/5  sm:h-[400px] object-cover rounded-3xl mb-8"
             />
             <div className="flex flex-wrap items-center gap-4 mb-2 text-sm text-gray-600">
               <div className="flex items-center  bg-black/10 font-medium rounded-full gap-2 px-3 py-2 ">

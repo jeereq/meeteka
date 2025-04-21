@@ -24,6 +24,8 @@ import { EventPost } from './pages/EventPost';
 import { useEffect } from 'react';
 import { MissionsPage } from './pages/MissionsPage';
 import { MissionPost } from './pages/MissionPost';
+import ConfidentialPolitique from './pages/ConfidentialPolitique';
+import AccountDeletion from './pages/AccountDeletion';
 
 export default function App() {
   const pathname = window.location.pathname;
@@ -46,6 +48,8 @@ export default function App() {
             </>
           } />
           <Route path="/services/:slug" element={<ServiceDetails />} />
+          <Route path="/politique-de-confidentialité" element={<ConfidentialPolitique />} />
+          <Route path="/account-deletion" element={<AccountDeletion />} />
           <Route path="/blogs" element={<BlogsPage />} />
           <Route path="/blogs/:slug" element={<BlogPostDetails />} />
           <Route path="/diffusions" element={<DiffusionsPage />} />
