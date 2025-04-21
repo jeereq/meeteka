@@ -24,7 +24,7 @@ import { EventPost } from './pages/EventPost';
 import { useEffect } from 'react';
 import { MissionsPage } from './pages/MissionsPage';
 import { MissionPost } from './pages/MissionPost';
-import ConfidentialPolitique from './pages/confidentialPolitique';
+import ConfidentialPolitique from './pages/ConfidentialPolitique';
 
 export default function App() {
   const pathname = window.location.pathname;
