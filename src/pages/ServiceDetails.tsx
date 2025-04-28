@@ -4,7 +4,7 @@ import { BackButton } from '../components/BackButton';
 import { LoadingSpinner } from '../components/LoadingSpinner';
 import { EmptyState } from '../components/EmptyState';
 import { PageTransition } from '../components/PageTransition';
-import { FileText, BookOpen, Check } from 'lucide-react';
+import { FileText, BookOpen, Check, Coins, GraduationCap, LineChart, ShieldCheck } from 'lucide-react';
 // import { ArrowUpRight } from 'lucide-react';
 
 const services = {
@@ -93,7 +93,7 @@ const services = {
     ]
   },
   'acces-financements': {
-    icon: BookOpen,
+    icon: Coins,
     title: 'Accès aux Financements',
     description: 'Nous vous aidons à trouver les financements adaptés à vos projets et à optimiser vos chances de succès.',
     hero: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80',
@@ -135,7 +135,7 @@ const services = {
     ]
   },
   'formation-continue': {
-    icon: BookOpen,
+    icon: GraduationCap,
     title: 'Formation continue',
     description: 'Accédez à toutes les informations essentielles sur la fiscalité et les incitations disponibles en RDC.',
     hero: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80',
@@ -177,7 +177,7 @@ const services = {
     ]
   },
   'accompagnement-strategique': {
-    icon: BookOpen,
+    icon: LineChart,
     title: 'Accompagnement Stratégique',
     description: 'Accédez à toutes les informations essentielles sur la fiscalité et les incitations disponibles en RDC.',
     hero: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80',
@@ -219,7 +219,7 @@ const services = {
     ]
   },
   'stabilite-securite': {
-    icon: BookOpen,
+    icon: ShieldCheck,
     title: 'Stabilité & Sécuité',
     description: 'Accédez à toutes les informations essentielles sur la fiscalité et les incitations disponibles en RDC.',
     hero: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80',
