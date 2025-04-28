@@ -4,7 +4,8 @@ import { BackButton } from '../components/BackButton';
 import { LoadingSpinner } from '../components/LoadingSpinner';
 import { EmptyState } from '../components/EmptyState';
 import { PageTransition } from '../components/PageTransition';
-import { FileText, BookOpen, Check, ArrowUpRight } from 'lucide-react';
+import { FileText, BookOpen, Check, Coins, GraduationCap, LineChart, ShieldCheck } from 'lucide-react';
+// import { ArrowUpRight } from 'lucide-react';
 
 const services = {
   'simplification-administrative': {
@@ -90,18 +91,177 @@ const services = {
         description: 'Veille continue et ajustements selon l\'évolution réglementaire'
       }
     ]
+  },
+  'acces-financements': {
+    icon: Coins,
+    title: 'Accès aux Financements',
+    description: 'Nous vous aidons à trouver les financements adaptés à vos projets et à optimiser vos chances de succès.',
+    hero: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80',
+    price: '100.000 FC/mois',
+    features: [
+      'Veille fiscale personnalisée',
+      'Guide des incitations fiscales',
+      'Conseil en optimisation fiscale',
+      'Alertes réglementaires',
+      'Support expert',
+      'Accès à notre base de données fiscale',
+      'Rapports fiscaux trimestriels'
+    ],
+    benefits: [
+      'Conformité fiscale assurée',
+      'Optimisation des avantages fiscaux',
+      'Réduction des risques',
+      'Décisions éclairées',
+      'Économies fiscales substantielles',
+      'Meilleure planification financière'
+    ],
+    process: [
+      {
+        title: 'Évaluation',
+        description: 'Analyse approfondie de votre situation fiscale actuelle'
+      },
+      {
+        title: 'Recommandations',
+        description: 'Élaboration d\'une stratégie fiscale optimisée'
+      },
+      {
+        title: 'Mise en place',
+        description: 'Application des recommandations et suivi des résultats'
+      },
+      {
+        title: 'Monitoring',
+        description: 'Veille continue et ajustements selon l\'évolution réglementaire'
+      }
+    ]
+  },
+  'formation-continue': {
+    icon: GraduationCap,
+    title: 'Formation continue',
+    description: 'Accédez à toutes les informations essentielles sur la fiscalité et les incitations disponibles en RDC.',
+    hero: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80',
+    price: '100.000 FC/mois',
+    features: [
+      'Veille fiscale personnalisée',
+      'Guide des incitations fiscales',
+      'Conseil en optimisation fiscale',
+      'Alertes réglementaires',
+      'Support expert',
+      'Accès à notre base de données fiscale',
+      'Rapports fiscaux trimestriels'
+    ],
+    benefits: [
+      'Conformité fiscale assurée',
+      'Optimisation des avantages fiscaux',
+      'Réduction des risques',
+      'Décisions éclairées',
+      'Économies fiscales substantielles',
+      'Meilleure planification financière'
+    ],
+    process: [
+      {
+        title: 'Évaluation',
+        description: 'Analyse approfondie de votre situation fiscale actuelle'
+      },
+      {
+        title: 'Recommandations',
+        description: 'Élaboration d\'une stratégie fiscale optimisée'
+      },
+      {
+        title: 'Mise en place',
+        description: 'Application des recommandations et suivi des résultats'
+      },
+      {
+        title: 'Monitoring',
+        description: 'Veille continue et ajustements selon l\'évolution réglementaire'
+      }
+    ]
+  },
+  'accompagnement-strategique': {
+    icon: LineChart,
+    title: 'Accompagnement Stratégique',
+    description: 'Accédez à toutes les informations essentielles sur la fiscalité et les incitations disponibles en RDC.',
+    hero: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80',
+    price: '100.000 FC/mois',
+    features: [
+      'Veille fiscale personnalisée',
+      'Guide des incitations fiscales',
+      'Conseil en optimisation fiscale',
+      'Alertes réglementaires',
+      'Support expert',
+      'Accès à notre base de données fiscale',
+      'Rapports fiscaux trimestriels'
+    ],
+    benefits: [
+      'Conformité fiscale assurée',
+      'Optimisation des avantages fiscaux',
+      'Réduction des risques',
+      'Décisions éclairées',
+      'Économies fiscales substantielles',
+      'Meilleure planification financière'
+    ],
+    process: [
+      {
+        title: 'Évaluation',
+        description: 'Analyse approfondie de votre situation fiscale actuelle'
+      },
+      {
+        title: 'Recommandations',
+        description: 'Élaboration d\'une stratégie fiscale optimisée'
+      },
+      {
+        title: 'Mise en place',
+        description: 'Application des recommandations et suivi des résultats'
+      },
+      {
+        title: 'Monitoring',
+        description: 'Veille continue et ajustements selon l\'évolution réglementaire'
+      }
+    ]
+  },
+  'stabilite-securite': {
+    icon: ShieldCheck,
+    title: 'Stabilité & Sécuité',
+    description: 'Accédez à toutes les informations essentielles sur la fiscalité et les incitations disponibles en RDC.',
+    hero: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80',
+    price: '100.000 FC/mois',
+    features: [
+      'Veille fiscale personnalisée',
+      'Guide des incitations fiscales',
+      'Conseil en optimisation fiscale',
+      'Alertes réglementaires',
+      'Support expert',
+      'Accès à notre base de données fiscale',
+      'Rapports fiscaux trimestriels'
+    ],
+    benefits: [
+      'Conformité fiscale assurée',
+      'Optimisation des avantages fiscaux',
+      'Réduction des risques',
+      'Décisions éclairées',
+      'Économies fiscales substantielles',
+      'Meilleure planification financière'
+    ],
+    process: [
+      {
+        title: 'Évaluation',
+        description: 'Analyse approfondie de votre situation fiscale actuelle'
+      },
+      {
+        title: 'Recommandations',
+        description: 'Élaboration d\'une stratégie fiscale optimisée'
+      },
+      {
+        title: 'Mise en place',
+        description: 'Application des recommandations et suivi des résultats'
+      },
+      {
+        title: 'Monitoring',
+        description: 'Veille continue et ajustements selon l\'évolution réglementaire'
+      }
+    ]
   }
 };
 
-// interface ResultIconProps {
-//   icon: React.ElementType;
-// }
-
-// const ResultIcon = ({ icon: Icon }: ResultIconProps) => (
-//   <div className="w-12 h-12 bg-highlight rounded-xl flex items-center justify-center">
-//     <Icon className="w-6 h-6 text-white" />
-//   </div>
-// );
 
 export function ServiceDetails() {
   const { slug } = useParams<{ slug: string }>();
@@ -224,7 +384,7 @@ export function ServiceDetails() {
           </div>
         </section>
         {/* Pricing Section */}
-        <section className="py-16">
+        {/* <section className="py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <h2 className="text-3xl font-bold mb-4">Tarification</h2>
@@ -242,7 +402,7 @@ export function ServiceDetails() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
         {/* CTA Section */}
         <section className="py-16 bg-highlight">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">

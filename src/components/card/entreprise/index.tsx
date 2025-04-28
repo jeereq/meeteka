@@ -5,6 +5,7 @@ import { ArrowUpRight } from "lucide-react";
 export default function CardEntreprise({ ...partner }) {
     return <Link
         key={partner?.id}
+        title={partner?.name}
         to={`/entreprises/${partner?.id}?name=${parseName(partner?.name)}`}
         className="group bg-white rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-black/5 hover:border-highlight transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl"
     >

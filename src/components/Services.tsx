@@ -94,6 +94,7 @@ export function Services() {
           const Icon = service.icon;
           return (
             <Link
+              title={t(service.title)}
               key={index}
               to={`/services/${t(service.slug)}`}
               className="group relative p-6 sm:p-8 bg-white rounded-3xl hover:bg-highlight transition-all duration-500 hover:scale-105 hover:shadow-2xl border-2 border-black/5 hover:border-highlight"
