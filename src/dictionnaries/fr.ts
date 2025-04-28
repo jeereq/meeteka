@@ -170,6 +170,7 @@ const fr = {
     "footer.section.links.success-stories": "Histoires à succés",
     "footer.section.links.diffusions": "Diffusions",
     "footer.section.links.organisations": "Organisations",
+    "footer.section.links.missions": "Missions",
     "footer.section.links.entreprises": "Entreprises"
 
 }

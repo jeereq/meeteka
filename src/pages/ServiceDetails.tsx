@@ -5,6 +5,7 @@ import { LoadingSpinner } from '../components/LoadingSpinner';
 import { EmptyState } from '../components/EmptyState';
 import { PageTransition } from '../components/PageTransition';
 import { FileText, BookOpen, Check, Coins, GraduationCap, LineChart, ShieldCheck } from 'lucide-react';
+import { emailTo } from '../../config';
 // import { ArrowUpRight } from 'lucide-react';
 
 const services = {
@@ -412,9 +413,9 @@ export function ServiceDetails() {
             <p className="text-xl mb-8">
               Contactez-nous pour une consultation personnalisée
             </p>
-            <button className="px-8 py-4 bg-white text-black rounded-full font-bold hover:bg-black hover:text-white transition-all duration-300 hover:scale-105">
+            <a href={emailTo} target='_blank' className="px-8 py-4 bg-white text-black rounded-full font-bold hover:bg-black hover:text-white transition-all duration-300 hover:scale-105">
               Parlons de votre projet
-            </button>
+            </a>
           </div>
         </section>
       </div>
