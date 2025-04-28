@@ -66,6 +66,7 @@ export function Navbar() {
           {/* Logo */}
           <Link
             to="/"
+            title="Meet'eka"
             className="flex items-center gap-1.5 sm:gap-2 group"
             onClick={() => setIsOpen(false)}
           >

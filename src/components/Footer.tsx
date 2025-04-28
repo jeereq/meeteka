@@ -11,7 +11,7 @@ export function Footer() {
       <div className="max-w-9xl mx-auto">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
           <div>
-            <a href="/" className="flex items-center space-x-2 mb-6">
+            <a href="/" title={"Meet'eka"} className="flex items-center space-x-2 mb-6">
               <img src={logo} alt="" className='h-12' />
             </a>
             <p className="text-gray-400">
@@ -25,8 +25,8 @@ export function Footer() {
               <li><Link to="/#services" className="text-gray-400 hover:text-highlight">{t("footer.section.links.services")}</Link></li>
               <li><Link to="/diffusions" className="text-gray-400 hover:text-highlight">{t("footer.section.links.diffusions")}</Link></li>
               <li><Link to="/missions" className="text-gray-400 hover:text-highlight">{t("footer.section.links.missions")}</Link></li>
+              <li><Link to="/events" className="text-gray-400 hover:text-highlight">{t("footer.section.links.events")}</Link></li>
               <li><Link to="/entreprises" className="text-gray-400 hover:text-highlight">{t("footer.section.links.entreprises")}</Link></li>
-              <li><Link to="/organisations" className="text-gray-400 hover:text-highlight">{t("footer.section.links.organisations")}</Link></li>
             </ul>
           </div>
 
