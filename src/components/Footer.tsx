@@ -2,6 +2,7 @@ import { Facebook, Instagram, Linkedin } from 'lucide-react';
 import logo from "../../assets/icon.white.png"
 import { useLanguage } from '../context/LanguageContext';
 import { Link } from 'react-router-dom';
+import { emailTo } from '../../config';
 
 export function Footer() {
   const { t } = useLanguage()
@@ -22,8 +23,8 @@ export function Footer() {
               {t("footer.section.links")}</h3>
             <ul className="space-y-3">
               <li><Link to="/#services" className="text-gray-400 hover:text-highlight">{t("footer.section.links.services")}</Link></li>
-              {/* <li><Link to="/success-stories" className="text-gray-400 hover:text-highlight">{t("footer.section.links.success-stories")}</Link></li> */}
               <li><Link to="/diffusions" className="text-gray-400 hover:text-highlight">{t("footer.section.links.diffusions")}</Link></li>
+              <li><Link to="/missions" className="text-gray-400 hover:text-highlight">{t("footer.section.links.missions")}</Link></li>
               <li><Link to="/entreprises" className="text-gray-400 hover:text-highlight">{t("footer.section.links.entreprises")}</Link></li>
               <li><Link to="/organisations" className="text-gray-400 hover:text-highlight">{t("footer.section.links.organisations")}</Link></li>
             </ul>
@@ -35,10 +36,9 @@ export function Footer() {
             </h3>
             <ul className="space-y-3 text-gray-400">
               <li>
-                <a href="mailto:blaise.tshika24@odyseecretaionrdc.com" className='hover:text-highlight'>contact@meeteka.com</a>
+                <a href={emailTo} className='hover:text-highlight'>contact@meeteka.com</a>
               </li>
               <li>
-
                 <a href="tel:+243825455938" className='hover:text-highlight'>+243 825 455 938</a>
               </li>
               <li>kinshasa Avenue,<br />Bethel, 15  bis</li>
@@ -53,9 +53,6 @@ export function Footer() {
               <a target='_blank' href="https://www.facebook.com/profile.php?id=61564372707908" className="p-2 bg-white/10 rounded-full hover:bg-highlight hover:text-black transition-colors">
                 <Facebook className="w-5 h-5" />
               </a>
-              {/* <a href="#" className="p-2 bg-white/10 rounded-full hover:bg-highlight hover:text-black transition-colors">
-                <Twitter className="w-5 h-5" />
-              </a> */}
               <a target='_blank' href="https://www.instagram.com/meeteka1" className="p-2 bg-white/10 rounded-full hover:bg-highlight hover:text-black transition-colors">
                 <Instagram className="w-5 h-5" />
               </a>

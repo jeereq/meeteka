@@ -162,6 +162,7 @@ const en = {
     "footer.section.links.success-stories": "Success stories",
     "footer.section.links.diffusions": "Broadcasts",
     "footer.section.links.organisations": "Organisations",
+    "footer.section.links.missions": "Missions",
     "footer.section.links.entreprises": "Entreprises"
 }
 export default en
