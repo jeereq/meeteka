@@ -90,6 +90,174 @@ const services = {
         description: 'Veille continue et ajustements selon l\'évolution réglementaire'
       }
     ]
+  },
+  'acces-financements': {
+    icon: BookOpen,
+    title: 'Accès aux Financements',
+    description: 'Nous vous aidons à trouver les financements adaptés à vos projets et à optimiser vos chances de succès.',
+    hero: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80',
+    price: '100.000 FC/mois',
+    features: [
+      'Veille fiscale personnalisée',
+      'Guide des incitations fiscales',
+      'Conseil en optimisation fiscale',
+      'Alertes réglementaires',
+      'Support expert',
+      'Accès à notre base de données fiscale',
+      'Rapports fiscaux trimestriels'
+    ],
+    benefits: [
+      'Conformité fiscale assurée',
+      'Optimisation des avantages fiscaux',
+      'Réduction des risques',
+      'Décisions éclairées',
+      'Économies fiscales substantielles',
+      'Meilleure planification financière'
+    ],
+    process: [
+      {
+        title: 'Évaluation',
+        description: 'Analyse approfondie de votre situation fiscale actuelle'
+      },
+      {
+        title: 'Recommandations',
+        description: 'Élaboration d\'une stratégie fiscale optimisée'
+      },
+      {
+        title: 'Mise en place',
+        description: 'Application des recommandations et suivi des résultats'
+      },
+      {
+        title: 'Monitoring',
+        description: 'Veille continue et ajustements selon l\'évolution réglementaire'
+      }
+    ]
+  },
+  'formation-continue': {
+    icon: BookOpen,
+    title: 'Formation continue',
+    description: 'Accédez à toutes les informations essentielles sur la fiscalité et les incitations disponibles en RDC.',
+    hero: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80',
+    price: '100.000 FC/mois',
+    features: [
+      'Veille fiscale personnalisée',
+      'Guide des incitations fiscales',
+      'Conseil en optimisation fiscale',
+      'Alertes réglementaires',
+      'Support expert',
+      'Accès à notre base de données fiscale',
+      'Rapports fiscaux trimestriels'
+    ],
+    benefits: [
+      'Conformité fiscale assurée',
+      'Optimisation des avantages fiscaux',
+      'Réduction des risques',
+      'Décisions éclairées',
+      'Économies fiscales substantielles',
+      'Meilleure planification financière'
+    ],
+    process: [
+      {
+        title: 'Évaluation',
+        description: 'Analyse approfondie de votre situation fiscale actuelle'
+      },
+      {
+        title: 'Recommandations',
+        description: 'Élaboration d\'une stratégie fiscale optimisée'
+      },
+      {
+        title: 'Mise en place',
+        description: 'Application des recommandations et suivi des résultats'
+      },
+      {
+        title: 'Monitoring',
+        description: 'Veille continue et ajustements selon l\'évolution réglementaire'
+      }
+    ]
+  },
+  'accompagnement-strategique': {
+    icon: BookOpen,
+    title: 'Accompagnement Stratégique',
+    description: 'Accédez à toutes les informations essentielles sur la fiscalité et les incitations disponibles en RDC.',
+    hero: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80',
+    price: '100.000 FC/mois',
+    features: [
+      'Veille fiscale personnalisée',
+      'Guide des incitations fiscales',
+      'Conseil en optimisation fiscale',
+      'Alertes réglementaires',
+      'Support expert',
+      'Accès à notre base de données fiscale',
+      'Rapports fiscaux trimestriels'
+    ],
+    benefits: [
+      'Conformité fiscale assurée',
+      'Optimisation des avantages fiscaux',
+      'Réduction des risques',
+      'Décisions éclairées',
+      'Économies fiscales substantielles',
+      'Meilleure planification financière'
+    ],
+    process: [
+      {
+        title: 'Évaluation',
+        description: 'Analyse approfondie de votre situation fiscale actuelle'
+      },
+      {
+        title: 'Recommandations',
+        description: 'Élaboration d\'une stratégie fiscale optimisée'
+      },
+      {
+        title: 'Mise en place',
+        description: 'Application des recommandations et suivi des résultats'
+      },
+      {
+        title: 'Monitoring',
+        description: 'Veille continue et ajustements selon l\'évolution réglementaire'
+      }
+    ]
+  },
+  'stabilite-securite': {
+    icon: BookOpen,
+    title: 'Stabilité & Sécuité',
+    description: 'Accédez à toutes les informations essentielles sur la fiscalité et les incitations disponibles en RDC.',
+    hero: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80',
+    price: '100.000 FC/mois',
+    features: [
+      'Veille fiscale personnalisée',
+      'Guide des incitations fiscales',
+      'Conseil en optimisation fiscale',
+      'Alertes réglementaires',
+      'Support expert',
+      'Accès à notre base de données fiscale',
+      'Rapports fiscaux trimestriels'
+    ],
+    benefits: [
+      'Conformité fiscale assurée',
+      'Optimisation des avantages fiscaux',
+      'Réduction des risques',
+      'Décisions éclairées',
+      'Économies fiscales substantielles',
+      'Meilleure planification financière'
+    ],
+    process: [
+      {
+        title: 'Évaluation',
+        description: 'Analyse approfondie de votre situation fiscale actuelle'
+      },
+      {
+        title: 'Recommandations',
+        description: 'Élaboration d\'une stratégie fiscale optimisée'
+      },
+      {
+        title: 'Mise en place',
+        description: 'Application des recommandations et suivi des résultats'
+      },
+      {
+        title: 'Monitoring',
+        description: 'Veille continue et ajustements selon l\'évolution réglementaire'
+      }
+    ]
   }
 };
 
