@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Calendar, Clock, User, Facebook, Twitter, Linkedin, Lock, CreditCard, Newspaper } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock, User, Lock, CreditCard, Newspaper } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const formatPrice = (price: number = 0) => {
@@ -22,8 +22,8 @@ export function DiffusionDetails({ post }: any) {
     "intermediate": "Intermediaire",
     "advanced": "Avancé"
   });
+  
   const [showPayment, setShowPayment] = useState(post?.isPremium);
-  // const services = post?.sectors || defaultServices;
 
   const handlePayment = (e: React.FormEvent) => {
     e.preventDefault();
@@ -150,37 +150,6 @@ export function DiffusionDetails({ post }: any) {
             dangerouslySetInnerHTML={{ __html: post?.description }}
           />
 
-          {/* Related Services */}
-
-          {/* {services.length != 0 && <section className="mt-16 mb-12 bg-gray-50 rounded-3xl p-8 border-2 border-black/10">
-            <h2 className="text-2xl font-bold mb-6">Services Recommandés</h2>
-            <div className="grid sm:grid-cols-2 gap-6">
-              {services.map((service: any, index: number) => (
-                <div
-                  key={index}
-                  className="group bg-white p-6 rounded-2xl border-2 border-black/10 hover:border-highlight transition-all duration-300 hover:shadow-xl"
-                >
-                  <div className="flex items-start gap-4">
-                    {service.cover && <img
-                      src={service.cover}
-                      alt={service.name}
-                      className="w-16 h-16 rounded-xl object-cover"
-                    />}
-                    <div>
-                      <h3 className="text-lg font-bold mb-2 group-hover:text-highlight transition-colors">
-                        {service.name}
-                      </h3>
-                      <p className="text-sm text-gray-600 mb-2">
-                        {service.description}
-                      </p>
-
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>} */}
-
           {/* Share Section */}
           <footer className="border-t border-gray-200 pt-8">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
@@ -197,27 +166,6 @@ export function DiffusionDetails({ post }: any) {
               </div>
 
               <div className="flex gap-3">
-                <a
-                  href="#"
-                  className="p-2 bg-black/5 rounded-full hover:bg-highlight hover:text-white transition-colors"
-                  aria-label="Partager sur Facebook"
-                >
-                  <Facebook className="w-5 h-5" />
-                </a>
-                <a
-                  href="#"
-                  className="p-2 bg-black/5 rounded-full hover:bg-highlight hover:text-white transition-colors"
-                  aria-label="Partager sur Twitter"
-                >
-                  <Twitter className="w-5 h-5" />
-                </a>
-                <a
-                  href="#"
-                  className="p-2 bg-black/5 rounded-full hover:bg-highlight hover:text-white transition-colors"
-                  aria-label="Partager sur LinkedIn"
-                >
-                  <Linkedin className="w-5 h-5" />
-                </a>
               </div>
             </div>
           </footer>
