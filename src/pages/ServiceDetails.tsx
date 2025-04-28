@@ -4,7 +4,8 @@ import { BackButton } from '../components/BackButton';
 import { LoadingSpinner } from '../components/LoadingSpinner';
 import { EmptyState } from '../components/EmptyState';
 import { PageTransition } from '../components/PageTransition';
-import { FileText, BookOpen, Check, ArrowUpRight } from 'lucide-react';
+import { FileText, BookOpen, Check } from 'lucide-react';
+// import { ArrowUpRight } from 'lucide-react';
 
 const services = {
   'simplification-administrative': {
@@ -261,15 +262,6 @@ const services = {
   }
 };
 
-// interface ResultIconProps {
-//   icon: React.ElementType;
-// }
-
-// const ResultIcon = ({ icon: Icon }: ResultIconProps) => (
-//   <div className="w-12 h-12 bg-highlight rounded-xl flex items-center justify-center">
-//     <Icon className="w-6 h-6 text-white" />
-//   </div>
-// );
 
 export function ServiceDetails() {
   const { slug } = useParams<{ slug: string }>();
@@ -392,7 +384,7 @@ export function ServiceDetails() {
           </div>
         </section>
         {/* Pricing Section */}
-        <section className="py-16">
+        {/* <section className="py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <h2 className="text-3xl font-bold mb-4">Tarification</h2>
@@ -410,7 +402,7 @@ export function ServiceDetails() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
         {/* CTA Section */}
         <section className="py-16 bg-highlight">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
