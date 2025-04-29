@@ -163,6 +163,7 @@ const en = {
     "footer.section.links.diffusions": "Broadcasts",
     "footer.section.links.organisations": "Organisations",
     "footer.section.links.missions": "Missions",
+    "footer.section.links.blogs": "Blogs",
     "footer.section.links.events": "Evenements",
     "footer.section.links.entreprises": "Entreprises"
 }
