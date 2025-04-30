@@ -32,6 +32,8 @@ export function DiffusionDetails({ post }: any) {
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+      <title>{post.title}</title>
+      <meta name="author" content="jeereq" />
       <div className="fixed top-16 sm:top-20 left-0 right-0 z-50 px-4 sm:px-8">
         <div className="max-w-7xl mx-auto">
           <button
@@ -105,6 +107,7 @@ export function DiffusionDetails({ post }: any) {
         </div>
       ) : (
         <article>
+
           <header className="mb-8">
             <img
               src={post?.cover}
