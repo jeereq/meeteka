@@ -1,5 +1,6 @@
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { emailTo } from '../../config';
 
 export function Contact() {
   const { t } = useLanguage()
@@ -27,7 +28,7 @@ export function Contact() {
               </div>
               <div>
                 <p className="text-gray-400">{t("contact.email")}</p>
-                <a href="mailto:blaise.tshika24@odyseecretaionrdc.com" className="hover:text-highlight">contact@meeteka.com</a>
+                <a href={emailTo} className="hover:text-highlight">contact@meeteka.com</a>
               </div>
             </div>
 
