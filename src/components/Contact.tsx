@@ -1,9 +1,17 @@
 import { Mail, Phone, MapPin } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { useFetchDataEmail } from '../../hooks/useFetchDataEmail';
 import { emailTo } from '../../config';
+import { useState } from 'react';
 
 export function Contact() {
   const { t } = useLanguage()
+  const [state, setState]: any = useState({ name: "", email: "", message: "" })
+  const { fetch, loading } = useFetchDataEmail({ uri: "contact" })
+  const onChange = function (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
+    const { name, value } = e.target;
+    setState((prev: any) => ({ ...prev, [name]: value }))
+  }
   return (
     <section className="section-padding max-w-10xl bg-black text-white" id="contact">
       <div className="grid lg:grid-cols-2 gap-12">
@@ -55,7 +63,25 @@ export function Contact() {
         </div>
 
         <div className="bg-white text-black p-8 rounded-3xl">
-          <form className="space-y-6">
+          <form className="space-y-6"
+            onSubmit={function (e: any) {
+              e.preventDefault()
+              e.stopPropagation()
+
+              // Handle form submission
+
+              fetch(state, "POST").then(function (data) {
+                if (data.error) {
+                  alert(data.error)
+                } else {
+                  alert("Message sent")
+                }
+              }
+              ).catch(function (error) {
+                alert(error)
+              })
+            }}
+          >
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
@@ -64,6 +90,9 @@ export function Contact() {
                 <input
                   type="text"
                   id="name"
+                  value={state.name}
+                  onChange={onChange}
+                  name="name"
                   className="w-full px-4 py-3 rounded-xl border-2 border-black focus:border-highlight focus:ring-0 transition-colors"
                   placeholder={t("contact.name.placeholder")}
                 />
@@ -74,6 +103,10 @@ export function Contact() {
                 </label>
                 <input
                   type="email"
+                  value={state.email}
+                  onChange={onChange}
+                  name="email"
+                  required
                   id="email"
                   className="w-full px-4 py-3 rounded-xl border-2 border-black focus:border-highlight focus:ring-0 transition-colors"
                   placeholder="john@example.com"
@@ -87,6 +120,9 @@ export function Contact() {
               </label>
               <textarea
                 id="message"
+                value={state.message}
+                onChange={onChange}
+                name="message"
                 rows={4}
                 className="w-full px-4 py-3 rounded-xl border-2 border-black focus:border-highlight focus:ring-0 transition-colors"
                 placeholder={t("contact.message.placeholder")}
@@ -97,7 +133,7 @@ export function Contact() {
               type="submit"
               className="w-full px-8 py-4 bg-black text-white rounded-full hover:bg-gray-800 transition-colors"
             >
-              {t("contact.button.send")}
+              {loading ? "..." : t("contact.button.send")}
             </button>
           </form>
         </div>
