@@ -73,9 +73,9 @@ export function Team() {
         <h2 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4">
           {t("teams.title").split(" ").map(function (item, index: number) {
             if (index == 0) {
-              return <span className="px-2">{item}</span>
+              return <span key={index} className="px-2">{item}</span>
             } else {
-              return <span className="heading-highlight">{item}</span>
+              return <span key={index} className="heading-highlight">{item}</span>
             }
           })}
         </h2>
@@ -87,7 +87,7 @@ export function Team() {
       <div className="relative">
         {/* Team Cards Container */}
         <div
-          className={`block w-full grid grid-cols-1 lg:grid-cols-3 gap-3 transition-transform duration-500 ease-in-out`}
+          className={`block w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 transition-transform duration-500 ease-in-out`}
         >
           {team.map((member, index) => (
             <div
