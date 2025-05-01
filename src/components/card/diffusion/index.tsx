@@ -47,8 +47,8 @@ export default function CardDiffusion({ ...post }: any) {
             <div className="flex flex-wrap gap-2 mb-2">
                 {post?.sectors?.filter(function (item: any, index: number) {
                     return item?.name && index <= 2
-                }).map(function (item: any) {
-                    return <span className="px-3 py-1 bg-black/5 rounded-full text-sm">
+                }).map(function (item: any, index: number) {
+                    return <span key={index} className="px-3 py-1 bg-black/5 rounded-full text-sm">
                         {item?.name}
                     </span>
                 })}

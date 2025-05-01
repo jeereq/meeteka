@@ -41,7 +41,6 @@ export function Diffusion() {
         </p>
       </div>
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-
         {isLoading ?
           [...Array(4)].map((_, index) => (
             <LoadingCard key={index} />
@@ -56,7 +55,7 @@ export function Diffusion() {
           to="/diffusions"
           className="inline-flex items-center gap-2 px-8 py-4 bg-black text-white rounded-full hover:bg-highlight transition-all duration-300 hover:scale-105"
         >
-          <span> {t("diffusions.more")} </span>
+          <span>{t("diffusions.more")}</span>
           <ArrowUpRight className="w-5 h-5" />
         </Link>
       </div>
