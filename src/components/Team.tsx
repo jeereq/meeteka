@@ -73,9 +73,9 @@ export function Team() {
         <h2 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4">
           {t("teams.title").split(" ").map(function (item, index: number) {
             if (index == 0) {
-              return <span className="px-2">{item}</span>
+              return <span key={index} className="px-2">{item}</span>
             } else {
-              return <span className="heading-highlight">{item}</span>
+              return <span key={index} className="heading-highlight">{item}</span>
             }
           })}
         </h2>
