@@ -37,8 +37,8 @@ export default function CardEvent({ ...post }: any) {
             <div className="flex flex-wrap gap-2 mb-2">
                 {post?.sectors?.filter(function ({ sector: item }: any, index: number) {
                     return item?.name && index <= 2
-                }).map(function ({ sector: item }: any) {
-                    return <span className="px-2 py-1 bg-highlight text-white rounded-full text-xs">
+                }).map(function ({ sector: item }: any, index: number) {
+                    return <span key={index} className="px-2 py-1 bg-highlight text-white rounded-full text-xs">
                         {item?.name}
                     </span>
                 })}
