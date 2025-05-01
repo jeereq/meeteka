@@ -44,8 +44,8 @@ export default function CardMission({ ...post }: any) {
                 </span>}
                 {post?.sectors?.filter(function ({ sector: item }: any, index: number) {
                     return item?.name && index < 2
-                }).map(function ({ sector: item }: any) {
-                    return <span className="px-3 py-1 bg-black text-white rounded-full text-xs">
+                }).map(function ({ sector: item }: any, index: number) {
+                    return <span key={index} className="px-3 py-1 bg-black text-white rounded-full text-xs">
                         {item?.name}
                     </span>
                 })}
@@ -53,8 +53,8 @@ export default function CardMission({ ...post }: any) {
             <div className="flex flex-wrap gap-2 mb-1">
                 {post?.skills?.filter(function ({ skill: item }: any, index: number) {
                     return item?.name && index < 2
-                }).map(function ({ skill: item }: any) {
-                    return <span className="px-3 py-1 bg-highlight text-white rounded-full text-xs">
+                }).map(function ({ skill: item }: any, index: number) {
+                    return <span key={index} className="px-3 py-1 bg-highlight text-white rounded-full text-xs">
                         {item?.name}
                     </span>
                 })}
