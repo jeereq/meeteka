@@ -139,8 +139,8 @@ export function DiffusionDetails({ post }: any) {
               </div>
             </div>
             <div className="w-fit flex mb-4 items-center lg:justify-center flex-wrap gap-1">
-              {post?.sectors?.map(function (item: any) {
-                return <span className="px-3 py-1 bg-black/5 rounded-full text-sm">
+              {post?.sectors?.map(function (item: any, index: number) {
+                return <span key={index} className="px-3 py-1 bg-black/5 rounded-full text-sm">
                   {item?.name}
                 </span>
               })}

@@ -105,9 +105,9 @@ export function Navbar() {
 
         {/* Mobile Navigation */}
         <div
-          className={`lg:hidden fixed z-50 inset-0 top-[56px] sm:top-[64px] bg-white transform transition-transform duration-300 ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
+          className={`lg:hidden fixed z-50 inset-0 top-[56px] h-fit sm:top-[64px] bg-white transform transition-transform duration-300 ${isOpen ? 'translate-x-0' : 'translate-x-full'}`}
         >
-          <div className="h-full overflow-auto py-4 px-3 sm:py-6 sm:px-4">
+          <div className="h-fit bg-white overflow-auto py-4 px-3 sm:py-6 sm:px-4">
             <div className="flex flex-col gap-2 sm:gap-4">
               {navigation.map((item) => (
                 <Link
