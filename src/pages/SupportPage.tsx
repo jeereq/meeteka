@@ -1,3 +1,4 @@
+import { emailTo } from "../../config";
 
 export default function SupportPage() {
     return (
@@ -23,16 +24,11 @@ export default function SupportPage() {
                 <ul>
                     <li>
                         <strong>Email support :</strong>{" "}
-                        <a href="mailto:contact@meeteka.com">support@meeteka.app</a>
+                        <a href={emailTo}>support@meeteka.app</a>
                     </li>
                     <li>
                         <strong>Téléphone :</strong>
                         <a href="tel:+243825455938">+243 825 455 938</a>
-                    </li>
-                    <li>
-                        <strong>FAQ :</strong>{" "}
-                        <a href="/faq">Consulter notre foire aux questions</a> (bientôt
-                        disponible)
                     </li>
                     <li>
                         <strong>Signaler un bug :</strong>{" "}
