@@ -1,9 +1,9 @@
 
 import axios from "axios";
 
-const API = axios.create({
+const API_MAIL = axios.create({
   baseURL: `https://meeteka-api-send-mail.onrender.com/api/`,
   timeout: 1000000
 });
 
-export default API;
+export default API_MAIL;
