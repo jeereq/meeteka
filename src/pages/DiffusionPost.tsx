@@ -3,6 +3,7 @@ import { DiffusionDetails } from '../components/DiffusionDetails';
 import { useEffect, useState } from 'react';
 import { useFetchData } from '../../hooks/useFetchData';
 import { LoadingCard } from '../components/LoadingCard';
+import { getAppDeepLink, getWebLink } from '../../config';
 
 export function DiffusionPost() {
   const { slug } = useParams();
@@ -19,6 +20,18 @@ export function DiffusionPost() {
     })()
   }, [])
 
+  useEffect(() => {
+    const id = slug
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    const deepLink = getAppDeepLink("diffusion", id);
+
+    if (isMobile) {
+      window.location.href = deepLink;
+      setTimeout(() => {
+        window.location.href = getWebLink("diffusion", id);
+      }, 1000);
+    }
+  }, [slug]);
   if (isLoading) {
     return <div className="grid w-1/2 mx-auto grid-cols-1 p-8">
       {[...Array(1)].map((_, index) => (
