@@ -41,7 +41,7 @@ const team = [
     image: bertin,
     bio: ` Bertin est passionné par la construction de relations solides et la mise en valeur des réussites de son entreprise dans un environnement médiatique congolais en constante évolution. Il est soucieux de l'impact social de son organisation et cherche à établir une communication transparente et engageante avec les communautés locales.`,
     social: {
-      linkedin: 'https://www.linkedin.com/in/jeereq'
+      linkedin: 'https://www.linkedin.com/in/bertin-muderhwa-102511158'
     }
   },
   {
