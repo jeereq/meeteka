@@ -23,7 +23,6 @@ export function MissionPost() {
         const [post] = data.data
 
         if (isMobile) {
-          window.location.href = deepLink;
           setTimeout(() => {
             if (post?.type === "service") {
               deepLink = getWebLink("mission", id);
@@ -42,6 +41,7 @@ export function MissionPost() {
         } else if (post?.type === "financing") {
           deepLink = getAppDeepLink("financing", id);
         }
+        window.location.href = deepLink;
         setPost(post)
       }
     })()
