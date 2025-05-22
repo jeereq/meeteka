@@ -14,21 +14,28 @@ export function MissionPost() {
     (async function () {
 
       const id = slug
-      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-      const deepLink = getAppDeepLink("mission", id);
-
-      if (isMobile) {
-        window.location.href = deepLink;
-        setTimeout(() => {
-          window.location.href = getWebLink("mission", id);
-        }, 2000);
-      }
-
-      const { data } = await fetchDiffusions({ id: slug }, "POST")
+      let deepLink = ''
       
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      const { data } = await fetchDiffusions({ id: slug }, "POST")
+
       if (data) {
         const [post] = data.data
-        console.log(post)
+
+        if (isMobile) {
+          window.location.href = deepLink;
+          setTimeout(() => {
+            window.location.href = getWebLink("mission", id);
+          }, 2000);
+        }
+
+        if (post?.type === "service") {
+          deepLink = getAppDeepLink("mission", id);
+        } else if (post?.type === "callForTender") {
+          deepLink = getAppDeepLink("callForTender", id);
+        } else if (post?.type === "financing") {
+          deepLink = getAppDeepLink("financing", id);
+        }
         setPost(post)
       }
     })()

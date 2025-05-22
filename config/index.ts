@@ -22,13 +22,17 @@ export const TYPES: any[] = [
     { value: "blog", label: "Blog" },
     { value: "broadcast", label: "Diffusions" }
 ]
-export const getAppDeepLink = (type: "blog" | "diffusion" | "mission", id: any) => {
+export const getAppDeepLink = (type: "blog" | "diffusion" | "mission" | "callForTender" | "financing", id: any) => {
     if (type === "blog") {
         return `meet-eka://diffusion_details/${id}`;
     } else if (type === "diffusion") {
         return `meet-eka://diffusion_details/${id}`;
     } else if (type === "mission") {
         return `meet-eka://mission_details/${id}`;
+    } else if (type === "callForTender") {
+        return `meet-eka://offre_details/${id}`;
+    } else if (type === "financing") {
+        return `meet-eka://fund_details/${id}`;
     } else return "";
 };
 export const getWebLink = (type: "blog" | "diffusion" | "mission", id: any) => {
