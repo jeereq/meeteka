@@ -24,12 +24,12 @@ export function BlogPostDetails() {
     const id = slug
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     const deepLink = getAppDeepLink("blog", id);
-    
+
     if (isMobile) {
       window.location.href = deepLink;
       setTimeout(() => {
         window.location.href = getWebLink("blog", id);
-      }, 1000);
+      }, 2000);
     }
   }, [slug]);
 

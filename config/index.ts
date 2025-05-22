@@ -22,17 +22,21 @@ export const TYPES: any[] = [
     { value: "blog", label: "Blog" },
     { value: "broadcast", label: "Diffusions" }
 ]
-export const getAppDeepLink = (type: "blog" | "diffusion", id: any) => {
+export const getAppDeepLink = (type: "blog" | "diffusion" | "mission", id: any) => {
     if (type === "blog") {
-        return `meeteka://diffusion_details/${id}`;
+        return `meet-eka://diffusion_details/${id}`;
     } else if (type === "diffusion") {
-        return `meeteka://diffusion_details/${id}`;
+        return `meet-eka://diffusion_details/${id}`;
+    } else if (type === "mission") {
+        return `meet-eka://mission_details/${id}`;
     } else return "";
 };
-export const getWebLink = (type: "blog" | "diffusion", id: any) => {
+export const getWebLink = (type: "blog" | "diffusion" | "mission", id: any) => {
     if (type === "blog") {
         return `/blogs/${id}`;
     } else if (type === "diffusion") {
         return `/diffusions/${id}`;
+    } else if (type === "mission") {
+        return `/missions/${id}`;
     } else return "";
 }
