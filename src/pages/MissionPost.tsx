@@ -15,7 +15,7 @@ export function MissionPost() {
 
       const id = slug
       let deepLink = ''
-      
+
       const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
       const { data } = await fetchDiffusions({ id: slug }, "POST")
 
@@ -25,7 +25,13 @@ export function MissionPost() {
         if (isMobile) {
           window.location.href = deepLink;
           setTimeout(() => {
-            window.location.href = getWebLink("mission", id);
+            if (post?.type === "service") {
+              deepLink = getWebLink("mission", id);
+            } else if (post?.type === "callForTender") {
+              deepLink = getWebLink("callForTender", id);
+            } else if (post?.type === "financing") {
+              deepLink = getWebLink("financing", id);
+            }
           }, 2000);
         }
 
