@@ -5,7 +5,7 @@ export const emailTo = "mailto:contact@meeteka.com;mingandajeereq@gmail.com;sajo
 export function parseName(name: any) {
     return encodeURI(`${name?.trim()?.replaceAll(" ", "-")?.toLowerCase()}`);
 }
-export const formatPrice = (price: number) => {
+export const formatPrice = (price: number): any => {
     return new Intl.NumberFormat('fr-CD', {
         style: 'currency',
         currency: 'CDF',
@@ -13,12 +13,12 @@ export const formatPrice = (price: number) => {
         maximumFractionDigits: 0
     }).format(price * 2500);
 };
-export const LEVELS = [
+export const LEVELS: any[] = [
     { value: "beginner", label: "Débutant" },
     { value: "intermediate", label: "Intermediaire" },
     { value: "advanced", label: "Avancé" }
 ]
-export const TYPES = [
+export const TYPES: any[] = [
     { value: "blog", label: "Blog" },
     { value: "broadcast", label: "Diffusions" }
 ]
