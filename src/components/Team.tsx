@@ -7,7 +7,7 @@ import gordien from "../../assets/teams/gordien.jpeg"
 import { Linkedin } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
-const team = [
+const teams = [
   {
     name: 'Blaise Mposo',
     role: 'Directeur Général & Fondateur',
@@ -61,7 +61,7 @@ const team = [
     social: {
       linkedin: 'https://www.linkedin.com/in/jeereq'
     }
-  },
+  }
 ];
 
 export function Team() {
@@ -85,11 +85,10 @@ export function Team() {
       </div>
 
       <div className="relative">
-        {/* Team Cards Container */}
         <div
           className={`block w-full grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 transition-transform duration-500 ease-in-out`}
         >
-          {team.map((member, index) => (
+          {teams.map((member: any, index: number) => (
             <div
               key={index}
               className={`w-full mb-4 px-2 sm:px-4`}
@@ -128,7 +127,6 @@ export function Team() {
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );
