@@ -3,6 +3,7 @@ import { DiffusionDetails } from '../components/DiffusionDetails';
 import { useEffect, useState } from 'react';
 import { useFetchData } from '../../hooks/useFetchData';
 import { LoadingCard } from '../components/LoadingCard';
+import { getAppDeepLink, getWebLink } from '../../config';
 
 export function BlogPostDetails() {
   const { slug } = useParams();
@@ -22,12 +23,12 @@ export function BlogPostDetails() {
   useEffect(() => {
     const id = slug
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    const deepLink = `meeteka://service/${id}`;
-    console.log(isMobile)
+    const deepLink = getAppDeepLink("blog", id);
+    
     if (isMobile) {
       window.location.href = deepLink;
       setTimeout(() => {
-        window.location.href = `/blogs/${id}`;
+        window.location.href = getWebLink("blog", id);
       }, 1000);
     }
   }, [slug]);
