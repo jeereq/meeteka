@@ -27,7 +27,7 @@ export function BlogPostDetails() {
     if (isMobile) {
       window.location.href = deepLink;
       setTimeout(() => {
-        window.location.href = `/service/${id}`;
+        window.location.href = `/blogs/${id}`;
       }, 1000);
     }
   }, [slug]);
