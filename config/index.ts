@@ -35,12 +35,16 @@ export const getAppDeepLink = (type: "blog" | "diffusion" | "mission" | "callFor
         return `meet-eka://fund_details/${id}`;
     } else return "";
 };
-export const getWebLink = (type: "blog" | "diffusion" | "mission", id: any) => {
+export const getWebLink = (type: "blog" | "diffusion" | "mission" | "callForTender" | "financing", id: any) => {
     if (type === "blog") {
         return `/blogs/${id}`;
     } else if (type === "diffusion") {
         return `/diffusions/${id}`;
     } else if (type === "mission") {
+        return `/missions/${id}`;
+    }else if (type === "callForTender") {
+        return `/missions/${id}`;
+    }else if (type === "financing") {
         return `/missions/${id}`;
     } else return "";
 }
