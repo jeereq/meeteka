@@ -12,26 +12,28 @@ export function MissionPost() {
 
   useEffect(function () {
     (async function () {
+
+      const id = slug
+      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+      const deepLink = getAppDeepLink("mission", id);
+
+      if (isMobile) {
+        window.location.href = deepLink;
+        setTimeout(() => {
+          window.location.href = getWebLink("mission", id);
+        }, 2000);
+      }
+
       const { data } = await fetchDiffusions({ id: slug }, "POST")
+      
       if (data) {
         const [post] = data.data
+        console.log(post)
         setPost(post)
       }
     })()
   }, [])
 
-  useEffect(() => {
-    const id = slug
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    const deepLink = getAppDeepLink("mission", id);
-
-    if (isMobile) {
-      window.location.href = deepLink;
-      setTimeout(() => {
-        window.location.href = getWebLink("mission", id);
-      }, 2000);
-    }
-  }, [slug]);
   if (isLoading) {
     return <div className="grid w-1/2 mx-auto grid-cols-1 p-8">
       {[...Array(1)].map((_, index) => (
