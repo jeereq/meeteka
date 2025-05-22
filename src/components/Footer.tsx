@@ -37,7 +37,7 @@ export function Footer() {
             </h3>
             <ul className="space-y-3 text-gray-400">
               <li>
-                <a href={emailTo} className='hover:text-highlight'>contact@meeteka.com</a>
+                <a href={emailTo} target='_blank' className='hover:text-highlight'>contact@meeteka.com</a>
               </li>
               <li>
                 <a href="tel:+243825455938" className='hover:text-highlight'>+243 825 455 938</a>
