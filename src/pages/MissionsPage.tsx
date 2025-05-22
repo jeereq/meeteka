@@ -141,13 +141,15 @@ export function MissionsPage() {
                   )}
                 </div>
 
-                <button
-                  onClick={() => setShowFilters(!showFilters)}
-                  className="flex items-center gap-2 px-4 py-3 bg-black text-white rounded-xl hover:bg-highlight transition-all duration-300 sm:w-auto w-full justify-center group"
-                >
-                  <Filter className="w-5 h-5 group-hover:rotate-180 transition-transform duration-300" />
-                  <span>{showFilters ? 'Masquer les filtres' : 'Afficher les filtres'}</span>
-                </button>
+                <div className="w-fit hidden">
+                  <button
+                    onClick={() => setShowFilters(!showFilters)}
+                    className="flex items-center gap-2 px-4 py-3 bg-black text-white rounded-xl hover:bg-highlight transition-all duration-300 sm:w-auto w-full justify-center group"
+                  >
+                    <Filter className="w-5 h-5 group-hover:rotate-180 transition-transform duration-300" />
+                    <span>{showFilters ? 'Masquer les filtres' : 'Afficher les filtres'}</span>
+                  </button>
+                </div>
               </div>
 
               {/* Extended Filters */}
