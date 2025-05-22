@@ -7,7 +7,7 @@ import gordien from "../../assets/teams/gordien.jpeg"
 import { Linkedin } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
-const teams = [
+const teams: any[] = [
   {
     name: 'Blaise Mposo',
     role: 'Directeur Général & Fondateur',
