@@ -41,6 +41,7 @@ export function MissionPost() {
         } else if (post?.type === "financing") {
           deepLink = getAppDeepLink("financing", id);
         }
+        
         window.location.href = deepLink;
         setPost(post)
       }

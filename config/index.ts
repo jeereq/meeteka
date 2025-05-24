@@ -22,7 +22,7 @@ export const TYPES: any[] = [
     { value: "blog", label: "Blog" },
     { value: "broadcast", label: "Diffusions" }
 ]
-export const getAppDeepLink = (type: "blog" | "diffusion" | "mission" | "callForTender" | "financing", id: any) => {
+export const getAppDeepLink = (type: "blog" | "event" | "profile" | "diffusion" | "mission" | "callForTender" | "financing", id: any) => {
     if (type === "blog") {
         return `meet-eka://diffusion_details/${id}`;
     } else if (type === "diffusion") {
@@ -33,18 +33,22 @@ export const getAppDeepLink = (type: "blog" | "diffusion" | "mission" | "callFor
         return `meet-eka://offre_details/${id}`;
     } else if (type === "financing") {
         return `meet-eka://fund_details/${id}`;
+    } else if (type === "event") {
+        return `meet-eka://event_details/${id}`;
     } else return "";
 };
-export const getWebLink = (type: "blog" | "diffusion" | "mission" | "callForTender" | "financing", id: any) => {
+export const getWebLink = (type: "blog" | "diffusion" |"profile" | "event" | "mission" | "callForTender" | "financing", id: any) => {
     if (type === "blog") {
         return `/blogs/${id}`;
     } else if (type === "diffusion") {
         return `/diffusions/${id}`;
     } else if (type === "mission") {
         return `/missions/${id}`;
-    }else if (type === "callForTender") {
+    } else if (type === "callForTender") {
         return `/missions/${id}`;
-    }else if (type === "financing") {
+    } else if (type === "financing") {
         return `/missions/${id}`;
+    } else if (type === "event") {
+        return `/events/${id}`;
     } else return "";
 }

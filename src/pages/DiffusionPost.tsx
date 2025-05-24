@@ -29,9 +29,10 @@ export function DiffusionPost() {
       window.location.href = deepLink;
       setTimeout(() => {
         window.location.href = getWebLink("diffusion", id);
-      }, 1000);
+      }, 2000);
     }
   }, [slug]);
+
   if (isLoading) {
     return <div className="grid w-1/2 mx-auto grid-cols-1 p-8">
       {[...Array(1)].map((_, index) => (
