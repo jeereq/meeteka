@@ -113,7 +113,7 @@ export function EventsPage() {
                     </button>
                   )}
                 </div>
-                <div className="flex gap-4">
+                <div className="w-full sm:w-fit flex flex-wrap sm:flex-nowrap gap-4">
                   <div className="relative w-full sm:w-48">
                     <input
                       type="date"
@@ -151,7 +151,6 @@ export function EventsPage() {
                     )}
                   </div>
                 </div>
-
               </div>
 
 
