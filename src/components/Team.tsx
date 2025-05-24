@@ -50,7 +50,7 @@ const teams: any[] = [
     image: jonas,
     bio: `Jeune professionnel ambitieux et passionné par la création visuelle. Avec plus de trois ans d'expérience en agence à Kinshasa, il maîtrise les outils de design et suit les tendances locales et internationales. Connecté et observateur de la culture congolaise, il cherche à apporter une perspective nouvelle et authentique dans ses projets.`,
     social: {
-      linkedin: 'https://www.linkedin.com/in/jeereq'
+      linkedin: 'https://www.linkedin.com/in/jonas-muendele-428676219'
     }
   },
   {
