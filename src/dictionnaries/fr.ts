@@ -113,7 +113,7 @@ const fr = {
     "organisations.button.more": "Voir les détails",
 
     "events.banner.title": "Nos Evenements",
-    "events.banner.description": "Découvrez notre réseau d'experts et de professionnels dédiés à votre réussite.",
+    "events.banner.description": "Découvrez ici une vitrine dynamique et complète de tous nos événements passés, présents et à venir. Que vous soyez à la recherche d'une opportunité d'apprentissage, d'une expérience de divertissement, d'un événement de réseautage professionnel ou d'une occasion de vous engager avec la communauté, notre page Événements est conçue pour vous.",
     "events.button.more": "Voir les détails",
 
     "entreprises.banner.title": "Nos Entreprises",

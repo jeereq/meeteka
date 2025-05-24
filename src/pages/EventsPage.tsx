@@ -7,7 +7,6 @@ import { PageTransition } from '../components/PageTransition';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 import CardEvent from '../components/card/event';
-import moment from 'moment';
 
 export function EventsPage() {
   const [searchTerm, setSearchTerm] = useState('');
@@ -84,7 +83,7 @@ export function EventsPage() {
                 }
               })}
             </h1>
-            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl">
+            <p className="text-lg sm:text-xl text-gray-300 max-w-4xl">
               {t("events.banner.description")}
             </p>
           </div>
