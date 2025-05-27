@@ -35,6 +35,8 @@ export const getAppDeepLink = (type: "blog" | "event" | "profile" | "diffusion" 
         return `meet-eka://fund_details/${id}`;
     } else if (type === "event") {
         return `meet-eka://event_details/${id}`;
+    }else if (type === "profile") {
+        return `meet-eka://${id}`;
     } else return "";
 };
 export const getWebLink = (type: "blog" | "diffusion" |"profile" | "event" | "mission" | "callForTender" | "financing", id: any) => {
@@ -50,5 +52,7 @@ export const getWebLink = (type: "blog" | "diffusion" |"profile" | "event" | "mi
         return `/missions/${id}`;
     } else if (type === "event") {
         return `/events/${id}`;
+    } else if (type === "profile") {
+        return `/profile/${id}`;
     } else return "";
 }

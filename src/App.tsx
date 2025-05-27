@@ -27,6 +27,7 @@ import { MissionPost } from './pages/MissionPost';
 import ConfidentialPolitique from './pages/ConfidentialPolitique';
 import AccountDeletion from './pages/AccountDeletion';
 import SupportPage from './pages/SupportPage';
+import { ProfilePost } from './pages/ProfilePost';
 
 export default function App() {
   const pathname = window.location.pathname;
@@ -67,6 +68,7 @@ export default function App() {
           <Route path="/success-stories" element={<SuccessStoriesPage />} />
           <Route path="/success-stories/:slug" element={<SuccessStoryDetails />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/profile/:slug" element={<ProfilePost />} />
           <Route path="/pricing" element={<PricingPage />} />
         </Routes>
       </Layout>

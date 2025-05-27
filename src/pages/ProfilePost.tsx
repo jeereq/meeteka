@@ -2,7 +2,6 @@ import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { useFetchData } from '../../hooks/useFetchData';
 import { LoadingCard } from '../components/LoadingCard';
-import { EventDetails } from '../components/EventDetails';
 import { getAppDeepLink, getWebLink } from '../../config';
 
 export function ProfilePost() {
@@ -23,7 +22,7 @@ export function ProfilePost() {
   useEffect(() => {
     const id = slug
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    const deepLink = getAppDeepLink("event", id);
+    const deepLink = getAppDeepLink("profile", id);
 
     if (isMobile) {
       window.location.href = deepLink;
@@ -41,7 +40,7 @@ export function ProfilePost() {
     </div>
   } else {
     if (!post) return <div className="w-fit"></div>
-    return <EventDetails post={post} />;
+    return <div className="w-fit"></div>
   }
 
 } 
