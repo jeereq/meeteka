@@ -99,7 +99,7 @@ export function PartnerDetails() {
 
   if (isLoading) {
     return <div className="w-full p-8">
-      <div className="grid w-1/2 mx-auto grid-cols-1 gap-8">
+      <div className="grid max-w-7xl mx-auto grid-cols-1 gap-8">
         {[...Array(1)].map((_, index) => (
           <LoadingCard key={index} />
         ))}
