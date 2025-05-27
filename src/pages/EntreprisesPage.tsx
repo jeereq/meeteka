@@ -117,7 +117,7 @@ export function EntreprisesPage() {
                 }
               })}
             </h1>
-            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl">
+            <p className="text-lg sm:text-xl text-gray-300 max-w-4xl">
               {t("entreprises.banner.description")}
             </p>
           </div>

@@ -117,7 +117,7 @@ const fr = {
     "events.button.more": "Voir les détails",
 
     "entreprises.banner.title": "Nos Entreprises",
-    "entreprises.banner.description": "Découvrez notre réseau d'experts et de professionnels dédiés à votre réussite.",
+    "entreprises.banner.description": "Bienvenue dans l'espace dédié à nos collaborations professionnelles. Ici, vous trouverez des informations clés sur les entreprises qui composent notre réseau, leurs secteurs d'activité, et les projets communs qui renforcent nos liens. Une mine d'informations pour comprendre nos partenariats et envisager de nouvelles perspectives.",
     "entreprises.button.more": "Voir les détails",
 
     "pricings.banner.title": "Nos tarifs",
@@ -127,22 +127,22 @@ const fr = {
     "pricings.callToAction.button.label": "Contactez-nous",
 
     "diffusions.title": "Dernières Diffusions",
-    "diffusions.description": "Conseils d'experts et stratégies pour votre succès digital",
+    "diffusions.description": "Découvrez nos appels d'offres en cours, explorez de nouvelles missions passionnantes et trouvez des opportunités de financement pour vos projets. Toutes les informations clés pour collaborer et développer vos activités sont ici.",
     "diffusions.more": "Voir toutes les diffusions",
     "diffusions.banner.title": "Nos Diffusions",
-    "diffusions.banner.description": "Découvrez nos guides et ressources pour développer votre entreprise et réussir dans l'économie digitale.",
+    "diffusions.banner.description": "Explorez nos diffusions pour des analyses approfondies, des guides pratiques et des réflexions inspirantes qui vous aideront à réussir vos projets, mieux comprendre le monde, développer vos compétences.",
 
     "missions.title": "Dernières Missions",
     "missions.description": "Conseils d'experts et stratégies pour votre succès digital",
     "missions.more": "Voir toutes les missions",
     "missions.banner.title": "Nos Missions",
-    "missions.banner.description": "Découvrez nos guides et ressources pour développer votre entreprise et réussir dans l'économie digitale.",
+    "missions.banner.description": "Découvrez nos appels d'offres en cours, explorez de nouvelles missions passionnantes et trouvez des opportunités de financement pour vos projets. Toutes les informations clés pour collaborer et développer vos activités sont ici.",
 
     "blogs.title": "Dernièrs Blogs",
     "blogs.description": "Conseils d'experts et stratégies pour votre succès digital",
     "blogs.more": "Voir tout les blogs",
     "blogs.banner.title": "Nos Blogs",
-    "blogs.banner.description": "Découvrez nos guides et ressources pour développer votre entreprise et réussir dans l'économie digitale.",
+    "blogs.banner.description": "Explorez nos blogs pour des analyses approfondies, des guides pratiques et des réflexions inspirantes qui vous aideront à réussir vos projets, mieux comprendre le monde, développer vos compétences.",
 
     "teams.title": "Notre Équipe",
     "teams.description": "Les experts derrière votre succès digital",

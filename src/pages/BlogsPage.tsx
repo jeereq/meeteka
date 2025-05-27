@@ -112,7 +112,7 @@ export function BlogsPage() {
                 }
               })}
             </h1>
-            <p className="text-lg sm:text-xl text-gray-300 max-w-3xl">
+            <p className="text-lg sm:text-xl text-gray-300 max-w-4xl">
               {t("blogs.banner.description")}
             </p>
           </div>
