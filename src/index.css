@@ -22,7 +22,9 @@
   .section-padding {
     @apply py-12 sm:py-16 lg:py-24 px-4 sm:px-6 lg:px-8 max-w-[1536px] mx-auto;
   }
-  
+   .section-padding.bottom {
+    @apply py-12 sm:py-16 lg:pb-0 lg:py-24 px-4 sm:px-6 lg:px-8 max-w-[1536px] mx-auto;
+  }
   .heading-highlight {
     @apply bg-highlight px-2 inline-block text-white relative;
   }

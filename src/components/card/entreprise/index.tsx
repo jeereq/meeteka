@@ -20,24 +20,22 @@ export default function CardEntreprise({ ...partner }) {
                     <h2 className="text-xl sm:text-2xl font-bold mb-2 group-hover:text-highlight transition-colors">
                         {partner?.name}
                     </h2>
-                    <div className="gap-2 flex items-center lowercase justify-center flex-wrap">
+                    <div className="gap-2 flex items-center lowercase justify-start flex-wrap">
                         <span className="px-3 block w-fit py-1 bg-black/5 rounded-full text-sm">
                             {partner?.legalForm?.name}
                         </span>
-                        {partner?.email && <h3 className="text-sm px-3 block w-fit py-1 bg-black/5 rounded-full transition-colors">
-                            {partner?.email}
-                        </h3>}
+                       
                     </div>
                 </div>
             </div>
 
             <p className="text-sm sm:text-base text-gray-600 mb-2" dangerouslySetInnerHTML={{ __html: partner?.description }} />
 
-            {partner?.services.length != 0 && <h2 className="text-xl sm:text-2xl font-bold mb-2 group-hover:text-highlight transition-colors">
+            {partner?.services && partner?.services?.length != 0 && <h2 className="text-xl sm:text-2xl font-bold mb-2 group-hover:text-highlight transition-colors">
                 Services
             </h2>}
             <div className="gap-3 sm:gap-4 grid grid-cols-2 pb-5">
-                {partner?.services.map(({ sector: service }: any, i: number) => (
+                {partner?.services && partner?.services.map(({ sector: service }: any, i: number) => (
                     <div
                         key={i}
                         className="flex justify-between items-center p-3 sm:p-4 bg-gray-50 rounded-xl"
@@ -54,11 +52,11 @@ export default function CardEntreprise({ ...partner }) {
                     </div>
                 ))}
             </div>
-            {partner?.sectors.length != 0 && <h2 className="text-md sm:text-lg font-bold mb-2 group-hover:text-highlight transition-colors">
+            {partner?.sectors && partner?.sectors?.length != 0 && <h2 className="text-md sm:text-lg font-bold mb-2 group-hover:text-highlight transition-colors">
                 Secteurs
             </h2>}
             <div className="gap-2 sm:gap-3 flex items-center flex-wrap pb-5">
-                {partner?.sectors.map(({ sector: service }: any, i: number) => (
+                {partner?.sectors && partner?.sectors?.map(({ sector: service }: any, i: number) => (
                     <div
                         key={i}
                         className="flex justify-center items-center py-2 px-3 bg-gray-50 rounded-full"
