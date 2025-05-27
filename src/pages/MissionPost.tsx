@@ -33,15 +33,16 @@ export function MissionPost() {
               deepLink = getWebLink("financing", id);
             }
           }, 2000);
+
+          if (post?.type === "service") {
+            deepLink = getAppDeepLink("mission", id);
+          } else if (post?.type === "callForTender") {
+            deepLink = getAppDeepLink("callForTender", id);
+          } else if (post?.type === "financing") {
+            deepLink = getAppDeepLink("financing", id);
+          }
         }
 
-        if (post?.type === "service") {
-          deepLink = getAppDeepLink("mission", id);
-        } else if (post?.type === "callForTender") {
-          deepLink = getAppDeepLink("callForTender", id);
-        } else if (post?.type === "financing") {
-          deepLink = getAppDeepLink("financing", id);
-        }
 
         window.location.href = deepLink;
         setPost(post)
