@@ -37,7 +37,7 @@ export function EventPost() {
   }, [slug]);
 
   if (isLoading) {
-    return <div className="grid max-w-9xl mx-auto grid-clos-1 p-8">
+    return <div className="grid max-w-7xl mx-auto grid-clos-1 p-8">
       {[...Array(1)].map((_, index) => (
         <LoadingCard key={index} />
       ))}

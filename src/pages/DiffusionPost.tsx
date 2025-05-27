@@ -38,7 +38,7 @@ export function DiffusionPost() {
   }, [slug]);
 
   if (isLoading) {
-    return <div className="grid w-1/2 mx-auto grid-cols-1 p-8">
+    return <div className="grid max-w-7xl mx-auto grid-cols-1 p-8">
       {[...Array(1)].map((_, index) => (
         <LoadingCard key={index} />
       ))}
