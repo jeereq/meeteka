@@ -142,7 +142,7 @@ const fr = {
     "blogs.description": "Conseils d'experts et stratégies pour votre succès digital",
     "blogs.more": "Voir tout les blogs",
     "blogs.banner.title": "Nos Blogs",
-    "blogs.banner.description": "Découvrez nos guides et ressources pour développer votre entreprise et réussir dans l'économie digitale.",
+    "blogs.banner.description": "Explorez nos blogs pour des analyses approfondies, des guides pratiques et des réflexions inspirantes qui vous aideront à réussir vos projets, mieux comprendre le monde, développer vos compétences.",
 
     "teams.title": "Notre Équipe",
     "teams.description": "Les experts derrière votre succès digital",
