@@ -6,15 +6,16 @@ import { getAppDeepLink, getWebLink } from '../../config';
 
 export function ProfilePost() {
   const { slug } = useParams();
-  const { fetch: fetchEvents, loading: isLoading } = useFetchData({ uri: "infos-user/user-event/get" })
+  const { fetch, loading: isLoading } = useFetchData({ uri: "infos-user/profile/get" })
   const [post, setPost] = useState<any>(null)
 
   useEffect(function () {
     (async function () {
-      const { data } = await fetchEvents({ id: slug }, "POST")
+      const { data } = await fetch({ id: slug }, "POST")
       if (data) {
-        const [post] = data.data
-        setPost(post)
+        const { user } = data
+        console.log("post", data)
+        setPost(user)
       }
     })()
   }, [])
@@ -27,7 +28,7 @@ export function ProfilePost() {
     if (isMobile) {
       window.location.href = deepLink;
       setTimeout(() => {
-        window.location.href = getWebLink("event", id);
+        window.location.href = getWebLink("profile", id);
       }, 2000);
     }
   }, [slug]);
@@ -39,8 +40,44 @@ export function ProfilePost() {
       ))}
     </div>
   } else {
-    if (!post) return <div className="w-fit"></div>
-    return <div className="w-fit"></div>
+    if (!post) return <div className="w-full bg-gray-100"></div>
+    return <div className="w-full h-fit">
+      <div className={`w-full h-[350px] relative bg-cover bg-[url(${post.banner})]`}>
+        <img src={post.banner} style={{ objectFit: "cover" }} className='h-full w-full bg-cover' alt={post.username} />
+        <div className="w-full h-fit absolute -bottom-[50px]">
+          <img src={post.cover} style={{ objectFit: "cover" }} className='h-[100px] rounded-full w-[100px] mx-auto bg-cover' alt={post.username} />
+        </div>
+      </div>
+      <div className="max-w-7xl md:max-w-3xl bg-white mx-auto px-4 sm:px-6 lg:px-8 h-screen">
+        <header className='pt-[50px] pb-8 text-center border-b'>
+          <h1 className="font-bold text-2xl text-gray-900 mt-4 mb-2">{post.username}</h1>
+          {post.email && <p className="text-gray-600 mb-4">{post.email}</p>}
+          {post.phone && <p className="text-gray-600 mb-4">{post.phone}</p>}
+        </header>
+        <main className="w-full py-4">
+          <h2 className='font-bold text-xl text-gray-900 mb-4'>
+            Compétences
+          </h2>
+          <div className="w-full flex flex-wrap justify-between"></div>
+          <h2 className='font-bold text-xl text-gray-900 mb-4'>
+            Missions Réalisés
+          </h2>
+          <div className="w-full flex flex-wrap justify-between"></div>
+          <h2 className='font-bold text-xl text-gray-900 mb-4'>
+            Entreprises
+          </h2>
+          <div className="w-full flex flex-wrap justify-between"></div>
+          <h2 className='font-bold text-xl text-gray-900 mb-4'>
+            Projets
+          </h2>
+          <div className="w-full flex flex-wrap justify-between"></div>
+          <h2 className='font-bold text-xl text-gray-900 mb-4'>
+            Services
+          </h2>
+          <div className="w-full flex flex-wrap justify-between"></div>
+        </main>
+      </div>
+    </div>
   }
 
 } 
