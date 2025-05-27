@@ -24,6 +24,14 @@ export function MissionPost() {
         const [post] = data.data
 
         if (isMobile) {
+          if (post?.type === "service") {
+            deepLink = getAppDeepLink("mission", id);
+          } else if (post?.type === "callForTender") {
+            deepLink = getAppDeepLink("callForTender", id);
+          } else if (post?.type === "financing") {
+            deepLink = getAppDeepLink("financing", id);
+          }
+
           timeOutId = setTimeout(() => {
             if (post?.type === "service") {
               deepLink = getWebLink("mission", id);
@@ -34,17 +42,8 @@ export function MissionPost() {
             }
           }, 2000);
 
-          if (post?.type === "service") {
-            deepLink = getAppDeepLink("mission", id);
-          } else if (post?.type === "callForTender") {
-            deepLink = getAppDeepLink("callForTender", id);
-          } else if (post?.type === "financing") {
-            deepLink = getAppDeepLink("financing", id);
-          }
+          window.location.href = deepLink;
         }
-
-
-        window.location.href = deepLink;
         setPost(post)
       }
     })()

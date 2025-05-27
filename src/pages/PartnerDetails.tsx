@@ -5,81 +5,6 @@ import { LoadingCard } from '../components/LoadingCard';
 import { useFetchData } from '../../hooks/useFetchData';
 import { ArrowUpRight } from 'lucide-react';
 
-// const partners = {
-//   'meeteka-consulting': {
-//     name: 'Meet\'eka Consulting',
-//     logo: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
-//     hero: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80',
-//     description: 'Cabinet de conseil spécialisé dans l\'accompagnement des entreprises congolaises dans leur transformation digitale.',
-//     founded: '2023',
-//     location: 'Kinshasa, RDC',
-//     expertise: ['Transformation Digitale', 'Innovation', 'Stratégie d\'Entreprise'],
-//     services: [
-//       {
-//         name: 'Accompagnement Startup',
-//         description: 'Programme personnalisé pour startups en phase de croissance',
-//         price: 'À partir de 1.250.000 FC/mois',
-//         details: 'Accompagnement complet incluant stratégie, mentorat et suivi personnalisé'
-//       },
-//       {
-//         name: 'Conseil en Innovation',
-//         description: 'Développement de solutions innovantes',
-//         price: 'Sur devis',
-//         details: 'Analyse des opportunités d\'innovation et accompagnement dans la mise en œuvre'
-//       }
-//     ],
-//     stats: [
-//       { label: 'Clients Satisfaits', value: '50+' },
-//       { label: 'Projets Réussis', value: '100+' },
-//       { label: 'Experts', value: '15+' }
-//     ],
-//     testimonials: [
-//       {
-//         content: "L'expertise de Meet'eka Consulting a été déterminante dans notre transformation digitale.",
-//         author: 'Marie Kabongo',
-//         role: 'CEO, TechCongo',
-//         image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80'
-//       }
-//     ]
-//   },
-//   'meeteka-academy': {
-//     name: 'Meet\'eka Academy',
-//     logo: 'https://images.unsplash.com/photo-1542744094-3a31f272c490?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80',
-//     hero: 'https://images.unsplash.com/photo-1542744095-291d1f67b221?ixlib=rb-4.0.3&auto=format&fit=crop&w=2340&q=80',
-//     description: 'Centre de formation d\'excellence dédié au développement des compétences digitales en RDC.',
-//     founded: '2023',
-//     location: 'Kinshasa, RDC',
-//     expertise: ['Formation', 'Coaching', 'Développement des Talents'],
-//     services: [
-//       {
-//         name: 'Formation Leadership',
-//         description: 'Programme intensif de développement du leadership',
-//         price: '3.750.000 FC',
-//         details: 'Formation complète sur 3 mois avec certification'
-//       },
-//       {
-//         name: 'Coaching Personnalisé',
-//         description: 'Accompagnement individuel',
-//         price: '500.000 FC/session',
-//         details: 'Sessions individuelles avec des coachs certifiés'
-//       }
-//     ],
-//     stats: [
-//       { label: 'Apprenants', value: '200+' },
-//       { label: 'Formations', value: '20+' },
-//       { label: 'Formateurs', value: '10+' }
-//     ],
-//     testimonials: [
-//       {
-//         content: "La qualité des formations et l'accompagnement personnalisé sont exceptionnels.",
-//         author: 'Jean Mukeba',
-//         role: 'CTO, DigitalCongo',
-//         image: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&q=80'
-//       }
-//     ]
-//   }
-// };
-
 export function PartnerDetails() {
   const { slug } = useParams<{ slug: string }>();
   const [partner, setPartner] = useState<any>(null)
@@ -99,7 +24,7 @@ export function PartnerDetails() {
 
   if (isLoading) {
     return <div className="w-full p-8">
-      <div className="grid w-1/2 mx-auto grid-cols-1 gap-8">
+      <div className="grid max-w-7xl mx-auto grid-cols-1 gap-8">
         {[...Array(1)].map((_, index) => (
           <LoadingCard key={index} />
         ))}
@@ -110,7 +35,6 @@ export function PartnerDetails() {
     return (
       <div className="min-h-screen pt-20">
         <BackButton />
-        {/* Hero Section */}
         <section className="relative h-[60vh] min-h-[500px]">
           <div className="absolute inset-0">
             <img
