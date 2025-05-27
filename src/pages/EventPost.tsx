@@ -19,18 +19,22 @@ export function EventPost() {
       }
     })()
   }, [])
-    useEffect(() => {
-      const id = slug
-      const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-      const deepLink = getAppDeepLink("event", id);
-  
-      if (isMobile) {
-        window.location.href = deepLink;
-        setTimeout(() => {
-          window.location.href = getWebLink("event", id);
-        }, 2000);
-      }
-    }, [slug]);
+  useEffect(() => {
+    const id = slug
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    const deepLink = getAppDeepLink("event", id);
+    let timeOutId = undefined
+    if (isMobile) {
+      window.location.href = deepLink;
+      timeOutId = setTimeout(() => {
+        window.location.href = getWebLink("event", id);
+      }, 2000);
+    }
+
+    return function () {
+      clearTimeout(timeOutId);
+    }
+  }, [slug]);
 
   if (isLoading) {
     return <div className="grid max-w-9xl mx-auto grid-clos-1 p-8">

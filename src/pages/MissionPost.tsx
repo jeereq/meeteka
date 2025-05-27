@@ -11,6 +11,7 @@ export function MissionPost() {
   const [post, setPost] = useState<any>(null)
 
   useEffect(function () {
+    let timeOutId: any = undefined;
     (async function () {
 
       const id = slug
@@ -23,7 +24,7 @@ export function MissionPost() {
         const [post] = data.data
 
         if (isMobile) {
-          setTimeout(() => {
+          timeOutId = setTimeout(() => {
             if (post?.type === "service") {
               deepLink = getWebLink("mission", id);
             } else if (post?.type === "callForTender") {
@@ -41,11 +42,15 @@ export function MissionPost() {
         } else if (post?.type === "financing") {
           deepLink = getAppDeepLink("financing", id);
         }
-        
+
         window.location.href = deepLink;
         setPost(post)
       }
     })()
+
+    return function () {
+      clearTimeout(timeOutId);
+    }
   }, [])
 
   if (isLoading) {
