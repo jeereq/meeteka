@@ -127,7 +127,7 @@ const fr = {
     "pricings.callToAction.button.label": "Contactez-nous",
 
     "diffusions.title": "Dernières Diffusions",
-    "diffusions.description": "Conseils d'experts et stratégies pour votre succès digital",
+    "diffusions.description": "Découvrez nos appels d'offres en cours, explorez de nouvelles missions passionnantes et trouvez des opportunités de financement pour vos projets. Toutes les informations clés pour collaborer et développer vos activités sont ici.",
     "diffusions.more": "Voir toutes les diffusions",
     "diffusions.banner.title": "Nos Diffusions",
     "diffusions.banner.description": "Découvrez nos guides et ressources pour développer votre entreprise et réussir dans l'économie digitale.",
