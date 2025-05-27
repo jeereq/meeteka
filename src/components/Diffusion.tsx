@@ -25,7 +25,7 @@ export function Diffusion() {
   }, []);
 
   return (
-    <section className="section-padding max-w-9xl" id="diffusion">
+    <section className="section-padding bottom max-w-9xl" id="diffusion">
       <div className="mb-12">
         <h2 className="text-4xl font-bold mb-4">
           {t("diffusions.title").split(" ").map(function (item, index: number) {
@@ -50,7 +50,7 @@ export function Diffusion() {
           ))}
       </div>
 
-      <div className="mt-12 text-center">
+      <div className="mt-12 w-full text-center flex flex-start">
         <Link
           to="/diffusions"
           className="inline-flex items-center gap-2 px-8 py-4 bg-black text-white rounded-full hover:bg-highlight transition-all duration-300 hover:scale-105"
