@@ -24,12 +24,16 @@ export function DiffusionPost() {
     const id = slug
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
     const deepLink = getAppDeepLink("diffusion", id);
-
+    let timeOutId = undefined
     if (isMobile) {
       window.location.href = deepLink;
-      setTimeout(() => {
+      timeOutId = setTimeout(() => {
         window.location.href = getWebLink("diffusion", id);
       }, 2000);
+    }
+
+    return function () {
+      clearTimeout(timeOutId);
     }
   }, [slug]);
 
