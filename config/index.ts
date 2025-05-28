@@ -22,7 +22,7 @@ export const TYPES: any[] = [
     { value: "blog", label: "Blog" },
     { value: "broadcast", label: "Diffusions" }
 ]
-export const getAppDeepLink = (type: "blog" | "event" | "profile" | "diffusion" | "mission" | "callForTender" | "financing", id: any) => {
+export const getAppDeepLink = (type: "blog" | "entreprise" | "event" | "profile" | "diffusion" | "mission" | "callForTender" | "financing", id: any) => {
     if (type === "blog") {
         return `meet-eka://diffusion_details/${id}`;
     } else if (type === "diffusion") {
@@ -35,11 +35,13 @@ export const getAppDeepLink = (type: "blog" | "event" | "profile" | "diffusion" 
         return `meet-eka://fund_details/${id}`;
     } else if (type === "event") {
         return `meet-eka://event_details/${id}`;
-    }else if (type === "profile") {
-        return `meet-eka://${id}`;
+    } else if (type === "profile") {
+        return `meet-eka://profile_details/${id}`;
+    } else if (type === "entreprise") {
+        return `meet-eka://enterprise_details/${id}`;
     } else return "";
 };
-export const getWebLink = (type: "blog" | "diffusion" |"profile" | "event" | "mission" | "callForTender" | "financing", id: any) => {
+export const getWebLink = (type: "blog" | "entreprise" | "diffusion" | "profile" | "event" | "mission" | "callForTender" | "financing", id: any) => {
     if (type === "blog") {
         return `/blogs/${id}`;
     } else if (type === "diffusion") {
@@ -54,5 +56,7 @@ export const getWebLink = (type: "blog" | "diffusion" |"profile" | "event" | "mi
         return `/events/${id}`;
     } else if (type === "profile") {
         return `/profile/${id}`;
+    } else if (type === "entreprise") {
+        return `/entreprises/${id}`;
     } else return "";
 }
