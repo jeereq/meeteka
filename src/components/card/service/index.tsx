@@ -22,10 +22,10 @@ export default function CardService({ ...service }) {
                     </h2>
                     <div className="gap-2 flex items-center lowercase justify-start flex-wrap">
                         <span className="px-3 block w-fit py-1 bg-black/5 rounded-full text-xs">
-                            {service.minPrice}  {service?.currency?.name}
+                            {service.minPrice}  {service?.currency?.symbol}
                         </span> -
                         <span className="px-3 block w-fit py-1 bg-black/5 rounded-full text-xs">
-                            {service.maxPrice}   {service?.currency?.name}
+                            {service.maxPrice}   {service?.currency?.symbol}
                         </span>
                     </div>
                 </div>

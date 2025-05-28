@@ -48,17 +48,17 @@ export function ProfilePost() {
       {post.banner && <div className={`w-full h-[350px] relative bg-cover bg-[url(${post.banner})]`}>
         <img src={post.banner} style={{ objectFit: "cover" }} className='h-full w-full bg-cover' alt={post.username} />
         <div className="w-full h-fit absolute -bottom-[50px]">
-          <img src={post.cover} style={{ objectFit: "cover" }} className='h-[100px] rounded-full w-[100px] mx-auto bg-cover' alt={post.username} />
+          <img src={post.cover} style={{ objectFit: "cover" }} className='h-[100px] border-2 border-red-500 rounded-full w-[100px] mx-auto bg-cover' alt={post.username} />
         </div>
       </div>}
       <div className="max-w-7xl min-h-[50vh] md:max-w-4xl bg-white mx-auto px-4 sm:px-6 lg:px-8">
-        <header className='pt-[50px] pb-8 text-center border-b'>
-          <h1 className="font-bold text-2xl text-gray-900 mt-4 mb-2">{post.username}</h1>
-          {post.email && <p className="text-gray-600 mb-4">{post.email}</p>}
+        <header className='pt-[50px] pb-8 group text-center border-b'>
+          <h1 className="font-bold text-2xl  text-gray-900 mt-4 mb-2">{post.username}</h1>
+          {post.email && <a href={`mailto:${post.email}`} target='_blank' className="group-hover:text-red-500 group-hover:font-bold text-gray-600 mb-4">{post.email}</a>}
           {post.phone && <p className="text-gray-600 mb-4">{post.phone}</p>}
         </header>
         <main className="w-full py-4">
-          {post.skills && post.skills.length != 0 && <div className="w-full">
+          {post?.skills && post?.skills?.length != 0 && <div className="w-full">
             <h2 className='font-bold text-xl text-gray-900 mb-4'>
               Compétences
             </h2>
@@ -71,7 +71,7 @@ export function ProfilePost() {
             </div>
           </div>}
           {(post?.entreprises && post?.entreprises?.length != 0) && <div className="w-full">
-            <h2 className='font-bold text-xl text-gray-900 mb-4'>
+            <h2 className='font-bold text-xl text-gray-900 my-4'>
               Entreprises
             </h2>
             <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
@@ -87,13 +87,13 @@ export function ProfilePost() {
             <div className="w-full flex flex-wrap justify-between"></div>
           </div>}
           {(post?.projets && post?.projets?.length != 0) && <div className="w-full">
-            <h2 className='font-bold text-xl text-gray-900 mb-4'>
+            <h2 className='font-bold text-xl text-gray-900 my-4'>
               Projets
             </h2>
           </div>}
           <div className="w-full flex flex-wrap justify-between"></div>
           {(post?.services && post?.services?.length != 0) && <div className="w-full">
-            <h2 className='font-bold text-xl text-gray-900 mb-4'>
+            <h2 className='font-bold text-xl text-gray-900 my-4'>
               Services
             </h2>
             <div className="grid md:grid-cols-2 gap-6 sm:gap-8">
