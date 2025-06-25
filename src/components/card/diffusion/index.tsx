@@ -58,13 +58,17 @@ export default function CardDiffusion({ ...post }: any) {
             </h3>
             <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                    {post?.owner?.cover && <img
+                    {post?.organisation ? <img
+                        src={post?.organisation?.cover}
+                        alt={post.organisation.username}
+                        className="w-8 h-8 rounded-lg bg-black/5 object-cover"
+                    /> : post?.owner?.cover && <img
                         src={post?.owner?.cover}
                         alt={post.owner.username}
-                        className="w-8 h-8 rounded-full bg-black/5 object-cover"
+                        className="w-8 h-8 rounded-lg bg-black/5 object-cover"
                     />}
                     <div className="text-sm">
-                        <p className="font-medium">{post.owner.username}</p>
+                        <p className="font-medium">{post.organisation ? post.organisation.name : post.owner.username}</p>
                         <div className="flex items-center gap-2 text-gray-500">
                             <Calendar className="w-3 h-3" />
                             <span>{new Date(post.createdAt).toLocaleDateString()}</span>
@@ -80,7 +84,6 @@ export default function CardDiffusion({ ...post }: any) {
                     </span>
                 )}
             </div>
-
             <div className="mt-4 sm:mt-6 group-hover:font-bold flex justify-end">
                 <span className="inline-flex items-center gap-2 text-black group-hover:text-highlight transition-colors">
                     Lire plus
