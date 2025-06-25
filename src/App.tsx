@@ -28,6 +28,8 @@ import ConfidentialPolitique from './pages/ConfidentialPolitique';
 import AccountDeletion from './pages/AccountDeletion';
 import SupportPage from './pages/SupportPage';
 import { ProfilePost } from './pages/ProfilePost';
+import { FiscalitiesPage } from './pages/FiscalitiesPage';
+import { FiscalityPost } from './pages/FiscalityPost';
 
 export default function App() {
   const pathname = window.location.pathname;
@@ -56,6 +58,8 @@ export default function App() {
           <Route path="/blogs" element={<BlogsPage />} />
           <Route path="/blogs/:slug" element={<BlogPostDetails />} />
           <Route path="/diffusions" element={<DiffusionsPage />} />
+          <Route path="/fiscalities" element={<FiscalitiesPage />} />
+          <Route path="/fiscalities/:slug" element={<FiscalityPost />} />
           <Route path="/diffusions/:slug" element={<DiffusionPost />} />
           <Route path="/missions" element={<MissionsPage />} />
           <Route path="/missions/:slug" element={<MissionPost />} />
