@@ -18,7 +18,7 @@ export default function CardFiscality({ ...post }: any) {
         key={post.id}
         title={post.title}
         to={`/fiscalities/${post.id}?name=${parseName(post.title)}`}
-        className="group bg-white rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-black/5 hover:border-highlight transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl"
+        className="group bg-white rounded-xl sm:rounded-2xl overflow-hidden border-2 border-black/5 hover:border-highlight transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl"
     >
         <div className="relative aspect-[16/9] bg-black/5 overflow-hidden">
             <img
@@ -39,7 +39,6 @@ export default function CardFiscality({ ...post }: any) {
         </div>
 
         <div className="p-4">
-         
             <div className="flex flex-wrap gap-2 mb-2">
                 {post?.sectors?.filter(function (item: any, index: number) {
                     return item?.name && index <= 2
@@ -54,13 +53,17 @@ export default function CardFiscality({ ...post }: any) {
             </h3>
             <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                    {post?.owner?.cover && <img
+                    {post?.organisation ? <img
+                        src={post?.organisation?.cover}
+                        alt={post.organisation.username}
+                        className="w-8 h-8 rounded-lg bg-black/5 object-cover"
+                    /> : post?.owner?.cover && <img
                         src={post?.owner?.cover}
                         alt={post.owner.username}
-                        className="w-8 h-8 rounded-full bg-black/5 object-cover"
+                        className="w-8 h-8 rounded-lg bg-black/5 object-cover"
                     />}
                     <div className="text-sm">
-                        <p className="font-medium">{post.owner.username}</p>
+                        <p className="font-medium">{post.organisation ? post.organisation.name : post.owner.username}</p>
                         <div className="flex items-center gap-2 text-gray-500">
                             <Calendar className="w-3 h-3" />
                             <span>{new Date(post.createdAt).toLocaleDateString()}</span>
