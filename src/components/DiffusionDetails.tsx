@@ -30,6 +30,19 @@ export function DiffusionDetails({ post }: any) {
     setShowPayment(false);
   };
 
+
+  const getType = () => {
+    switch (post?.type) {
+      case "broadcast":
+        return "Diffusions"
+      case "blog":
+        return "Blogs"
+      case "fiscality":
+        return "Fiscalités"
+      default:
+        return "Diffusions"
+    }
+  }
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
       <title>{post.title}</title>
@@ -41,7 +54,7 @@ export function DiffusionDetails({ post }: any) {
             className="group flex items-center gap-2 px-4 py-2 bg-white/90 backdrop-blur-sm shadow-lg hover:bg-highlight hover:text-white transition-all duration-300 rounded-full"
           >
             <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5 group-hover:-translate-x-1 transition-transform duration-300" />
-            <span className="text-sm sm:text-base font-medium">Retour aux {post.type == "broadcast" ? "diffusions" : "blogs"}</span>
+            <span className="text-sm sm:text-base font-medium">Retour aux {getType()}</span>
           </button>
         </div>
       </div>

@@ -104,7 +104,7 @@ export function FiscalitiesPage() {
         <section className="bg-black text-white py-12 sm:py-16 lg:py-20">
           <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8">
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6">
-              {t("diffusions.banner.title").split(" ").map(function (element, index: number) {
+              {t("fiscalities.banner.title").split(" ").map(function (element, index: number) {
                 if (index == 0) {
                   return <span className="w-fit" key={index}>{element}</span>
                 } else {
@@ -113,7 +113,7 @@ export function FiscalitiesPage() {
               })}
             </h1>
             <p className="text-lg sm:text-xl text-gray-300 max-w-3xl">
-              {t("diffusions.banner.description")}
+              {t("fiscalities.banner.description")}
             </p>
           </div>
         </section>
@@ -127,7 +127,7 @@ export function FiscalitiesPage() {
                 <div className="relative w-full sm:w-96">
                   <input
                     type="text"
-                    placeholder="Rechercher une diffusion..."
+                    placeholder="Rechercher une fiscalité..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     className="w-full px-4 py-3 pl-12 rounded-xl border-2 border-black/10 focus:border-highlight focus:ring-0 bg-white"
@@ -220,8 +220,8 @@ export function FiscalitiesPage() {
             </div>
           ) : filteredDiffusions.length === 0 ? (
             <EmptyState
-              title="Aucune diffusion trouvée"
-              description="Nous n'avons trouvé aucune diffusion correspondant à vos critères de recherche. Essayez de modifier vos filtres ou d'effectuer une nouvelle recherche."
+              title="Aucune fiscalité trouvée"
+              description="Nous n'avons trouvé aucune fiscalité correspondant à vos critères de recherche. Essayez de modifier vos filtres ou d'effectuer une nouvelle recherche."
               action={{
                 label: "Réinitialiser les filtres",
                 onClick: resetFilters
