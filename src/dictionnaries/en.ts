@@ -7,6 +7,7 @@ const en = {
     'nav.reviews': 'Reviews',
     'nav.contact': 'Contact Us',
     'nav.entreprises': 'Entreprises',
+    'nav.fiscalities': 'Fiscalités',
     'nav.organisations': 'Organisations',
     'nav.missions': 'Missions',
     'nav.events': 'Events',

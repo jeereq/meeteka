@@ -7,6 +7,7 @@ const fr = {
     'nav.reviews': 'Avis',
     'nav.contact': 'Contactez-nous',
     'nav.entreprises': 'Entreprises',
+    'nav.fiscalities': 'Fiscalités',
     'nav.organisations': 'Organisations',
     'nav.missions': 'Missions',
     'nav.events': 'Evenements',
