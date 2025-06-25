@@ -176,6 +176,7 @@ const fr = {
     "footer.section.links.services": "Services",
     "footer.section.links.success-stories": "Histoires à succés",
     "footer.section.links.diffusions": "Diffusions",
+    "footer.section.links.fiscalities": "Fiscalités",
     "footer.section.links.organisations": "Organisations",
     "footer.section.links.missions": "Missions",
     "footer.section.links.blogs": "Blogs",

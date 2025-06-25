@@ -25,7 +25,6 @@ export default function CardPartner(partner: partner) {
                     </span>
                 </div>
             </div>
-
             <p className="text-sm sm:text-base text-gray-600 mb-6">
                 {partner.description}
             </p>

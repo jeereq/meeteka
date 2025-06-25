@@ -24,6 +24,7 @@ export function Footer() {
             <ul className="space-y-3">
               <li><Link to="/#services" className="text-gray-400 hover:text-highlight">{t("footer.section.links.services")}</Link></li>
               <li><Link to="/diffusions" className="text-gray-400 hover:text-highlight">{t("footer.section.links.diffusions")}</Link></li>
+              <li><Link to="/fiscalities" className="text-gray-400 hover:text-highlight">{t("footer.section.links.fiscalities")}</Link></li>
               <li><Link to="/blogs" className="text-gray-400 hover:text-highlight">{t("footer.section.links.blogs")}</Link></li>
               <li><Link to="/missions" className="text-gray-400 hover:text-highlight">{t("footer.section.links.missions")}</Link></li>
               <li><Link to="/events" className="text-gray-400 hover:text-highlight">{t("footer.section.links.events")}</Link></li>

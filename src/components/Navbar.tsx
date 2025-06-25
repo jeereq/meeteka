@@ -5,10 +5,10 @@ import { useLanguage } from '../context/LanguageContext';
 import logo from "../../assets/icon.png"
 
 const navigation = [
-  { name: 'nav.services', href: '/#services' },
   { name: 'nav.about', href: '/about' },
-  { name: 'nav.diffusion', href: '/diffusions' },
+  { name: 'nav.services', href: '/#services' },
   { name: 'nav.fiscalities', href: '/fiscalities' },
+  { name: 'nav.diffusion', href: '/diffusions' },
   { name: 'nav.blog', href: '/blogs' },
   { name: 'nav.missions', href: '/missions' },
   { name: 'nav.events', href: '/events' },
