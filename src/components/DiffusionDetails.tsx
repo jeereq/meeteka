@@ -120,7 +120,6 @@ export function DiffusionDetails({ post }: any) {
         </div>
       ) : (
         <article>
-
           <header className="mb-8">
             <img
               src={post?.cover}
