@@ -39,11 +39,7 @@ export default function CardFiscality({ ...post }: any) {
         </div>
 
         <div className="p-4">
-            <div className="flex mb-1">
-                {level[post?.level] && <span className="px-3 py-1 bg-highlight rounded-full text-sm text-white">
-                    {level[post?.level]}
-                </span>}
-            </div>
+         
             <div className="flex flex-wrap gap-2 mb-2">
                 {post?.sectors?.filter(function (item: any, index: number) {
                     return item?.name && index <= 2
