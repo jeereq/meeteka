@@ -79,7 +79,6 @@ export default function CardFiscality({ ...post }: any) {
                     </span>
                 )}
             </div>
-
             <div className="mt-4 sm:mt-6 group-hover:font-bold flex justify-end">
                 <span className="inline-flex items-center gap-2 text-black group-hover:text-highlight transition-colors">
                     Lire plus
