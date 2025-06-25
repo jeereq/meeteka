@@ -4,6 +4,7 @@ import { BackButton } from '../components/BackButton';
 import { LoadingCard } from '../components/LoadingCard';
 import { useFetchData } from '../../hooks/useFetchData';
 import { ArrowUpRight } from 'lucide-react';
+import { getAppDeepLink, getWebLink } from '../../config';
 
 export function PartnerDetails() {
   const { slug } = useParams<{ slug: string }>();
@@ -21,6 +22,20 @@ export function PartnerDetails() {
       }
     })()
   }, []);
+
+  
+  useEffect(() => {
+    const id = slug
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    const deepLink = getAppDeepLink("entreprise", id);
+
+    if (isMobile) {
+      window.location.href = deepLink;
+      setTimeout(() => {
+        window.location.href = getWebLink("entreprise", id);
+      }, 2000);
+    }
+  }, [slug]);
 
   if (isLoading) {
     return <div className="w-full p-8">
