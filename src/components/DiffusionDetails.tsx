@@ -170,14 +170,18 @@ export function DiffusionDetails({ post }: any) {
           <footer className="border-t border-gray-200 pt-8">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
               <div className="flex items-center gap-4">
-                {post?.owner?.cover && <img
+                {post?.organisation ? <img
+                  src={post?.organisation?.cover}
+                  alt={post?.organisation.name}
+                  className="w-12 h-12 rounded-lg object-cover"
+                /> : post?.owner?.cover && <img
                   src={post?.owner?.cover}
                   alt={post?.owner.username}
-                  className="w-12 h-12 rounded-full object-cover"
+                  className="w-12 h-12 rounded-lg object-cover"
                 />}
                 <div>
-                  <p className="font-bold">{post?.owner.username}</p>
-                  <p className="text-sm text-gray-600">{post?.owner.email}</p>
+                  <p className="font-bold">{post?.organisation ? post?.organisation.name : post?.owner.username}</p>
+                  <p className="text-sm text-gray-600">{post?.organisation ? post?.owner.email : post?.owner.email}</p>
                 </div>
               </div>
 
