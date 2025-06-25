@@ -6,7 +6,7 @@ import { EmptyState } from '../components/EmptyState';
 import { PageTransition } from '../components/PageTransition';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
-import CardDiffusion from '../components/card/diffusion';
+import CardFiscality from '../components/card/fiscality';
 import { LEVELS } from '../../config';
 
 interface FilterButtonProps {
@@ -230,7 +230,7 @@ export function FiscalitiesPage() {
           ) : (
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
               {filteredDiffusions.map((post, index) => (
-                <CardDiffusion {...post} key={index} />
+                <CardFiscality {...post} key={index} />
               ))}
             </div>
           )}
