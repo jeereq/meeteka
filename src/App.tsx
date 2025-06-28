@@ -28,6 +28,7 @@ import SupportPage from './pages/SupportPage';
 import { ProfilePost } from './pages/ProfilePost';
 import { FiscalitiesPage } from './pages/FiscalitiesPage';
 import { FiscalityPost } from './pages/FiscalityPost';
+import { Fiscality } from './components/Fiscality';
 
 export default function App() {
   const pathname = window.location.pathname;
@@ -45,6 +46,7 @@ export default function App() {
               <Hero />
               <Services />
               <Diffusion />
+              <Fiscality />
               <Team />
               <Contact />
             </>
