@@ -122,7 +122,6 @@ export function FiscalitiesPage() {
         <section className="sticky top-16 z-30 bg-white/80 backdrop-blur-lg border-b border-gray-200 py-4">
           <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col gap-6">
-              {/* Search and Filter Toggle */}
               <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
                 <div className="relative w-full sm:w-96">
                   <input
