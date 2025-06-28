@@ -3,8 +3,8 @@ import { ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useLanguage } from '../context/LanguageContext';
 import { useFetchData } from '../../hooks/useFetchData';
-import CardDiffusion from './card/diffusion';
 import { LoadingCard } from './LoadingCard';
+import CardFiscality from './card/fiscality';
 
 export function Fiscality() {
   const { t } = useLanguage()
@@ -46,7 +46,7 @@ export function Fiscality() {
             <LoadingCard key={index} />
           ))
           : fiscalities.map((post, index) => (
-            <CardDiffusion {...post} key={index} />
+            <CardFiscality {...post} key={index} />
           ))}
       </div>
 
