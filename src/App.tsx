@@ -45,8 +45,8 @@ export default function App() {
             <>
               <Hero />
               <Services />
-              <Diffusion />
               <Fiscality />
+              <Diffusion />
               <Team />
               <Contact />
             </>
