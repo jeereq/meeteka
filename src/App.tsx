@@ -2,8 +2,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Layout } from './components/Layout';
 import { Hero } from './components/Hero';
 import { Services } from './components/Services';
-// import { CaseStudies } from './components/CaseStudies';
-// import { Testimonials } from './components/Testimonials';
 import { Diffusion } from './components/Diffusion';
 import { DiffusionsPage } from './pages/DiffusionsPage';
 import { DiffusionPost } from './pages/DiffusionPost';
