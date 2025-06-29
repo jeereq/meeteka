@@ -9,11 +9,6 @@ export default function CardFiscality({ ...post }: any) {
         "blog": "Blog",
         "post": "actualité"
     });
-    const [level] = useState<any>({
-        "beginner": "Débutant",
-        "intermediate": "Intermediaire",
-        "advanced": "Avancé"
-    });
     return <Link
         key={post.id}
         title={post.title}
