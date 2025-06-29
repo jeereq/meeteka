@@ -9,7 +9,7 @@ import CardFiscality from './card/fiscality';
 export function Fiscality() {
   const { t } = useLanguage()
   const [fiscalities, setFiscalities] = useState<any[]>([])
-  const { fetch: fetchFiscalities, loading: isLoading } = useFetchData({ uri: "infos-user/user-fiscality/get" })
+  const { fetch: fetchFiscalities, loading: isLoading } = useFetchData({ uri: "infos-user/user-diffusion/get" })
 
   useEffect(() => {
     (async function () {
