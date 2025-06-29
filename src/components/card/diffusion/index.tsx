@@ -7,7 +7,8 @@ export default function CardDiffusion({ ...post }: any) {
     const [type] = useState<any>({
         "broadcast": "Diffusions",
         "blog": "Blog",
-        "post": "actualité"
+        "post": "actualité",
+        "fiscality": "Fiscalité"
     });
     const [level] = useState<any>({
         "beginner": "Débutant",
