@@ -66,7 +66,6 @@ export function EntreprisesPage() {
   useEffect(() => {
     (async function () {
       const { data } = await fetchEntreprises({}, 'POST')
-      console.log(data)
       if (data) {
         setEntreprises(data?.data)
       }
