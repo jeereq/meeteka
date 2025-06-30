@@ -98,7 +98,7 @@ export function EventsPage() {
                 <div className="relative w-full sm:w-96">
                   <input
                     type="text"
-                    placeholder="Rechercher une diffusion..."
+                    placeholder="Rechercher un événement..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     className="w-full px-4 py-3 pl-12 rounded-xl border-2 border-black/10 focus:border-highlight focus:ring-0 bg-white"
@@ -201,7 +201,7 @@ export function EventsPage() {
           ) : filteredEvents.length === 0 ? (
             <EmptyState
               title="Aucun Event trouvé"
-              description="Nous n'avons trouvé aucun event correspondant à vos critères de recherche. Essayez de modifier vos filtres ou d'effectuer une nouvelle recherche."
+              description="Nous n'avons trouvé aucun événement correspondant à vos critères de recherche. Essayez de modifier vos filtres ou d'effectuer une nouvelle recherche."
               action={{
                 label: "Réinitialiser les filtres",
                 onClick: resetFilters

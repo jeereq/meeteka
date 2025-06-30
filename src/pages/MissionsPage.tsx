@@ -125,7 +125,7 @@ export function MissionsPage() {
                 <div className="relative w-full sm:w-96">
                   <input
                     type="text"
-                    placeholder="Rechercher une diffusion..."
+                    placeholder="Rechercher une mission..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     className="w-full px-4 py-3 pl-12 rounded-xl border-2 border-black/10 focus:border-highlight focus:ring-0 bg-white"
