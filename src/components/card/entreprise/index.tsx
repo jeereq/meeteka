@@ -24,14 +24,14 @@ export default function CardEntreprise({ ...partner }) {
                         <span className="px-3 block w-fit py-1 bg-black/20 rounded-full text-sm">
                             {partner?.legalForm?.name}
                         </span>
-                        {partner.phone && <a onClick={(e) => {
+                        {partner.phoneNumber && <a onClick={(e) => {
                             e.stopPropagation();
-                        }} href={`tel:${partner.phone}`} target="_blank" className="px-3 block w-fit py-1 bg-black/20 rounded-full text-sm">
+                        }} href={`tel:${partner.phoneNumber}`} target="_blank" className="px-3 hover:text-highlight block w-fit py-1 bg-black/20 rounded-full text-sm">
                             <Phone className="w-4 h-4" />
                         </a>}
                         {partner.email && <a onClick={(e) => {
                             e.stopPropagation();
-                        }} href={`mailto:${partner.email}`} target="_blank" className="px-3 block w-fit py-1 bg-black/20 rounded-full text-sm">
+                        }} href={`mailto:${partner.email}`} target="_blank" className="px-3 hover:text-highlight block w-fit py-1 bg-black/20 rounded-full text-sm">
                             <Mail className="w-4 h-4" />
                         </a>}
                     </div>
