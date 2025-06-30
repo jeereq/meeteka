@@ -2,7 +2,8 @@ import {
   BookOpen,
   Coins,
   FileText,
-  Calculator
+  Calculator,
+  ArrowUpRight
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -138,11 +139,19 @@ export function AboutPage() {
               );
             })}
           </div>
+          <div className="relative flex justify-center max-w-9xl z-20 px-4 gap-8 lg:gap-12 xl:gap-16 sm:px-6 lg:px-8 pt-5 mx-auto">
+            <button className="group flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-white text-black rounded-full hover:bg-highlight transition-all duration-300 transform hover:scale-105">
+              <span className="text-base sm:text-lg">
+                {t("callToAction.hero")}
+              </span>
+              <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+            </button>
+          </div>
         </div>
       </section>
 
       {/* Solutions Section */}
-      <section className="py-16 sm:py-20">
+      {/* <section className="py-16 sm:py-20">
         <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-center">
             {t("about.solutions.title").split(" ").map(function (item) {
@@ -168,7 +177,7 @@ export function AboutPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* CTA Section */}
       <section className="py-16 sm:py-20 bg-highlight">
