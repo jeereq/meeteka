@@ -33,10 +33,6 @@ export default function CardDiffusion({ ...post }: any) {
                     <span>Premium</span>
                 </div>
             )}
-            {type[post.type] && <div className="absolute top-4 left-4 flex items-center gap-2 px-3 py-1 bg-white text-black rounded-full text-sm">
-                <Newspaper className="w-4 h-4" />
-                <span>{type[post.type]}</span>
-            </div>}
         </div>
 
         <div className="p-4">
