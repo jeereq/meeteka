@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ArrowLeft, Calendar, Clock, User, Lock, CreditCard, Newspaper } from 'lucide-react';
+import { ArrowLeft, Calendar, Clock, User, Lock, CreditCard, Newspaper, Eye, Heart, MessageCircle, Share, Share2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 const formatPrice = (price: number = 0) => {
@@ -22,6 +22,7 @@ export function DiffusionDetails({ post }: any) {
     "intermediate": "Intermediaire",
     "advanced": "Avancé"
   });
+  console.log(post)
 
   const [showPayment, setShowPayment] = useState(post?.isPremium);
 
@@ -185,6 +186,24 @@ export function DiffusionDetails({ post }: any) {
               </div>
 
               <div className="flex gap-3">
+
+                {<div className="flex items-center gap-1">
+                  <Eye className="w-4 h-4" />
+                  <span>{post.views}</span>
+                </div>}
+                {<div className="flex items-center gap-1">
+                  <Heart className="w-4 h-4" />
+                  <span>{post.likes}</span>
+                </div>}
+                {<div className="flex items-center gap-1">
+                  <MessageCircle className="w-4 h-4" />
+                  <span>{post.comments}</span>
+
+                </div>}
+                {<div className="flex items-center gap-1">
+                  <Share2 className="w-4 h-4" />
+                  <span>{post.share}</span>
+                </div>}
               </div>
             </div>
           </footer>
