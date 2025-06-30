@@ -106,9 +106,9 @@ export function DiffusionsPage() {
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6">
               {t("diffusions.banner.title").split(" ").map(function (element, index: number) {
                 if (index == 0) {
-                  return <span className="w-fit" key={index}>{element}</span>
+                  return <span className="w-fit hidden" key={index}>{element}</span>
                 } else {
-                  return <span key={index} className="ml-2 text-highlight"> {element}</span>
+                  return <span key={index} className="text-highlight"> {element}</span>
                 }
               })}
             </h1>

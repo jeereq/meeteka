@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { parseName } from "../../../../config";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Mail, Phone } from "lucide-react";
 
 export default function CardEntreprise({ ...partner }) {
     return <Link
@@ -21,48 +21,36 @@ export default function CardEntreprise({ ...partner }) {
                         {partner?.name}
                     </h2>
                     <div className="gap-2 flex items-center lowercase justify-start flex-wrap">
-                        <span className="px-3 block w-fit py-1 bg-black/5 rounded-full text-sm">
+                        <span className="px-3 block w-fit py-1 bg-black/20 rounded-full text-sm">
                             {partner?.legalForm?.name}
                         </span>
-                       
+                        {partner.phoneNumber && <a onClick={(e) => {
+                            e.stopPropagation();
+                        }} href={`tel:${partner.phoneNumber}`} target="_blank" className="px-3 hover:text-highlight block w-fit py-1 bg-black/20 rounded-full text-sm">
+                            <Phone className="w-4 h-4" />
+                        </a>}
+                        {partner.email && <a onClick={(e) => {
+                            e.stopPropagation();
+                        }} href={`mailto:${partner.email}`} target="_blank" className="px-3 hover:text-highlight block w-fit py-1 bg-black/20 rounded-full text-sm">
+                            <Mail className="w-4 h-4" />
+                        </a>}
                     </div>
                 </div>
             </div>
 
             <p className="text-sm sm:text-base text-gray-600 mb-2" dangerouslySetInnerHTML={{ __html: partner?.description }} />
-
-            {partner?.services && partner?.services?.length != 0 && <h2 className="text-xl sm:text-2xl font-bold mb-2 group-hover:text-highlight transition-colors">
-                Services
-            </h2>}
-            <div className="gap-3 sm:gap-4 grid grid-cols-2 pb-5">
-                {partner?.services && partner?.services.map(({ sector: service }: any, i: number) => (
-                    <div
-                        key={i}
-                        className="flex justify-between items-center p-3 sm:p-4 bg-gray-50 rounded-xl"
-                    >
-                        <div>
-                            <h3 className="text-sm sm:text-base font-medium mb-1">{service.name}</h3>
-                            <p className="text-xs sm:text-sm text-gray-500">
-                                {service.description}
-                            </p>
-                        </div>
-                        <span className="text-highlight font-bold text-sm sm:text-base whitespace-nowrap ml-4">
-                            {service.price}
-                        </span>
-                    </div>
-                ))}
-            </div>
             {partner?.sectors && partner?.sectors?.length != 0 && <h2 className="text-md sm:text-lg font-bold mb-2 group-hover:text-highlight transition-colors">
                 Secteurs
             </h2>}
             <div className="gap-2 sm:gap-3 flex items-center flex-wrap pb-5">
                 {partner?.sectors && partner?.sectors?.map(({ sector: service }: any, i: number) => (
-                    <div
-                        key={i}
-                        className="flex justify-center items-center py-2 px-3 bg-gray-50 rounded-full"
-                    >
-                        <h3 className="text-xs sm:text-sm font-medium mb-1">{service.name}</h3>
-                    </div>
+                    (i <= 2) ?
+                        <div
+                            key={i}
+                            className="flex justify-center items-center py-2 px-3 bg-gray-100 rounded-full"
+                        >
+                            <h3 className="text-xs sm:text-sm font-medium mb-1">{service.name}</h3>
+                        </div> : null
                 ))}
             </div>
             <div className="mt-6 flex justify-end">

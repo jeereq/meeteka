@@ -111,9 +111,9 @@ export function EntreprisesPage() {
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 sm:mb-6">
               {t("entreprises.banner.title").split(" ").map(function (element, index: number) {
                 if (index == 0) {
-                  return <span className="w-fit" key={index}>{element}</span>
+                  return <span className="w-fit hidden" key={index}>{element}</span>
                 } else {
-                  return <span key={index} className="ml-2 text-highlight"> {element}</span>
+                  return <span key={index} className="text-highlight"> {element}</span>
                 }
               })}
             </h1>
@@ -132,7 +132,7 @@ export function EntreprisesPage() {
                 <div className="relative w-full sm:w-96">
                   <input
                     type="text"
-                    placeholder="Rechercher un partenaire..."
+                    placeholder="Rechercher une entreprise..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                     className="w-full px-4 py-3 pl-12 rounded-xl border-2 border-black/10 focus:border-highlight focus:ring-0 bg-white"
@@ -242,8 +242,8 @@ export function EntreprisesPage() {
             </div>
           ) : filteredPartners.length === 0 ? (
             <EmptyState
-              title="Aucun partenaire trouvé"
-              description="Nous n'avons trouvé aucun partenaire correspondant à vos critères de recherche. Essayez de modifier vos filtres ou d'effectuer une nouvelle recherche."
+              title="Aucune entreprise trouvée"
+              description="Nous n'avons trouvé aucune entreprise correspondant à vos critères de recherche. Essayez de modifier vos filtres ou d'effectuer une nouvelle recherche."
               action={{
                 label: "Réinitialiser les filtres",
                 onClick: resetFilters
