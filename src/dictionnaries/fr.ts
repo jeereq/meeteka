@@ -134,10 +134,10 @@ const fr = {
     "diffusions.banner.description": "Explorez nos diffusions pour des analyses approfondies, des guides pratiques et des réflexions inspirantes qui vous aideront à réussir vos projets, mieux comprendre le monde, développer vos compétences.",
 
     "fiscalities.title": "Dernières Fiscalités",
-    "fiscalities.description": "Découvrez nos appels d'offres en cours, explorez de nouvelles missions passionnantes et trouvez des opportunités de financement pour vos projets. Toutes les informations clés pour collaborer et développer vos activités sont ici.",
+    "fiscalities.description": "Découvrez les dernières actualités fiscales en RDC.",
     "fiscalities.more": "Voir toutes les fiscalités",
     "fiscalities.banner.title": "Nos Fiscalités",
-    "fiscalities.banner.description": "Explorez nos fiscalités pour des analyses approfondies, des guides pratiques et des réflexions inspirantes qui vous aideront à réussir vos projets, mieux comprendre le monde, développer vos compétences.",
+    "fiscalities.banner.description": "Découvrez les dernières actualités fiscales en RDC.",
 
     "missions.title": "Dernières Missions",
     "missions.description": "Conseils d'experts et stratégies pour votre succès digital",

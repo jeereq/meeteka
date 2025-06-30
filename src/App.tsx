@@ -41,16 +41,15 @@ export default function App() {
     <BrowserRouter>
       <Layout>
         <Routes>
-          <Route path="/" element={
-            <>
+          <Route path="/" element={<>
               <Hero />
               <Services />
               <Fiscality />
               <Diffusion />
               <Team />
               <Contact />
-            </>
-          } />
+            </>}
+          />
           <Route path="/support" element={<SupportPage />} />
           <Route path="/services/:slug" element={<ServiceDetails />} />
           <Route path="/politique-de-confidentialité" element={<ConfidentialPolitique />} />
