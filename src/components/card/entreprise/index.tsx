@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { parseName } from "../../../../config";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Mail } from "lucide-react";
 
 export default function CardEntreprise({ ...partner }) {
     return <Link
@@ -24,7 +24,11 @@ export default function CardEntreprise({ ...partner }) {
                         <span className="px-3 block w-fit py-1 bg-black/5 rounded-full text-sm">
                             {partner?.legalForm?.name}
                         </span>
-                       
+                        {partner.email && <a onClick={(e) => {
+                            e.stopPropagation();
+                        }} href={`mailto:${partner.email}`} target="_blank" className="px-3 block w-fit py-1 bg-black/5 rounded-full text-sm">
+                            <Mail className="w-4 h-4" />
+                        </a>}
                     </div>
                 </div>
             </div>
