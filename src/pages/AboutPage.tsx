@@ -37,6 +37,8 @@ const challenges = [
   }
 ];
 
+
+
 export function AboutPage() {
   const { t } = useLanguage()
   return (
