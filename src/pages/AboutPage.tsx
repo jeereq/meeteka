@@ -134,22 +134,22 @@ export function AboutPage() {
           <p className="text-xl mb-8 max-w-3xl mx-auto">
             {t("about.callToAction.description")}
           </p>
-          <div className="relative flex  justify-center max-w-9xl z-20 px-4 gap-4 lg:gap-6 xl:gap-8 sm:px-6 lg:px-8 pt-5 mx-auto">
-            <a href='' target='_blank' className="group flex items-center k text-white rounded-full font-bold hover:bg-black hover:text-white transition-all duration-300">
-              <div className="w-full lg:w-[250px] h-[55px] lg:h-[60px] relative">
+          <div className="relative flex  justify-center max-w-9xl z-20 px-4 gap-2 sm:px-6 lg:px-8 pt-5 mx-auto">
+            <a href='' target='_blank' className="group flex items-center rounded-full font-bold transition-all duration-300">
+              <div className="w-full lg:w-[250px] h-[55px] rounded-xl overflow-hidden lg:h-[60px] relative">
                 <img
                   src="/appStore.png"
                   alt="Entrepreneurs Congolais en Action"
-                  className="w-full lg:block rounded-xl hidden bg-white h-full object-cover object-left lg:object-center lg:object-fill  xl:object-contain mx-auto"
+                  className="w-full block rounded-xl h-full object-cover object-left lg:object-center lg:object-fill  xl:object-contain mx-auto"
                 />
               </div>
             </a>
-            <a href='' target='_blank' className="group flex items-center k text-white rounded-full font-bold hover:bg-black hover:text-white transition-all duration-300">
-              <div className="w-full lg:w-[250px] h-[55px] lg:h-[60px] relative">
+            <a href='' target='_blank' className="group flex items-center rounded-full font-bold transition-all duration-300">
+              <div className="w-full lg:w-[250px] rounded-xl overflow-hidden h-[55px] lg:h-[60px] relative">
                 <img
                   src="/google.png"
                   alt="Entrepreneurs Congolais en Action"
-                  className="w-full lg:block rounded-xl hidden bg-white h-full object-cover object-left lg:object-center lg:object-fill  xl:object-contain mx-auto"
+                  className="w-full block rounded-xl h-full object-cover object-left lg:object-center lg:object-fill  xl:object-contain mx-auto"
                 />
               </div>
             </a>
