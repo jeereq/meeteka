@@ -134,12 +134,24 @@ export function AboutPage() {
           <p className="text-xl mb-8 max-w-3xl mx-auto">
             {t("about.callToAction.description")}
           </p>
-          <div className="w-fit gap-3 flex mx-auto">
-            <a href='' target='_blank' className="px-8 py-4 bg-white text-black rounded-full font-bold hover:bg-black hover:text-white transition-all duration-300 hover:scale-105">
-              {t("about.callToAction.button.label")}
+          <div className="relative flex  justify-center max-w-9xl z-20 px-4 gap-4 lg:gap-6 xl:gap-8 sm:px-6 lg:px-8 pt-5 mx-auto">
+            <a href='' target='_blank' className="group flex items-center k text-white rounded-full font-bold hover:bg-black hover:text-white transition-all duration-300">
+              <div className="w-[250px] h-[80px] relative">
+                <img
+                  src="/appStore.png"
+                  alt="Entrepreneurs Congolais en Action"
+                  className="w-full lg:block rounded-xl hidden bg-white h-full object-cover object-left lg:object-center lg:object-fill  xl:object-contain mx-auto"
+                />
+              </div>
             </a>
-            <a href='' target='_blank' className="px-8 py-4 bg-white text-black rounded-full font-bold hover:bg-black hover:text-white transition-all duration-300 hover:scale-105">
-              {t("about.callToAction.button.label")}
+            <a href='' target='_blank' className="group flex items-center k text-white rounded-full font-bold hover:bg-black hover:text-white transition-all duration-300">
+              <div className="w-[250px] h-[80px] relative">
+                <img
+                  src="/google.png"
+                  alt="Entrepreneurs Congolais en Action"
+                  className="w-full lg:block rounded-xl hidden bg-white h-full object-cover object-left lg:object-center lg:object-fill  xl:object-contain mx-auto"
+                />
+              </div>
             </a>
           </div>
         </div>

@@ -1,8 +1,8 @@
 
 export function Hero() {
-  return <section className="pt-20 xs:pt-24 max-w-10xl mx-auto h-fit">
-    <div className="w-full lg:h-[600px] rounded-xl h-fit flex items-center justify-center">
-      <div className="w-full h-fit lg:hidden block mt-20 ">
+  return <section className="pt-20 xs:pt-24 rounded-xl max-w-10xl mx-auto h-fit">
+    <div className="w-full lg:h-[600px] overflow-hidden rounded-xl h-fit flex items-center justify-center">
+      <div className="w-full h-fit rounded-xl lg:hidden block mt-20 ">
         <div className="animate-fade-up max-w-3xl lg:max-w-none mx-auto text-center lg:text-left">
           <h1 className="heading-responsive font-bold leading-tight mb-6">
             Votre Partenaire pour un <span className="heading-highlight">Succès</span> Durable
@@ -19,22 +19,22 @@ export function Hero() {
         className="w-full lg:block rounded-xl hidden bg-white h-full object-cover object-left lg:object-center lg:object-fill  xl:object-contain mx-auto"
       />
     </div>
-    <div className="relative flex lg:justify-start justify-center max-w-9xl z-20 px-4 gap-4 lg:gap-6 xl:gap-8 sm:px-6 lg:px-8 pt-5 mx-auto">
-      <a href='' target='_blank' className="group flex items-center k text-white rounded-full font-bold hover:bg-black hover:text-white transition-all duration-300">
-        <div className="w-[250px] h-[80px] relative">
+    <div className="relative flex lg:justify-start justify-center flex-wrap max-w-9xl z-20 px-4 gap-4 lg:gap-6 xl:gap-8 sm:px-6 lg:px-8 pt-5 mx-auto">
+      <a href='' target='_blank' className="group flex items-center rounded-full font-bold transition-all duration-300">
+        <div className="w-full lg:w-[250px] h-[55px] lg:h-[75px] relative">
           <img
             src="/appStore.png"
             alt="Entrepreneurs Congolais en Action"
-            className="w-full lg:block rounded-xl hidden bg-white h-full object-cover object-left lg:object-center lg:object-fill  xl:object-contain mx-auto"
+            className="w-full block rounded-xl h-full object-cover object-left lg:object-center lg:object-fill  xl:object-contain mx-auto"
           />
         </div>
       </a>
-      <a href='' target='_blank' className="group flex items-center k text-white rounded-full font-bold hover:bg-black hover:text-white transition-all duration-300">
-        <div className="w-[250px] h-[80px] relative">
+      <a href='' target='_blank' className="group flex items-center rounded-full font-bold transition-all duration-300">
+        <div className="w-full lg:w-[250px] h-[55px] lg:h-[75px] relative">
           <img
             src="/google.png"
             alt="Entrepreneurs Congolais en Action"
-            className="w-full lg:block rounded-xl hidden bg-white h-full object-cover object-left lg:object-center lg:object-fill  xl:object-contain mx-auto"
+            className="w-full block rounded-xl bg-white h-full object-cover object-left lg:object-center lg:object-fill  xl:object-contain mx-auto"
           />
         </div>
       </a>
