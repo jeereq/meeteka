@@ -136,7 +136,7 @@ export function AboutPage() {
           </p>
           <div className="relative flex  justify-center max-w-9xl z-20 px-4 gap-4 lg:gap-6 xl:gap-8 sm:px-6 lg:px-8 pt-5 mx-auto">
             <a href='' target='_blank' className="group flex items-center k text-white rounded-full font-bold hover:bg-black hover:text-white transition-all duration-300">
-              <div className="w-[250px] h-[80px] relative">
+              <div className="w-full lg:w-[250px] h-[55px] lg:h-[60px] relative">
                 <img
                   src="/appStore.png"
                   alt="Entrepreneurs Congolais en Action"
@@ -145,7 +145,7 @@ export function AboutPage() {
               </div>
             </a>
             <a href='' target='_blank' className="group flex items-center k text-white rounded-full font-bold hover:bg-black hover:text-white transition-all duration-300">
-              <div className="w-[250px] h-[80px] relative">
+              <div className="w-full lg:w-[250px] h-[55px] lg:h-[60px] relative">
                 <img
                   src="/google.png"
                   alt="Entrepreneurs Congolais en Action"
