@@ -19,7 +19,7 @@ export function Hero() {
       <img
         src="/bg.jpeg"
         alt="Entrepreneurs Congolais en Action"
-        className="w-full lg:block hidden h-full object-cover object-left lg:object-center lg:object-fill  xl:object-contain mx-auto"
+        className="w-full lg:block hidden bg-white h-full object-cover object-left lg:object-center lg:object-fill  xl:object-contain mx-auto"
       />
     </div>
     <div className="relative flex lg:justify-start justify-center max-w-9xl z-20 px-4 gap-8 lg:gap-12 xl:gap-16 sm:px-6 lg:px-8 pt-5 mx-auto">
