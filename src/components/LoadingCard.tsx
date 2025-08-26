@@ -15,8 +15,8 @@ export function LoadingCard() {
           <div className="h-4 bg-gray-200 rounded-full w-5/6" />
         </div>
         <div className="grid grid-cols-2 gap-4">
-          <div className="h-20 bg-gray-200 rounded-xl" />
-          <div className="h-20 bg-gray-200 rounded-xl" />
+          <div className="h-10 bg-gray-200 rounded-xl" />
+          <div className="h-10 bg-gray-200 rounded-xl" />
         </div>
       </motion.div>
     </div>

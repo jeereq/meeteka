@@ -1,11 +1,8 @@
-import { ArrowUpRight } from 'lucide-react';
-import { useLanguage } from '../context/LanguageContext';
 
 export function Hero() {
-  const { t } = useLanguage()
-  return <section className="pt-20 xs:pt-24 max-w-10xl mx-auto h-fit">
-    <div className="w-full lg:h-[600px] h-fit flex items-center justify-center">
-      <div className="w-full h-fit lg:hidden block mt-20 ">
+  return <section className="pt-20 xs:pt-24 rounded-xl max-w-10xl mx-auto h-fit">
+    <div className="w-full lg:h-[600px] overflow-hidden rounded-xl h-fit flex items-center justify-center">
+      <div className="w-full h-fit rounded-xl lg:hidden block mt-20 ">
         <div className="animate-fade-up max-w-3xl lg:max-w-none mx-auto text-center lg:text-left">
           <h1 className="heading-responsive font-bold leading-tight mb-6">
             Votre Partenaire pour un <span className="heading-highlight">Succès</span> Durable
@@ -17,18 +14,30 @@ export function Hero() {
         </div>
       </div>
       <img
-        src="/bg.jpeg"
+        src="/bg.JPG"
         alt="Entrepreneurs Congolais en Action"
-        className="w-full lg:block hidden h-full object-cover object-left lg:object-center lg:object-fill  xl:object-contain mx-auto"
+        className="w-full lg:block rounded-xl hidden bg-white h-full object-cover object-left lg:object-center lg:object-fill  xl:object-contain mx-auto"
       />
     </div>
-    <div className="relative flex lg:justify-start justify-center max-w-9xl z-20 px-4 gap-8 lg:gap-12 xl:gap-16 sm:px-6 lg:px-8 pt-5 mx-auto">
-      <button className="group flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-black text-white rounded-full hover:bg-highlight transition-all duration-300 transform hover:scale-105">
-        <span className="text-base sm:text-lg">
-          {t("callToAction.hero")}
-        </span>
-        <ArrowUpRight className="w-5 h-5 sm:w-6 sm:h-6 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
-      </button>
+    <div className="relative flex lg:justify-start justify-center flex-wrap max-w-9xl z-20 px-4 gap-4 lg:gap-6 xl:gap-8 sm:px-6 lg:px-8 pt-5 mx-auto">
+      <a href='' target='_blank' className="group flex items-center rounded-full font-bold transition-all duration-300">
+        <div className="w-full lg:w-[250px] h-[55px] lg:h-[75px] relative">
+          <img
+            src="/appStore.png"
+            alt="Entrepreneurs Congolais en Action"
+            className="w-full block rounded-xl h-full object-cover object-left lg:object-center lg:object-fill  xl:object-contain mx-auto"
+          />
+        </div>
+      </a>
+      <a href='' target='_blank' className="group flex items-center rounded-full font-bold transition-all duration-300">
+        <div className="w-full lg:w-[250px] h-[55px] lg:h-[75px] relative">
+          <img
+            src="/google.png"
+            alt="Entrepreneurs Congolais en Action"
+            className="w-full block rounded-xl bg-white h-full object-cover object-left lg:object-center lg:object-fill  xl:object-contain mx-auto"
+          />
+        </div>
+      </a>
     </div>
   </section>
 }

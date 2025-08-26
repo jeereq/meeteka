@@ -22,7 +22,6 @@ export function DiffusionDetails({ post }: any) {
     "intermediate": "Intermediaire",
     "advanced": "Avancé"
   });
-  console.log(post)
 
   const [showPayment, setShowPayment] = useState(post?.isPremium);
 

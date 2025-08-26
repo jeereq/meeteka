@@ -41,14 +41,18 @@ export default function App() {
     <BrowserRouter>
       <Layout>
         <Routes>
-          <Route path="/" element={<>
-              <Hero />
-              <Services />
-              <Fiscality />
-              <Diffusion />
-              <Team />
-              <Contact />
-            </>}
+          <Route
+            path="/"
+            element={
+              <>
+                <Hero />
+                <Services />
+                <Fiscality />
+                <Diffusion />
+                <Team />
+                <Contact />
+              </>
+            }
           />
           <Route path="/support" element={<SupportPage />} />
           <Route path="/services/:slug" element={<ServiceDetails />} />

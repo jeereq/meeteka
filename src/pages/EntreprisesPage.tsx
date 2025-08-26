@@ -235,8 +235,8 @@ export function EntreprisesPage() {
         {/* Partners Grid */}
         <section className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
           {isLoading ? (
-            <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
-              {[...Array(6)].map((_, index) => (
+            <div className="grid md:grid-cols-4 gap-6 sm:gap-8">
+              {[...Array(8)].map((_, index) => (
                 <LoadingCard key={index} />
               ))}
             </div>
@@ -250,7 +250,7 @@ export function EntreprisesPage() {
               }}
             />
           ) : (
-            <div className="grid md:grid-cols-3 gap-6 sm:gap-8">
+            <div className="grid md:grid-cols-4 gap-6 sm:gap-8">
               {filteredPartners.map((partner: any, index: number) => (
                 <CardEntreprise {...partner} key={index} />
               ))}

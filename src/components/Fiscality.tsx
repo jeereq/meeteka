@@ -24,6 +24,7 @@ export function Fiscality() {
     })()
   }, []);
 
+  if (!isLoading && fiscalities.length == 0) return null
   return (
     <section className="section-padding bottom max-w-9xl" id="fiscality">
       <div className="mb-12">
