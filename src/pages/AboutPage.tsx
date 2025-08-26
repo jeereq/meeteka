@@ -37,33 +37,6 @@ const challenges = [
   }
 ];
 
-const solutions = [
-  {
-    title: 'about.solutions.administrative.title',
-    description: 'about.solutions.administrative.description',
-    metric: '50%',
-    metricLabel: 'about.solutions.administrative.label'
-  },
-  {
-    title: 'about.solutions.administrative.title',
-    description: 'about.solutions.administrative.description',
-    metric: '80%',
-    metricLabel: 'about.solutions.administrative.label'
-  },
-  {
-    title: 'about.solutions.administrative.title',
-    description: 'about.solutions.administrative.description',
-    metric: '30%',
-    metricLabel: 'about.solutions.administrative.label'
-  },
-  {
-    title: 'about.solutions.administrative.title',
-    description: 'about.solutions.administrative.description',
-    metric: '80%',
-    metricLabel: 'about.solutions.administrative.label'
-  }
-];
-
 export function AboutPage() {
   const { t } = useLanguage()
   return (
