@@ -21,7 +21,7 @@ export function Hero() {
     </div>
     <div className="relative flex lg:justify-start justify-center flex-wrap max-w-9xl z-20 px-4 gap-4 lg:gap-6 xl:gap-8 sm:px-6 lg:px-8 pt-5 mx-auto">
       <a href='' target='_blank' className="group flex items-center rounded-full font-bold transition-all duration-300">
-        <div className="w-full lg:w-[250px] h-[55px] lg:h-[75px] relative">
+        <div className="w-full lg:w-[250px] h-[55px] lg:h-[60px] relative">
           <img
             src="/appStore.png"
             alt="Entrepreneurs Congolais en Action"
@@ -30,7 +30,7 @@ export function Hero() {
         </div>
       </a>
       <a href='' target='_blank' className="group flex items-center rounded-full font-bold transition-all duration-300">
-        <div className="w-full lg:w-[250px] h-[55px] lg:h-[75px] relative">
+        <div className="w-full lg:w-[250px] h-[55px] lg:h-[60px] relative">
           <img
             src="/google.png"
             alt="Entrepreneurs Congolais en Action"
