@@ -6,6 +6,7 @@ import {
   ArrowUpRight
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
+import { LIEN_APP_STORE, LIEN_GOOGLE_PLAY } from '../../config';
 
 const stats = [
   { value: '580K+', label: 'about.stats.580k+' },
@@ -135,7 +136,7 @@ export function AboutPage() {
             {t("about.callToAction.description")}
           </p>
           <div className="relative flex  justify-center max-w-9xl z-20 px-4 gap-2 sm:px-6 lg:px-8 pt-5 mx-auto">
-            <a href='' target='_blank' className="">
+            <a href={LIEN_APP_STORE} target='_blank' className="">
               <div className="w-full lg:w-[250px] h-[55px] lg:h-[60px]">
                 <img
                   src="/appStore.png"
@@ -144,7 +145,7 @@ export function AboutPage() {
                 />
               </div>
             </a>
-            <a href='' target='_blank' className="">
+            <a href={LIEN_GOOGLE_PLAY} target='_blank' className="">
               <div className="w-full lg:w-[250px] h-[55px] lg:h-[60px]">
                 <img
                   src="/google.png"
