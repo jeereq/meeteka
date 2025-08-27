@@ -23,14 +23,15 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const t = (key: string): string => {
     return translations[language][key as keyof typeof translations['en']] || key;
   };
-  
+
   useEffect(function () {
     setLanguage(getCookie("lang") || language)
   }, [])
 
   return (
     <LanguageContext.Provider value={{
-      language, setLanguage: function (lang: Language) {
+      language,
+      setLanguage: function (lang: Language) {
         setLanguage(lang)
         setCookie("lang", lang)
       }, t
