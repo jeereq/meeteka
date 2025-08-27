@@ -5,6 +5,9 @@ export const emailTo = "mailto:contact@meeteka.com;mingandajeereq@gmail.com;sajo
 export function parseName(name: any) {
     return encodeURI(`${name?.trim()?.replaceAll(" ", "-")?.toLowerCase()}`);
 }
+export const LIEN_GOOGLE_PLAY = 'https://play.google.com/store/apps/details?id=com.mbikutekango.miteka&pcampaignid=web_share'
+export const LIEN_APP_STORE = 'https://play.google.com/store/apps/details?id=com.mbikutekango.miteka&pcampaignid=web_share'
+
 export const formatPrice = (price: number): any => {
     return new Intl.NumberFormat('fr-CD', {
         style: 'currency',

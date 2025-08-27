@@ -1,3 +1,4 @@
+import { LIEN_APP_STORE, LIEN_GOOGLE_PLAY } from "../../config";
 
 export function Hero() {
   return <section className="pt-20 xs:pt-24 rounded-xl max-w-10xl mx-auto h-fit">
@@ -20,7 +21,7 @@ export function Hero() {
       />
     </div>
     <div className="relative flex lg:justify-start justify-center flex-wrap max-w-9xl z-20 px-4 gap-2 sm:px-6 lg:px-8 pt-5 mx-auto">
-      <a href='' target='_blank' className="group flex items-center rounded-full font-bold transition-all duration-300">
+      <a href={LIEN_APP_STORE} target='_blank' className="group flex items-center rounded-full font-bold transition-all duration-300">
         <div className="w-full lg:w-[250px] h-[55px] lg:h-[60px] relative">
           <img
             src="/appStore.png"
@@ -29,7 +30,7 @@ export function Hero() {
           />
         </div>
       </a>
-      <a href='' target='_blank' className="group flex items-center rounded-full font-bold transition-all duration-300">
+      <a href={LIEN_GOOGLE_PLAY} target='_blank' className="group flex items-center rounded-full font-bold transition-all duration-300">
         <div className="w-full lg:w-[250px] h-[55px] lg:h-[60px] relative">
           <img
             src="/google.png"
