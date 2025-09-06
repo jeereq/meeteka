@@ -10,7 +10,7 @@ export function HeroLegend() {
 					className=' lg:block rounded-2xl  absolute -bottom-20 left-[50%] -translate-x-16 h-36 object-cover object-left lg:object-center lg:object-fill  xl:object-contain mx-auto'
 				/>
 			</div>
-			<div className='w-full lg:h-[600px] overflow-hidden rounded-xl h-fit flex justify-center'>
+			<div className='w-full  overflow-hidden rounded-xl h-fit flex justify-center'>
 				<div className='w-full h-fit rounded-xl  block mt-20 '>
 					<div className='flex flex-col items-center animate-fade-up w-full  mx-auto text-center lg:text-left'>
 						<div>
