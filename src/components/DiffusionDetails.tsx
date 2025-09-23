@@ -30,7 +30,7 @@ export function DiffusionDetails({ post }: any) {
     setShowPayment(false);
   };
 
-
+  console.log(post)
   const getType = () => {
     switch (post?.type) {
       case "broadcast":
@@ -133,7 +133,7 @@ export function DiffusionDetails({ post }: any) {
               </div>
               <div className="flex items-center gap-1">
                 <Clock className="w-4 h-4" />
-                <span>{post?.readTime}</span>
+                <span>{post?.readTime}</span> {post.type == 'fiscality' && 'Min'}
               </div>
               <div className="flex items-center gap-1">
                 <User className="w-4 h-4" />
@@ -197,7 +197,6 @@ export function DiffusionDetails({ post }: any) {
                 {<div className="flex items-center gap-1">
                   <MessageCircle className="w-4 h-4" />
                   <span>{post.comments}</span>
-
                 </div>}
                 {<div className="flex items-center gap-1">
                   <Share2 className="w-4 h-4" />

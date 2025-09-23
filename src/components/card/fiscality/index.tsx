@@ -63,7 +63,7 @@ export default function CardFiscality({ ...post }: any) {
                             <Calendar className="w-3 h-3" />
                             <span>{new Date(post.createdAt).toLocaleDateString()}</span>
                             <Clock className="w-3 h-3" />
-                            <span>{post.readTime}</span>
+                            <span>{post.readTime}</span> {post.type == 'fiscality' && 'Min'}
                         </div>
                     </div>
                 </div>
