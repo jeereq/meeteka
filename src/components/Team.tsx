@@ -126,7 +126,7 @@ export function Team() {
                     <a
                       href={member?.social.linkedin}
                       target='_blank'
-                      className="p-1.5 sm:p-2 bg-black/10 rounded-full hover:bg-black hover:text-white transition-colors"
+                      className="p-1.5 sm:p-2 bg-black/10 rounded-full hover:bg-black group-hover:text-white transition-colors"
                       aria-label={`LinkedIn de ${member?.name}`}
                     >
                       <Linkedin className="w-3 h-3 sm:w-4 sm:h-4" />
