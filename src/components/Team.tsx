@@ -4,6 +4,7 @@ import sacre from "../../assets/teams/sacre.jpeg"
 import bertin from "../../assets/teams/bertin.jpeg"
 import jonas from "../../assets/teams/jonas.jpeg"
 import gordien from "../../assets/teams/gordien.jpeg"
+import percy from "../../assets/teams/percy.jpeg"
 import { Linkedin } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -49,6 +50,15 @@ const teams: any[] = [
     role: 'Responsable créa & co-fondateur',
     image: jonas,
     bio: `Jeune professionnel ambitieux et passionné par la création visuelle. Avec plus de trois ans d'expérience en agence à Kinshasa, il maîtrise les outils de design et suit les tendances locales et internationales. Connecté et observateur de la culture congolaise, il cherche à apporter une perspective nouvelle et authentique dans ses projets.`,
+    social: {
+      linkedin: 'https://www.linkedin.com/in/jonas-muendele-428676219'
+    }
+  },
+  {
+    name: 'Percy Kandodi',
+    role: 'Responsable marketing & co-fondateur',
+    image: percy,
+    bio: `Percy est un responsable marketing dynamique avec 2 ans d'expérience, spécialisé dans l'élaboration et la mise en œuvre de campagnes de marketing numérique percutantes. Il excelle dans l'analyse de données pour optimiser les performances. Compétent en gestion de projet et en communication, il cherche à appliquer ses stratégies orientées résultats dans un nouvel environnement stimulant.`,
     social: {
       linkedin: 'https://www.linkedin.com/in/jonas-muendele-428676219'
     }
