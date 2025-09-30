@@ -60,7 +60,7 @@ const teams: any[] = [
     image: percy,
     bio: `Percy est un responsable marketing dynamique avec 2 ans d'expérience, spécialisé dans l'élaboration et la mise en œuvre de campagnes de marketing numérique percutantes. Il excelle dans l'analyse de données pour optimiser les performances. Compétent en gestion de projet et en communication, il cherche à appliquer ses stratégies orientées résultats dans un nouvel environnement stimulant.`,
     social: {
-      linkedin: 'https://www.linkedin.com/in/jonas-muendele-428676219'
+      linkedin: 'https://www.linkedin.com/in/percy-kandodi'
     }
   },
   {
