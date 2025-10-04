@@ -29,6 +29,7 @@ import { ProfilePost } from './pages/ProfilePost';
 import { FiscalitiesPage } from './pages/FiscalitiesPage';
 import { FiscalityPost } from './pages/FiscalityPost';
 import { Fiscality } from './components/Fiscality';
+import ProductSubscription from './components/ProductSubscription';
 
 export default function App() {
   const pathname = window.location.pathname;
@@ -63,6 +64,7 @@ export default function App() {
           <Route path="/diffusions" element={<DiffusionsPage />} />
           <Route path="/fiscalities" element={<FiscalitiesPage />} />
           <Route path="/fiscalities/:slug" element={<FiscalityPost />} />
+          <Route path="/product-subscription" element={<ProductSubscription />} />
           <Route path="/diffusions/:slug" element={<DiffusionPost />} />
           <Route path="/missions" element={<MissionsPage />} />
           <Route path="/missions/:slug" element={<MissionPost />} />
