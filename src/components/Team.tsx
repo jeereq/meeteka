@@ -65,7 +65,7 @@ const teams: any[] = [
     }
   },
   {
-    name: 'Levy Stan Mbiku',
+    name: 'Levy Mbiku',
     role: 'Responsable commercial & co-fondateur',
     image: levy,
     bio: `Levy est un commercial expérimenté qui excelle dans l'établissement de relations clients durables et la négociation de contrats fructueux. Il est reconnu pour sa profonde connaissance du marché et sa capacité à identifier rapidement les opportunités de croissance. Orienté résultats, Levy s'engage à dépasser systématiquement ses objectifs de vente.`,
