@@ -5,6 +5,7 @@ import bertin from "../../assets/teams/bertin.jpeg"
 import jonas from "../../assets/teams/jonas.jpeg"
 import gordien from "../../assets/teams/gordien.jpeg"
 import percy from "../../assets/teams/percy.jpeg"
+import levy from "../../assets/teams/levy.jpeg"
 import { Linkedin } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
@@ -61,6 +62,15 @@ const teams: any[] = [
     bio: `Percy est un responsable marketing dynamique avec 2 ans d'expérience, spécialisé dans l'élaboration et la mise en œuvre de campagnes de marketing numérique percutantes. Il excelle dans l'analyse de données pour optimiser les performances. Compétent en gestion de projet et en communication, il cherche à appliquer ses stratégies orientées résultats dans un nouvel environnement stimulant.`,
     social: {
       linkedin: 'https://www.linkedin.com/in/percy-kandodi'
+    }
+  },
+  {
+    name: 'Levy Mbiku',
+    role: 'Responsable commercial & co-fondateur',
+    image: levy,
+    bio: `Levy est un commercial expérimenté qui excelle dans l'établissement de relations clients durables et la négociation de contrats fructueux. Il est reconnu pour sa profonde connaissance du marché et sa capacité à identifier rapidement les opportunités de croissance. Orienté résultats, Levy s'engage à dépasser systématiquement ses objectifs de vente.`,
+    social: {
+      linkedin: 'https://www.linkedin.com/in/levy-stan-mbiku-8b659919a'
     }
   },
   {
@@ -126,7 +136,7 @@ export function Team() {
                     <a
                       href={member?.social.linkedin}
                       target='_blank'
-                      className="p-1.5 sm:p-2 bg-black/10 rounded-full hover:bg-black hover:text-white transition-colors"
+                      className="p-1.5 sm:p-2 bg-black/10 rounded-full hover:bg-black group-hover:text-white transition-colors"
                       aria-label={`LinkedIn de ${member?.name}`}
                     >
                       <Linkedin className="w-3 h-3 sm:w-4 sm:h-4" />
