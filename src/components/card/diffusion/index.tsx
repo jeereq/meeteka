@@ -2,6 +2,7 @@ import { ArrowUpRight, Calendar, Clock, Lock, Newspaper } from "lucide-react";
 import { formatPrice, parseName } from "../../../../config";
 import { Link } from 'react-router-dom';
 import { useState } from "react";
+import { isOnlyDigits } from "../../../../helpers";
 
 export default function CardDiffusion({ ...post }: any) {
     const [type] = useState<any>({
@@ -30,7 +31,7 @@ export default function CardDiffusion({ ...post }: any) {
             {post.isPremium && (
                 <div className="absolute top-4 right-4 flex items-center gap-2 px-3 py-1 bg-black text-white rounded-full text-sm">
                     <Lock className="w-4 h-4" />
-                    <span>Premium</span>
+                    <span>Payant</span>
                 </div>
             )}
         </div>
@@ -70,7 +71,7 @@ export default function CardDiffusion({ ...post }: any) {
                             <Calendar className="w-3 h-3" />
                             <span>{new Date(post.createdAt).toLocaleDateString()}</span>
                             <Clock className="w-3 h-3" />
-                            <span>{post.readTime}</span>
+                            <span>{isOnlyDigits(post.readTime) ? post.readTime + ' Min' : `${`${post.readTime}`.replace('minutes', '')} Min`}</span>
                         </div>
                     </div>
                 </div>

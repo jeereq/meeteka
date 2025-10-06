@@ -15,6 +15,14 @@ export function getCookie(cname: string): any {
     }
     return "";
 }
+
+export function isOnlyDigits(chaine) {
+    // Le symbole '^' marque le début de la chaîne.
+    // Le symbole '$' marque la fin de la chaîne.
+    // '[0-9]+' correspond à un ou plusieurs chiffres (de 0 à 9).
+    // La méthode 'test()' retourne true si le motif est trouvé.
+    return /^[0-9]+$/.test(chaine);
+  }
 export function deleteAllCookies() {
     if (typeof window !== "undefined") {
         document.cookie.split(";").forEach(function (c) {
