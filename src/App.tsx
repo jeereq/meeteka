@@ -32,11 +32,14 @@ import { Fiscality } from './components/Fiscality';
 import ProductSubscription from './components/ProductSubscription';
 
 export default function App() {
-  const pathname = window.location.pathname;
+	const pathname = window.location.pathname;
 
-  useEffect(function () {
-    window.scrollTo(0, 0)
-  }, [pathname])
+	useEffect(
+		function () {
+			window.scrollTo(0, 0);
+		},
+		[pathname]
+	);
 
   return (
     <BrowserRouter>
