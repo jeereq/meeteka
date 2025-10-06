@@ -30,6 +30,7 @@ import { FiscalitiesPage } from './pages/FiscalitiesPage';
 import { FiscalityPost } from './pages/FiscalityPost';
 import { Fiscality } from './components/Fiscality';
 import ProductSubscription from './components/ProductSubscription';
+import { LandingPage } from './pages/LandingPage';
 
 export default function App() {
 	const pathname = window.location.pathname;
@@ -82,6 +83,7 @@ export default function App() {
           <Route path="/about" element={<AboutPage />} />
           <Route path="/profile/:slug" element={<ProfilePost />} />
           <Route path="/pricing" element={<PricingPage />} />
+          <Route path="/landing" element={<LandingPage />} />
         </Routes>
       </Layout>
     </BrowserRouter>
