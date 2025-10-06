@@ -21,9 +21,9 @@ export default function CardEntreprise({ ...partner }) {
                         {partner?.name}
                     </h2>
                     <div className="gap-2 flex items-center lowercase justify-start flex-wrap">
-                        <span className="px-3 block w-fit py-1 bg-black/20 rounded-full text-sm">
+                        {partner?.legalForm && <span className="px-3 block w-fit py-1 bg-black/20 rounded-full text-sm">
                             {partner?.legalForm?.name}
-                        </span>
+                        </span>}
                         {partner.phoneNumber && <a onClick={(e) => {
                             e.stopPropagation();
                         }} href={`tel:${partner.phoneNumber}`} target="_blank" className="px-3 hover:text-highlight block w-fit py-1 bg-black/20 rounded-full text-sm">
