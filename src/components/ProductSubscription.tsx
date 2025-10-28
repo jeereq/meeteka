@@ -1,10 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { PlusCircle } from "lucide-react";
+import {
+  CheckCheck,
+  CheckCheckIcon,
+  Lock,
+  PlusCircle,
+  Save,
+  SaveAll,
+  TrendingUp,
+} from "lucide-react";
 import { useFetchData } from "../../hooks/useFetchData";
 
 import { PageTransition } from "../components/PageTransition";
 
 import { useLanguage } from "../context/LanguageContext";
+import useToast from "../hooks/use-toast";
 
 export default function ProductSubscription() {
   const { t } = useLanguage();
@@ -18,7 +27,7 @@ export default function ProductSubscription() {
   const { fetch: fetchEntrepriseLevel } = useFetchData({
     uri: "infos-user/entreprise-level/get",
   });
-
+  const { success: successToast, error: errorToast } = useToast();
   const [entrepriseLevels, setEntrepriseLevels] = useState<any[]>([]);
   const [legalForms, setLegalForms] = useState<any[]>([]);
 
@@ -74,10 +83,10 @@ export default function ProductSubscription() {
     const { data, error } = await fetchCreateProduct(formData, "POST");
     if (error) {
       console.error("Erreur lors de la création de l'entreprise:", error);
-
+      // errorToast("Une erreur est survenue lors de la soumission.");
       return;
     }
-    console.log("donnée attendu", data);
+    successToast("la creation effectué avec succès");
     // Réinitialiser le formulaire
     setFormData({
       name: "",
@@ -109,220 +118,292 @@ export default function ProductSubscription() {
           </div>
         </section>
 
-        {/* Filters */}
         <section className="sticky top-16 z-30 bg-white/80 backdrop-blur-lg border-b border-gray-200 py-4">
           <div className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex flex-col gap-6">
-              {/* Search and Filter Toggle */}
               <div className="flex flex-col sm:flex-row gap-4 items-center justify-between">
-                <div className="relative w-full sm:w-96">
-                  <h1 className="flex items-center gap-4 font-bold">
+                <div className="relative w-full ">
+                  <h1 className="flex items-center gap-4 font-bold text-4xl">
                     {" "}
-                    <PlusCircle className="w-4 h-4 md:w-6 md:h-6" />
-                    Ajouter une entreprise
+                    <Save className="w-4 h-4 md:w-6 md:h-6" />
+                    Enregistrer votre demande de prestation
                   </h1>
                 </div>
               </div>
-
-              {/* Active Filters */}
             </div>
           </div>
         </section>
 
         {/* Diffusions Grid */}
         <section className="max-w-9xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
-          <div className="p-4">
-            <form
-              onSubmit={handleSubmit}
-              className="shadow-lg  rounded-lg max-w-4xl p-4 sm:p-6  "
-            >
-              <div className="grid sm:grid-cols-1 lg:grid-cols-2  max-w-4xl p-4 sm:p-6  gap-4">
-                <div className="flex flex-col gap-4 w-full  lg:w-96 ">
-                  <label htmlFor="name" className="text-sm">
-                    Nom de l'entreprise:
-                  </label>
-                  <input
-                    type="text"
-                    id="nom"
-                    value={formData.name}
-                    onChange={handleChange}
-                    name="name"
-                    placeholder="Saisir le nom de l'entreprise..."
-                    className="w-full px-4 py-3 rounded-xl border-2 border-black/10 focus:border-highlight focus:ring-0 bg-white"
-                  />
-                </div>
-                <div className="flex flex-col gap-4 w-full  lg:w-96  ">
-                  <label htmlFor="entrepriseLevel" className="text-sm">
-                    Entreprise Level :
-                  </label>
+          <div className="grid lg:grid-cols-2 gap-8">
+            {/* Colonne "Parlons-en" */}
+            <div className="w-full">
+              {/* <h2 className="text-4xl sm:text-5xl font-bold mb-4">
+                Parlons-en
+              </h2> */}
+              <p className="text-lg sm:text-xl text-gray-700 mb-8">
+                Propulsez votre activité numérique avec Meeteka !
+                Enregistrez-vous dès aujourd'hui pour transformer votre
+                expertise en nouvelles opportunités de marché.
+              </p>
+              <ul className="flex flex-col gap-6">
+                <li className="flex items-start gap-4">
+                  {" "}
+                  <div className="p-2 bg-highlight w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
+                    <CheckCheck className="w-5 h-5 text-gray-100" />
+                  </div>
+                  <span className="text-lg font-medium text-gray-700">
+                    Visibilité Maximale et Crédibilité
+                  </span>
+                </li>
+                <li className="flex items-start gap-4">
+                  <div className="p-2 bg-highlight w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
+                    <TrendingUp className="w-5 h-5 text-gray-100" />{" "}
+                  </div>
+                  <span className="text-lg font-medium text-gray-700">
+                    Flux Constant d'Opportunités d'Affaires
+                  </span>
+                </li>
+                <li className="flex items-start gap-4">
+                  <div className="p-2 bg-highlight w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Lock className="w-5 h-5 text-gray-100" />{" "}
+                  </div>
+                  <span className="text-lg font-medium text-gray-700">
+                    Gestion Simplifiée et Sécurisée
+                  </span>
+                </li>
+              </ul>
+            </div>
 
-                  <select
-                    id="entrepriseLevel"
-                    value={formData.entrepriseLevel}
-                    onChange={handleChange}
-                    name="entrepriseLevel"
-                    className="w-full px-4 py-3 rounded-xl border-2 border-black/10 focus:border-gray-950 focus:ring-0 bg-white"
-                  >
-                    <option>Selectionnez une entreprise</option>
-                    {entrepriseLevels.map((ent) => (
-                      <option key={ent.id} value={ent.id}>
-                        {ent.name}
-                      </option>
-                    ))}
-                  </select>
+            <div className="w-full">
+              <form
+                onSubmit={handleSubmit}
+                className="shadow-lg rounded-lg w-full"
+              >
+                <div className="flex flex-col gap-6 p-4 sm:p-6 bg-white ">
+                  <div className="flex flex-col gap-4 w-full">
+                    <label htmlFor="name" className="text-sm">
+                      Nom de l'entreprise:
+                    </label>
+                    <input
+                      type="text"
+                      id="nom"
+                      value={formData.name}
+                      onChange={handleChange}
+                      name="name"
+                      placeholder="Saisir le nom de l'entreprise..."
+                      className="w-full px-4 py-3 rounded-xl border-2 border-black/10 focus:border-highlight focus:ring-0 bg-white"
+                    />
+                  </div>
+
+                  {/* Champ Entreprise Level */}
+                  <div className="flex flex-col gap-4 w-full">
+                    <label htmlFor="entrepriseLevel" className="text-sm">
+                      Entreprise Level :
+                    </label>
+                    <select
+                      id="entrepriseLevel"
+                      value={formData.entrepriseLevel}
+                      onChange={handleChange}
+                      name="entrepriseLevel"
+                      className="w-full px-4 py-3 rounded-xl border-2 border-black/10 focus:border-gray-950 focus:ring-0 bg-white"
+                    >
+                      <option value="">Selectionnez une entreprise</option>
+                      {entrepriseLevels.map((ent) => (
+                        <option key={ent.id} value={ent.id}>
+                          {ent.name}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {/* Champ Rccm */}
+                  <div className="flex flex-col gap-4 w-full">
+                    <label htmlFor="rccm" className="text-sm">
+                      Rccm :
+                    </label>
+                    <input
+                      type="text"
+                      id="rccm"
+                      name="rccm"
+                      value={formData.rccm}
+                      onChange={handleChange}
+                      placeholder="Saisir le rccm..."
+                      className="w-full px-4 py-3 rounded-xl border-2 border-black/10 focus:border-highlight focus:ring-0 bg-white"
+                    />
+                  </div>
+
+                  {/* Champ NIF */}
+                  <div className="flex flex-col gap-4 w-full">
+                    <label htmlFor="nif" className="text-sm">
+                      Numéro d'Identification Fiscale (NIF) :
+                    </label>
+                    <input
+                      type="text"
+                      id="nif"
+                      value={formData.nif}
+                      onChange={handleChange}
+                      name="nif"
+                      placeholder="saisir le numero d'identification Fiscale..."
+                      className="w-full px-4 py-3 rounded-xl border-2 border-black/10 focus:border-highlight focus:ring-0 bg-white"
+                    />
+                  </div>
+                  <div className="flex  flex-wrap gap-4 w-full">
+                    <label htmlFor="rccm" className="text-sm">
+                      Importer RCCM(fichier)
+                    </label>
+                    <input
+                      type="file"
+                      id="rccm"
+                      name="rccm"
+                      value={formData.rccm}
+                      onChange={handleChange}
+                      placeholder="Saisir le rccm..."
+                      className="w-full px-4 py-3 rounded-xl border-2 border-black/10 focus:border-highlight focus:ring-0 bg-white"
+                    />
+                  </div>
+                  <div className="flex flex-col gap-4 w-full">
+                    <label htmlFor="nif" className="text-sm">
+                      Importer NIF (fichier) :
+                    </label>
+                    <input
+                      type="file"
+                      id="nif"
+                      placeholder="saisir le numero d'identification Fiscale..."
+                      className="w-full px-4 py-3 rounded-xl border-2 border-black/10 focus:border-highlight focus:ring-0 bg-white"
+                    />
+                  </div>
+
+                  {/* Champ Forme juridique */}
+                  <div className="flex flex-col gap-4 w-full">
+                    <label htmlFor="legalForm" className="text-sm">
+                      Forme juridique :
+                    </label>
+                    <select
+                      name="legalForm"
+                      id="legalForm"
+                      value={formData.legalForm}
+                      onChange={handleChange}
+                      className="w-full px-4 py-3 rounded-xl border-2 border-black/10 focus:border-gray-950 focus:ring-0 bg-white"
+                    >
+                      <option value="">Selectionnez une forme juridique</option>
+                      {legalForms.map((form) => (
+                        <option key={form.id} value={form.id}>
+                          {form.name}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  {/* Champ Fonction du demandeur */}
+                  <div className="flex flex-col gap-4 w-full">
+                    <label htmlFor="requestorFonction" className="text-sm">
+                      Fonction du demandeur :
+                    </label>
+                    <input
+                      type="text"
+                      id="requestorFonction"
+                      name="requestorFonction"
+                      value={formData.requestorFonction}
+                      onChange={handleChange}
+                      placeholder="saisir ta fonction..."
+                      className="w-full px-4 py-3 rounded-xl border-2 border-black/10 focus:border-gray-950 focus:ring-0 bg-white"
+                    />
+                  </div>
+
+                  {/* Champ E-mail du demandeur */}
+                  <div className="flex flex-col gap-4 w-full">
+                    <label htmlFor="requestorEmail" className="text-sm">
+                      E-mail du demandeur :
+                    </label>
+                    <input
+                      type="email"
+                      id="requestorEmail"
+                      name="requestorEmail"
+                      value={formData.requestorEmail}
+                      onChange={handleChange}
+                      placeholder="saisir E-mail du demandeur..."
+                      className="w-full px-4 py-3 rounded-xl border-2 border-black/10 focus:border-gray-950 focus:ring-0 bg-white"
+                    />
+                  </div>
+
+                  {/* Champ Numéro de téléphone du demandeur */}
+                  <div className="flex flex-col gap-4 w-full">
+                    <label htmlFor="requestorPhone" className="text-sm">
+                      Numéro de téléphone du demandeur :
+                    </label>
+                    <input
+                      type="text"
+                      id="requestorPhone"
+                      name="requestorPhone"
+                      value={formData.requestorPhone}
+                      onChange={handleChange}
+                      placeholder="saisir le numero du demandeur..."
+                      className="w-full px-4 py-3 rounded-xl border-2 border-black/10 focus:border-gray-950 focus:ring-0 bg-white"
+                    />
+                  </div>
+
+                  {/* Champ email (entreprise) */}
+                  <div className="flex flex-col gap-4 w-full">
+                    <label htmlFor="email" className="text-sm">
+                      email :
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="saisir ton email..."
+                      className="w-full px-4 py-3 rounded-xl border-2 border-black/10 focus:border-highlight focus:ring-0 bg-white"
+                    />
+                  </div>
+
+                  {/* Champ Siteweb */}
+                  <div className="flex flex-col gap-4 w-full">
+                    <label htmlFor="siteweb" className="text-sm">
+                      Siteweb :
+                    </label>
+                    <input
+                      type="text"
+                      id="siteweb"
+                      name="siteweb"
+                      value={formData.siteweb}
+                      onChange={handleChange}
+                      placeholder="saisir ton siteweb..."
+                      className="w-full px-4 py-3 rounded-xl border-2 border-black/10 focus:border-highlight focus:ring-0 bg-white"
+                    />
+                  </div>
+
+                  {/* Champ Description (prend 2 colonnes sur grand écran) */}
+                  <div className="flex flex-col gap-4 w-full lg:col-span-2">
+                    <label htmlFor="description" className="text-sm">
+                      Description :
+                    </label>
+                    <textarea
+                      name="description"
+                      id="description"
+                      placeholder="Description détaillée"
+                      value={formData.description}
+                      onChange={handleChange}
+                      rows={3}
+                      className="w-full px-4 py-3 rounded-xl border-2 border-black/10 focus:border-gray-950 focus:ring-0 bg-white"
+                    />
+                  </div>
                 </div>
 
-                <div className="flex flex-col gap-4 w-full  lg:w-96 ">
-                  <label htmlFor="rccm" className="text-sm">
-                    Rccm :
-                  </label>
-                  <input
-                    type="text"
-                    id="rccm"
-                    name="rccm"
-                    value={formData.rccm}
-                    onChange={handleChange}
-                    placeholder="Saisir le rccm..."
-                    className="w-full px-4 py-3 rounded-xl border-2 border-black/10 focus:border-highlight focus:ring-0 bg-white"
-                  />
-                </div>
-                <div className="flex flex-col gap-4 w-full  lg:w-96 ">
-                  <label htmlFor="nif" className="text-sm">
-                    Numéro d'Identification Fiscale (NIF) :
-                  </label>
-                  <input
-                    type="text"
-                    id="nif"
-                    value={formData.nif}
-                    onChange={handleChange}
-                    name="nif"
-                    placeholder="saisir le numero d'identification Fiscale..."
-                    className="w-full px-4 py-3 rounded-xl border-2 border-black/10 focus:border-highlight focus:ring-0 bg-white"
-                  />
-                </div>
-                <div className="flex flex-col gap-4 w-full  lg:w-96 ">
-                  <label
-                    htmlFor="siteweb
-"
-                    className="text-sm"
+                <div className="p-4 sm:p-6">
+                  <button
+                    type="submit"
+                    disabled={isLoading}
+                    className="px-4 py-3 bg-highlight text-gray-100 rounded-lg"
                   >
-                    Forme juridique :
-                  </label>
-                  <select
-                    name="legalForm"
-                    id="legalForm"
-                    value={formData.legalForm}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 rounded-xl border-2 border-black/10 focus:border-gray-950 focus:ring-0 bg-white"
-                  >
-                    <option>Selectionnez une forme juridique</option>
-                    {legalForms.map((form) => (
-                      <option key={form.id} value={form.id}>
-                        {form.name}
-                      </option>
-                    ))}
-                  </select>
+                    {isLoading ? "Envoie en cours..." : " Sauvegarder"}
+                  </button>
                 </div>
-                <div className="flex flex-col gap-4 w-full  lg:w-96 ">
-                  <label htmlFor="requestorFonction" className="text-sm">
-                    Fonction du demandeur :
-                  </label>
-                  <input
-                    type="text"
-                    id="requestorFonction"
-                    name="requestorFonction"
-                    value={formData.requestorFonction}
-                    onChange={handleChange}
-                    placeholder="saisir ta fonction..."
-                    className="w-full px-4 py-3 rounded-xl border-2 border-black/10 focus:border-gray-950 focus:ring-0 bg-white"
-                  />
-                </div>
-                <div className="flex flex-col gap-4 w-full  lg:w-96 ">
-                  <label htmlFor="requestorEmail" className="text-sm">
-                    E-mail du demandeur :
-                  </label>
-                  <input
-                    type="email"
-                    id="requestorEmail"
-                    name="requestorEmail"
-                    value={formData.requestorEmail}
-                    onChange={handleChange}
-                    placeholder="saisir E-mail du demandeur..."
-                    className="w-full px-4 py-3 rounded-xl border-2 border-black/10 focus:border-gray-950 focus:ring-0 bg-white"
-                  />
-                </div>
-                <div className="flex flex-col gap-4 w-full  lg:w-96 ">
-                  <label htmlFor="requestorPhone" className="text-sm">
-                    Numéro de téléphone du demandeur :
-                  </label>
-                  <input
-                    type="text"
-                    id="requestorPhone"
-                    name="requestorPhone"
-                    value={formData.requestorPhone}
-                    onChange={handleChange}
-                    placeholder="saisir le numero du demandeur..."
-                    className="w-full px-4 py-3 rounded-xl border-2 border-black/10 focus:border-gray-950 focus:ring-0 bg-white"
-                  />
-                </div>
-                <div className="flex flex-col gap-4 w-full  lg:w-96 ">
-                  <label htmlFor="email" className="text-sm">
-                    email :
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="saisir ton email..."
-                    className="w-full px-4 py-3 rounded-xl border-2 border-black/10 focus:border-highlight focus:ring-0 bg-white"
-                  />
-                </div>
-                <div className="flex flex-col gap-4 w-full  lg:w-96 ">
-                  <label
-                    htmlFor="siteweb
-"
-                    className="text-sm"
-                  >
-                    Siteweb :
-                  </label>
-                  <input
-                    type="text"
-                    id="siteweb"
-                    name="siteweb"
-                    value={formData.siteweb}
-                    onChange={handleChange}
-                    placeholder="saisir ton siteweb..."
-                    className="w-full px-4 py-3 rounded-xl border-2 border-black/10 focus:border-highlight focus:ring-0 bg-white"
-                  />
-                </div>
-
-                <div className="flex flex-col gap-4 w-full  lg:w-96 ">
-                  <label htmlFor="description" className="text-sm">
-                    Description :
-                  </label>
-                  <textarea
-                    name="description"
-                    id="description"
-                    placeholder="Description détaillée"
-                    value={formData.description}
-                    onChange={handleChange}
-                    rows={3}
-                    className="w-full px-4 py-3 rounded-xl border-2 border-black/10 focus:border-gray-950 focus:ring-0 bg-white"
-                  />
-                </div>
-              </div>
-              <div className="p-4 sm:p-6">
-                <button
-                  type="submit"
-                  disabled={isLoading}
-                  className="px-4 py-3 bg-highlight text-gray-100 rounded-lg"
-                >
-                  {isLoading ? "Envoie en cours..." : " Sauvegarder"}
-                </button>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
         </section>
       </div>
