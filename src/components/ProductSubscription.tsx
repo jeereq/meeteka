@@ -137,6 +137,20 @@ export default function ProductSubscription() {
               className="shadow-lg  rounded-lg max-w-4xl p-4 sm:p-6  "
             >
               <div className="grid sm:grid-cols-1 lg:grid-cols-2  max-w-4xl p-4 sm:p-6  gap-4">
+                <div className="flex flex-col gap-4 w-full  lg:w-96 ">
+                  <label htmlFor="name" className="text-sm">
+                    Nom de l'entreprise:
+                  </label>
+                  <input
+                    type="text"
+                    id="nom"
+                    value={formData.name}
+                    onChange={handleChange}
+                    name="name"
+                    placeholder="Saisir le nom de l'entreprise..."
+                    className="w-full px-4 py-3 rounded-xl border-2 border-black/10 focus:border-highlight focus:ring-0 bg-white"
+                  />
+                </div>
                 <div className="flex flex-col gap-4 w-full  lg:w-96  ">
                   <label htmlFor="entrepriseLevel" className="text-sm">
                     Entreprise Level :
@@ -157,20 +171,7 @@ export default function ProductSubscription() {
                     ))}
                   </select>
                 </div>
-                <div className="flex flex-col gap-4 w-full  lg:w-96 ">
-                  <label htmlFor="name" className="text-sm">
-                    Nom :
-                  </label>
-                  <input
-                    type="text"
-                    id="nom"
-                    value={formData.name}
-                    onChange={handleChange}
-                    name="name"
-                    placeholder="Saisir le nom de l'entreprise..."
-                    className="w-full px-4 py-3 rounded-xl border-2 border-black/10 focus:border-highlight focus:ring-0 bg-white"
-                  />
-                </div>
+
                 <div className="flex flex-col gap-4 w-full  lg:w-96 ">
                   <label htmlFor="rccm" className="text-sm">
                     Rccm :
@@ -196,38 +197,6 @@ export default function ProductSubscription() {
                     onChange={handleChange}
                     name="nif"
                     placeholder="saisir le numero d'identification Fiscale..."
-                    className="w-full px-4 py-3 rounded-xl border-2 border-black/10 focus:border-highlight focus:ring-0 bg-white"
-                  />
-                </div>
-                <div className="flex flex-col gap-4 w-full  lg:w-96 ">
-                  <label htmlFor="email" className="text-sm">
-                    email :
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder="saisir ton email..."
-                    className="w-full px-4 py-3 rounded-xl border-2 border-black/10 focus:border-highlight focus:ring-0 bg-white"
-                  />
-                </div>
-                <div className="flex flex-col gap-4 w-full  lg:w-96 ">
-                  <label
-                    htmlFor="siteweb
-"
-                    className="text-sm"
-                  >
-                    Siteweb :
-                  </label>
-                  <input
-                    type="text"
-                    id="siteweb"
-                    name="siteweb"
-                    value={formData.siteweb}
-                    onChange={handleChange}
-                    placeholder="saisir ton siteweb..."
                     className="w-full px-4 py-3 rounded-xl border-2 border-black/10 focus:border-highlight focus:ring-0 bg-white"
                   />
                 </div>
@@ -296,6 +265,39 @@ export default function ProductSubscription() {
                     className="w-full px-4 py-3 rounded-xl border-2 border-black/10 focus:border-gray-950 focus:ring-0 bg-white"
                   />
                 </div>
+                <div className="flex flex-col gap-4 w-full  lg:w-96 ">
+                  <label htmlFor="email" className="text-sm">
+                    email :
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="saisir ton email..."
+                    className="w-full px-4 py-3 rounded-xl border-2 border-black/10 focus:border-highlight focus:ring-0 bg-white"
+                  />
+                </div>
+                <div className="flex flex-col gap-4 w-full  lg:w-96 ">
+                  <label
+                    htmlFor="siteweb
+"
+                    className="text-sm"
+                  >
+                    Siteweb :
+                  </label>
+                  <input
+                    type="text"
+                    id="siteweb"
+                    name="siteweb"
+                    value={formData.siteweb}
+                    onChange={handleChange}
+                    placeholder="saisir ton siteweb..."
+                    className="w-full px-4 py-3 rounded-xl border-2 border-black/10 focus:border-highlight focus:ring-0 bg-white"
+                  />
+                </div>
+
                 <div className="flex flex-col gap-4 w-full  lg:w-96 ">
                   <label htmlFor="description" className="text-sm">
                     Description :
