@@ -14,6 +14,9 @@ import { PageTransition } from "../components/PageTransition";
 
 import { useLanguage } from "../context/LanguageContext";
 import useToast from "../hooks/use-toast";
+import { useUplaoderImage } from "./libs/importFiles";
+import { CLOUDINARY_URL } from "./libs/utils";
+import { span } from "framer-motion/client";
 
 export default function ProductSubscription() {
   const { t } = useLanguage();
@@ -63,6 +66,26 @@ export default function ProductSubscription() {
     description: "",
     entrepriseLevel: "",
   });
+
+  const { handleFileUpload, loadingNif, loadingRccm } =
+    useUplaoderImage(CLOUDINARY_URL);
+
+  const uploadRccm = (e: any) => {
+    handleFileUpload(e, {
+      fieldName: "rccmf",
+      setFormData: setFormData,
+      successToast: successToast,
+      errorToast: errorToast,
+    });
+  };
+  const uploadNif = (e: any) => {
+    handleFileUpload(e, {
+      fieldName: "niff",
+      setFormData: setFormData,
+      successToast: successToast,
+      errorToast: errorToast,
+    });
+  };
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -249,30 +272,63 @@ export default function ProductSubscription() {
                       className="w-full px-4 py-3 rounded-xl border-2 border-black/10 focus:border-highlight focus:ring-0 bg-white"
                     />
                   </div>
-                  <div className="flex  flex-wrap gap-4 w-full">
-                    <label htmlFor="rccm" className="text-sm">
-                      Importer RCCM(fichier)
+                  <div className="flex flex-col gap-4">
+                    <label htmlFor="niff" className="text-sm">
+                      Importer votre fichier RCCM :
                     </label>
-                    <input
-                      type="file"
-                      id="rccm"
-                      name="rccm"
-                      value={formData.rccm}
-                      onChange={handleChange}
-                      placeholder="Saisir le rccm..."
-                      className="w-full px-4 py-3 rounded-xl border-2 border-black/10 focus:border-highlight focus:ring-0 bg-white"
-                    />
+                    {loadingRccm ? (
+                      <span className="font-semibold text-base">
+                        Chargement...
+                      </span>
+                    ) : (
+                      <div className="flex  flex-wrap gap-4 w-full">
+                        <label
+                          htmlFor="rccmf"
+                          className="text-sm flex flex-col gap-3 w-full  px-4 py-3 rounded-xl border-2 border-black/10 focus:border-highlight focus:ring-0 bg-white"
+                        >
+                          Cliquez pour Importer un fichier
+                        </label>
+                        <input
+                          type="file"
+                          id="rccmf"
+                          name="rccmf"
+                          accept="application/pdf"
+                          // value={formData.rccm}
+                          onChange={uploadRccm}
+                          disabled={loadingRccm}
+                          placeholder="Saisir le rccm..."
+                          className="w-full hidden px-4 py-3 rounded-xl border-2 border-black/10 focus:border-highlight focus:ring-0 bg-white"
+                        />
+                      </div>
+                    )}
                   </div>
-                  <div className="flex flex-col gap-4 w-full">
-                    <label htmlFor="nif" className="text-sm">
-                      Importer NIF (fichier) :
+                  <div className="flex flex-col gap-4">
+                    <label htmlFor="niff" className="text-sm">
+                      Importer votre fichier NIF:
                     </label>
-                    <input
-                      type="file"
-                      id="nif"
-                      placeholder="saisir le numero d'identification Fiscale..."
-                      className="w-full px-4 py-3 rounded-xl border-2 border-black/10 focus:border-highlight focus:ring-0 bg-white"
-                    />
+                    {loadingNif ? (
+                      <span className="font-semibold text-base">
+                        Chargement...
+                      </span>
+                    ) : (
+                      <div className="flex flex-col gap-4 w-full">
+                        <label
+                          htmlFor="niff"
+                          className="text-sm flex flex-col gap-3 w-full  px-4 py-3 rounded-xl border-2 border-black/10 focus:border-highlight focus:ring-0 bg-white"
+                        >
+                          Cliquez pour Importer un fichier
+                        </label>
+                        <input
+                          type="file"
+                          id="niff"
+                          name="niff"
+                          onChange={uploadNif}
+                          disabled={loadingNif}
+                          placeholder="saisir le numero d'identification Fiscale..."
+                          className="w-full hidden px-4 py-3 rounded-xl border-2 border-black/10 focus:border-highlight focus:ring-0 bg-white"
+                        />
+                      </div>
+                    )}
                   </div>
 
                   {/* Champ Forme juridique */}
