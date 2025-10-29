@@ -1,13 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  CheckCheck,
-  CheckCheckIcon,
-  Lock,
-  PlusCircle,
-  Save,
-  SaveAll,
-  TrendingUp,
-} from "lucide-react";
+import { CheckCheck, Lock, Save, TrendingUp } from "lucide-react";
 import { useFetchData } from "../../hooks/useFetchData";
 
 import { PageTransition } from "../components/PageTransition";
@@ -16,7 +8,7 @@ import { useLanguage } from "../context/LanguageContext";
 import useToast from "../hooks/use-toast";
 import { useUplaoderImage } from "./libs/importFiles";
 import { CLOUDINARY_URL } from "./libs/utils";
-import { span } from "framer-motion/client";
+import { toast } from "react-toastify";
 
 export default function ProductSubscription() {
   const { t } = useLanguage();
@@ -103,10 +95,11 @@ export default function ProductSubscription() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const { data, error } = await fetchCreateProduct(formData, "POST");
+    const { error } = await fetchCreateProduct(formData, "POST");
     if (error) {
       console.error("Erreur lors de la création de l'entreprise:", error);
       // errorToast("Une erreur est survenue lors de la soumission.");
+      toast.error("Erreur lors de la création de l'entreprise");
       return;
     }
     successToast("la creation effectué avec succès");
