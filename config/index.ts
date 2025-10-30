@@ -1,7 +1,7 @@
 // export const API =  "https://api.meeteka.com"
 // export const API = "http://localhost:1338"
-// export const API = "https://miteka-api-238i.onrender.com"
-export const API = "https://miteka-api-dev.onrender.com";
+export const API = "https://miteka-api-238i.onrender.com"
+// export const API = "https://miteka-api-dev.onrender.com";
 
 export const emailTo =
   "mailto:contact@meeteka.com;mingandajeereq@gmail.com;sajombiku@gmail.com";
