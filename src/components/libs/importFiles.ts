@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 
-type FieldName = "rccmf" | "niff";
+type FieldName = "rccm_file" | "nfi_file";
 
 type ImageProps = {
   fieldName: FieldName;
@@ -21,8 +21,8 @@ export const useUplaoderImage = (CLOUDINARY_URL: any) => {
     const { files }: any = e.target;
     if (files.legnth == 0) return;
 
-    const setLoading = fieldName === "rccmf" ? setLoadingRccm : setLoadingNif;
-    const resourceType = fieldName === "rccmf" ? "auto" : "auto";
+    const setLoading = fieldName === "rccm_file" ? setLoadingRccm : setLoadingNif;
+    const resourceType = fieldName === "rccm_file" ? "auto" : "auto";
     try {
       setLoading(true);
       const formDataUpload = new FormData();
@@ -31,7 +31,7 @@ export const useUplaoderImage = (CLOUDINARY_URL: any) => {
       formDataUpload.append("resource_type", resourceType);
 
       const response = await axios.post(CLOUDINARY_URL, formDataUpload);
-      const secureUrl = response.data.secureUrl;
+      const secureUrl = response.data.secure_url;
 
       setFormData((prev: any) => ({ ...prev, [fieldName]: secureUrl }));
 

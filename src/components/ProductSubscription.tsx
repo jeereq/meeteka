@@ -57,6 +57,8 @@ export default function ProductSubscription() {
     requestorPhone: "",
     description: "",
     entrepriseLevel: "",
+    rccm_file:"",
+    nfi_file:""
   });
 
   const { handleFileUpload, loadingNif, loadingRccm } =
@@ -64,7 +66,7 @@ export default function ProductSubscription() {
 
   const uploadRccm = (e: any) => {
     handleFileUpload(e, {
-      fieldName: "rccmf",
+      fieldName: "rccm_file",
       setFormData: setFormData,
       successToast: successToast,
       errorToast: errorToast,
@@ -72,7 +74,7 @@ export default function ProductSubscription() {
   };
   const uploadNif = (e: any) => {
     handleFileUpload(e, {
-      fieldName: "niff",
+      fieldName: "nfi_file",
       setFormData: setFormData,
       successToast: successToast,
       errorToast: errorToast,
@@ -119,6 +121,17 @@ export default function ProductSubscription() {
     });
   };
 
+  const isUploading = loadingRccm || loadingNif;
+
+// Le formulaire est incomplet si n'importe quel champ obligatoire (y compris les URLs) est vide
+const isFormIncomplete = 
+  !formData.name || 
+  !formData.rccm || 
+  !formData.nif || 
+  !formData.legalForm ||
+  !formData.entrepriseLevel ||
+  !formData.rccm_file || // Vérifie que l'URL Cloudinary est là (non-vide)
+  !formData.nfi_file;
   return (
     <PageTransition>
       <div className="min-h-screen pt-20">
@@ -276,17 +289,16 @@ export default function ProductSubscription() {
                     ) : (
                       <div className="flex  flex-wrap gap-4 w-full">
                         <label
-                          htmlFor="rccmf"
+                          htmlFor="rccm_file"
                           className="text-sm flex flex-col gap-3 w-full  px-4 py-3 rounded-xl border-2 border-black/10 focus:border-highlight focus:ring-0 bg-white"
                         >
                           Cliquez pour Importer un fichier
                         </label>
                         <input
                           type="file"
-                          id="rccmf"
-                          name="rccmf"
+                          id="rccm_file"
+                          name="rccm_file"
                           accept="application/pdf"
-                          // value={formData.rccm}
                           onChange={uploadRccm}
                           disabled={loadingRccm}
                           placeholder="Saisir le rccm..."
@@ -296,7 +308,7 @@ export default function ProductSubscription() {
                     )}
                   </div>
                   <div className="flex flex-col gap-4">
-                    <label htmlFor="niff" className="text-sm">
+                    <label htmlFor="nfi_file" className="text-sm">
                       Importer votre fichier NIF:
                     </label>
                     {loadingNif ? (
@@ -306,15 +318,16 @@ export default function ProductSubscription() {
                     ) : (
                       <div className="flex flex-col gap-4 w-full">
                         <label
-                          htmlFor="niff"
+                          htmlFor="nfi_file"
                           className="text-sm flex flex-col gap-3 w-full  px-4 py-3 rounded-xl border-2 border-black/10 focus:border-highlight focus:ring-0 bg-white"
                         >
                           Cliquez pour Importer un fichier
                         </label>
                         <input
                           type="file"
-                          id="niff"
-                          name="niff"
+                          id="nfi_file"
+                          name="nfi_file"
+                         
                           onChange={uploadNif}
                           disabled={loadingNif}
                           placeholder="saisir le numero d'identification Fiscale..."
@@ -445,10 +458,10 @@ export default function ProductSubscription() {
                 <div className="p-4 sm:p-6">
                   <button
                     type="submit"
-                    disabled={isLoading}
+                    disabled={isLoading || isUploading || isFormIncomplete}
                     className="px-4 py-3 bg-highlight text-gray-100 rounded-lg"
                   >
-                    {isLoading ? "Envoie en cours..." : " Sauvegarder"}
+                    {isLoading || isUploading ? "Envoie en cours..." : " Sauvegarder"}
                   </button>
                 </div>
               </form>
