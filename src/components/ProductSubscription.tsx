@@ -15,25 +15,40 @@ export default function ProductSubscription() {
   const { fetch: fetchCreateProduct, loading: isLoading } = useFetchData({
     uri: "infos-user/product-entreprise/create",
   });
+
   const { fetch: fetchLegalform } = useFetchData({
     uri: "infos-user/legal-form/get",
   });
 
-  const { fetch: fetchEntrepriseLevel } = useFetchData({
-    uri: "infos-user/entreprise-level/get",
+  const { fetch: fetchGetProduct, loading: isloadingProduct } = useFetchData({
+    uri: "infos-user/product/get",
   });
+
+  // const { fetch: fetchEntrepriseLevel } = useFetchData({
+  //   uri: "infos-user/entreprise-level/get",
+  // });
   const { success: successToast, error: errorToast } = useToast();
-  const [entrepriseLevels, setEntrepriseLevels] = useState<any[]>([]);
+  // const [entrepriseLevels, setEntrepriseLevels] = useState<any[]>([]);
   const [legalForms, setLegalForms] = useState<any[]>([]);
+  const [getProducts, setGetProducts] = useState<any[]>([]);
 
   useEffect(() => {
     (async function () {
-      const { data } = await fetchEntrepriseLevel({}, "POST");
+      const { data } = await fetchGetProduct({}, "POST");
       if (data?.data) {
-        setEntrepriseLevels(data.data);
+        setGetProducts(data.data);
       }
     })();
   }, []);
+
+  // useEffect(() => {
+  //   (async function () {
+  //     const { data } = await fetchEntrepriseLevel({}, "POST");
+  //     if (data?.data) {
+  //       setEntrepriseLevels(data.data);
+  //     }
+  //   })();
+  // }, []);
 
   useEffect(() => {
     (async function () {
@@ -44,7 +59,6 @@ export default function ProductSubscription() {
       }
     })();
   }, []);
-  console.log(entrepriseLevels);
   const [formData, setFormData] = useState({
     name: "",
     rccm: "",
@@ -56,9 +70,9 @@ export default function ProductSubscription() {
     requestorEmail: "",
     requestorPhone: "",
     description: "",
-    entrepriseLevel: "",
-    rccm_file:"",
-    nfi_file:""
+    products: [] as string[],
+    rccm_file: "",
+    nfi_file: "",
   });
 
   const { handleFileUpload, loadingNif, loadingRccm } =
@@ -86,6 +100,7 @@ export default function ProductSubscription() {
       HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
     >
   ) => {
+    if (e.target.type === "checkbox") return;
     const { name, value } = e.target;
 
     setFormData((prev) => ({
@@ -94,12 +109,33 @@ export default function ProductSubscription() {
     }));
   };
 
+  const handleChangeCheckBox = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value, checked } = e.target;
+    // const levelId = parseInt(value, 10);
+    const levelId = value;
+
+    setFormData((prev) => {
+      const currentLevel = prev.products;
+
+      let newLevels: string[];
+      if (checked) {
+        newLevels = [...currentLevel, levelId];
+      } else {
+        newLevels = currentLevel.filter((id) => id !== levelId);
+      }
+      console.log(`Nouvel état de entrepriseLevel:`, newLevels);
+
+      return {
+        ...prev,
+        products: newLevels,
+      };
+    });
+  };
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     const { error } = await fetchCreateProduct(formData, "POST");
     if (error) {
-      console.error("Erreur lors de la création de l'entreprise:", error);
       // errorToast("Une erreur est survenue lors de la soumission.");
       toast.error("Erreur lors de la création de l'entreprise");
       return;
@@ -117,21 +153,23 @@ export default function ProductSubscription() {
       requestorEmail: "",
       requestorPhone: "",
       description: "",
-      entrepriseLevel: "",
+      products: [],
+      rccm_file: "",
+      nfi_file: "",
     });
   };
 
   const isUploading = loadingRccm || loadingNif;
 
-// Le formulaire est incomplet si n'importe quel champ obligatoire (y compris les URLs) est vide
-const isFormIncomplete = 
-  !formData.name || 
-  !formData.rccm || 
-  !formData.nif || 
-  !formData.legalForm ||
-  !formData.entrepriseLevel ||
-  !formData.rccm_file || // Vérifie que l'URL Cloudinary est là (non-vide)
-  !formData.nfi_file;
+  // Le formulaire est incomplet si n'importe quel champ obligatoire (y compris les URLs) est vide
+  const isFormIncomplete =
+    !formData.name ||
+    !formData.rccm ||
+    !formData.nif ||
+    !formData.legalForm ||
+    !formData.products ||
+    !formData.rccm_file || // Vérifie que l'URL Cloudinary est là (non-vide)
+    !formData.nfi_file;
   return (
     <PageTransition>
       <div className="min-h-screen pt-20">
@@ -228,6 +266,28 @@ const isFormIncomplete =
 
                   {/* Champ Entreprise Level */}
                   <div className="flex flex-col gap-4 w-full">
+                    <span>Produits :</span>
+                    {getProducts.map((ent) => (
+                      <label
+                        htmlFor="entrepriseLevel"
+                        className="text-sm flex items-center gap-2"
+                        key={ent.id}
+                      >
+                        <input
+                          type="checkbox"
+                          key={ent.id}
+                          value={ent.id}
+                          onChange={handleChangeCheckBox}
+                          checked={formData.products.includes(
+                            ent.id.toString()
+                          )}
+                          className="w-6 h-6 border-2 border-black/10 focus:border-gray-950 focus:ring-0 bg-white"
+                        />
+                        {ent.name}
+                      </label>
+                    ))}
+                  </div>
+                  {/* <div className="flex flex-col gap-4 w-full">
                     <label htmlFor="entrepriseLevel" className="text-sm">
                       Entreprise Level :
                     </label>
@@ -245,7 +305,7 @@ const isFormIncomplete =
                         </option>
                       ))}
                     </select>
-                  </div>
+                  </div> */}
 
                   {/* Champ Rccm */}
                   <div className="flex flex-col gap-4 w-full">
@@ -327,7 +387,6 @@ const isFormIncomplete =
                           type="file"
                           id="nfi_file"
                           name="nfi_file"
-                         
                           onChange={uploadNif}
                           disabled={loadingNif}
                           placeholder="saisir le numero d'identification Fiscale..."
@@ -461,7 +520,9 @@ const isFormIncomplete =
                     disabled={isLoading || isUploading || isFormIncomplete}
                     className="px-4 py-3 bg-highlight text-gray-100 rounded-lg"
                   >
-                    {isLoading || isUploading ? "Envoie en cours..." : " Sauvegarder"}
+                    {isLoading || isUploading
+                      ? "Envoie en cours..."
+                      : " Sauvegarder"}
                   </button>
                 </div>
               </form>
