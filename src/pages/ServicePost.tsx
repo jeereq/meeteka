@@ -16,24 +16,27 @@ export function ServicePost() {
 
       const id = slug
       let deepLink = ''
+      let webLink = ''
 
       const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
       const { data } = await fetchDiffusions({ id: slug }, "POST")
 
       if (data) {
-        const [post] = data.data
+        const post = data?.data?.[0]
 
         if (isMobile) {
           if (post?.type ) {
             deepLink = getAppDeepLink("services", id);
+            webLink = getWebLink("service", id);
           } 
-          timeOutId = setTimeout(() => {
-            if (post?.type ) {
-              deepLink = getWebLink("service", id);
-            } 
-          }, 2000);
-
-          window.location.href = deepLink;
+          if (deepLink) {
+            window.location.href = deepLink;
+          }
+          if (webLink && window.location.pathname !== webLink) {
+            timeOutId = setTimeout(() => {
+              window.location.href = webLink;
+            }, 2000);
+          }
         }
         setPost(post)
       }
