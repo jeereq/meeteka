@@ -89,7 +89,7 @@ export const getWebLink = (
   } else if (type === "actu") {
     return `/actu/${id}`;
   } else if (type === "mission") {
-    return `/mission/${id}`;
+    return `/missions/${id}`;
   } else if (type === "callForTender") {
     return `/missions/${id}`;
   } else if (type === "financing") {
