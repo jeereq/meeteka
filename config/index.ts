@@ -39,6 +39,7 @@ export const getAppDeepLink = (
     | "diffusion"
     | "mission"
     | "callForTender"
+    | "actu"
     | "financing",
   id: any
 ) => {
@@ -46,6 +47,8 @@ export const getAppDeepLink = (
     return `meet-eka://diffusion_details/${id}`;
   } else if (type === "diffusion") {
     return `meet-eka://diffusion_details/${id}`;
+  }else if (type === "actu") {
+    return `meet-eka://actu_details/${id}`;
   } else if (type === "mission") {
     return `meet-eka://mission_details/${id}`;
   } else if (type === "callForTender") {
