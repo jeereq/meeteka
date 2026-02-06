@@ -40,6 +40,7 @@ export const getAppDeepLink = (
     | "mission"
     | "callForTender"
     | "actu"
+    | "services"
     | "financing",
   id: any
 ) => {
@@ -49,6 +50,8 @@ export const getAppDeepLink = (
     return `meet-eka://diffusion_details/${id}`;
   }else if (type === "actu") {
     return `meet-eka://actu_details/${id}`;
+  } else if (type === "services") {
+    return `meet-eka://service_details/${id}`;
   } else if (type === "mission") {
     return `meet-eka://mission_details/${id}`;
   } else if (type === "callForTender") {
@@ -66,6 +69,8 @@ export const getAppDeepLink = (
 export const getWebLink = (
   type:
     | "blog"
+    | "actu"
+    | "service"
     | "entreprise"
     | "diffusion"
     | "profile"
@@ -79,8 +84,12 @@ export const getWebLink = (
     return `/blogs/${id}`;
   } else if (type === "diffusion") {
     return `/diffusions/${id}`;
+  } else if (type === "service") {
+    return `/service/${id}`;
+  } else if (type === "actu") {
+    return `/actu/${id}`;
   } else if (type === "mission") {
-    return `/missions/${id}`;
+    return `/mission/${id}`;
   } else if (type === "callForTender") {
     return `/missions/${id}`;
   } else if (type === "financing") {
