@@ -16,24 +16,27 @@ export function ActuPost() {
 
       const id = slug
       let deepLink = ''
+      let webLink = ''
 
       const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
       const { data } = await fetchDiffusions({ id: slug }, "POST")
 
       if (data) {
-        const [post] = data.data
+        const post = data?.data
 
         if (isMobile) {
           if (post?.type ) {
             deepLink = getAppDeepLink("actu", id);
+            webLink = getWebLink("actu", id);
           } 
-          timeOutId = setTimeout(() => {
-            if (post?.type ) {
-              deepLink = getWebLink("actu", id);
-            } 
-          }, 2000);
-
-          window.location.href = deepLink;
+          if (deepLink) {
+            window.location.href = deepLink;
+          }
+          if (webLink && window.location.pathname !== webLink) {
+            timeOutId = setTimeout(() => {
+              window.location.href = webLink;
+            }, 2000);
+          }
         }
         setPost(post)
       }
@@ -50,9 +53,6 @@ export function ActuPost() {
         <LoadingCard key={index} />
       ))}
     </div>
-  } else {
-    if (!post) return <div className="w-fit"></div>
-    return <MissionDetails post={post} />;
-  }
+  } 
 
 } 

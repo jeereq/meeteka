@@ -11,38 +11,39 @@ export function MissionPost() {
   const [post, setPost] = useState<any>(null)
 
   useEffect(function () {
-    let timeOutId: any = undefined;
+    const timeOutId: any = undefined;
     (async function () {
 
       const id = slug
       let deepLink = ''
+      let webLink = ''
 
       const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-      const { data } = await fetchDiffusions({ id: slug }, "POST")
+      const { data } = await fetchDiffusions({ id: slug, type: "service" }, "POST")
 
       if (data) {
-        const [post] = data.data
+        const post = data?.data?.[0]
 
         if (isMobile) {
           if (post?.type === "service") {
             deepLink = getAppDeepLink("mission", id);
+            webLink = getWebLink("mission", id);
           } else if (post?.type === "callForTender") {
             deepLink = getAppDeepLink("callForTender", id);
+            webLink = getWebLink("callForTender", id);
           } else if (post?.type === "financing") {
             deepLink = getAppDeepLink("financing", id);
+            webLink = getWebLink("financing", id);
           }
 
-          timeOutId = setTimeout(() => {
-            if (post?.type === "service") {
-              deepLink = getWebLink("mission", id);
-            } else if (post?.type === "callForTender") {
-              deepLink = getWebLink("callForTender", id);
-            } else if (post?.type === "financing") {
-              deepLink = getWebLink("financing", id);
-            }
-          }, 2000);
-
-          window.location.href = deepLink;
+          if (deepLink) {
+            window.location.href = deepLink;
+          }
+          // if (webLink && window.location.pathname !== webLink) {
+          //   timeOutId = setTimeout(() => {
+          //     window.location.href = webLink;
+          //   }, 2000);
+          // }
         }
         setPost(post)
       }
@@ -59,9 +60,10 @@ export function MissionPost() {
         <LoadingCard key={index} />
       ))}
     </div>
-  } else {
-    if (!post) return <div className="w-fit"></div>
-    return <MissionDetails post={post} />;
-  }
+  } 
+  // else {
+  //   if (!post) return <div className="w-fit"></div>
+  //   return <MissionDetails post={post} />;
+  // }
 
 } 

@@ -33,6 +33,7 @@ import ProductSubscription from "./components/ProductSubscription";
 import { LandingPage } from "./pages/LandingPage";
 import Subscription from "./components/Subscription";
 import { ActuPost } from "./pages/ActuPost";
+import { ServicePost } from "./pages/ServicePost";
 
 export default function App() {
   const pathname = window.location.pathname;
@@ -64,7 +65,7 @@ export default function App() {
           />
           <Route path="/support" element={<SupportPage />} />
           <Route path="/services/:slug" element={<ServiceDetails />} />
-          <Route path="/service/:slug" element={<ServiceDetails />} />
+          <Route path="/service/:slug" element={<ServicePost />} />
           <Route
             path="/politique-de-confidentialité"
             element={<ConfidentialPolitique />}
@@ -80,8 +81,8 @@ export default function App() {
             element={<ProductSubscription />}
           />
           <Route path="/diffusions/:slug" element={<DiffusionPost />} />
+          <Route path="/mission/:slug" element={<MissionPost />} />
           <Route path="/missions" element={<MissionsPage />} />
-          <Route path="/missions/:slug" element={<MissionPost />} />
           <Route path="/actu/:slug" element={<ActuPost />} />
           <Route path="/entreprises" element={<EntreprisesPage />} />
           <Route path="/entreprises/:slug" element={<PartnerDetails />} />
