@@ -32,6 +32,7 @@ import { Fiscality } from "./components/Fiscality";
 import ProductSubscription from "./components/ProductSubscription";
 import { LandingPage } from "./pages/LandingPage";
 import Subscription from "./components/Subscription";
+import { ActuPost } from "./pages/ActuPost";
 
 export default function App() {
   const pathname = window.location.pathname;
@@ -63,6 +64,7 @@ export default function App() {
           />
           <Route path="/support" element={<SupportPage />} />
           <Route path="/services/:slug" element={<ServiceDetails />} />
+          <Route path="/service/:slug" element={<ServiceDetails />} />
           <Route
             path="/politique-de-confidentialité"
             element={<ConfidentialPolitique />}
@@ -80,6 +82,7 @@ export default function App() {
           <Route path="/diffusions/:slug" element={<DiffusionPost />} />
           <Route path="/missions" element={<MissionsPage />} />
           <Route path="/missions/:slug" element={<MissionPost />} />
+          <Route path="/actu/:slug" element={<ActuPost />} />
           <Route path="/entreprises" element={<EntreprisesPage />} />
           <Route path="/entreprises/:slug" element={<PartnerDetails />} />
           <Route path="/organisations" element={<OrganisationsPage />} />
